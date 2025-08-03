@@ -1,20 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Code&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Terminal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            font-family: 'Google Sans Code', monospace;
+        }
+
+        :focus,
+        :hover,
+        :active {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Google Sans Code', monospace;
+        }
+
+        #app {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #terminal {
+            width: 90vw;
+            max-width: 900px;
+            height: 550px;
+            transition: .2s;
+        }
+
+        #window {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            cursor: default;
+        }
+
+        .btn {
+            margin-right: 10px;
+            border: none;
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            box-shadow: 0 2px 2px #33333375;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: #FF4136;
+        }
+
+        .error {
+            color: #FF4136;
+            font-weight: 700;
+        }
+
+        .yellow {
+            background-color: #FFDC00;
+        }
+
+        .info {
+            color: #FFDC00;
+        }
+
+        .green {
+            background-color: #2ECC40;
+        }
+        
+        .link {
+            color: #7FDBFF;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        
+        .prompt {
+            color: #2ECC40; /* Green for dark mode */
+        }
+        
+        .light .prompt {
+             color: #B10DC9; /* Purple for light mode */
+        }
+        
+        .highlight {
+            font-weight: 700;
+            color: #F4F4F4;
+        }
+        
+        .light .highlight {
+            color: #111111;
+        }
+
+        #title,
+        #field {
+            font-size: .85rem;
+        }
+
+        #title {
+            margin-left: auto;
+        }
+
+        #field {
+            height: calc(100% - 40px);
+            padding: 10px;
+            overflow-y: auto;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        #field::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #field.dark::-webkit-scrollbar-thumb {
+            background-color: #333444;
+        }
+
+        #field.light::-webkit-scrollbar-thumb {
+            background-color: #ACA9BB;
+        }
+
+        #field>div {
+            min-height: 20px;
+            width: 100%;
+            cursor: text;
+        }
+        
+        .history-item {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .history-item.dimmed {
+            opacity: 0.5;
+        }
+
+        #query,
+        #cursor {
+            display: inline-block;
+        }
+
+        #query {
+            margin-right: 10px;
+            white-space: pre;
+        }
+
+        #cursor {
+            position: relative;
+            bottom: -2px;
+            left: 2px;
+            width: .5rem;
+            height: 3px;
+        }
+        
+        .nav-tree {
+            white-space: pre;
+            margin-bottom: 1rem;
+        }
+        .nav-tree-item {
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .nav-tree-item:hover {
+            text-decoration: underline;
+        }
+        .nav-about { color: #7FDBFF; } /* Sky Blue */
+        .nav-projects { color: #F012BE; } /* Hot Pink */
+        .nav-writings { color: #2ECC40; } /* Green */
+        .nav-mode { color: #FFDC00; } /* Yellow */
+
+
+        .ascii-art {
+            white-space: pre;
+            line-height: 1;
+        }
+
+        .duck-container {
+            margin-bottom: 1rem;
+        }
+        
+        .duck-bobbing {
+            animation: bob 3s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .ascii-art.duck {
+            color: #FFDC00; /* Yellow */
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .ascii-art.water {
+            color: #7FDBFF; /* Blue */
+            font-size: 1.2rem;
+        }
+
+        @keyframes blink-dark {
+            0%, 100% {
+                background-color: #F4F4F4;
+            }
+            50% {
+                background-color: transparent;
+            }
+        }
+
+        @keyframes blink-light {
+            0%, 100% {
+                background-color: #474554;
+            }
+            50% {
+                background-color: transparent;
+            }
+        }
+
+        @media only screen and (max-width: 600px), (max-height: 600px) {
+            #terminal {
+                height: 100vh;
+                width: 100vw;
+                max-width: 100vw;
+            }
+            #field {
+                height: calc(100% - 40px);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>{{ title }}</h1>
-    </header>
-    <main>
-      {{ content | safe }}
-    </main>
-  </div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const App = () => {
+            const [theme, setTheme] = React.useState('dark');
+            const themeVars = theme === 'dark' ? {
+                app: { backgroundColor: '#333444' },
+                terminal: { boxShadow: '0 2px 5px #111' },
+                window: { backgroundColor: '#222345', color: '#F4F4F4' },
+                field: { backgroundColor: '#222333', color: '#F4F4F4', fontWeight: '400' },
+                cursor: { animation: '1.02s blink-dark step-end infinite' }
+            } : {
+                app: { backgroundColor: '#ACA9BB' },
+                terminal: { boxShadow: '0 2px 5px #33333375' },
+                window: { backgroundColor: '#5F5C6D', color: '#E3E3E3' },
+                field: { backgroundColor: '#E3E3E3', color: '#474554', fontWeight: '400' },
+                cursor: { animation: '1.02s blink-light step-end infinite' }
+            };
+
+            return (
+                <div id="app" style={themeVars.app}>
+                    <Terminal theme={themeVars} setTheme={setTheme} />
+                </div>
+            );
+        };
+
+        const Terminal = ({ theme, setTheme }) => {
+            const [maximized, setMaximized] = React.useState(false);
+            const [title, setTitle] = React.useState('Duck Quack');
+
+            const handleClose = () => (window.location.href = 'https://github.com/timmy16744');
+            const handleMinMax = () => {
+                setMaximized(!maximized);
+                document.querySelector('#field').focus();
+            };
+
+            return (
+                <div id="terminal" style={maximized ? { height: '100vh', width: '100vw', maxWidth: '100vw' } : theme.terminal}>
+                    <div id="window" style={theme.window}>
+                        <button className="btn red" onClick={handleClose} />
+                        <button className="btn yellow" />
+                        <button className="btn green" onClick={handleMinMax} />
+                        <span id="title" style={{ color: theme.window.color }}>{title}</span>
+                    </div>
+                    <Field theme={theme} setTheme={setTheme} setTitle={setTitle} />
+                </div>
+            );
+        };
+
+        const AnimatedDuck = () => {
+            // Correctly escaped backslashes and backtick for JSX
+            const duckArt = `
+    __
+___( o)>
+\\ <_. )
+ \`---'
+`;
+            const waterPattern = '~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ';
+            const [water, setWater] = React.useState('');
+
+            React.useEffect(() => {
+                let i = 0;
+                const interval = setInterval(() => {
+                    const start = i % (waterPattern.length / 2);
+                    setWater(waterPattern.substring(start, start + 23));
+                    i++;
+                }, 200);
+                return () => clearInterval(interval);
+            }, []);
+
+
+            return (
+                <div className="duck-container">
+                    <div className="duck-bobbing">
+                        <div className="ascii-art duck">{duckArt}</div>
+                    </div>
+                    <div className="ascii-art water">{water}</div>
+                </div>
+            );
+        };
+
+        const AsciiNav = ({ handleNavClick }) => {
+            return (
+                <div className="nav-tree">
+                    <div>/</div>
+                    <div>
+                        <span>├── </span>
+                        <span className="nav-tree-item nav-about" onClick={() => handleNavClick('about')}>about</span>
+                    </div>
+                    <div>
+                        <span>├── </span>
+                        <span className="nav-tree-item nav-projects" onClick={() => handleNavClick('projects')}>projects</span>
+                    </div>
+                    <div>
+                        <span>├── </span>
+                        <span className="nav-tree-item nav-writings" onClick={() => handleNavClick('writings')}>writings</span>
+                    </div>
+                    <div>
+                        <span>└── </span>
+                        <span className="nav-tree-item nav-mode" onClick={() => handleNavClick('mode cli')}>mode cli</span>
+                    </div>
+                </div>
+            );
+        };
+
+        const Field = ({ theme, setTheme, setTitle }) => {
+            const [fieldHistory, setFieldHistory] = React.useState([]);
+            const [userInput, setUserInput] = React.useState('');
+            const [commandHistory, setCommandHistory] = React.useState([]);
+            const [commandHistoryIndex, setCommandHistoryIndex] = React.useState(0);
+            const [navMode, setNavMode] = React.useState('ux'); // 'ux' or 'cli'
+            const fieldRef = React.useRef(null);
+
+            const projectsData = [
+                {
+                    title: "StormCaddie",
+                    url: "https://stormcaddie.com",
+                    synopsis: "A compact, powerful leaf blower designed for golfers to keep the green clear."
+                },
+                {
+                    title: "Pawfect Match",
+                    url: "https://pawfectmatch.app",
+                    synopsis: "A Tinder-style app for rescuing animals from shelters, connecting pets with loving homes."
+                }
+            ];
+
+            const writingsData = [
+                {
+                    title: "The Art of Impasto",
+                    date: "2025-07-15",
+                    content: "Exploring the beauty of thick, expressive paint strokes and vibrant colors in modern art..."
+                },
+                {
+                    title: "From Cricket to Code",
+                    date: "2025-06-28",
+                    content: "A journey from the cricket pitch to the world of software development, and the lessons learned along the way."
+                }
+            ];
+
+            const welcomeMessage = [
+                { text: 'Welcome to my portfolio! I am a Adelaide based creative developer with a passion for building beautiful and functional applications.' },
+                { text: 'You can use the navigation below, or type `help` for a list of commands.', hasBuffer: true },
+            ];
+
+            const recognizedCommands = {
+                'help': {
+                    purpose: 'Displays this help message.',
+                    execute: () => {
+                        const commands = Object.keys(recognizedCommands).map(cmd => {
+                            return `${cmd.padEnd(15, ' ')} - ${recognizedCommands[cmd].purpose}`;
+                        });
+                        addToHistory([{ text: 'Available commands:', hasBuffer: true, isHighlight: true }, { text: commands.join('\n'), hasBuffer: true }]);
+                    }
+                },
+                'about': {
+                    purpose: 'Displays information about me.',
+                    execute: () => addToHistory([{ text: "My name is Tim, a designer and developer from Adelaide, Australia. I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos. When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara and our dog Luna.", hasBuffer: true }])
+                },
+                'projects': {
+                    purpose: 'Shows my recent projects.',
+                    execute: () => {
+                        const projectLines = projectsData.flatMap(p => [
+                            { text: p.title, isLink: true, url: p.url },
+                            { text: `  ${p.synopsis}`, hasBuffer: true }
+                        ]);
+                        addToHistory([{ text: 'Projects:', hasBuffer: true, isHighlight: true }, ...projectLines]);
+                    }
+                },
+                'writings': {
+                    purpose: 'Shows my recent writings.',
+                    execute: () => {
+                        const writingLines = writingsData.flatMap(w => [
+                            { text: `${w.title} - ${w.date}`, isHighlight: true },
+                            { text: `  ${w.content}`, hasBuffer: true }
+                        ]);
+                        addToHistory([{ text: 'Writings:', hasBuffer: true, isHighlight: true }, ...writingLines]);
+                    }
+                },
+                'clear': {
+                    purpose: 'Clears the terminal screen.',
+                    execute: () => setFieldHistory([])
+                },
+                'theme': {
+                    purpose: 'Switches the color theme (e.g., theme dark).',
+                    execute: (args) => {
+                        const newTheme = args[0];
+                        if (newTheme === 'dark' || newTheme === 'light') {
+                            setTheme(newTheme);
+                            addToHistory([{ text: `Theme set to ${newTheme}.`, hasBuffer: true }]);
+                        } else {
+                            addToHistory([{ text: 'Invalid theme. Use "dark" or "light".', isError: true, hasBuffer: true }]);
+                        }
+                    }
+                },
+                'mode': {
+                    purpose: 'Switch between UX and CLI mode (e.g., mode cli).',
+                    execute: (args) => {
+                        const newMode = args[0];
+                        if (newMode === 'cli' || newMode === 'ux') {
+                            setNavMode(newMode);
+                            addToHistory([{ text: `Navigation mode switched to ${newMode.toUpperCase()}.`, hasBuffer: true }]);
+                        } else {
+                             addToHistory([{ text: 'Invalid mode. Use "cli" or "ux".', isError: true, hasBuffer: true }]);
+                        }
+                    }
+                },
+                'exit': {
+                    purpose: 'Exits CLI mode.',
+                    execute: () => {
+                        setNavMode('ux');
+                        addToHistory([{ text: 'Exited CLI mode.', hasBuffer: true }]);
+                    }
+                }
+            };
+
+            const addToHistory = (output) => {
+                setFieldHistory(prev => [...prev, ...output.map(item => ({...item, dimmed: false}))]);
+            };
+            
+            const processCommand = (input) => {
+                const [command, ...args] = input.trim().toLowerCase().split(' ');
+                if (command in recognizedCommands) {
+                    recognizedCommands[command].execute(args);
+                } else {
+                    addToHistory([{ text: `Command not found: ${command}`, isError: true, hasBuffer: true }]);
+                }
+            };
+            
+            const handleTyping = (e) => {
+                e.preventDefault();
+                const { key } = e;
+
+                if (key === 'Enter') {
+                    const newHistory = [...fieldHistory, { text: userInput, isCommand: true, dimmed: false }];
+                    setFieldHistory(newHistory);
+                    
+                    if (userInput) {
+                        setCommandHistory([userInput, ...commandHistory]);
+                        setCommandHistoryIndex(0);
+                        processCommand(userInput);
+                    }
+                    setUserInput('');
+                    return;
+                }
+
+                if (key === 'Backspace') {
+                    setUserInput(userInput.slice(0, -1));
+                } else if (key.length === 1) {
+                    setUserInput(userInput + key);
+                } else if (key === 'ArrowUp') {
+                    if (commandHistoryIndex < commandHistory.length) {
+                        const newIndex = commandHistoryIndex + 1;
+                        setCommandHistoryIndex(newIndex);
+                        setUserInput(commandHistory[newIndex - 1]);
+                    }
+                } else if (key === 'ArrowDown') {
+                     if (commandHistoryIndex > 0) {
+                        const newIndex = commandHistoryIndex - 1;
+                        setCommandHistoryIndex(newIndex);
+                        setUserInput(commandHistory[newIndex - 1] || '');
+                    }
+                }
+            };
+
+            React.useEffect(() => {
+                setFieldHistory(welcomeMessage.map(item => ({...item, dimmed: false})));
+                fieldRef.current.focus();
+            }, []);
+
+            React.useEffect(() => {
+                if (fieldRef.current) {
+                    fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                }
+            }, [fieldHistory]);
+
+            const handleNavClick = (command) => {
+                const dimmedHistory = fieldHistory.map(item => ({...item, dimmed: true}));
+                setFieldHistory([...dimmedHistory, { text: command, isCommand: true, dimmed: false }]);
+                processCommand(command);
+            }
+
+            return (
+                <div
+                    id="field"
+                    ref={fieldRef}
+                    className={theme.app.backgroundColor === '#333444' ? 'dark' : 'light'}
+                    style={theme.field}
+                    onKeyDown={navMode === 'cli' ? handleTyping : null}
+                    tabIndex={0}
+                    onClick={() => fieldRef.current.focus()}
+                >
+                    <AnimatedDuck />
+                    {fieldHistory.map((item, index) => (
+                        <div key={index} className={`history-item ${item.dimmed ? 'dimmed' : ''}`}>
+                            {item.isCommand && <div id="query" className="prompt">duck @quack:~$</div>}
+                            {item.isLink ? <a href={item.url} target="_blank" rel="noopener noreferrer" className="link">{item.text}</a> :
+                             <span className={`${item.isError ? 'error' : ''} ${item.isHighlight ? 'highlight' : ''}`}>{item.text}</span>}
+                            {item.hasBuffer && <div></div>}
+                        </div>
+                    ))}
+
+                    {navMode === 'ux' && <AsciiNav handleNavClick={handleNavClick} />}
+                    
+                    {navMode === 'cli' && (
+                        <>
+                            <div>
+                                <div id="query" className="prompt">duck @quack:~$</div>
+                                <span>{userInput}</span>
+                                <div id="cursor" style={theme.cursor}></div>
+                            </div>
+                            <div style={{ marginTop: '10px' }}>
+                                <span className="nav-tree-item nav-mode" onClick={() => handleNavClick('exit')}>[Exit CLI Mode]</span>
+                            </div>
+                        </>
+                    )}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>

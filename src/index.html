@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Terminal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            font-family: 'Google Sans Code', monospace;
+        }
+
+        :focus,
+        :hover,
+        :active {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Google Sans Code', monospace;
+        }
+
+        #app {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #terminal {
+            width: 95vw;
+            max-width: 1170px;
+            height: 715px;
+            transition: .2s;
+            position: relative; /* For progress overlay positioning */
+        }
+
+        #window {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            cursor: default;
+        }
+
+        .btn {
+            margin-right: 10px;
+            border: none;
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            box-shadow: 0 2px 2px #33333375;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: #FF4136;
+        }
+
+        .error {
+            color: #FF4136;
+            font-weight: 700;
+        }
+
+        .yellow {
+            background-color: #FFDC00;
+        }
+
+        .info {
+            color: #FFDC00;
+        }
+
+        .green {
+            background-color: #2ECC40;
+        }
+        
+        .scroll-to-load-indicator {
+            color: #00ff00;
+            font-style: italic;
+        }
+        
+        .progress-status {
+            color: #ffff00;
+        }
+        
+        .progress-bar {
+            color: #00ff00;
+            font-family: monospace;
+        }
+        
+        .progress-complete {
+            color: #00ff00;
+        }
+        
+        .progress-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(34, 35, 51, 0.95);
+            border-top: 1px solid #444;
+            padding: 10px 15px;
+            z-index: 25;
+            text-align: left;
+            font-weight: normal;
+            font-size: 0.85rem;
+            color: #F4F4F4;
+            backdrop-filter: blur(5px);
+        }
+        
+        .light .progress-overlay {
+            background: rgba(227, 227, 227, 0.95);
+            border-color: #ccc;
+            color: #474554;
+        }
+        
+        .progress-overlay.complete {
+            color: #00ff00;
+        }
+        
+        .article-content-expanded {
+            margin-bottom: 80px; /* Space for progress overlay */
+        }
+        
+        #field {
+            position: relative; /* For absolute positioning of progress overlay */
+        }
+        
+        .preview-label {
+            color: #888888;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        
+        .content-preview {
+            color: #aaaaaa;
+            font-style: italic;
+            opacity: 0.8;
+            border-left: 2px solid #444444;
+            padding-left: 10px;
+        }
+        
+        .markdown-bold {
+            font-weight: bold;
+        }
+        
+        /* Article color classes - using !important to override highlight class */
+        .article-red {
+            color: #ff4444 !important;
+        }
+        
+        .article-blue {
+            color: #4488ff !important;
+        }
+        
+        .article-green {
+            color: #44ff44 !important;
+        }
+        
+        .article-yellow {
+            color: #ffff44 !important;
+        }
+        
+        .article-purple {
+            color: #ff44ff !important;
+        }
+        
+        .article-orange {
+            color: #ff8844 !important;
+        }
+        
+        .article-cyan {
+            color: #44ffff !important;
+        }
+        
+        .light .preview-label {
+            color: #666666;
+        }
+        
+        .light .content-preview {
+            color: #555555;
+            border-left-color: #cccccc;
+        }
+        
+        .link {
+            color: #7FDBFF;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        
+        .prompt {
+            color: #2ECC40; /* Green for dark mode */
+        }
+        
+        .light .prompt {
+             color: #B10DC9; /* Purple for light mode */
+        }
+        
+        .highlight {
+            font-weight: 700;
+            color: #F4F4F4;
+        }
+        
+        .light .highlight {
+            color: #111111;
+        }
+
+        #title,
+        #field {
+            font-size: .85rem;
+        }
+
+        #title {
+            margin-left: auto;
+        }
+
+        #field {
+            height: calc(100% - 40px);
+            padding: 10px;
+            overflow-y: auto;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        #field::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #field.dark::-webkit-scrollbar-thumb {
+            background-color: #333444;
+        }
+
+        #field.light::-webkit-scrollbar-thumb {
+            background-color: #ACA9BB;
+        }
+
+        #field>div {
+            min-height: 20px;
+            width: 100%;
+            cursor: text;
+        }
+        
+        .history-item {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .history-item.dimmed {
+            opacity: 0.5;
+        }
+
+        #query,
+        #cursor {
+            display: inline-block;
+        }
+
+        #query {
+            margin-right: 10px;
+            white-space: pre;
+        }
+
+        #cursor {
+            position: relative;
+            bottom: -2px;
+            left: 2px;
+            width: .5rem;
+            height: 3px;
+        }
+        
+        .nav-tree {
+            white-space: pre;
+            margin-bottom: 1rem;
+        }
+        .nav-tree-item {
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .nav-tree-item:hover {
+            text-decoration: underline;
+        }
+        .nav-about { color: #7FDBFF; } /* Sky Blue */
+        .nav-projects { color: #F012BE; } /* Hot Pink */
+        .nav-writings { color: #2ECC40; } /* Green */
+        .nav-mode { color: #FFDC00; } /* Yellow */
+
+
+        .ascii-art {
+            white-space: pre;
+            line-height: 1;
+        }
+
+        .duck-container {
+            margin-bottom: 1rem;
+        }
+        
+        .duck-bobbing {
+            animation: bob 3s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .ascii-art.duck {
+            color: #FFDC00; /* Yellow */
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .ascii-art.water {
+            color: #7FDBFF; /* Blue */
+            font-size: 1.2rem;
+        }
+
+        .clickable-text {
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .clickable-text:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .article-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .article-content {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 80vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            font-family: 'Google Sans Code', monospace;
+            line-height: 1.6;
+        }
+
+        .article-header {
+            border-bottom: 1px solid #444;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #7FDBFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .close-button:hover {
+            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dimmed {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            background-color: #7FDBFF;
+            width: 8px;
+            height: 1.2em;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes blink-dark {
+            0%, 100% {
+                background-color: #F4F4F4;
+            }
+            50% {
+                background-color: transparent;
+            }
+        }
+
+        @keyframes blink-light {
+            0%, 100% {
+                background-color: #474554;
+            }
+            50% {
+                background-color: transparent;
+            }
+        }
+
+        @media only screen and (max-width: 600px), (max-height: 600px) {
+            #terminal {
+                height: 100vh;
+                width: 100vw;
+                max-width: 100vw;
+            }
+            #field {
+                height: calc(100% - 40px);
+            }
+        }
+
+        .active-nav-item {
+            text-decoration: underline;
+        }
+        
+        .expanded-article {
+            font-weight: 700;
+        }
+        
+        .collapsed-article {
+            font-weight: 400;
+        }
+        
+        .article-content-expanded {
+            padding-left: 2rem;
+        }
+        
+        .article-content-progressive {
+            padding-left: 2rem;
+        }
+        
+        .article-preview-clickable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const App = () => {
+            const [theme, setTheme] = React.useState('dark');
+            const themeVars = theme === 'dark' ? {
+                app: { backgroundColor: '#333444' },
+                terminal: { boxShadow: '0 2px 5px #111' },
+                window: { backgroundColor: '#222345', color: '#F4F4F4' },
+                field: { backgroundColor: '#222333', color: '#F4F4F4', fontWeight: '400' },
+                cursor: { animation: '1.02s blink-dark step-end infinite' }
+            } : {
+                app: { backgroundColor: '#ACA9BB' },
+                terminal: { boxShadow: '0 2px 5px #33333375' },
+                window: { backgroundColor: '#5F5C6D', color: '#E3E3E3' },
+                field: { backgroundColor: '#E3E3E3', color: '#474554', fontWeight: '400' },
+                cursor: { animation: '1.02s blink-light step-end infinite' }
+            };
+
+            return (
+                <div id="app" style={themeVars.app}>
+                    <Terminal theme={themeVars} setTheme={setTheme} />
+                </div>
+            );
+        };
+
+        // Function to parse markdown bold syntax **text** and render as HTML
+        const parseMarkdownBold = (text) => {
+            if (!text || typeof text !== 'string') return text;
+            
+            // Split text by **bold** markers and create elements
+            const parts = text.split(/(\*\*.*?\*\*)/g);
+            
+            return parts.map((part, index) => {
+                if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+                    // Remove ** markers and make bold
+                    const boldText = part.slice(2, -2);
+                    return React.createElement('span', { 
+                        key: index, 
+                        className: 'markdown-bold' 
+                    }, boldText);
+                }
+                return part;
+            });
+        };
+
+        const Terminal = ({ theme, setTheme }) => {
+            const [maximized, setMaximized] = React.useState(false);
+            const [title, setTitle] = React.useState('Duck Quack');
+            const [progressiveArticle, setProgressiveArticle] = React.useState(null);
+            const [isProgressiveTyping, setIsProgressiveTyping] = React.useState(false);
+            const [remainingTokens, setRemainingTokens] = React.useState(0);
+
+            const handleClose = () => (window.location.href = 'https://github.com/timmy16744');
+            const handleMinMax = () => {
+                setMaximized(!maximized);
+                document.querySelector('#field').focus();
+            };
+
+            return (
+                <div id="terminal" style={maximized ? { height: '100vh', width: '100vw', maxWidth: '100vw' } : theme.terminal}>
+                    <div id="window" style={theme.window}>
+                        <button className="btn red" onClick={handleClose} />
+                        <button className="btn yellow" />
+                        <button className="btn green" onClick={handleMinMax} />
+                        <span id="title" style={{ color: theme.window.color }}>{title}</span>
+                    </div>
+                    <Field 
+                        theme={theme} 
+                        setTheme={setTheme} 
+                        setTitle={setTitle} 
+                        maximized={maximized}
+                        progressiveArticle={progressiveArticle}
+                        setProgressiveArticle={setProgressiveArticle}
+                        isProgressiveTyping={isProgressiveTyping}
+                        setIsProgressiveTyping={setIsProgressiveTyping}
+                        remainingTokens={remainingTokens}
+                        setRemainingTokens={setRemainingTokens}
+                    />
+                    
+                    {/* Progress overlay pinned to bottom of terminal frame */}
+                    {progressiveArticle && (
+                        <div className={`progress-overlay ${progressiveArticle.isComplete ? 'complete' : ''}`}>
+                            {(() => {
+                                const progress = progressiveArticle.totalTokens > 0 ? 
+                                    Math.round((progressiveArticle.loadedTokens / progressiveArticle.totalTokens) * 100) : 0;
+                                const progressBar = '█'.repeat(Math.floor(progress / 5)) + '░'.repeat(20 - Math.floor(progress / 5));
+                                
+                                if (isProgressiveTyping) {
+                                    return `[${progressBar}] ${progress}% | Loading article... ${remainingTokens} tokens remaining`;
+                                } else if (progressiveArticle.isComplete) {
+                                    return `[✓] Article loaded - ${progressiveArticle.totalTokens} tokens`;
+                                }
+                                return '';
+                            })()}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const AnimatedDuck = () => {
+            // Correctly escaped backslashes and backtick for JSX
+            const duckArt = `
+    __
+___( o)>
+\\ <_. )
+ \`---'
+`;
+            const waterPattern = '~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ';
+            const [water, setWater] = React.useState('');
+
+            React.useEffect(() => {
+                let i = 0;
+                const interval = setInterval(() => {
+                    const start = i % (waterPattern.length / 2);
+                    setWater(waterPattern.substring(start, start + 23));
+                    i++;
+                }, 200);
+                return () => clearInterval(interval);
+            }, []);
+
+
+            return (
+                <div className="duck-container">
+                    <div className="duck-bobbing">
+                        <div className="ascii-art duck">{duckArt}</div>
+                    </div>
+                    <div className="ascii-art water">{water}</div>
+                </div>
+            );
+        };
+
+        const AsciiNav = ({ handleNavClick, currentPage, writingsData, expandedMonths, setExpandedMonths }) => {
+            const getNavLinkClass = (pageName) => {
+                return `nav-tree-item nav-${pageName} ${currentPage === pageName ? 'active-nav-item' : ''}`;
+            };
+
+            // Function to determine color based on article content
+            const getArticleColor = (article) => {
+                const content = article.content.toLowerCase();
+                const title = article.title.toLowerCase();
+                
+                // AI/Tech content - Blue
+                if (content.includes('ai') || content.includes('china') || content.includes('technology') || 
+                    title.includes('ai') || content.includes('artificial intelligence')) {
+                    return '#7FDBFF'; // Sky Blue
+                }
+                
+                // Art/Creative content - Purple
+                if (content.includes('art') || content.includes('paint') || content.includes('creative') || 
+                    title.includes('art') || content.includes('impasto')) {
+                    return '#B10DC9'; // Purple
+                }
+                
+                // Personal/Journey content - Green
+                if (content.includes('journey') || content.includes('cricket') || content.includes('personal') || 
+                    title.includes('cricket') || content.includes('code')) {
+                    return '#2ECC40'; // Green
+                }
+                
+                // Default - Yellow
+                return '#FFDC00'; // Yellow
+            };
+
+            // Group articles by year and month
+            const groupArticlesByDate = (articles) => {
+                const grouped = {};
+                
+                articles.forEach((article, index) => {
+                    const date = new Date(article.date);
+                    const year = date.getFullYear();
+                    const month = date.toLocaleString('default', { month: 'long' });
+                    
+                    if (!grouped[year]) {
+                        grouped[year] = {};
+                    }
+                    if (!grouped[year][month]) {
+                        grouped[year][month] = [];
+                    }
+                    
+                    grouped[year][month].push({ ...article, originalIndex: index });
+                });
+                
+                return grouped;
+            };
+
+            const toggleMonth = (monthKey) => {
+                const newExpanded = new Set(expandedMonths);
+                if (newExpanded.has(monthKey)) {
+                    newExpanded.delete(monthKey);
+                } else {
+                    newExpanded.add(monthKey);
+                }
+                setExpandedMonths(newExpanded);
+            };
+
+            if (!writingsData || writingsData.length === 0) {
+                return (
+                    <div className="nav-tree">
+                        <div>/</div>
+                        <div>
+                            <span>├── </span>
+                            <span className={getNavLinkClass('about')} onClick={() => handleNavClick('about')}>about</span>
+                        </div>
+                        <div>
+                            <span>├── </span>
+                            <span className={getNavLinkClass('projects')} onClick={() => handleNavClick('projects')}>projects</span>
+                        </div>
+                        <div>
+                            <span>├── </span>
+                            <span className={getNavLinkClass('writings')} onClick={() => handleNavClick('writings')}>writings</span>
+                        </div>
+                        <div>
+                            <span>└── </span>
+                            <span className={getNavLinkClass('mode')} onClick={() => handleNavClick('mode cli')}>mode cli</span>
+                        </div>
+                    </div>
+                );
+            }
+
+            const groupedArticles = groupArticlesByDate(writingsData);
+            const years = Object.keys(groupedArticles).sort((a, b) => b - a); // Sort years descending
+
+            return (
+                <div className="nav-tree">
+                    <div>/</div>
+                    <div>
+                        <span>├── </span>
+                        <span className={getNavLinkClass('about')} onClick={() => handleNavClick('about')}>about</span>
+                    </div>
+                    <div>
+                        <span>├── </span>
+                        <span className={getNavLinkClass('projects')} onClick={() => handleNavClick('projects')}>projects</span>
+                    </div>
+                    <div>
+                        <span>├── </span>
+                        <span className={getNavLinkClass('writings')} onClick={() => handleNavClick('writings')}>writings</span>
+                        {currentPage === 'writings' && (
+                            <div style={{ marginLeft: '1rem' }}>
+                                {years.map((year, yearIndex) => {
+                                    const months = Object.keys(groupedArticles[year]).sort((a, b) => {
+                                        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                                          'July', 'August', 'September', 'October', 'November', 'December'];
+                                        return monthNames.indexOf(b) - monthNames.indexOf(a); // Most recent months first
+                                    });
+                                    
+                                    return (
+                                        <div key={year}>
+                                            {months.map((month, monthIndex) => {
+                                                const monthKey = `${year}-${month}`;
+                                                const isExpanded = expandedMonths.has(monthKey);
+                                                const articles = groupedArticles[year][month];
+                                                const isLastMonth = yearIndex === years.length - 1 && monthIndex === months.length - 1;
+                                                
+                                                return (
+                                                    <div key={monthKey}>
+                                                        <div>
+                                                            <span>{isLastMonth ? '└── ' : '├── '}</span>
+                                                            <span 
+                                                                className="nav-tree-item"
+                                                                style={{ color: '#FFDC00', cursor: 'pointer' }}
+                                                                onClick={() => toggleMonth(monthKey)}
+                                                            >
+                                                                {isExpanded ? '▼' : '▶'} {month} {year} ({articles.length})
+                                                            </span>
+                                                        </div>
+                                                        {isExpanded && (
+                                                            <div style={{ marginLeft: '1rem' }}>
+                                                                {articles.map((article, articleIndex) => (
+                                                                    <div key={article.originalIndex}>
+                                                                        <span>{articleIndex === articles.length - 1 ? '└── ' : '├── '}</span>
+                                                                        <span 
+                                                                            className="nav-tree-item"
+                                                                            style={{ color: getArticleColor(article) }}
+                                                                            onClick={() => handleNavClick(`writings article-${article.originalIndex}`)}
+                                                                        >
+                                                                            {article.title}
+                                                                        </span>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
+                    <div>
+                        <span>└── </span>
+                        <span className={getNavLinkClass('mode')} onClick={() => handleNavClick('mode cli')}>mode cli</span>
+                    </div>
+                </div>
+            );
+        };
+
+        const Field = ({ theme, setTheme, setTitle, maximized, progressiveArticle, setProgressiveArticle, isProgressiveTyping, setIsProgressiveTyping, remainingTokens, setRemainingTokens }) => {
+            const [fieldHistory, setFieldHistory] = React.useState([]);
+            const [userInput, setUserInput] = React.useState('');
+            const [commandHistory, setCommandHistory] = React.useState([]);
+            const [commandHistoryIndex, setCommandHistoryIndex] = React.useState(0);
+            const [navMode, setNavMode] = React.useState('ux'); // 'ux' or 'cli'
+            const [currentPage, setCurrentPage] = React.useState('home'); // New state for current page
+            const [expandingArticle, setExpandingArticle] = React.useState(null); // Currently expanding article
+            const [typingText, setTypingText] = React.useState(''); // For typing animation
+            const [isTyping, setIsTyping] = React.useState(false); // Typing state
+            const [expandedArticles, setExpandedArticles] = React.useState(new Set()); // Track which articles are expanded
+            const [expandedMonths, setExpandedMonths] = React.useState(new Set()); // Track which months are expanded
+            const [visibleContent, setVisibleContent] = React.useState(''); // Content visible so far
+            const fieldRef = React.useRef(null);
+            const lastScrollTop = React.useRef(0); // Track scroll direction
+            
+            // Scroll event listener is set up later in the code to avoid dependency issues
+
+            const projectsData = [
+                {
+                    title: "StormCaddie",
+                    url: "https://stormcaddie.com",
+                    synopsis: "A compact, powerful leaf blower designed for golfers to keep the green clear."
+                },
+                {
+                    title: "Pawfect Match",
+                    url: "https://pawfectmatch.app",
+                    synopsis: "A Tinder-style app for rescuing animals from shelters, connecting pets with loving homes."
+                }
+            ];
+
+            const [writingsData, setWritingsData] = React.useState([
+                {
+                    title: "Is China Already Leading the Race for AI Domination?",
+                    date: "2025-08-02",
+                    file: "china-ai-domination.md",
+                    color: "blue",
+                    content: "The narrative of the U.S. versus China in AI often paints the picture of a race with two contenders – but is the U.S. really still leading, or has China already won? The truth may surprise you. While it's true that the U.S. remains the dominant force in some areas of AI, China is rapidly catching up in critical aspects. Momentum, as any entrepreneur will tell you, matters more than milestones. And China's momentum in AI, semiconductors, and technology manufacturing isn't just impressive – it's becoming nearly unstoppable.\n\nIn a race with no finish line, every incremental advantage compounds into long-term dominance. China is not just moving fast, but in a multi-pronged assault across technology sectors. From open-source AI models and semiconductor innovations to energy production and industrial capacity, China is positioning itself to dominate all the critical technologies of the 21st century. And let's be clear, when it comes to momentum, the U.S. is not just behind; it's struggling to keep up.\n\n**Manufacturing: China's Unrivaled Edge**\n\nOne key reason China's momentum seems insurmountable is its manufacturing dominance. China's manufacturing base is so vast that it holds a massive strategic advantage over the U.S. China controls about 29% of global manufacturing, dwarfing its competitors. This isn't just about making cheap gadgets – it's about being the backbone of AI hardware and semiconductor production, two sectors that the U.S. is increasingly dependent on. If China ever escalates tensions over Taiwan, where TSMC currently supplies the U.S. with 92% of its advanced chips, the U.S. would be left vulnerable, unable to source its critical components . But China isn't just waiting around; it's been working tirelessly to replace the U.S. in semiconductors with Huawei's CloudMatrix 384, a formidable alternative to Nvidia's chips. The Taiwan issue looms large, but China's push for domestic semiconductor independence may end up making the U.S. more reliant on Taiwan than ever .\n\nWhat's more, China's manufacturing infrastructure is unparalleled, making it the preferred player in high-tech, from AI servers to electric vehicles, and its leapfrogging of the U.S. in critical industries is a prime example of how momentum drives success.\n\n**The Open-Source Advantage: China's Model Ecosystem**\n\nWhile the U.S. has long kept its best AI models locked behind paywalls, China's open-source AI ecosystem is where the real game-changer is happening. Huawei, Baidu, Alibaba, and others have flooded the market with top-tier, open-source AI models like DeepSeek, Qwen, and Zhipu's GLM 4.5 – all of which are already challenging the U.S.'s top proprietary models like Google's Gemini and OpenAI's GPT-4 . By embracing open-source, Chinese companies can undercut their competition on pricing, boost AI accessibility, and rapidly scale up the AI ecosystem. This Darwinian competition in China fuels growth at an astonishing rate, making the entire sector stronger . In the U.S., on the other hand, secrecy and competition-driven acquisition are slowing down the diffusion of knowledge. Companies are stuck hoarding their secrets, which means technological progress is slower and more costly .\n\nIn short, China's open-source ecosystem is not only challenging U.S. AI supremacy but could soon leave it behind. The next great AI breakthrough could come from China's decentralized open models, leaving the U.S. scrambling to catch up.\n\n**Energy Production: The Fuel for AI**\n\nPowering AI infrastructure takes immense energy, and China's energy production capabilities are vast. With an energy capacity nearly 2.5 times that of the U.S., China can support gigantic AI data centers, scaling up its AI ambitions without the energy constraints the U.S. faces . While the U.S. struggles with power bottlenecks, China has already begun constructing enormous renewable energy farms to feed its expanding AI infrastructure, all while the U.S. faces rising energy prices and strained grids . China's capacity to ramp up energy production at scale ensures that its AI systems will always have the juice they need to stay ahead in the race.\n\n**Military Capacity: An Industrial Powerhouse**\n\nChina is also flexing its muscle on the military-industrial front. According to defense experts like Palmer Luckey, China's shipbuilding capacity is 350 times greater than that of the U.S. – a chilling statistic that demonstrates China's superior industrial base. While the U.S. stagnates in this sector, China's civil-military fusion ensures that its entire economy can pivot to military production at a moment's notice, undermining U.S. military advantage . This ability to mobilize massive industrial output could allow China to outproduce the U.S. in a military conflict or global race for AI infrastructure. China's integrated system of manufacturing, AI integration, and military readiness gives it a clear advantage in shaping the future of global power.\n\n**The Case for China's Supremacy**\n\nDespite what some pundits may claim, China has already created the conditions for its eventual dominance in AI and technology. Manufacturing supremacy, open-source AI innovation, unmatched energy production, and a state-backed industrial strategy all place China in the driver's seat. The U.S. has had its time, but momentum is everything. With China's rapidly accelerating growth and relentless drive for self-sufficiency, it's not just about catching up—it's about a redefined global order.\n\nAmerica's competitive edge, particularly in its proprietary AI models and cloud infrastructure, may still seem formidable today, but momentum is building in China and could soon make the U.S. obsolete. From military dominance to AI supremacy, China is shaping the future. If the U.S. cannot catch up with China's breakneck pace of innovation and overcome its internal political divides, China will win – and they will do it faster than anyone could have predicted.\n\nKeep innovating, or risk being left behind."
+                },
+                {
+                    title: "The System is Already Dead",
+                    date: "2025-07-15",
+                    file: "the-system-is-already-dead.md",
+                    color: "red",
+                    content: "Let's start with the core premise: Australia's economy is no longer in decline. It has already failed structurally, technologically, and demographically. The signs are everywhere. Housing functions as a speculative asset. Employment has decoupled from productive value. Our national infrastructure is reliant on foreign compute, foreign capital, and foreign vision. The state has ceded control of the future and replaced it with legislative theatre.\n\nIn this context, rational actors don't seek participation. They build insulation. Integration into legacy systems, whether political, corporate, or social, is no longer a lever for change. It's latency.\n\nThis perspective isn't an abstract theory for me. It's a reality crystallized by a 15-year battle within a healthcare system that proves the rule.\n\n**The Personal Cost of a Failed System**\n\nI live with cluster headaches: neurological weapons-grade events that are precise, brutal, and treatment-resistant. This is not a \"chronic illness.\" This is engineered incapacitation, recurring monthly without fail. My journey through the medical system has been a 15-year case study in its failure: over 100 trialed drugs, six surgeries, and a brain implant that was a for-profit procedure I never should have had but at least my surgeon got a new car. The public health system isn't equipped for edge cases; it can't solve what doesn't fit its actuarial design. Every interaction produces compounding failures: financially, functionally, psychologically.\n\nSo I've built a system around it. The 25,000+ steps a day minimum, the two-hour resistance training sessions, the strict caloric, cognitive, and environmental control. This isn't fitness. It's runtime maintenance. A personal operating system patched daily to prevent collapse.\n\nWhat once created satisfaction now triggers dread. The idea of \"fun\" is irrelevant, corrupted by anticipatory anxiety and chemical unpredictability. This isn't burnout; it's a total system reroute away from pleasure-seeking in favour of functional preservation. So I don't pursue enjoyment. I execute protocols. Every action serves one of two functions: prevent system degradation or transfer knowledge downstream. That distinction eliminates motivational variance. I do what must be done, or I deteriorate.\n\n**The AI Transition: A Mathematical Certainty Managed by the Incompetent**\n\nThis firsthand experience with broken governance is precisely why I'm so concerned about the next great challenge: the AI transition. To be clear, I am not an AI doomer. I believe it will eventually create a utopian society. The problem is the perilous path to get there, and we are being led by an industry of politicians who still don't understand how the internet works in 2025.\n\nTheir policy response, centered on \"reskilling,\" is a dangerously misguided reaction to the mathematical reality of the disruption. Unlike past technological shifts, AI is a General-Purpose Technology targeting cognitive work. It's simultaneously automating both blue-collar and white-collar jobs. Goldman Sachs projects it could automate tasks equivalent to 300 million full-time jobs worldwide. McKinsey estimates up to 30% of all hours worked could be automated by 2030. For Australia, the forecast is that one-third of our entire workforce could face displacement in that same timeframe.\n\nThe historical \"cognitive ladder\" where a displaced factory worker could retrain for an office job is collapsing. AI is eliminating the junior and administrative roles that formed the rungs of that ladder. The consequences are already here. Post-education unemployment for Gen Z is reportedly approaching 60%, a catastrophic figure compared to the historical average of 25%. We are creating a lost generation in real time.\n\nAnd yet the policy response is \"reskilling.\" You cannot reskill millions of people for a handful of expert roles, especially when only 20% of displaced workers have the educational foundation to even attempt the transition, and only 7% of companies are actively developing a strategy to help them. It's a fantasy.\n\n**No One Is Coming**\n\nThis leads to an unavoidable truth: there is no fix coming from within the system. Fiscal policy is reactive. Monetary tools are exhausted. Electoral participation is a symbolic ritual. Governments no longer govern; they triage optics. They do not forecast; they manage perception.\n\nThe social fallout of this inaction will be a crisis of meaning. For centuries, the work ethic has been the cornerstone of our society. Widespread, permanent unemployment will trigger a collective trauma, leaving a vacuum of purpose. The long-term unemployed are more than three times as likely to suffer from depression. We are engineering a crisis of mass despair. The idea that \"we're all in this together\" fails every test of power, capital, and risk exposure. If you still believe it, you haven't run the numbers.\n\n**So, What Do You Actually Do?**\n\nYou stop building for yourself. You stop seeking recovery. You start constructing continuity.\n\nThis is the answer: you leverage AI, the very tool of disruption, as the great enabler. The industrial era was defined by economies of scale. The AI era enables economies of individuality. An individual with an \"AI toolkit\" for coding, marketing, product design, and logistics can now perform the work of an entire department.\n\nSo you build the tools for a local, artisanal economy. You create durable, replicable systems that give skilled individuals and small producers the ability to insulate themselves. You connect the digital empowerment of AI to the physical infrastructure of local makerspaces, creating a seamless pipeline from idea to object, all within a community. It's not about SaaS growth; it's about local replication. It's not about optimisation; it's about durability. My personal infrastructure is the same: automated, documented, and versioned. Self-executing even when I'm not.\n\nThe biggest driver is my son, Arthur. The work is documentation, not for legacy, but for him. So he doesn't have to reverse-engineer how I survived. Everything I build now assumes he'll one day need to fork it and run.\n\n**Conclusion**\n\nThere's a part of me that welcomes the collapse, not emotionally or ideologically, but logically. Collapse enforces coherence. Those who built early will have leverage. Those who mocked preparation will have none. The timelines are converging.\n\nPurpose is no longer about fulfilment. It's infrastructural. We need to build the economic floor for this new society, likely through an Automation Dividend or UBI, funded by the immense wealth AI will generate. This isn't a welfare payment; it's venture capital for the people, giving them the security to become creators.\n\nI don't build to thrive in the old system. I build because the collapse has already happened, and someone still needs to pass the torch. That someone is Arthur. Everything else is optional.\n\nIf you're still operating under the assumption that things will stabilise, that \"normal\" is pending reversion, you're already obsolete."
+                },
+                {
+                    title: "From Cricket to Collapse",
+                    date: "2025-05-28",
+                    file: "from-cricket-to-collapse.md",
+                    color: "green",
+                    content: "Australia isn't the land of mateship anymore. It's the playground for a privileged few squeezing the rest of us dry. Politicians pull in $600k+ while your account shrinks. Mateship? It's daylight robbery. We're richer on paper than ever, yet you've never felt poorer.\n\nWe'll tear Steve Smith apart for Sandpapergate, but the politicians who decide whether we live or die glide past real scrutiny. Three consecutive quarters of economic contraction should bench a cabinet, not hand them new portfolios. Meanwhile, 50% of 16-year-olds are unable to swim, small businesses shut daily, and households cling to a token 3% wage rise that employers claw back with shorter rosters.\n\n**The Overpaid Political Class**\n\nThe very people presiding over this mess are the best-paid public officials on Earth. The Prime Minister clears about A$607k a year and back-bench MPs start above A$230k, more than counterparts in much larger economies. Paying corporate-tier salaries attracts careerists, not custodians.\n\nPeg their pay to the lower 50% of national incomes: if Australians can't afford to eat, neither should their leaders.\n\n**Resource Wealth Squandered**\n\nWe also sit on an unrivalled treasure chest of minerals: roughly a fifth of global lithium, a third of rutile and iron ore, world-class nickel, copper, and rare-earth deposits. Yet we export raw ore at discount and buy back finished batteries at luxury prices. The same lunacy plays out in agriculture: our beef is so prized it's cheaper on a Shanghai menu than in a suburban Coles. Regulations suffocate anyone who tries to fix this.\n\nIt's like AFL umpiring: everyone knows the officiating is hopeless, so the league kept adding more umpires until the game became a whistle-blown muddle. What footy needs is fewer whistles and more accountability; what the economy needs is fewer overlapping regulators and genuine transparency. Instead, red tape turns building a mine, abattoir, or small startup into a bureaucratic marathon.\n\n**Policy Failures Across the Board**\n\nEnergy policy is another own goal. With endless sunlight and empty desert, we could carpet a slice of the outback in solar panels, pair them with grid-scale batteries, and power the nation. Instead, governments jack up power bills and slash feed-in tariffs so rooftop-PV households earn cents per kilowatt-hour while gentailers post record profits.\n\nAdd in a housing market inflated beyond reach, fossil-fuel subsidies propping up 50°C summers, \\\"Closing the Gap\\\" targets missed year after year, an NBN that's 83rd in the world, defence R&D starved while we sign foreign cheques, and an AI wave barreling toward us with no credible national reskilling plan.\n\nThe general public has no idea how much wealth AI will unleash, prosperity on a scale humanity's never seen, because the people most likely to lose their privileged positions aren't about to broadcast it. Instead, through the media they control, they peddle fear and division to keep everyone distracted and docile.\n\n**Building for the Future**\n\nI don't want my newborn son merely surviving this Australia; I want him thriving in one. That demands leaders who build the future, not monuments to past failures.\n\nThe solution? A clean slate: a party led by the generation that will actually live with tomorrow's tech. Replace the parade of grumpy lifers with people fluent in AI and automation, ready to funnel our resource windfall into national programmes that matter:\n\n- Medicare that covers all medical needs, not just the basics\n- Energy, broadband, and baseline AI access treated as human rights\n- Export levies channelled straight into local batteries, green power, and community infrastructure: markets, cafes, maker spaces, so value circulates at street level instead of in conglomerate boardrooms\n\nWe're heading into a world of material abundance where purpose and individuality risk evaporating. Let's build a government that sees the change coming and prepares for it rather than scrambling to catch up."
+                }
+            ]);
+
+            const welcomeMessage = [
+                { text: 'Welcome to my portfolio! I am a Adelaide, Australia based creative frontend developer with a passion for building beautiful and functional specialising in reverse engineering.' },
+                { text: ' ', hasBuffer: true },
+                { text: 'Making predictions is the only viable way to test your model of the world. It\'s easy to fall prey to hindsight bias, looking at past events and feeling like the outcome was obvious. The real test is to make forward-looking, falsifiable predictions and then check back later to see if they came true. This brain dump is an attempt to do just that.' },
+                { text: ' ', hasBuffer: true },
+                { text: 'You can use the navigation above, or type `help` for a list of commands.', hasBuffer: true },
+            ];
+
+            // Robust progressive article expansion with improved state management
+            const expandArticle = React.useCallback((article, index) => {
+                // Clear any existing progressive state first
+                setProgressiveArticle(null);
+                setVisibleContent('');
+                setRemainingTokens(0);
+                setIsProgressiveTyping(false);
+                
+                if (expandedArticles.has(index)) {
+                    // Collapse article - simple state update
+                    const newExpanded = new Set(expandedArticles);
+                    newExpanded.delete(index);
+                    setExpandedArticles(newExpanded);
+                } else {
+                    // Expand article with progressive typing
+                    // Removed auto-expansion - user can manually expand terminal if needed
+                    
+                    // Prepare content for progressive loading with preserved formatting
+                    const content = article.content;
+                    // Split content while preserving paragraph breaks
+                    const contentParts = content.split(/\n\n/);
+                    const formattedContent = contentParts.join('\n\n'); // Ensure double line breaks are preserved
+                    const words = formattedContent.split(/\s+/).filter(word => word.length > 0);
+                    const totalTokens = words.length;
+                    
+                    // Calculate initial chunk size based on viewport
+                    const terminalElement = fieldRef.current;
+                    const viewportHeight = terminalElement ? terminalElement.clientHeight : 600;
+                    const estimatedLinesInView = Math.floor(viewportHeight / 25) - 8; // Conservative estimate
+                    const wordsPerLine = 10; // Conservative estimate
+                    const initialChunkSize = Math.max(50, Math.min(estimatedLinesInView * wordsPerLine, Math.floor(totalTokens * 0.3)));
+                    
+                    // Set up progressive state
+                    const progressiveState = {
+                        article,
+                        index,
+                        totalTokens,
+                        words,
+                        fullContent: content,
+                        currentChunkSize: initialChunkSize,
+                        loadedTokens: 0,
+                        isComplete: false
+                    };
+                    
+                    setProgressiveArticle(progressiveState);
+                    setRemainingTokens(totalTokens);
+                    
+                    // Mark as expanded
+                    const newExpanded = new Set(expandedArticles);
+                    newExpanded.add(index);
+                    setExpandedArticles(newExpanded);
+                    
+                    // Start continuous loading with fixed footer progress
+                    startContinuousLoading(progressiveState, index);
+                }
+                
+                // Trigger display update
+                setTimeout(() => updateWritingsDisplay(), 50);
+            }, [expandedArticles, maximized]);
+            
+            // Enhanced progressive typing with scroll position preservation
+            const startProgressiveChunkWithScrollPreservation = React.useCallback((progressiveState, startIndex, endIndex, scrollFromBottom) => {
+                if (!progressiveState || !progressiveState.words) return;
+                
+                const { words, totalTokens } = progressiveState;
+                const chunkWords = words.slice(startIndex, endIndex);
+                const chunkText = chunkWords.join(' ');
+                
+                if (chunkText.length === 0) {
+                    setIsProgressiveTyping(false);
+                    return;
+                }
+                
+                setIsProgressiveTyping(true);
+                
+                let currentIndex = 0;
+                const typingSpeed = Math.max(15, Math.min(35, Math.floor(chunkText.length / 40))); // Slower, smoother typing
+                const intervalDelay = 60; // Slightly slower intervals for better readability
+                
+                const typeInterval = setInterval(() => {
+                    if (currentIndex < chunkText.length) {
+                        currentIndex += typingSpeed;
+                        const currentText = chunkText.substring(0, Math.min(currentIndex, chunkText.length));
+                        
+                        // Build full visible content (previous chunks + current chunk)
+                        const previousContent = progressiveState.loadedTokens > 0 ? 
+                            words.slice(0, progressiveState.loadedTokens).join(' ') + ' ' : '';
+                        
+                        setVisibleContent(previousContent + currentText);
+                        
+                        // Update token counter
+                        const currentTokens = startIndex + Math.floor((currentIndex / chunkText.length) * chunkWords.length);
+                        setRemainingTokens(Math.max(0, totalTokens - currentTokens));
+                        
+                        // Gentle scroll position preservation (non-intrusive)
+                        const terminalContent = fieldRef.current;
+                        if (terminalContent && scrollFromBottom !== undefined) {
+                            const newScrollHeight = terminalContent.scrollHeight;
+                            const currentScrollTop = terminalContent.scrollTop;
+                            const targetScrollTop = newScrollHeight - terminalContent.clientHeight - scrollFromBottom;
+                            const scrollDifference = Math.abs(currentScrollTop - targetScrollTop);
+                            
+                            // Only make gentle adjustments for significant changes (>50px)
+                            // Use smooth scrolling instead of instant jumps
+                            if (scrollDifference > 50) {
+                                const adjustmentAmount = Math.min(scrollDifference * 0.3, 20); // Max 20px adjustment
+                                const newScrollTop = currentScrollTop < targetScrollTop ? 
+                                    currentScrollTop + adjustmentAmount : 
+                                    currentScrollTop - adjustmentAmount;
+                                
+                                terminalContent.scrollTo({
+                                    top: Math.max(0, newScrollTop),
+                                    behavior: 'auto' // Instant but gentle
+                                });
+                            }
+                        }
+                    } else {
+                        // Chunk typing complete
+                        const fullContent = words.slice(0, endIndex).join(' ');
+                        setVisibleContent(fullContent);
+                        setRemainingTokens(Math.max(0, totalTokens - endIndex));
+                        
+                        // Update progressive state
+                        setProgressiveArticle(prev => prev ? {
+                            ...prev,
+                            loadedTokens: endIndex,
+                            isComplete: endIndex >= totalTokens
+                        } : null);
+                        
+                        setIsProgressiveTyping(false);
+                        clearInterval(typeInterval);
+                    }
+                }, intervalDelay);
+                
+                return () => clearInterval(typeInterval);
+            }, []);
+            
+            // Continuous loading with fixed footer progress indicator
+            const startContinuousLoading = React.useCallback((progressiveState, articleIndex) => {
+                if (!progressiveState || !writingsData[articleIndex]) {
+                    return;
+                }
+                
+                const fullContent = writingsData[articleIndex].content;
+                const totalTokens = Math.ceil(fullContent.length / 4); // Rough token estimate
+                
+                setProgressiveArticle({
+                    index: articleIndex,
+                    fullContent: fullContent,
+                    totalTokens: totalTokens,
+                    loadedTokens: 0,
+                    isComplete: false,
+                    continuousLoading: true
+                });
+                
+                setIsProgressiveTyping(true);
+                setVisibleContent('');
+                setRemainingTokens(totalTokens);
+                
+                // Load all content continuously with typing animation
+                let currentIndex = 0;
+                const typingSpeed = 25; // Faster typing for continuous loading
+                const intervalDelay = 20; // Smooth animation
+                
+                const typeInterval = setInterval(() => {
+                    // Stop if we've reached the end of content
+                    if (currentIndex >= fullContent.length) {
+                        setIsProgressiveTyping(false);
+                        setProgressiveArticle(prev => prev ? {
+                            ...prev,
+                            loadedTokens: totalTokens,
+                            isComplete: true
+                        } : null);
+                        setRemainingTokens(0);
+                        clearInterval(typeInterval);
+                        
+                        // Hide progress overlay after completion with a delay
+                        setTimeout(() => {
+                            setProgressiveArticle(null);
+                        }, 2000); // Hide after 2 seconds
+                        
+                        return;
+                    }
+                    
+                    // Add more characters smoothly
+                    const nextIndex = Math.min(currentIndex + typingSpeed, fullContent.length);
+                    const currentText = fullContent.substring(0, nextIndex);
+                    
+                    setVisibleContent(currentText);
+                    
+                    // Update progress smoothly
+                    const progress = Math.floor((nextIndex / fullContent.length) * totalTokens);
+                    setProgressiveArticle(prev => prev ? {
+                        ...prev,
+                        loadedTokens: progress
+                    } : null);
+                    setRemainingTokens(Math.max(0, totalTokens - progress));
+                    
+                    currentIndex = nextIndex;
+                }, intervalDelay);
+                
+                return () => clearInterval(typeInterval);
+            }, []);
+            
+            // Calculate terminal viewport height for content loading
+            const getTerminalViewportInfo = React.useCallback(() => {
+                const terminalContent = fieldRef.current;
+                if (!terminalContent) return { linesVisible: 20, charHeight: 20 };
+                
+                const computedStyle = window.getComputedStyle(terminalContent);
+                const lineHeight = parseInt(computedStyle.lineHeight) || 20;
+                const containerHeight = terminalContent.clientHeight;
+                const linesVisible = Math.floor(containerHeight / lineHeight);
+                
+                return { linesVisible, charHeight: lineHeight };
+            }, []);
+            
+            // Check if content should be truncated based on viewport
+            const shouldTruncateContent = React.useCallback((content, isInitialLoad = false) => {
+                if (!isInitialLoad) return false;
+                
+                const { linesVisible } = getTerminalViewportInfo();
+                const avgCharsPerLine = 100; // More realistic chars per line
+                const estimatedLines = Math.ceil(content.length / avgCharsPerLine);
+                
+                // Reserve space for UI elements but be less conservative
+                const reservedLines = 3;
+                const maxContentLines = Math.max(15, Math.floor(linesVisible * 0.8) - reservedLines);
+                
+                return estimatedLines > maxContentLines;
+            }, [getTerminalViewportInfo]);
+            
+            // Get truncated content that fits in viewport
+            const getTruncatedContent = React.useCallback((content) => {
+                const { linesVisible } = getTerminalViewportInfo();
+                const avgCharsPerLine = 100; // More realistic
+                const reservedLines = 3;
+                const maxContentLines = Math.max(15, Math.floor(linesVisible * 0.8) - reservedLines);
+                const maxChars = maxContentLines * avgCharsPerLine;
+                
+                if (content.length <= maxChars) return content;
+                
+                // Find a good breaking point (end of sentence or paragraph)
+                let truncateAt = maxChars;
+                const breakPoints = ['. ', '\n\n', '\n'];
+                
+                for (const breakPoint of breakPoints) {
+                    const lastBreak = content.lastIndexOf(breakPoint, maxChars);
+                    if (lastBreak > maxChars * 0.6) { // Less strict breaking
+                        truncateAt = lastBreak + breakPoint.length;
+                        break;
+                    }
+                }
+                
+                return content.substring(0, truncateAt);
+            }, [getTerminalViewportInfo]);
+            
+            // Function to scroll to expanded article and push content down for better reading UX
+            const scrollToExpandedArticle = React.useCallback((articleIndex) => {
+                const terminalContent = fieldRef.current;
+                if (!terminalContent) return;
+                
+                // Find the expanded article element in the terminal history
+                const historyItems = terminalContent.querySelectorAll('.history-item');
+                let targetElement = null;
+                
+                // Look for the article title element
+                for (let item of historyItems) {
+                    const clickableElements = item.querySelectorAll('.clickable-text');
+                    for (let clickable of clickableElements) {
+                        if (clickable.getAttribute('data-article-index') == articleIndex || 
+                            (clickable.onclick && clickable.onclick.toString().includes(`expandArticle`))) {
+                            targetElement = item;
+                            break;
+                        }
+                    }
+                    if (targetElement) break;
+                }
+                
+                // If we found the article, scroll to position it just below the pinned header
+                if (targetElement) {
+                    const targetTop = targetElement.offsetTop;
+                    const pinnedHeaderHeight = 160; // Account for pinned header + some padding
+                    const scrollTarget = Math.max(0, targetTop - pinnedHeaderHeight);
+                    
+                    terminalContent.scrollTo({
+                        top: scrollTarget,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback: scroll to writings section, keeping header visible
+                    const writingsElements = terminalContent.querySelectorAll('.history-item');
+                    for (let i = writingsElements.length - 1; i >= 0; i--) {
+                        if (writingsElements[i].textContent.includes('Writings:')) {
+                            const writingsTop = writingsElements[i].offsetTop;
+                            const pinnedHeaderHeight = 160; // Consistent with main scroll logic
+                            const scrollTarget = Math.max(0, writingsTop - pinnedHeaderHeight);
+                            
+                            terminalContent.scrollTo({
+                                top: scrollTarget,
+                                behavior: 'smooth'
+                            });
+                            break;
+                        }
+                    }
+                }
+            }, []);
+            
+            // Original chunk function for initial load (no scroll preservation needed)
+            const startProgressiveChunk = React.useCallback((progressiveState, startIndex, endIndex) => {
+                return startProgressiveChunkWithScrollPreservation(progressiveState, startIndex, endIndex, undefined);
+            }, []);
+
+            // Function to type initial content that fills the screen
+            const typeInitialContent = React.useCallback((content) => {
+                setTypingText('');
+                const typingDuration = 1000; // 1 second to type initial content
+                const updateInterval = 50;
+                const totalSteps = typingDuration / updateInterval;
+                let currentStep = 0;
+                
+                const typeInterval = setInterval(() => {
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        const progress = currentStep / totalSteps;
+                        const charactersToShow = Math.floor(progress * content.length);
+                        const currentText = content.substring(0, charactersToShow);
+                        setTypingText(currentText);
+                    } else {
+                        setTypingText(content);
+                        setIsProgressiveTyping(false);
+                        clearInterval(typeInterval);
+                    }
+                }, updateInterval);
+                
+                return () => clearInterval(typeInterval);
+            }, []);
+
+            // Track user scroll interaction to prevent automatic resume
+            const lastScrollTime = React.useRef(0);
+            const pauseTime = React.useRef(0);
+            
+            // Enhanced reading position tracking
+            const readingPosition = React.useRef({ scrollTop: 0, contentHeight: 0 });
+            const isUserScrolling = React.useRef(false);
+            
+            // Helper function to preserve exact scroll position during content updates
+            const preserveScrollPosition = React.useCallback(() => {
+                const terminalContent = fieldRef.current;
+                if (terminalContent) {
+                    readingPosition.current = {
+                        scrollTop: terminalContent.scrollTop,
+                        contentHeight: terminalContent.scrollHeight
+                    };
+                }
+            }, []);
+            
+            // Helper function to restore scroll position after content update
+            const restoreScrollPosition = React.useCallback(() => {
+                const terminalContent = fieldRef.current;
+                if (terminalContent && readingPosition.current.scrollTop > 0) {
+                    // Calculate new scroll position based on content height change
+                    const heightDifference = terminalContent.scrollHeight - readingPosition.current.contentHeight;
+                    const newScrollTop = readingPosition.current.scrollTop + heightDifference;
+                    
+                    // Restore scroll position smoothly
+                    terminalContent.scrollTop = newScrollTop;
+                }
+            }, []);
+            
+            // Smooth content loading without interrupting reading flow
+            const loadMoreContentSmoothly = React.useCallback((currentContent, fullContent, chunkSize = 1000) => {
+                if (currentContent.length >= fullContent.length) return currentContent;
+                
+                // Preserve current reading position
+                preserveScrollPosition();
+                
+                // Load next chunk of content
+                const nextChunkEnd = Math.min(currentContent.length + chunkSize, fullContent.length);
+                const newContent = fullContent.substring(0, nextChunkEnd);
+                
+                // Update content and restore position
+                setTimeout(() => {
+                    restoreScrollPosition();
+                }, 10);
+                
+                return newContent;
+            }, [preserveScrollPosition, restoreScrollPosition]);
+            
+            // Enhanced bidirectional scroll-based loading
+            const handleProgressiveScroll = React.useCallback(() => {
+                if (!progressiveArticle || !progressiveArticle.continuousLoading) {
+                    return;
+                }
+                
+                const terminalContent = fieldRef.current;
+                if (!terminalContent) return;
+                
+                // Check if there's more content to load
+                const fullContent = progressiveArticle.fullContent;
+                const currentContentLength = visibleContent.length;
+                const hasMoreContent = currentContentLength < fullContent.length;
+                
+                const scrollTop = terminalContent.scrollTop;
+                const scrollHeight = terminalContent.scrollHeight;
+                const clientHeight = terminalContent.clientHeight;
+                const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
+                
+                // Track scroll direction
+                const scrollDirection = scrollTop > lastScrollTop.current ? 'down' : 'up';
+                lastScrollTop.current = scrollTop;
+                
+                // Handle paused-at-bottom state - resume when user scrolls in either direction
+                if (progressiveArticle.pausedAtBottom && hasMoreContent) {
+                    // Resume loading if user scrolls down past 50% or scrolls up
+                    const shouldResumeDown = scrollDirection === 'down' && scrollPercentage > 0.5;
+                    const shouldResumeUp = scrollDirection === 'up' && scrollPercentage < 0.8;
+                    
+                    if (shouldResumeDown || shouldResumeUp) {
+                        // Clear the paused state and continue loading more content
+                    setProgressiveArticle(prev => prev ? {
+                        ...prev,
+                        pausedAtBottom: false
+                    } : null);
+                    
+                        // Calculate next chunk size based on scroll direction
+                        const chunkSize = scrollDirection === 'down' ? 
+                            Math.min(1200, fullContent.length - currentContentLength) : // Larger chunks for downward scrolling
+                            Math.min(800, fullContent.length - currentContentLength);   // Smaller chunks for upward scrolling
+                        
+                    const nextChunkEnd = Math.min(currentContentLength + chunkSize, fullContent.length);
+                    
+                        // Resume typing animation for the next chunk
+                    setIsProgressiveTyping(true);
+                    let currentIndex = currentContentLength;
+                        const typingSpeed = scrollDirection === 'down' ? 25 : 15; // Faster for down scrolling
+                        const intervalDelay = 20;
+                    
+                    const resumeInterval = setInterval(() => {
+                            if (currentIndex >= nextChunkEnd) {
+                            setIsProgressiveTyping(false);
+                                
+                                // Check if we need to pause again or if we're done
+                                if (nextChunkEnd >= fullContent.length) {
+                                    // Article is complete
+                            setProgressiveArticle(prev => prev ? {
+                                ...prev,
+                                        isComplete: true
+                            } : null);
+                                    setRemainingTokens(0);
+                                } else {
+                                    // Pause again for next chunk
+                                        setProgressiveArticle(prev => prev ? {
+                                            ...prev,
+                                            pausedAtBottom: true
+                                        } : null);
+                                }
+                                        clearInterval(resumeInterval);
+                                        return;
+                        }
+                            
+                            const nextIndex = Math.min(currentIndex + typingSpeed, nextChunkEnd);
+                            const currentText = fullContent.substring(0, nextIndex);
+                            setVisibleContent(currentText);
+                        
+                        // Update progress
+                        const progress = Math.floor((nextIndex / fullContent.length) * progressiveArticle.totalTokens);
+                        setProgressiveArticle(prev => prev ? {
+                            ...prev,
+                            loadedTokens: progress
+                        } : null);
+                        setRemainingTokens(Math.max(0, progressiveArticle.totalTokens - progress));
+                        
+                        currentIndex = nextIndex;
+                    }, intervalDelay);
+                    }
+                    
+                    return;
+                }
+                
+                // For continuous loading mode (not paused), load content based on scroll direction
+                if (!isProgressiveTyping && hasMoreContent) {
+                    // Load more content when scrolling down near bottom
+                    const shouldLoadMoreDown = scrollDirection === 'down' && scrollPercentage > 0.85;
+                    // Also load when scrolling up from very bottom (user might want to see more context)
+                    const shouldLoadMoreUp = scrollDirection === 'up' && scrollPercentage > 0.95 && scrollPercentage < 1.0;
+                    
+                    if (shouldLoadMoreDown || shouldLoadMoreUp) {
+                        // Preserve scroll position for smooth loading
+                        const scrollFromBottom = scrollHeight - scrollTop - clientHeight;
+                        
+                        // Load next chunk with size based on scroll direction
+                        const chunkSize = scrollDirection === 'down' ? 1000 : 600;
+                        const newContentEnd = Math.min(currentContentLength + chunkSize, fullContent.length);
+                        const newContent = fullContent.substring(0, newContentEnd);
+                    
+                    if (newContent.length > currentContentLength) {
+                        setVisibleContent(newContent);
+                        
+                        // Update progress
+                        const newProgress = Math.floor((newContent.length / fullContent.length) * progressiveArticle.totalTokens);
+                        setProgressiveArticle(prev => prev ? {
+                            ...prev,
+                            loadedTokens: newProgress,
+                            isComplete: newContent.length >= fullContent.length
+                        } : null);
+                        setRemainingTokens(Math.max(0, progressiveArticle.totalTokens - newProgress));
+                        
+                            // Restore scroll position for smooth reading experience
+                        setTimeout(() => {
+                                if (terminalContent && scrollDirection === 'up') {
+                                    const newScrollHeight = terminalContent.scrollHeight;
+                                    const targetScrollTop = newScrollHeight - scrollFromBottom - clientHeight;
+                                    terminalContent.scrollTop = Math.max(0, targetScrollTop);
+                                }
+                            }, 10);
+                        }
+                    }
+                }
+            }, [progressiveArticle, isProgressiveTyping, visibleContent]);
+
+            // Robust function to update writings display with improved state management
+            const updateWritingsDisplay = React.useCallback(() => {
+                if (currentPage !== 'writings') return;
+                
+                setFieldHistory(prev => {
+                    const newHistory = [...prev];
+                    
+                    // Find the last "Writings:" entry
+                    for (let i = newHistory.length - 1; i >= 0; i--) {
+                        if (newHistory[i].text === 'Writings:') {
+                            // Check if any article is expanded
+                            const expandedArticleIndex = Array.from(expandedArticles)[0];
+                            const hasExpandedArticle = expandedArticleIndex !== undefined;
+                            
+                            let writingLines;
+                            
+                            if (hasExpandedArticle) {
+                                // Only show the expanded article, hide all others
+                                const expandedArticle = writingsData[expandedArticleIndex];
+                                let content = progressiveArticle && progressiveArticle.index === expandedArticleIndex ? 
+                                    visibleContent : expandedArticle.content;
+                                
+                                // Check if this is initial load and content should be truncated
+                                const isInitialLoad = !progressiveArticle || progressiveArticle.loadedTokens === 0;
+                                const shouldTruncate = shouldTruncateContent(content, isInitialLoad);
+                                const hasMoreContent = content.length < expandedArticle.content.length;
+                                
+                                if (shouldTruncate && isInitialLoad) {
+                                    content = getTruncatedContent(content);
+                                }
+                                
+                                writingLines = [
+                                    { 
+                                        text: `▼ ${expandedArticle.title} - ${expandedArticle.date}`, 
+                                        isHighlight: true, 
+                                        isClickable: true,
+                                        articleIndex: expandedArticleIndex,
+                                        onClick: () => expandArticle(expandedArticle, expandedArticleIndex),
+                                        cssClass: 'expanded-article',
+                                        dataAttributes: { 'data-article-index': expandedArticleIndex }
+                                    },
+                                    {
+                                        text: content,
+                                        hasBuffer: true,
+                                        isArticleContent: true,
+                                        cssClass: 'article-content-expanded'
+                                    }
+                                ];
+                                
+                                // Add loading status and scroll indicator as overlay
+                                if (progressiveArticle && progressiveArticle.index === expandedArticleIndex) {
+                                    const progress = progressiveArticle.totalTokens > 0 ? 
+                                        Math.round((progressiveArticle.loadedTokens / progressiveArticle.totalTokens) * 100) : 0;
+                                    const progressBar = '█'.repeat(Math.floor(progress / 5)) + '░'.repeat(20 - Math.floor(progress / 5));
+                                    
+                                    // Single consolidated progress indicator for fixed footer
+                                    let progressText = '';
+                                    let progressClass = 'progress-overlay';
+                                    
+                                    if (isProgressiveTyping) {
+                                        progressText = `[${progressBar}] ${progress}% | Loading article... ${remainingTokens} tokens remaining`;
+                                        progressClass += ' progress-status';
+                                    } else if (progressiveArticle.isComplete) {
+                                        progressText = `[✓] Article loaded - ${progressiveArticle.totalTokens} tokens`;
+                                        progressClass += ' progress-complete';
+                                    }
+                                    
+                                    // Progress overlay will be rendered separately at terminal level
+                                } else if (hasMoreContent) {
+                                    // Initial truncated state - show scroll indicator
+                                    writingLines.push({
+                                        text: `[Content truncated - scroll to load more]`,
+                                        hasBuffer: true,
+                                        cssClass: 'scroll-to-load-indicator info'
+                                    });
+                                }
+                            } else {
+                                // Show all articles in collapsed state
+                                writingLines = writingsData.flatMap((w, index) => {
+                                    const lines = [
+                                        { 
+                                            text: `▶ ${w.title} - ${w.date}`, 
+                                            isHighlight: true, 
+                                            isClickable: true,
+                                            articleIndex: index,
+                                            onClick: () => expandArticle(w, index),
+                                            cssClass: `collapsed-article ${w.color ? 'article-' + w.color : ''}`,
+                                            dataAttributes: { 'data-article-index': index }
+                                        }
+                                    ];
+                                    
+                                    // Show preview for collapsed articles
+                                    const preview = w.content.length > 150 ? 
+                                        w.content.substring(0, 150).replace(/\s+\S*$/, '') + '...' : 
+                                        w.content;
+                                    
+                                    lines.push({
+                                        text: `  ${preview} [click to expand]`,
+                                        hasBuffer: true,
+                                        isClickable: true,
+                                        articleIndex: index,
+                                        onClick: () => expandArticle(w, index),
+                                        cssClass: 'article-preview-clickable'
+                                    });
+                                    
+                                    return lines;
+                                });
+                            }
+                            
+                            // Replace the writings section
+                            newHistory.splice(i, newHistory.length - i, 
+                                { text: 'Writings:', hasBuffer: true, isHighlight: true }, 
+                                ...writingLines
+                            );
+                            break;
+                        }
+                    }
+                    
+                    return newHistory;
+                });
+            }, [currentPage, writingsData, progressiveArticle, remainingTokens, isProgressiveTyping, visibleContent, expandArticle]);
+
+            const truncateContent = React.useCallback((content, maxLength = 150) => {
+                if (content.length <= maxLength) return content;
+                const truncated = content.substring(0, maxLength);
+                const lastSpace = truncated.lastIndexOf(' ');
+                return (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '...';
+            }, []);
+
+            const recognizedCommands = {
+                'help': {
+                    purpose: 'Displays this help message.',
+                    execute: () => {
+                        const commands = Object.keys(recognizedCommands).map(cmd => {
+                            return `${cmd.padEnd(15, ' ')} - ${recognizedCommands[cmd].purpose}`;
+                        });
+                        addToHistory([{ text: 'Available commands:', hasBuffer: true, isHighlight: true }, { text: commands.join('\n'), hasBuffer: true }]);
+                        setCurrentPage('help');
+                    }
+                },
+                'about': {
+                    purpose: 'Displays information about me.',
+                    execute: () => {
+                        addToHistory([{ text: "My name is Tim, a designer and developer from Adelaide, Australia. I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos. When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara and our dog Luna.", hasBuffer: true }]);
+                        setCurrentPage('about');
+                    }
+                },
+                'projects': {
+                    purpose: 'Shows my recent projects.',
+                    execute: () => {
+                        const projectLines = projectsData.flatMap(p => [
+                            { text: p.title, isLink: true, url: p.url },
+                            { text: `  ${p.synopsis}`, hasBuffer: true }
+                        ]);
+                        addToHistory([{ text: 'Projects:', hasBuffer: true, isHighlight: true }, ...projectLines]);
+                        setCurrentPage('projects');
+                    }
+                },
+                'writings': {
+                    purpose: 'Shows my recent writings.',
+                    execute: (args) => {
+                        // Handle individual article selection from nav submenu
+                        if (args && args[0] && args[0].startsWith('article-')) {
+                            const articleIndex = parseInt(args[0].split('-')[1]);
+                            const article = writingsData[articleIndex];
+                            if (article) {
+                                // Show specific article (removed auto-expansion)
+                                expandArticle(article, articleIndex);
+                                return;
+                            }
+                        }
+                        
+                        // Always reset to collapsed state when writings is clicked
+                        setExpandedArticles(new Set());
+                        setProgressiveArticle(null);
+                        setVisibleContent('');
+                        setRemainingTokens(0);
+                        setIsProgressiveTyping(false);
+                        
+                        // Regular writings command - always show collapsed view
+                        const writingLines = writingsData.flatMap((w, index) => {
+                            const lines = [
+                                { 
+                                    text: `▶ ${w.title} - ${w.date}`, 
+                                    isHighlight: true, 
+                                    isClickable: true,
+                                    articleIndex: index,
+                                    onClick: () => expandArticle(w, index),
+                                    cssClass: `collapsed-article ${w.color ? 'article-' + w.color : ''}`
+                                }
+                            ];
+                            
+                            // Always show preview for collapsed articles
+                            const preview = w.content.length > 150 ? 
+                                w.content.substring(0, 150).replace(/\s+\S*$/, '') + '...' : 
+                                w.content;
+                            
+                            lines.push({
+                                text: `  ${preview} [click to expand]`,
+                                hasBuffer: true,
+                                isClickable: true,
+                                articleIndex: index,
+                                onClick: () => expandArticle(w, index),
+                                cssClass: 'article-preview-clickable'
+                            });
+                            
+                            return lines;
+                        });
+                        
+                        addToHistory([{ text: 'Writings:', hasBuffer: true, isHighlight: true }, ...writingLines]); // Auto-scroll for writings list
+                        setCurrentPage('writings');
+                    }
+                },
+                'clear': {
+                    purpose: 'Clears the terminal screen.',
+                    execute: () => {
+                        setFieldHistory([]);
+                        setCurrentPage('home'); // Reset current page on clear
+                    }
+                },
+                'theme': {
+                    purpose: 'Switches the color theme (e.g., theme dark).',
+                    execute: (args) => {
+                        const newTheme = args[0];
+                        if (newTheme === 'dark' || newTheme === 'light') {
+                            setTheme(newTheme);
+                            addToHistory([{ text: `Theme set to ${newTheme}.`, hasBuffer: true }]);
+                        } else {
+                            addToHistory([{ text: 'Invalid theme. Use "dark" or "light".', isError: true, hasBuffer: true }]);
+                        }
+                    }
+                },
+                'mode': {
+                    purpose: 'Switch between UX and CLI mode (e.g., mode cli).',
+                    execute: (args) => {
+                        const newMode = args[0];
+                        if (newMode === 'cli' || newMode === 'ux') {
+                            setNavMode(newMode);
+                            addToHistory([{ text: `Navigation mode switched to ${newMode.toUpperCase()}.`, hasBuffer: true }]);
+                            setCurrentPage(newMode === 'cli' ? 'cli' : 'home'); // Set current page based on mode
+                        } else {
+                             addToHistory([{ text: 'Invalid mode. Use "cli" or "ux".', isError: true, hasBuffer: true }]);
+                        }
+                    }
+                },
+                'exit': {
+                    purpose: 'Exits CLI mode.',
+                    execute: () => {
+                        setNavMode('ux');
+                        addToHistory([{ text: 'Exited CLI mode.', hasBuffer: true }]);
+                        setCurrentPage('home'); // Reset to home on exit
+                    }
+                }
+            };
+
+            const addToHistory = (output, shouldAutoScroll = true) => {
+                setFieldHistory(prev => [...prev, ...output.map(item => ({...item, dimmed: false}))]);
+                
+                // Auto-scroll to bottom for non-article content
+                if (shouldAutoScroll && fieldRef.current) {
+                    // Use setTimeout to ensure the DOM has updated
+                    setTimeout(() => {
+                        if (fieldRef.current) {
+                            fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                        }
+                    }, 10);
+                }
+            };
+            
+            const processCommand = (input) => {
+                const [command, ...args] = input.trim().toLowerCase().split(' ');
+                if (command in recognizedCommands) {
+                    recognizedCommands[command].execute(args);
+                } else {
+                    addToHistory([{ text: `Command not found: ${command}`, isError: true, hasBuffer: true }]);
+                }
+            };
+            
+            const handleTyping = (e) => {
+                e.preventDefault();
+                const { key } = e;
+
+                if (key === 'Enter') {
+                    const newHistory = [...fieldHistory, { text: userInput, isCommand: true, dimmed: false }];
+                    setFieldHistory(newHistory);
+                    
+                    // Auto-scroll for command input
+                    setTimeout(() => {
+                        if (fieldRef.current) {
+                            fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                        }
+                    }, 10);
+                    
+                    if (userInput) {
+                        setCommandHistory([userInput, ...commandHistory]);
+                        setCommandHistoryIndex(0);
+                        processCommand(userInput);
+                    }
+                    setUserInput('');
+                    return;
+                }
+
+                if (key === 'Backspace') {
+                    setUserInput(userInput.slice(0, -1));
+                } else if (key.length === 1) {
+                    setUserInput(userInput + key);
+                } else if (key === 'ArrowUp') {
+                    if (commandHistoryIndex < commandHistory.length) {
+                        const newIndex = commandHistoryIndex + 1;
+                        setCommandHistoryIndex(newIndex);
+                        setUserInput(commandHistory[newIndex - 1]);
+                    }
+                } else if (key === 'ArrowDown') {
+                     if (commandHistoryIndex > 0) {
+                        const newIndex = commandHistoryIndex - 1;
+                        setCommandHistoryIndex(newIndex);
+                        setUserInput(commandHistory[newIndex - 1] || '');
+                    }
+                }
+            };
+
+            React.useEffect(() => {
+                setFieldHistory(welcomeMessage.map(item => ({...item, dimmed: false})));
+                fieldRef.current.focus();
+
+                // Auto-scroll to bottom for welcome message
+                setTimeout(() => {
+                if (fieldRef.current) {
+                    fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                }
+                }, 10);
+            }, []);
+
+            // Removed auto-scroll to bottom - let user control scroll position
+
+            // Removed auto-scroll for expanding articles - user controls scroll position
+
+            // Typing animation effect for inline expansion - always 1 second duration
+            React.useEffect(() => {
+                if (expandingArticle && expandingArticle.article.content) {
+                    setIsTyping(true);
+                    setTypingText('');
+                    
+                    const content = expandingArticle.article.content;
+                    const totalDuration = 1000; // 1 second total
+                    const updateInterval = 50; // Update every 50ms for smooth animation
+                    const totalSteps = totalDuration / updateInterval; // 20 steps
+                    let currentStep = 0;
+                    
+                    // Update the terminal history to show typing animation in real-time
+                    const updateTerminalWithTyping = (currentText) => {
+                        setFieldHistory(prev => {
+                            const newHistory = [...prev];
+                            // Find the last "Writings:" section and update it
+                            for (let i = newHistory.length - 1; i >= 0; i--) {
+                                if (newHistory[i].text === 'Writings:') {
+                                    // Rebuild the writings section with current typing state
+                                    const writingLines = writingsData.flatMap((w, index) => {
+                                        const isExpanded = expandedArticles.has(index);
+                                        const isCurrentlyExpanding = expandingArticle && expandingArticle.index === index;
+                                        
+                                        const lines = [
+                                            { 
+                                                text: `${w.title} - ${w.date}`, 
+                                                isHighlight: true, 
+                                                isClickable: true,
+                                                articleIndex: index,
+                                                onClick: () => expandArticle(w, index)
+                                            }
+                                        ];
+                                        
+                                        if (isExpanded) {
+                                            lines.push({
+                                                text: `  ${w.content}`,
+                                                hasBuffer: true,
+                                                isArticleContent: true
+                                            });
+                                        } else if (isCurrentlyExpanding) {
+                                            lines.push({
+                                                text: `  ${currentText}`,
+                                                hasBuffer: true,
+                                                isTyping: true,
+                                                showCursor: isTyping
+                                            });
+                                        } else {
+                                            lines.push({
+                                                text: `  ${truncateContent(w.content)}`,
+                                                hasBuffer: true,
+                                                isClickable: true,
+                                                articleIndex: index,
+                                                onClick: () => expandArticle(w, index)
+                                            });
+                                        }
+                                        
+                                        return lines;
+                                    });
+                                    
+                                    // Replace the writings section with updated content
+                                    newHistory.splice(i, newHistory.length - i, 
+                                        { text: 'Writings:', hasBuffer: true, isHighlight: true }, 
+                                        ...writingLines
+                                    );
+                                    break;
+                                }
+                            }
+                            return newHistory;
+                        });
+                        
+                        // Removed auto-scroll - user controls scroll position
+                    };
+                    
+                    const typeInterval = setInterval(() => {
+                        if (currentStep < totalSteps) {
+                            currentStep++;
+                            const progress = currentStep / totalSteps;
+                            const charactersToShow = Math.floor(progress * content.length);
+                            const currentText = content.substring(0, charactersToShow);
+                            setTypingText(currentText);
+                            updateTerminalWithTyping(currentText);
+                        } else {
+                            setIsTyping(false);
+                            // Mark article as fully expanded
+                            const newExpanded = new Set(expandedArticles);
+                            newExpanded.add(expandingArticle.index);
+                            setExpandedArticles(newExpanded);
+                            setExpandingArticle(null);
+                            setTypingText('');
+                            // Final update with full content
+                            updateTerminalWithTyping(content);
+                            clearInterval(typeInterval);
+                        }
+                    }, updateInterval);
+                    
+                    return () => {
+                        clearInterval(typeInterval);
+                        setIsTyping(false);
+                    };
+                }
+            }, [expandingArticle, expandedArticles, writingsData, isTyping, truncateContent, expandArticle]);
+
+            const handleNavClick = (command) => {
+                const dimmedHistory = fieldHistory.map(item => ({...item, dimmed: true}));
+                setFieldHistory(dimmedHistory);
+                processCommand(command);
+            }
+
+            // Update display when visible content changes during progressive typing
+            React.useEffect(() => {
+                if (progressiveArticle && (visibleContent || isProgressiveTyping)) {
+                    const timeoutId = setTimeout(() => {
+                        updateWritingsDisplay();
+                    }, 10); // Small delay to prevent excessive updates
+                    
+                    return () => clearTimeout(timeoutId);
+                }
+            }, [visibleContent, progressiveArticle, isProgressiveTyping, updateWritingsDisplay]);
+            
+            // Cleanup progressive state when component unmounts or page changes
+            React.useEffect(() => {
+                return () => {
+                    setProgressiveArticle(null);
+                    setVisibleContent('');
+                    setRemainingTokens(0);
+                    setIsProgressiveTyping(false);
+                };
+            }, [currentPage]);
+
+            // Throttle function to limit scroll event frequency
+            const throttle = React.useCallback((func, limit) => {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }, []);
+
+            // No scroll event listener needed for continuous loading
+
+            return (
+                <div
+                    id="field"
+                    ref={fieldRef}
+                    className={theme.app.backgroundColor === '#333444' ? 'dark' : 'light'}
+                    style={theme.field}
+                    onKeyDown={navMode === 'cli' ? handleTyping : null}
+                    tabIndex={0}
+                    onClick={() => fieldRef.current.focus()}
+                >
+                    {/* Pinned header with navigation and duck side by side */}
+                    <div style={{ 
+                        position: 'sticky', 
+                        top: 0, 
+                        backgroundColor: 'inherit', 
+                        zIndex: 10, 
+                        marginBottom: '20px', 
+                        borderBottom: '1px solid #444', 
+                        paddingBottom: '15px',
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '20px'
+                    }}>
+                        {navMode === 'ux' && (
+                            <div style={{ flex: 1 }}>
+                                <AsciiNav handleNavClick={handleNavClick} currentPage={currentPage} writingsData={writingsData} expandedMonths={expandedMonths} setExpandedMonths={setExpandedMonths} />
+                            </div>
+                        )}
+                        <div style={{ flexShrink: 0 }}>
+                            <AnimatedDuck />
+                        </div>
+                    </div>
+                    
+                     {fieldHistory.map((item, index) => (
+                        <div key={index} className={`history-item ${item.dimmed ? 'dimmed' : ''} ${item.cssClass || ''}`}>
+                            {item.isCommand && <div id="query" className="prompt">duck @quack:~$</div>}
+                             {item.isLink ? <a href={item.url} target="_blank" rel="noopener noreferrer" className="link">{parseMarkdownBold(item.text)}</a> :
+                             item.isClickable ? 
+                                <span 
+                                    className={`clickable-text ${item.isError ? 'error' : ''} ${item.isHighlight ? 'highlight' : ''} ${item.cssClass || ''}`}
+                                    onClick={item.onClick}
+                                    {...(item.dataAttributes || {})}
+                                >{parseMarkdownBold(item.text)}</span> :
+                                <span className={`${item.isError ? 'error' : ''} ${item.isHighlight ? 'highlight' : ''} ${item.cssClass || ''}`}>
+                                    {parseMarkdownBold(item.text)}
+                                    {item.isTyping && item.showCursor && <span className="typing-cursor"></span>}
+                                </span>
+                            }
+                            {item.hasBuffer && <div></div>}
+                        </div>
+                    ))}
+                    
+                    {navMode === 'cli' && (
+                        <>
+                            <div>
+                                <div id="query" className="prompt">duck @quack:~$</div>
+                                <span>{userInput}</span>
+                                <div id="cursor" style={theme.cursor}></div>
+                            </div>
+                            <div style={{ marginTop: '10px' }}>
+                                <span className="nav-tree-item nav-mode" onClick={() => handleNavClick('exit')}>[Exit CLI Mode]</span>
+                            </div>
+                        </>
+                    )}
+
+
+
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
