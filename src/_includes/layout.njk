@@ -384,6 +384,11 @@ ___( o)>
                     content: "A journey from the cricket pitch to the world of software development, and the lessons learned along the way."
                 }
             ];
+            const [expandedArticle, setExpandedArticle] = React.useState(null);
+            const [typingContent, setTypingContent] = React.useState('');
+            const [currentContentIndex, setCurrentContentIndex] = React.useState(0);
+            const [isTyping, setIsTyping] = React.useState(false);
+            const typingSpeed = 30; // Adjust for faster/slower typing
 
             const welcomeMessage = [
                 { text: 'Welcome to my portfolio! I am a Adelaide based creative developer with a passion for building beautiful and functional applications.' },
@@ -397,12 +402,12 @@ ___( o)>
                         const commands = Object.keys(recognizedCommands).map(cmd => {
                             return `${cmd.padEnd(15, ' ')} - ${recognizedCommands[cmd].purpose}`;
                         });
-                        addToHistory([{ text: 'Available commands:', hasBuffer: true, isHighlight: true }, { text: commands.join('\n'), hasBuffer: true }]);
+                        addToHistorySimple([{ text: 'Available commands:', hasBuffer: true, isHighlight: true }, { text: commands.join('\n'), hasBuffer: true }]);
                     }
                 },
                 'about': {
                     purpose: 'Displays information about me.',
-                    execute: () => addToHistory([{ text: "My name is Tim, a designer and developer from Adelaide, Australia. I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos. When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara and our dog Luna.", hasBuffer: true }])
+                    execute: () => addToHistorySimple([{ text: "My name is Tim, a designer and developer from Adelaide, Australia. I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos. When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara and our dog Luna.", hasBuffer: true }])
                 },
                 'projects': {
                     purpose: 'Shows my recent projects.',
@@ -411,7 +416,7 @@ ___( o)>
                             { text: p.title, isLink: true, url: p.url },
                             { text: `  ${p.synopsis}`, hasBuffer: true }
                         ]);
-                        addToHistory([{ text: 'Projects:', hasBuffer: true, isHighlight: true }, ...projectLines]);
+                        addToHistorySimple([{ text: 'Projects:', hasBuffer: true, isHighlight: true }, ...projectLines]);
                     }
                 },
                 'writings': {
@@ -421,7 +426,7 @@ ___( o)>
                             { text: `${w.title} - ${w.date}`, isHighlight: true },
                             { text: `  ${w.content}`, hasBuffer: true }
                         ]);
-                        addToHistory([{ text: 'Writings:', hasBuffer: true, isHighlight: true }, ...writingLines]);
+                        addToHistorySimple([{ text: 'Writings:', hasBuffer: true, isHighlight: true }, ...writingLines]);
                     }
                 },
                 'clear': {
@@ -434,9 +439,9 @@ ___( o)>
                         const newTheme = args[0];
                         if (newTheme === 'dark' || newTheme === 'light') {
                             setTheme(newTheme);
-                            addToHistory([{ text: `Theme set to ${newTheme}.`, hasBuffer: true }]);
+                            addToHistorySimple([{ text: `Theme set to ${newTheme}.`, hasBuffer: true }]);
                         } else {
-                            addToHistory([{ text: 'Invalid theme. Use "dark" or "light".', isError: true, hasBuffer: true }]);
+                            addToHistorySimple([{ text: 'Invalid theme. Use "dark" or "light".', isError: true, hasBuffer: true }]);
                         }
                     }
                 },
@@ -446,9 +451,9 @@ ___( o)>
                         const newMode = args[0];
                         if (newMode === 'cli' || newMode === 'ux') {
                             setNavMode(newMode);
-                            addToHistory([{ text: `Navigation mode switched to ${newMode.toUpperCase()}.`, hasBuffer: true }]);
+                            addToHistorySimple([{ text: `Navigation mode switched to ${newMode.toUpperCase()}.`, hasBuffer: true }]);
                         } else {
-                             addToHistory([{ text: 'Invalid mode. Use "cli" or "ux".', isError: true, hasBuffer: true }]);
+                             addToHistorySimple([{ text: 'Invalid mode. Use "cli" or "ux".', isError: true, hasBuffer: true }]);
                         }
                     }
                 },
@@ -456,12 +461,12 @@ ___( o)>
                     purpose: 'Exits CLI mode.',
                     execute: () => {
                         setNavMode('ux');
-                        addToHistory([{ text: 'Exited CLI mode.', hasBuffer: true }]);
+                        addToHistorySimple([{ text: 'Exited CLI mode.', hasBuffer: true }]);
                     }
                 }
             };
 
-            const addToHistory = (output) => {
+            const addToHistorySimple = (output) => {
                 setFieldHistory(prev => [...prev, ...output.map(item => ({...item, dimmed: false}))]);
             };
             
@@ -470,9 +475,46 @@ ___( o)>
                 if (command in recognizedCommands) {
                     recognizedCommands[command].execute(args);
                 } else {
-                    addToHistory([{ text: `Command not found: ${command}`, isError: true, hasBuffer: true }]);
+                    addToHistorySimple([{ text: `Command not found: ${command}`, isError: true, hasBuffer: true }]);
                 }
             };
+            
+            React.useEffect(() => {
+                if (isTyping && expandedArticle) {
+                    if (currentContentIndex < typingContent.length) {
+                        const timeout = setTimeout(() => {
+                            setCurrentContentIndex(prev => prev + 1);
+                            setFieldHistory(prev => {
+                                // If we're at the beginning of the typing
+                                if (currentContentIndex === 0) {
+                                    // Replace the synopsis with the start of the article
+                                    return [...prev, { text: expandedArticle.title, isHighlight: true, hasBuffer: true }];
+                                } else {
+                                    // Add the next character of the article
+                                    const currentText = typingContent.substring(0, currentContentIndex + 1);
+                                    return prev.map((item, index) => {
+                                        if (index === prev.length - 1 && item.text && item.text.endsWith('...')) {
+                                            // Find the index of the synopsis in writingsData
+                                            const synopsisIndex = writingsData.findIndex(w => w.content === item.text);
+                                            if (synopsisIndex !== -1) {
+                                                // Replace the synopsis with the current typing progress
+                                                return { text: currentText, hasBuffer: true };
+                                            }
+                                        }
+                                        return item;
+                                    });
+                                }
+                            });
+                        }, typingSpeed);
+                        
+                        return () => clearTimeout(timeout);
+                    } else {
+                        // Typing complete, add the "exit" command
+                        addToHistorySimple([{ text: 'Type `exit` to return to the main menu.', hasBuffer: true }]);
+                        setIsTyping(false);
+                    }
+                }
+            }, [currentContentIndex, isTyping, expandedArticle, typingContent]);
             
             const handleTyping = (e) => {
                 e.preventDefault();
@@ -547,8 +589,6 @@ ___( o)>
                         </div>
                     ))}
 
-                    {navMode === 'ux' && <AsciiNav handleNavClick={handleNavClick} />}
-                    
                     {navMode === 'cli' && (
                         <>
                             <div>
@@ -565,7 +605,56 @@ ___( o)>
             );
         };
 
-        ReactDOM.render(<App />, document.getElementById('root'));
+        const handleExpandClick = (index) => {
+            // Dim all existing content
+            const dimmedHistory = fieldHistory.map(item => ({...item, dimmed: true}));
+            // Add the expand command
+            setFieldHistory([...dimmedHistory, { text: `expand ${index}`, isCommand: true, dimmed: false }]);
+            // Process the expand command
+            processCommand(`expand ${index}`);
+        };
+        
+        return (
+            <div
+                id="field"
+                ref={fieldRef}
+                className={theme.app.backgroundColor === '#333444' ? 'dark' : 'light'}
+                style={theme.field}
+                onKeyDown={navMode === 'cli' ? handleTyping : null}
+                tabIndex={0}
+                onClick={() => fieldRef.current.focus()}
+            >
+                <AnimatedDuck />
+                {fieldHistory.map((item, index) => (
+                    <div key={index} className={`history-item ${item.dimmed ? 'dimmed' : ''}`}>
+                        {item.isCommand && <div id="query" className="prompt">duck @quack:~$</div>}
+                        {item.isLink ? <a href={item.url} target="_blank" rel="noopener noreferrer" className="link">{item.text}</a> :
+                         <span className={`${item.isError ? 'error' : ''} ${item.isHighlight ? 'highlight' : ''}`}>{item.text}</span>}
+                        {item.hasBuffer && <div></div>}
+                    </div>
+                ))}
+
+                {navMode === 'ux' && (
+                    <div>
+                        <AsciiNav handleNavClick={handleNavClick} />
+                        {fieldHistory.length === 0 && <div className="ascii-art duck">Click a navigation item to begin</div>}
+                    </div>
+                )}
+                
+                {navMode === 'cli' && (
+                    <>
+                        <div>
+                            <div id="query" className="prompt">duck @quack:~$</div>
+                            <span>{userInput}</span>
+                            <div id="cursor" style={theme.cursor}></div>
+                        </div>
+                        <div style={{ marginTop: '10px' }}>
+                            <span className="nav-tree-item nav-mode" onClick={() => handleNavClick('exit')}>[Exit CLI Mode]</span>
+                        </div>
+                    </>
+                )}
+            </div>
+        );
     </script>
 </body>
 </html>

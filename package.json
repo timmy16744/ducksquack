@@ -1,14 +1,16 @@
 {
   "name": "cli-blog",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Terminal-style portfolio blog built with Eleventy and React",
+  "main": "src/index.html",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "dev": "eleventy --serve --watch",
+    "clean": "rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["blog", "portfolio", "terminal", "eleventy", "react"],
+  "author": "Tim",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
