@@ -27,7 +27,7 @@ body {
 #terminal {
     width: 95vw;
     max-width: 1170px;
-    height: 715px;
+    height: 644px; /* Reduced by 10% from 715px */
     transition: .2s;
     position: relative;
 }
@@ -213,10 +213,11 @@ body {
 
 #field {
     height: calc(100% - 40px);
-    padding: 10px;
+    padding: 10px 10px 80px 10px; /* Increased bottom padding for better visibility */
     overflow-y: auto;
     overflow-wrap: break-word;
     white-space: pre-wrap;
+    box-sizing: border-box;
 }
 
 #field::-webkit-scrollbar {
