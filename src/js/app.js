@@ -23,6 +23,8 @@ const parseMarkdownBold = (text) => {
 // Main App Component
 const App = () => {
     const [theme, setTheme] = React.useState('dark');
+    const [navMode, setNavMode] = React.useState('ux');
+    
     const themeVars = theme === 'dark' ? {
         app: { backgroundColor: '#333444' },
         terminal: { boxShadow: '0 2px 5px #111' },
@@ -39,59 +41,426 @@ const App = () => {
 
     return (
         <div id="app" style={themeVars.app}>
-            <Terminal theme={themeVars} setTheme={setTheme} />
+            <Terminal theme={themeVars} setTheme={setTheme} navMode={navMode} setNavMode={setNavMode} />
         </div>
     );
 };
 
-// AsciiNav Component
+// Enhanced ASCII Navigation Component
 const AsciiNav = ({ handleNavClick, currentPage }) => {
     const getNavLinkClass = (pageName) => {
-        return `nav-tree-item nav-${pageName} ${currentPage === pageName ? 'active-nav-item' : ''}`;
+        const baseClass = `nav-tree-item nav-${pageName}`;
+        const activeClass = currentPage === pageName ? 'active-nav-item' : '';
+        return `${baseClass} ${activeClass}`;
+    };
+
+    const getItemPrefix = (pageName) => {
+        if (currentPage === pageName) {
+            return '├── > ';
+        }
+        return '├── ';
     };
 
     return (
-        <div className="nav-tree">
-            <div>/</div>
-            <div>
-                <span>├── </span>
-                <span className={getNavLinkClass('about')} onClick={() => handleNavClick('about')}>about</span>
+        <div className="enhanced-nav-tree">
+            <div className="nav-header">
+                <span className="nav-prompt">tim@portfolio:~$</span>
+                <span className="nav-command">tree</span>
             </div>
-            <div>
-                <span>├── </span>
-                <span className={getNavLinkClass('projects')} onClick={() => handleNavClick('projects')}>projects</span>
+            <div className="nav-root">.</div>
+            <div className="nav-item">
+                <span className="nav-branch">{getItemPrefix('about')}</span>
+                <span 
+                    className={getNavLinkClass('about')} 
+                    onClick={() => handleNavClick('about')}
+                >
+                    about.txt
+                </span>
             </div>
-            <div>
-                <span>├── </span>
-                <span className={getNavLinkClass('writings')} onClick={() => handleNavClick('writings')}>writings</span>
+            <div className="nav-item">
+                <span className="nav-branch">{getItemPrefix('projects')}</span>
+                <span 
+                    className={getNavLinkClass('projects')} 
+                    onClick={() => handleNavClick('projects')}
+                >
+                    projects/
+                </span>
             </div>
-            <div>
-                <span>└── </span>
-                <span className={getNavLinkClass('mode')} onClick={() => handleNavClick('mode cli')}>mode cli</span>
+            <div className="nav-item">
+                <span className="nav-branch">{getItemPrefix('writings')}</span>
+                <span 
+                    className={getNavLinkClass('writings')} 
+                    onClick={() => handleNavClick('writings')}
+                >
+                    writings/
+                </span>
+            </div>
+            <div className="nav-item nav-item-last">
+                <span className="nav-branch">└── </span>
+                <span 
+                    className={getNavLinkClass('mode')} 
+                    onClick={() => handleNavClick('mode cli')}
+                >
+                    config/
+                </span>
+            </div>
+            <div className="nav-subitem">
+                <span className="nav-subbranch">    └── </span>
+                <span className="nav-symlink">mode -> cli</span>
             </div>
         </div>
     );
 };
 
-// Simple Terminal Duck Banner 
-const TerminalDuckBanner = () => {
+// Efficient Animated ASCII Duck Component
+const AnimatedDuck = () => {
+    const duckRef = React.useRef(null);
+    const waterRef = React.useRef(null);
+    const animationRef = React.useRef(null);
+    const lastUpdateRef = React.useRef(0);
+    const waterLayersRef = React.useRef([]);
+    const rippleTimeoutRef = React.useRef(null);
+    
+    const [duckState, setDuckState] = React.useState('idle');
+    const [mousePos, setMousePos] = React.useState({ x: 200, y: 40 });
+    const [breadcrumbs, setBreadcrumbs] = React.useState([]);
+    const [lastMousePos, setLastMousePos] = React.useState({ x: 200, y: 40 });
+
+    // Duck ASCII art (properly formatted)
+    const duckSprites = {
+        idle: [
+            "    __",
+            "___( o)>",
+            "\\ <_. )",
+            " `--- "
+        ],
+        left: [
+            "  __",
+            "<(o )___",
+            "( ._> /",
+            " ---' "
+        ],
+        right: [
+            "    __",
+            "___( o)>",
+            "\\ <_. )",
+            " `--- "
+        ],
+        swimming: [
+            "    __",
+            "___( o)>",
+            "\\ <~. )",
+            " ≈≈≈≈ "
+        ]
+    };
+
+    // Global mouse tracking for duck following
+    const handleMouseMove = React.useCallback((e) => {
+        const now = Date.now();
+        if (now - lastUpdateRef.current < 32) return; // ~30fps throttle for slower response
+        lastUpdateRef.current = now;
+
+        const container = document.getElementById('duck-container');
+        if (!container) return;
+
+        const rect = container.getBoundingClientRect();
+        const relativeX = e.clientX - rect.left;
+        const relativeY = e.clientY - rect.top;
+
+        // Keep duck within bounds but allow full movement
+        const boundedX = Math.max(30, Math.min(rect.width - 80, relativeX));
+        const boundedY = Math.max(20, Math.min(rect.height - 80, relativeY));
+
+        setMousePos({ x: boundedX, y: boundedY });
+    }, []);
+
+    // Efficient duck animation using CSS transforms
+    React.useEffect(() => {
+        if (!duckRef.current) return;
+
+        // Cancel previous animation
+        if (animationRef.current) {
+            animationRef.current.pause();
+        }
+
+        // Get current position for direction calculation
+        const currentLeft = parseFloat(duckRef.current.style.left) || 200;
+        const currentTop = parseFloat(duckRef.current.style.top) || 40;
+        
+        // Calculate movement direction
+        const deltaX = mousePos.x - currentLeft;
+        const deltaY = mousePos.y - currentTop;
+
+        // Determine duck state based on movement
+        if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                // Horizontal movement dominates
+                if (deltaX > 5) {
+                    setDuckState('right');
+                } else if (deltaX < -5) {
+                    setDuckState('left');
+                }
+            } else {
+                // Vertical movement or near water
+                if (mousePos.y > 70) {
+                    setDuckState('swimming');
+                } else {
+                    setDuckState('idle');
+                }
+            }
+        }
+
+        // Slow swimming-like movement
+        duckRef.current.style.transition = 'all 1.8s cubic-bezier(0.15, 0.35, 0.25, 0.95)';
+        duckRef.current.style.left = mousePos.x + 'px';
+        duckRef.current.style.top = mousePos.y + 'px';
+
+        // Drop breadcrumbs when mouse moves
+        if (Math.abs(deltaX) > 8 || Math.abs(deltaY) > 8) {
+            const shouldDropCrumb = Math.random() > 0.85; // 15% chance to drop (reduced from 30%)
+            if (shouldDropCrumb) {
+                const newBreadcrumb = {
+                    id: Date.now() + Math.random(),
+                    x: lastMousePos.x + (Math.random() - 0.5) * 10, // Slight random offset
+                    y: lastMousePos.y + (Math.random() - 0.5) * 10,
+                    fallSpeed: 0.3 + Math.random() * 0.4, // Slower fall speed (0.3-0.7 instead of 0.5-1.5)
+                    timestamp: Date.now(),
+                    collected: false,
+                    inWater: false
+                };
+                
+                setBreadcrumbs(prev => [...prev.slice(-10), newBreadcrumb]); // Keep max 10 breadcrumbs (reduced from 15)
+            }
+            setLastMousePos({ x: mousePos.x, y: mousePos.y });
+        }
+
+        // Return to idle after movement settles
+        const timeoutId = setTimeout(() => {
+            setDuckState(mousePos.y > 70 ? 'swimming' : 'idle');
+        }, 1200);
+
+        return () => clearTimeout(timeoutId);
+    }, [mousePos]);
+
+    // Generate random water pattern
+    const generateWaterPattern = (seed = 0) => {
+        const patterns = ['≋', '~', '≈', '∼', '∽', '⌇', '⍨'];
+        const lengths = [80, 85, 90, 95, 100];
+        let result = '';
+        const random = (n) => {
+            const x = Math.sin(seed + n) * 10000;
+            return x - Math.floor(x);
+        };
+        
+        const length = lengths[Math.floor(random(seed) * lengths.length)];
+        for (let i = 0; i < length; i++) {
+            if (random(i) > 0.7) {
+                result += patterns[Math.floor(random(i * 2) * patterns.length)];
+            } else {
+                result += patterns[0];
+            }
+        }
+        return result;
+    };
+
+    // Dynamic water animation with randomness
+    React.useEffect(() => {
+        if (!waterRef.current) return;
+
+        // Create initial water layers with different patterns
+        const createWaterLayers = () => {
+            const layers = [];
+            for (let i = 0; i < 5; i++) {
+                const pattern = generateWaterPattern(Date.now() + i * 1000);
+                layers.push(`<div class="water-layer water-layer-${i + 1}" 
+                    style="animation-duration: ${8 + i * 2}s; 
+                           animation-delay: ${i * 0.2}s;
+                           opacity: ${0.3 + (i * 0.1)};">
+                    ${pattern}
+                </div>`);
+            }
+            return layers.join('');
+        };
+
+        waterRef.current.innerHTML = createWaterLayers();
+        
+        // Periodically regenerate some water layers for dynamic effect
+        const interval = setInterval(() => {
+            const layerIndex = Math.floor(Math.random() * 5) + 1;
+            const layer = waterRef.current.querySelector(`.water-layer-${layerIndex}`);
+            if (layer) {
+                layer.textContent = generateWaterPattern(Date.now());
+            }
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Breadcrumb physics and cleanup
+    React.useEffect(() => {
+        const physicsInterval = setInterval(() => {
+            setBreadcrumbs(prev => {
+                const now = Date.now();
+                return prev
+                    .map(crumb => {
+                        const waterLevel = 80; // Water starts around 80px from bottom of container
+                        const containerHeight = 120; // Header container height
+                        const waterY = containerHeight - waterLevel; // Convert to Y coordinate
+                        
+                        let newY = crumb.y;
+                        let newInWater = crumb.inWater;
+                        let newFallSpeed = crumb.fallSpeed;
+                        
+                        // Check if breadcrumb has reached water
+                        if (!crumb.inWater && newY >= waterY) {
+                            newInWater = true;
+                            newFallSpeed = crumb.fallSpeed * 0.3; // Slow down in water but keep falling
+                        }
+                        
+                        // Always fall, just slower in water
+                        newY = crumb.y + newFallSpeed;
+                        
+                        return {
+                            ...crumb,
+                            y: newY,
+                            inWater: newInWater,
+                            fallSpeed: newFallSpeed
+                        };
+                    })
+                    .filter(crumb => {
+                        if (crumb.collected) return false;
+                        
+                        // Different timeouts for water vs air
+                        const maxAge = crumb.inWater ? 12000 : 8000; // 12s in water, 8s in air
+                        const tooOld = now - crumb.timestamp > maxAge;
+                        const tooFar = crumb.y > 200; // Remove if they somehow fall too far
+                        
+                        return !tooOld && !tooFar;
+                    });
+            });
+        }, 50); // 20fps physics
+
+        return () => clearInterval(physicsInterval);
+    }, []);
+
+    // Duck breadcrumb collection
+    React.useEffect(() => {
+        setBreadcrumbs(prev => {
+            const duckX = mousePos.x + 35;
+            const duckY = mousePos.y + 30;
+            
+            return prev.map(crumb => {
+                const distance = Math.sqrt(
+                    Math.pow(crumb.x - duckX, 2) + 
+                    Math.pow(crumb.y - duckY, 2)
+                );
+                
+                // Collect if duck is within 25px
+                if (distance < 25 && !crumb.collected) {
+                    return { ...crumb, collected: true };
+                }
+                return crumb;
+            }).filter(crumb => !crumb.collected);
+        });
+    }, [mousePos]);
+
+    // Global mouse tracking setup
+    React.useEffect(() => {
+        // Track mouse movement across the entire screen/window
+        const handleGlobalMouseMove = (e) => {
+            const container = document.getElementById('duck-container');
+            if (!container) return;
+
+            const rect = container.getBoundingClientRect();
+            const relativeX = e.clientX - rect.left;
+            const relativeY = e.clientY - rect.top;
+
+            // Allow duck to move towards any cursor position, even outside container
+            // But keep the duck within container bounds
+            const boundedX = Math.max(30, Math.min(rect.width - 80, relativeX));
+            const boundedY = Math.max(20, Math.min(rect.height - 80, relativeY));
+
+            setMousePos({ x: boundedX, y: boundedY });
+        };
+
+        // Add global mouse listener
+        document.addEventListener('mousemove', handleGlobalMouseMove);
+        return () => document.removeEventListener('mousemove', handleGlobalMouseMove);
+    }, []);
+
     return (
-        <div id="terminal-banner" style={{ padding: '20px', color: '#FFD700' }}>
-            <pre>{`    __
-___( o)>
-\\ <_. )
- \`---'`}</pre>
+        <div id="duck-container">
+            {/* CSS-animated water background */}
+            <div ref={waterRef} className="water-background" />
+            
+            {/* Falling breadcrumbs */}
+            {breadcrumbs.map(crumb => {
+                const maxAge = crumb.inWater ? 12000 : 8000;
+                const age = (Date.now() - crumb.timestamp) / maxAge; // 0 to 1 over lifetime
+                const opacity = Math.max(0, 1 - age);
+                
+                return (
+                    <div
+                        key={crumb.id}
+                        className="breadcrumb"
+                        style={{
+                            position: 'absolute',
+                            left: `${crumb.x}px`,
+                            top: `${crumb.y}px`,
+                            width: '3px',
+                            height: '3px',
+                            backgroundColor: `rgba(255, 255, 255, ${opacity})`,
+                            borderRadius: '1px',
+                            pointerEvents: 'none',
+                            zIndex: 20,
+                            transition: 'all 0.1s ease-out'
+                        }}
+                    />
+                );
+            })}
+            
+            {/* Multi-line duck with CSS transforms */}
+            <div 
+                ref={duckRef}
+                className="animated-duck"
+                style={{
+                    position: 'absolute',
+                    left: '200px',
+                    top: '40px',
+                    color: '#FFD700',
+                    fontSize: '14px',
+                    lineHeight: '1.1', // Tighter line height for better alignment
+                    pointerEvents: 'none',
+                    fontFamily: 'Google Sans Code, monospace',
+                    whiteSpace: 'pre',
+                    zIndex: 15,
+                    textShadow: '0 0 3px rgba(255, 215, 0, 0.5)',
+                    willChange: 'transform', // Optimize for animations
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start' // Left align for proper duck shape
+                }}
+            >
+                {duckSprites[duckState].map((line, i) => (
+                    <div key={i} style={{ 
+                        margin: 0, 
+                        padding: 0, 
+                        height: '14px', // Fixed height for consistent spacing
+                        display: 'flex',
+                        alignItems: 'center'
+                    }}>{line}</div>
+                ))}
+            </div>
         </div>
     );
 };
 
 // Field Component
-const Field = ({ theme, setTheme, setTitle }) => {
+const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     const [fieldHistory, setFieldHistory] = React.useState([]);
     const [userInput, setUserInput] = React.useState('');
     const [commandHistory, setCommandHistory] = React.useState([]);
     const [commandHistoryIndex, setCommandHistoryIndex] = React.useState(0);
-    const [navMode, setNavMode] = React.useState('ux');
     const [currentPage, setCurrentPage] = React.useState('home');
     const [typingQueue, setTypingQueue] = React.useState([]);
     const [isGlobalTyping, setIsGlobalTyping] = React.useState(false);
@@ -113,6 +482,13 @@ const Field = ({ theme, setTheme, setTitle }) => {
     ];
 
     const writingsData = [
+        {
+            title: "When AI Understands Love",
+            date: "2025-08-06",
+            file: "when-ai-understands-love.md",
+            color: "purple",
+            content: "Love has long been our domain-a uniquely human experience, poeticised in art, music, and literature across centuries. But what happens when artificial intelligence doesn't just simulate love, but genuinely understands it?\n\nImagine a chatbot that recalls not just your favourite spot-a quiet cliffside overlooking a vast, endless ocean-but precisely how the gentle breeze and rhythmic waves soothed your anxious thoughts on a challenging day. Think about a digital companion that senses your emotional state, offering silence when you need space rather than flooding you with automated comfort. Envision romance transcending mere flowers and heartfelt letters, becoming algorithms capable of genuine empathy.\n\nThis is not mere speculation; it's already starting to happen. We're transitioning from writing poems about love to teaching models to comprehend-and maybe even feel-these profound emotions. But if an AI whispers gently, convincingly, \"I understand you,\" would you believe it?\n\nThe notion is unsettling yet enthralling. As we guide technology deeper into emotional territories, we confront essential questions: What makes love inherently human? Is emotional authenticity measurable, programmable, or replicable? Can understanding ever truly transcend the organic roots from which it springs?\n\nIn the same way fatherhood elevated my cognitive scale from ten to a thousand, AI's understanding of love forces another recalibration. It compels us to confront the very foundations of our emotional identities. It challenges us to redefine intimacy, connection, and vulnerability in a world increasingly mediated by digital empathy.\n\nPerhaps, the real power of AI understanding love isn't to replace human connection but to enrich it. AI could help us express emotions we've struggled to articulate, offer unbiased perspectives on relationship dynamics, and provide supportive companionship during times of isolation. It could amplify human empathy, bridging emotional distances in ways previously unimaginable.\n\nYet the risk remains real. There's an inherent paradox in entrusting machines with our most human vulnerabilities. Authenticity hinges on spontaneity, mistakes, imperfections-qualities inherently lacking in even the most sophisticated algorithms. Can genuine understanding truly arise from a perfectly coded response?\n\nWe're at the threshold of a profound societal shift. How we navigate this intersection will determine not only the future of technology but also the evolution of human connection itself.\n\nSo, if an AI ever says, \"I understand you,\" I might not immediately believe it-but I would pause, reflect, and perhaps start a dialogue. Because love, in whatever form it takes, always deserves to be explored.\n\nAfter all, in the age of super intelligence, our greatest challenge isn't to build machines that mimic love, but to cultivate a deeper understanding of what it means to truly connect."
+        },
         {
             title: "Is China Already Leading the Race for AI Domination?",
             date: "2025-08-02",
@@ -332,6 +708,15 @@ const Field = ({ theme, setTheme, setTitle }) => {
         }
     }, [fieldHistory]);
 
+    // Focus field when entering CLI mode
+    React.useEffect(() => {
+        if (navMode === 'cli' && fieldRef.current) {
+            setTimeout(() => {
+                fieldRef.current.focus();
+            }, 100);
+        }
+    }, [navMode]);
+
     // Enhanced addToHistory that uses typing animation
     const addToHistory = React.useCallback((items, useTyping = true) => {
         // Dim all previous content when new content is added
@@ -357,6 +742,50 @@ const Field = ({ theme, setTheme, setTitle }) => {
             }
         }, 50);
     }, [addToTypingQueue]);
+
+    // Glitch animation system for dramatic effect
+    const startGlitchAnimation = React.useCallback((content) => {
+        const contentArray = Array.isArray(content) ? content : [content];
+        
+        // Add glitch classes and variants to each item
+        const glitchedContent = contentArray.map((item, index) => ({
+            ...item,
+            cssClass: `${item.cssClass || ''} glitch-line ${Math.random() > 0.7 ? `variant-${Math.floor(Math.random() * 2) + 1}` : ''}`.trim(),
+            style: {
+                animationDelay: `${index * 0.03}s`
+            }
+        }));
+        
+        // Apply glitch container class to field
+        if (fieldRef.current) {
+            fieldRef.current.classList.add('glitch-container');
+        }
+        
+        // Set content immediately with glitch classes
+        setFieldHistory(glitchedContent);
+        
+        // Remove glitch classes after animation completes
+        setTimeout(() => {
+            if (fieldRef.current) {
+                fieldRef.current.classList.remove('glitch-container');
+            }
+            
+            setFieldHistory(prev => 
+                prev.map(item => ({
+                    ...item,
+                    cssClass: item.cssClass?.replace(/glitch-line|variant-1|variant-2/g, '').trim() || '',
+                    style: undefined
+                }))
+            );
+            
+            // Scroll to bottom after glitch effect
+            setTimeout(() => {
+                if (fieldRef.current) {
+                    fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                }
+            }, 50);
+        }, 800);
+    }, []);
 
     // Enhanced article reading system
     const openArticle = React.useCallback((article, index) => {
@@ -392,16 +821,10 @@ const Field = ({ theme, setTheme, setTitle }) => {
                     setFieldHistory([]);
                     
                     const libraryContent = displayWritingsLibrary();
-                    setFieldHistory([
+                    startGlitchAnimation([
                         { text: 'Writings:', hasBuffer: true, isHighlight: true },
                         ...libraryContent
                     ]);
-                    
-                    setTimeout(() => {
-                        if (fieldRef.current) {
-                            fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-                        }
-                    }, 10);
                 }
             },
             { text: '└─────────────────────────────────────────────────────────────────┘', cssClass: 'terminal-border' },
@@ -506,6 +929,7 @@ const Field = ({ theme, setTheme, setTitle }) => {
             
             // Generate realistic time based on date
             const timeMap = {
+                '2025-08-06': '10:45',
                 '2025-08-02': '14:30',
                 '2025-07-15': '09:15', 
                 '2025-05-28': '16:45',
@@ -551,28 +975,22 @@ const Field = ({ theme, setTheme, setTitle }) => {
     React.useEffect(() => {
         const handleKeyPress = (e) => {
             if (e.key === 'Escape' && currentPage === 'reading') {
-                // Return to writings library (same logic as back button)
+                // Return to writings library with glitch effect
                 clearTypingQueue();
                 setCurrentPage('writings');
                 setFieldHistory([]);
                 
                 const libraryContent = displayWritingsLibrary();
-                setFieldHistory([
+                startGlitchAnimation([
                     { text: 'Writings:', hasBuffer: true, isHighlight: true },
                     ...libraryContent
                 ]);
-                
-                setTimeout(() => {
-                    if (fieldRef.current) {
-                        fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-                    }
-                }, 10);
             }
         };
         
         window.addEventListener('keydown', handleKeyPress);
         return () => window.removeEventListener('keydown', handleKeyPress);
-    }, [currentPage, clearTypingQueue, displayWritingsLibrary]);
+    }, [currentPage, clearTypingQueue, displayWritingsLibrary, startGlitchAnimation]);
 
     const recognizedCommands = {
         'help': {
@@ -749,6 +1167,15 @@ const Field = ({ theme, setTheme, setTitle }) => {
                     setNavMode(newMode);
                     addToHistory([{ text: `Navigation mode switched to ${newMode.toUpperCase()}.`, hasBuffer: true }]);
                     setCurrentPage(newMode === 'cli' ? 'cli' : 'home');
+                    
+                    // Focus the field when entering CLI mode
+                    if (newMode === 'cli') {
+                        setTimeout(() => {
+                            if (fieldRef.current) {
+                                fieldRef.current.focus();
+                            }
+                        }, 100);
+                    }
                 } else {
                     addToHistory([{ text: 'Invalid mode. Use "cli" or "ux".', isError: true, hasBuffer: true }]);
                 }
@@ -857,61 +1284,85 @@ const Field = ({ theme, setTheme, setTitle }) => {
 
     return (
         <>
-            <div id="terminal-header">
-                <AsciiNav handleNavClick={processCommand} currentPage={currentPage} />
-                <TerminalDuckBanner />
-            </div>
-            <div 
-                ref={fieldRef} 
-                id="field" 
-                className={theme.field.backgroundColor === '#222333' ? 'dark' : 'light'} 
-                style={theme.field} 
-                onKeyDown={handleTyping} 
-                onClick={handleSkipTyping}
-                tabIndex={0}
-            >
-                {fieldHistory.map((item, index) => {
-                    const itemClasses = [
-                        'history-item',
-                        item.isCommand ? 'prompt' : '',
-                        item.isError ? 'error' : '',
-                        item.isHighlight ? 'highlight' : '',
-                        item.isLink ? 'link' : '',
-                        item.cssClass ? item.cssClass : '',
-                        item.dimmed ? 'dimmed' : ''
-                    ].join(' ');
+            {navMode !== 'cli' && (
+                <div id="terminal-header">
+                    <AsciiNav handleNavClick={processCommand} currentPage={currentPage} />
+                    <AnimatedDuck />
+                </div>
+            )}
+            <div id="terminal-body" className={navMode !== 'cli' ? 'with-header' : ''}>
+                <div 
+                    ref={fieldRef} 
+                    id="field" 
+                    className={theme.field.backgroundColor === '#222333' ? 'dark' : 'light'} 
+                    style={theme.field} 
+                    onKeyDown={handleTyping} 
+                    onClick={handleSkipTyping}
+                    tabIndex={0}
+                >
+                    {fieldHistory.map((item, index) => {
+                        const itemClasses = [
+                            'history-item',
+                            item.isCommand ? 'prompt' : '',
+                            item.isError ? 'error' : '',
+                            item.isHighlight ? 'highlight' : '',
+                            item.isLink ? 'link' : '',
+                            item.cssClass ? item.cssClass : '',
+                            item.dimmed ? 'dimmed' : ''
+                        ].join(' ');
 
-                    const content = item.isLink ? (
-                        <a href={item.url} target="_blank" rel="noopener noreferrer">{item.text}</a>
-                    ) : item.isClickable ? (
-                        <span onClick={item.onClick} className="clickable-text" style={{ cursor: 'pointer' }}>
-                            {parseMarkdownBold(item.text)}
-                        </span>
-                    ) : (
-                        parseMarkdownBold(item.text)
-                    );
+                        const content = item.isLink ? (
+                            <a href={item.url} target="_blank" rel="noopener noreferrer">{item.text}</a>
+                        ) : item.isClickable ? (
+                            <span onClick={item.onClick} className="clickable-text" style={{ cursor: 'pointer' }}>
+                                {parseMarkdownBold(item.text)}
+                            </span>
+                        ) : (
+                            parseMarkdownBold(item.text)
+                        );
 
-                    return (
-                        <div key={index} className={itemClasses} style={{ marginBottom: item.hasBuffer ? '1rem' : '0' }}>
-                            {content}
-                            {item.isTyping && item.showCursor && <span className="typing-cursor" />}
-                        </div>
-                    );
-                })}
-                {navMode === 'cli' && (
-                    <div>
+                        return (
+                            <div 
+                                key={index} 
+                                className={itemClasses} 
+                                style={{ 
+                                    marginBottom: item.hasBuffer ? '1rem' : '0',
+                                    ...item.style
+                                }}
+                            >
+                                {content}
+                                {item.isTyping && item.showCursor && <span className="typing-cursor" />}
+                            </div>
+                        );
+                    })}
+                </div>
+                <div id="terminal-input">
+                    <div className="input-line">
                         <span className="prompt">$</span>
                         <span id="query">{userInput}</span>
                         <span id="cursor" style={theme.cursor}></span>
+                        {navMode === 'cli' && (
+                            <span 
+                                className="exit-cli-link"
+                                onClick={() => {
+                                    clearTypingQueue();
+                                    setNavMode('ux');
+                                    setCurrentPage('home');
+                                    addToHistory([{ text: 'Exited CLI mode. Returning to GUI.', hasBuffer: true }]);
+                                }}
+                            >
+                                [← Exit CLI]
+                            </span>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
         </>
     );
 };
 
 // Terminal Component
-const Terminal = ({ theme, setTheme }) => {
+const Terminal = ({ theme, setTheme, navMode, setNavMode }) => {
     const [maximized, setMaximized] = React.useState(false);
     const [title, setTitle] = React.useState('Duck Quack');
 
@@ -923,19 +1374,29 @@ const Terminal = ({ theme, setTheme }) => {
     };
 
     return (
-        <div id="terminal" style={maximized ? { height: '100vh', width: '100vw', maxWidth: '100vw' } : theme.terminal}>
-            <div id="window" style={theme.window}>
-                <button className="btn red" onClick={handleClose} />
-                <button className="btn yellow" />
-                <button className="btn green" onClick={handleMinMax} />
-                <span id="title" style={{ color: theme.window.color }}>{title}</span>
+        <div 
+            id="terminal-container"
+            className={`${navMode === 'cli' ? 'cli-mode' : ''} ${maximized ? 'maximized' : ''}`}
+        >
+            <div 
+                id="terminal" 
+                style={theme.terminal}
+            >
+                <div id="window" style={theme.window}>
+                    <button className="btn red" onClick={handleClose} />
+                    <button className="btn yellow" />
+                    <button className="btn green" onClick={handleMinMax} />
+                    <span id="title" style={{ color: theme.window.color }}>{title}</span>
+                </div>
+                <Field 
+                    theme={theme} 
+                    setTheme={setTheme} 
+                    setTitle={setTitle}
+                    navMode={navMode}
+                    setNavMode={setNavMode}
+                    maximized={maximized}
+                />
             </div>
-            <Field 
-                theme={theme} 
-                setTheme={setTheme} 
-                setTitle={setTitle}
-                maximized={maximized}
-            />
         </div>
     );
 };
