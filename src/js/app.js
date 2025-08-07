@@ -507,6 +507,10 @@ const TetrisGame = ({ onExit }) => {
     const [level, setLevel] = React.useState(1);
     const [gameOver, setGameOver] = React.useState(false);
     const [pieceBag, setPieceBag] = React.useState([]);
+    const [showNameEntry, setShowNameEntry] = React.useState(false);
+    const [playerName, setPlayerName] = React.useState('');
+    const [isNewHighScore, setIsNewHighScore] = React.useState(false);
+    const [musicEnabled, setMusicEnabled] = React.useState(true);
     
     const dropCounterRef = React.useRef(0);
     const dropIntervalRef = React.useRef(48 * 16.67); // Level 1: 48 frames at 60 FPS
@@ -514,6 +518,199 @@ const TetrisGame = ({ onExit }) => {
     const gameLoopRef = React.useRef();
     const pieceBagRef = React.useRef([]);
     const playerRef = React.useRef(null);
+    const audioContextRef = React.useRef(null);
+    const musicGainRef = React.useRef(null);
+    const currentNotesRef = React.useRef([]);
+    const musicTimeoutRef = React.useRef(null);
+    
+    // Input system refs for responsive controls
+    const keysHeld = React.useRef(new Set());
+    const keyRepeatTimers = React.useRef(new Map());
+    const lastMoveTime = React.useRef(0);
+
+    // High Score System
+    const getHighScores = React.useCallback(() => {
+        const stored = localStorage.getItem('tetris-high-scores');
+        if (stored) {
+            return JSON.parse(stored);
+        }
+        // Default high scores
+        return [
+            { name: 'CLAUDE', score: 50000 },
+            { name: 'TETRIS', score: 40000 },
+            { name: 'MASTER', score: 30000 },
+            { name: 'PLAYER', score: 20000 },
+            { name: 'ROOKIE', score: 10000 },
+            { name: 'NOOB', score: 5000 }
+        ];
+    }, []);
+
+    const saveHighScore = React.useCallback((name, score) => {
+        const currentScores = getHighScores();
+        const newScores = [...currentScores, { name: name.toUpperCase().slice(0, 6), score }];
+        newScores.sort((a, b) => b.score - a.score);
+        newScores.splice(6); // Keep only top 6
+        localStorage.setItem('tetris-high-scores', JSON.stringify(newScores));
+        // Reset the name entry state after saving
+        setPlayerName('');
+        setIsNewHighScore(false);
+    }, [getHighScores]);
+
+    const checkHighScore = React.useCallback((score) => {
+        const highScores = getHighScores();
+        return highScores.length < 6 || score > highScores[highScores.length - 1].score;
+    }, [getHighScores]);
+
+    // Chiptune Music System
+    const initAudio = React.useCallback(() => {
+        if (!audioContextRef.current) {
+            audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+            musicGainRef.current = audioContextRef.current.createGain();
+            musicGainRef.current.connect(audioContextRef.current.destination);
+            musicGainRef.current.gain.setValueAtTime(0.3, audioContextRef.current.currentTime);
+        }
+    }, []);
+
+    const playNote = React.useCallback((frequency, duration, startTime = 0) => {
+        if (!audioContextRef.current || frequency === 0) return;
+        
+        const oscillator = audioContextRef.current.createOscillator();
+        const gainNode = audioContextRef.current.createGain();
+        
+        // Authentic NES-style square wave with duty cycle
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(frequency, audioContextRef.current.currentTime + startTime);
+        
+        // More authentic Tetris envelope - sharper attack, quicker decay
+        const attackTime = 0.005; // Very fast attack
+        const decayTime = duration * 0.15; // Quicker decay
+        const sustainLevel = 0.15; // Lower sustain for authentic feel
+        const releaseTime = duration * 0.1; // Sharp release
+        
+        gainNode.gain.setValueAtTime(0, audioContextRef.current.currentTime + startTime);
+        gainNode.gain.linearRampToValueAtTime(0.25, audioContextRef.current.currentTime + startTime + attackTime);
+        gainNode.gain.exponentialRampToValueAtTime(sustainLevel, audioContextRef.current.currentTime + startTime + attackTime + decayTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContextRef.current.currentTime + startTime + duration - releaseTime);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(musicGainRef.current);
+        
+        oscillator.start(audioContextRef.current.currentTime + startTime);
+        oscillator.stop(audioContextRef.current.currentTime + startTime + duration);
+        
+        return oscillator;
+    }, []);
+
+    // Korobeiniki (Tetris Theme A) melody in chiptune - Tetris Friends version
+    const playKorobeiniki = React.useCallback(() => {
+        if (!audioContextRef.current || !musicEnabled) return;
+        
+        // Calculate tempo multiplier based on level (faster as levels increase)
+        const baseTempoMultiplier = Math.min(1 + (level - 1) * 0.1, 2.0); // Up to 2x speed at high levels
+        
+        // Note frequencies (Hz) - More accurate to original 
+        const notes = {
+            'E5': 659.25, 'B4': 493.88, 'C5': 523.25, 'D5': 587.33,
+            'A4': 440.00, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00,
+            'F#5': 739.99, 'G#4': 415.30, 'C#5': 554.37, 'D#5': 622.25,
+            'REST': 0
+        };
+        
+        // Complete Tetris Theme A melody with proper note durations (in 16th note units)
+        const melodyPattern = [
+            // Main theme - Part A
+            {note: 'E5', duration: 4}, {note: 'B4', duration: 2}, {note: 'C5', duration: 2}, 
+            {note: 'D5', duration: 4}, {note: 'C5', duration: 2}, {note: 'B4', duration: 2},
+            {note: 'A4', duration: 4}, {note: 'A4', duration: 2}, {note: 'C5', duration: 2},
+            {note: 'E5', duration: 4}, {note: 'D5', duration: 2}, {note: 'C5', duration: 2},
+            {note: 'B4', duration: 6}, {note: 'C5', duration: 2},
+            {note: 'D5', duration: 4}, {note: 'E5', duration: 4},
+            {note: 'C5', duration: 4}, {note: 'A4', duration: 4},
+            {note: 'A4', duration: 8}, {note: 'REST', duration: 4},
+            
+            // Part B
+            {note: 'D5', duration: 6}, {note: 'F5', duration: 2},
+            {note: 'A5', duration: 4}, {note: 'G5', duration: 2}, {note: 'F5', duration: 2},
+            {note: 'E5', duration: 6}, {note: 'C5', duration: 2},
+            {note: 'E5', duration: 4}, {note: 'D5', duration: 2}, {note: 'C5', duration: 2},
+            {note: 'B4', duration: 6}, {note: 'C5', duration: 2},
+            {note: 'D5', duration: 4}, {note: 'E5', duration: 4},
+            {note: 'C5', duration: 4}, {note: 'A4', duration: 4},
+            {note: 'A4', duration: 8}, {note: 'REST', duration: 4}
+        ];
+        
+        // Base note duration (16th note) - gets faster with level
+        const baseDuration = (0.15 / baseTempoMultiplier); // Authentic Tetris timing
+        let currentTime = 0;
+        
+        melodyPattern.forEach(({note, duration}) => {
+            const noteDuration = baseDuration * duration;
+            if (note !== 'REST') {
+                const oscillator = playNote(notes[note], noteDuration, currentTime);
+                currentNotesRef.current.push(oscillator);
+            }
+            currentTime += noteDuration;
+        });
+        
+        // Schedule next loop based on current tempo
+        const totalDuration = melodyPattern.reduce((sum, {duration}) => sum + duration, 0) * baseDuration;
+        musicTimeoutRef.current = setTimeout(() => {
+            if (!gameOver && audioContextRef.current && musicEnabled) {
+                playKorobeiniki();
+            }
+        }, totalDuration * 1000);
+        
+    }, [playNote, gameOver, musicEnabled, level]);
+
+    const stopMusic = React.useCallback(() => {
+        // Clear the music loop timeout
+        if (musicTimeoutRef.current) {
+            clearTimeout(musicTimeoutRef.current);
+            musicTimeoutRef.current = null;
+        }
+        
+        // Stop all current notes
+        currentNotesRef.current.forEach(oscillator => {
+            try {
+                oscillator.stop();
+            } catch (e) {
+                // Oscillator already stopped
+            }
+        });
+        currentNotesRef.current = [];
+    }, []);
+
+    const startMusic = React.useCallback(() => {
+        if (!musicEnabled) return;
+        
+        // Stop any existing music first
+        stopMusic();
+        
+        initAudio();
+        if (audioContextRef.current?.state === 'suspended') {
+            audioContextRef.current.resume().then(() => {
+                playKorobeiniki();
+            });
+        } else {
+            playKorobeiniki();
+        }
+    }, [initAudio, playKorobeiniki, musicEnabled, stopMusic]);
+
+    // Handle exit with music stop
+    const handleExit = React.useCallback(() => {
+        stopMusic();
+        onExit();
+    }, [stopMusic, onExit]);
+
+    // Music toggle function
+    const toggleMusic = React.useCallback(() => {
+        if (musicEnabled) {
+            stopMusic();
+        } else {
+            startMusic();
+        }
+        setMusicEnabled(!musicEnabled);
+    }, [musicEnabled, stopMusic, startMusic]);
 
     // 7-Bag Generator
     const generatePieceBag = React.useCallback(() => {
@@ -634,20 +831,36 @@ const TetrisGame = ({ onExit }) => {
         // Check if the new piece can be placed
         if (collides(newPlayer)) {
             setGameOver(true);
+            stopMusic(); // Stop music when game ends
+            // Check for high score only once when game ends
+            if (checkHighScore(score) && !isNewHighScore && !showNameEntry) {
+                setIsNewHighScore(true);
+                setShowNameEntry(true);
+            }
             return;
         }
         
         setPlayer(newPlayer);
         setCanHold(true);
-    }, [getNextPieceType, createPiece, collides]);
+    }, [getNextPieceType, createPiece, collides, checkHighScore, score, isNewHighScore, showNameEntry, stopMusic]);
 
-    const movePlayer = React.useCallback((dir) => {
+    const movePlayer = React.useCallback((dir, forceMove = false) => {
         if (!player) return;
         
-        const newPlayer = { ...player, x: player.x + dir };
-        if (!collides(newPlayer)) {
-            setPlayer(newPlayer);
+        // Implement DAS (Delayed Auto Shift) for responsive movement
+        const now = Date.now();
+        const timeSinceLastMove = now - lastMoveTime.current;
+        
+        // Allow immediate movement if forced or enough time has passed
+        if (forceMove || timeSinceLastMove >= 80) { // 80ms delay for smooth but responsive movement
+            const newPlayer = { ...player, x: player.x + dir };
+            if (!collides(newPlayer)) {
+                setPlayer(newPlayer);
+                lastMoveTime.current = now;
+                return true;
+            }
         }
+        return false;
     }, [player, collides]);
 
     const rotatePlayer = React.useCallback(() => {
@@ -735,12 +948,18 @@ const TetrisGame = ({ onExit }) => {
         setGameOver(false);
         setHeldPiece(null);
         setCanHold(true);
+        setShowNameEntry(false);
+        setPlayerName('');
+        setIsNewHighScore(false);
         dropIntervalRef.current = 48 * 16.67; // Level 1 speed: 48 frames
         
         // Initialize first piece
         const firstType = getNextPieceType();
         setPlayer(createPiece(firstType));
-    }, [generatePieceBag, getNextPieceType, createPiece]);
+        
+        // Start Korobeiniki music
+        startMusic();
+    }, [generatePieceBag, getNextPieceType, createPiece, startMusic]);
 
     // Game Loop
     React.useEffect(() => {
@@ -769,40 +988,205 @@ const TetrisGame = ({ onExit }) => {
         };
     }, [gameOver, playerDrop]); // playerDrop is now stable
 
-    // Controls
+    // Touch/Swipe Controls for mobile
     React.useEffect(() => {
+        let touchStartX = null;
+        let touchStartY = null;
+        let touchStartTime = null;
+        
+        const handleTouchStart = (event) => {
+            const touch = event.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            touchStartTime = Date.now();
+        };
+        
+        const handleTouchEnd = (event) => {
+            if (!touchStartX || !touchStartY) return;
+            
+            const touch = event.changedTouches[0];
+            const touchEndX = touch.clientX;
+            const touchEndY = touch.clientY;
+            const touchEndTime = Date.now();
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const deltaTime = touchEndTime - touchStartTime;
+            
+            // Minimum swipe distance and maximum time
+            const minSwipeDistance = 30;
+            const maxSwipeTime = 300;
+            
+            if (deltaTime > maxSwipeTime) return;
+            
+            // Quick tap - rotate
+            if (Math.abs(deltaX) < 20 && Math.abs(deltaY) < 20) {
+                if (deltaTime < 200) {
+                    // Quick tap - rotate
+                    if (!gameOver) {
+                        rotatePlayer();
+                    }
+                } else if (deltaTime > 500) {
+                    // Long press - hold piece
+                    if (!gameOver) {
+                        holdPiece();
+                    }
+                }
+                return;
+            }
+            
+            // Determine swipe direction
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                // Horizontal swipe
+                if (Math.abs(deltaX) > minSwipeDistance) {
+                    if (deltaX > 0) {
+                        // Swipe right
+                        if (!gameOver) movePlayer(1);
+                    } else {
+                        // Swipe left
+                        if (!gameOver) movePlayer(-1);
+                    }
+                }
+            } else {
+                // Vertical swipe
+                if (Math.abs(deltaY) > minSwipeDistance) {
+                    if (deltaY > 0) {
+                        // Swipe down - soft drop
+                        if (!gameOver) playerDrop();
+                    } else {
+                        // Swipe up - hard drop
+                        if (!gameOver) playerHardDrop();
+                    }
+                }
+            }
+            
+            // Reset touch coordinates
+            touchStartX = null;
+            touchStartY = null;
+            touchStartTime = null;
+        };
+
+        // Keyboard Controls
         const handleKeyDown = (event) => {
             if (gameOver) {
                 if (event.code === 'KeyR') {
                     resetGame();
                 }
                 if (event.key === 'Escape') {
-                    onExit();
+                    handleExit();
                 }
                 return;
             }
             
-            switch(event.code) {
-                case 'ArrowLeft': movePlayer(-1); break;
-                case 'ArrowRight': movePlayer(1); break;
-                case 'ArrowDown': playerDrop(); break;
-                case 'ArrowUp': rotatePlayer(); break;
-                case 'Space': 
-                    event.preventDefault(); 
-                    playerHardDrop(); 
-                    break;
-                case 'KeyC': holdPiece(); break;
-                case 'Escape': onExit(); break;
+            // Prevent browser default for game keys
+            if (['ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp', 'Space'].includes(event.code)) {
+                event.preventDefault();
+            }
+            
+            // Handle one-time press actions
+            if (!keysHeld.current.has(event.code)) {
+                switch(event.code) {
+                    case 'ArrowLeft': 
+                        movePlayer(-1, true);
+                        startKeyRepeat(event.code, () => movePlayer(-1));
+                        break;
+                    case 'ArrowRight': 
+                        movePlayer(1, true);
+                        startKeyRepeat(event.code, () => movePlayer(1));
+                        break;
+                    case 'ArrowDown': 
+                        playerDrop();
+                        startKeyRepeat(event.code, () => playerDrop(), 50); // Faster repeat for soft drop
+                        break;
+                    case 'ArrowUp': rotatePlayer(); break;
+                    case 'Space': playerHardDrop(); break;
+                    case 'KeyC': holdPiece(); break;
+                    case 'Escape': handleExit(); break;
+                }
+                keysHeld.current.add(event.code);
             }
         };
         
+        const handleKeyUp = (event) => {
+            if (keysHeld.current.has(event.code)) {
+                keysHeld.current.delete(event.code);
+                stopKeyRepeat(event.code);
+            }
+        };
+        
+        const startKeyRepeat = (keyCode, action, delay = 150) => {
+            // Clear any existing timer for this key
+            stopKeyRepeat(keyCode);
+            
+            // Start repeat timer
+            const timerId = setTimeout(() => {
+                const repeatAction = () => {
+                    if (keysHeld.current.has(keyCode) && !gameOver) {
+                        action();
+                        keyRepeatTimers.current.set(keyCode, setTimeout(repeatAction, 40)); // Fast repeat
+                    }
+                };
+                repeatAction();
+            }, delay); // Initial delay before repeat starts
+            
+            keyRepeatTimers.current.set(keyCode, timerId);
+        };
+        
+        const stopKeyRepeat = (keyCode) => {
+            if (keyRepeatTimers.current.has(keyCode)) {
+                clearTimeout(keyRepeatTimers.current.get(keyCode));
+                keyRepeatTimers.current.delete(keyCode);
+            }
+        };
+        
+        // Add event listeners
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [gameOver, resetGame, onExit, movePlayer, playerDrop, rotatePlayer, playerHardDrop, holdPiece]);
+        window.addEventListener('keyup', handleKeyUp);
+        document.addEventListener('touchstart', handleTouchStart, { passive: false });
+        document.addEventListener('touchend', handleTouchEnd, { passive: false });
+        
+        return () => {
+            // Clear all key repeats on unmount
+            keyRepeatTimers.current.forEach(timerId => clearTimeout(timerId));
+            keyRepeatTimers.current.clear();
+            keysHeld.current.clear();
+            
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyUp);
+            document.removeEventListener('touchstart', handleTouchStart);
+            document.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, [gameOver, resetGame, handleExit, movePlayer, playerDrop, rotatePlayer, playerHardDrop, holdPiece]);
+
+    // Handle music enabled/disabled state
+    React.useEffect(() => {
+        if (!musicEnabled) {
+            stopMusic();
+        } else if (!gameOver && player) {
+            // Only start music if game is actually running
+            startMusic();
+        }
+    }, [musicEnabled]);
 
     // Initialize game
     React.useEffect(() => {
         resetGame();
+        
+        // Cleanup on unmount
+        return () => {
+            if (musicTimeoutRef.current) {
+                clearTimeout(musicTimeoutRef.current);
+                musicTimeoutRef.current = null;
+            }
+            currentNotesRef.current.forEach(oscillator => {
+                try {
+                    oscillator.stop();
+                } catch (e) {
+                    // Oscillator already stopped
+                }
+            });
+            currentNotesRef.current = [];
+        };
     }, []);
 
     // Render ghost piece
@@ -868,7 +1252,30 @@ const TetrisGame = ({ onExit }) => {
         if (!pieceType) return null;
         
         const piece = TETROMINOES[pieceType];
-        const gridSize = isSmall ? 4 : 4;
+        const originalShape = piece.shape;
+        const gridSize = 4;
+        
+        // Calculate piece bounds for centering
+        let minRow = originalShape.length, maxRow = -1;
+        let minCol = originalShape[0].length, maxCol = -1;
+        
+        for (let row = 0; row < originalShape.length; row++) {
+            for (let col = 0; col < originalShape[row].length; col++) {
+                if (originalShape[row][col]) {
+                    minRow = Math.min(minRow, row);
+                    maxRow = Math.max(maxRow, row);
+                    minCol = Math.min(minCol, col);
+                    maxCol = Math.max(maxCol, col);
+                }
+            }
+        }
+        
+        const pieceWidth = maxCol - minCol + 1;
+        const pieceHeight = maxRow - minRow + 1;
+        
+        // Calculate centering offset
+        const offsetRow = Math.floor((gridSize - pieceHeight) / 2) - minRow;
+        const offsetCol = Math.floor((gridSize - pieceWidth) / 2) - minCol;
         
         return (
             <div style={{
@@ -883,11 +1290,17 @@ const TetrisGame = ({ onExit }) => {
                 boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
             }}>
                 {Array.from({ length: gridSize * gridSize }, (_, i) => {
-                    const row = Math.floor(i / gridSize);
-                    const col = i % gridSize;
+                    const displayRow = Math.floor(i / gridSize);
+                    const displayCol = i % gridSize;
+                    
+                    // Map display position to piece shape position
+                    const shapeRow = displayRow - offsetRow;
+                    const shapeCol = displayCol - offsetCol;
                     
                     let hasBlock = false;
-                    if (piece.shape[row] && piece.shape[row][col]) {
+                    if (shapeRow >= 0 && shapeRow < originalShape.length &&
+                        shapeCol >= 0 && shapeCol < originalShape[shapeRow].length &&
+                        originalShape[shapeRow][shapeCol]) {
                         hasBlock = true;
                     }
                     
@@ -1061,7 +1474,7 @@ const TetrisGame = ({ onExit }) => {
             }}>
                 {/* Exit Button */}
                 <button 
-                    onClick={onExit}
+                    onClick={handleExit}
                     style={{
                         position: 'absolute',
                         top: '20px',
@@ -1074,18 +1487,102 @@ const TetrisGame = ({ onExit }) => {
                         cursor: 'pointer',
                         fontFamily: 'Google Sans Code, monospace',
                         fontSize: '14px',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        zIndex: 1001
                     }}
                 >
                     ✕ EXIT
                 </button>
+
+                {/* Mobile Controls Info */}
+                {'ontouchstart' in window && (
+                    <div style={{
+                        position: 'absolute',
+                        top: '20px',
+                        left: '20px',
+                        padding: '10px 15px',
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        color: 'var(--text-primary)',
+                        borderRadius: '4px',
+                        fontFamily: 'Google Sans Code, monospace',
+                        fontSize: '12px',
+                        zIndex: 1001
+                    }}>
+                        📱 TAP: Rotate | HOLD: Hold piece<br/>
+                        ↔️ SWIPE: Move | ⬆️ Hard drop | ⬇️ Soft drop
+                    </div>
+                )}
                 
                 <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                    {/* Hold Piece */}
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0, color: 'var(--text-primary)' }}>HOLD</h2>
-                        {renderPiece(heldPiece, true)}
-                        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>(C)</p>
+                    {/* Left Side - High Scores and Hold */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '200px' }}>
+                        {/* High Scores */}
+                        <div style={{ 
+                            backgroundColor: 'var(--bg-secondary)', 
+                            padding: '1rem', 
+                            borderRadius: '0.5rem', 
+                            border: '1px solid var(--border)'
+                        }}>
+                            <h2 style={{ fontSize: '1.125rem', marginBottom: '0.5rem', color: 'var(--primary)', fontWeight: 'bold', fontFamily: 'Orbitron, monospace' }}>HIGH SCORES</h2>
+                            {getHighScores().map((entry, index) => (
+                                <div key={index} style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'space-between', 
+                                    margin: '0.25rem 0',
+                                    fontFamily: 'Orbitron, monospace',
+                                    fontSize: '0.875rem',
+                                    color: index === 0 ? 'var(--warning)' : 'var(--text-secondary)'
+                                }}>
+                                    <span>{index + 1}. {entry.name}</span>
+                                    <span>{entry.score.toLocaleString()}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Hold Piece */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                            <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0, color: 'var(--text-primary)' }}>HOLD</h2>
+                            {renderPiece(heldPiece, true)}
+                            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>(C)</p>
+                        </div>
+
+                        {/* Music Toggle */}
+                        <div style={{ 
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            alignItems: 'center', 
+                            gap: '0.5rem',
+                            backgroundColor: 'var(--bg-secondary)', 
+                            padding: '1rem', 
+                            borderRadius: '0.5rem', 
+                            border: '1px solid var(--border)'
+                        }}>
+                            <h2 style={{ fontSize: '1rem', fontWeight: 'bold', margin: 0, color: 'var(--text-primary)', fontFamily: 'Orbitron, monospace' }}>MUSIC</h2>
+                            <button
+                                onClick={toggleMusic}
+                                style={{
+                                    backgroundColor: musicEnabled ? 'var(--success)' : 'var(--text-muted)',
+                                    color: 'var(--text-primary)',
+                                    border: '1px solid var(--border)',
+                                    padding: '0.5rem 1rem',
+                                    borderRadius: '0.25rem',
+                                    cursor: 'pointer',
+                                    fontFamily: 'Orbitron, monospace',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 'bold',
+                                    transition: 'all 0.2s ease',
+                                    minWidth: '80px'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.transform = 'scale(1.05)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.transform = 'scale(1)';
+                                }}
+                            >
+                                {musicEnabled ? '🔊 ON' : '🔇 OFF'}
+                            </button>
+                        </div>
                     </div>
                     
                     {/* Main Game Board */}
@@ -1149,6 +1646,130 @@ const TetrisGame = ({ onExit }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Name Entry Modal for New High Score */}
+            {showNameEntry && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 10000,
+                    fontFamily: 'Orbitron, monospace'
+                }}>
+                    <div style={{
+                        backgroundColor: 'var(--bg-primary)',
+                        border: '3px solid var(--primary)',
+                        borderRadius: '10px',
+                        padding: '2rem',
+                        textAlign: 'center',
+                        boxShadow: '0 0 30px rgba(242, 93, 148, 0.5)'
+                    }}>
+                        <h1 style={{
+                            color: 'var(--warning)',
+                            fontSize: '2.5rem',
+                            fontWeight: '900',
+                            margin: '0 0 1rem 0',
+                            textShadow: '0 0 10px var(--warning)',
+                            animation: 'pulse 1.5s infinite'
+                        }}>
+                            🏆 NEW HIGH SCORE! 🏆
+                        </h1>
+                        
+                        <p style={{
+                            color: 'var(--success)',
+                            fontSize: '2rem',
+                            fontWeight: 'bold',
+                            margin: '0 0 1.5rem 0'
+                        }}>
+                            {score.toLocaleString()}
+                        </p>
+                        
+                        <p style={{
+                            color: 'var(--text-primary)',
+                            fontSize: '1.125rem',
+                            margin: '0 0 1rem 0'
+                        }}>
+                            Enter your name (6 characters max):
+                        </p>
+                        
+                        <input
+                            type="text"
+                            value={playerName}
+                            onChange={(e) => {
+                                const value = e.target.value.toUpperCase().slice(0, 6);
+                                setPlayerName(value);
+                            }}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    saveHighScore(playerName.trim() || 'PLAYER', score);
+                                    setShowNameEntry(false);
+                                }
+                            }}
+                            maxLength={6}
+                            autoFocus
+                            style={{
+                                backgroundColor: 'var(--bg-secondary)',
+                                border: '2px solid var(--tertiary)',
+                                borderRadius: '5px',
+                                padding: '10px 15px',
+                                fontSize: '1.5rem',
+                                fontFamily: 'Orbitron, monospace',
+                                fontWeight: 'bold',
+                                color: 'var(--text-primary)',
+                                textAlign: 'center',
+                                letterSpacing: '0.2em',
+                                width: '200px',
+                                margin: '0 0 1.5rem 0'
+                            }}
+                        />
+                        
+                        <div>
+                            <button
+                                onClick={() => {
+                                    saveHighScore(playerName.trim() || 'PLAYER', score);
+                                    setShowNameEntry(false);
+                                }}
+                                style={{
+                                    backgroundColor: 'var(--success)',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    padding: '10px 20px',
+                                    fontSize: '1rem',
+                                    fontFamily: 'Orbitron, monospace',
+                                    fontWeight: 'bold',
+                                    cursor: 'pointer',
+                                    marginRight: '10px'
+                                }}
+                            >
+                                SAVE
+                            </button>
+                            <button
+                                onClick={() => setShowNameEntry(false)}
+                                style={{
+                                    backgroundColor: 'var(--text-muted)',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    padding: '10px 20px',
+                                    fontSize: '1rem',
+                                    fontFamily: 'Orbitron, monospace',
+                                    fontWeight: 'bold',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                SKIP
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
@@ -1194,7 +1815,15 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         }
     ];
 
-    const writingsData = [
+    // Use dynamically loaded writings data if available, otherwise fall back to hardcoded
+    const writingsData = window.writingsData || [
+        {
+            title: "Navigating the MAD MAP: Mutual Assured Destruction vs. Mutual Assured Prosperity",
+            date: "2024-12-19",
+            file: "navigating-mad-map.md",
+            color: "pink",
+            content: "We are at the kind of moment that, looking back, will feel obvious. The technology is here, moving faster than anything we have ever built, and the next five years will fix the trajectory. Which future we get is still open, but not for long.\n\nI think of it as two maps. The first is MAD (Mutual Assured Destruction). AI makes every human weakness sharper. Wars become more efficient. Inequality grows. Disinformation becomes constant background noise. Trust in institutions erodes until it is almost impossible to rebuild. The second is MAP (Mutual Assured Prosperity). AI becomes the most powerful amplifier for progress in history, lifting living standards, accelerating science, and creating abundance.\n\nBoth paths are visible. Which one we take depends on decisions we make now.\n\n## The MAD Path\n\nMAD is not speculation. We are already seeing the early signs. Autonomous weapons that operate at machine speed. State-scale cyberattacks with precision targeting. Propaganda factories that run nonstop without fatigue. The danger here is that it does not feel like a single, shattering event. It feels like a slow drift. Privacy disappears piece by piece. The rules bend slightly at first, then more sharply toward those who already hold power. Over time, instability becomes the new normal.\n\nOnce that happens, reversing course becomes far harder.\n\n## The MAP Path\n\nMAP is not utopia. It is simply a future where our problems get solved faster than they appear. Imagine an AI-driven research ecosystem that eliminates extreme poverty, cures most major diseases, and creates personalised education for everyone. Picture economies rebuilt around abundance instead of scarcity, and governance systems informed by high-quality, real-time decision tools. In this version of the future, AI does not erase our problems entirely, but it makes them far more manageable.\n\nIt is important to note that MAP will not arrive automatically. It requires coordination, good governance, and a willingness to address problems before they are irreversible.\n\n## The Next Five Years: Locks and Levers\n\nThe next half-decade will set the foundation for how AI is built, deployed, and governed. Certain choices, once made, will be extremely difficult to undo. Four moves matter more than the rest:\n\n**Regulation That Matches Velocity**: We need governance that moves at the speed of the technology. Safety checks, transparent reporting, and global standards can coexist with innovation if designed well. Waiting will only ensure that the most dangerous systems are deployed without oversight.\n\n**Redefining Work**: AI will replace tasks before it replaces whole jobs, but eventually it will restructure the labor market. This is a chance to create entirely new industries and new kinds of work. Reskilling needs to be more than a slogan, and safety nets must be designed for a reality where automation is everywhere.\n\n**Privacy by Default**: AI will process unprecedented volumes of personal data. Without ownership and consent built into the architecture, we will drift into surveillance as the default state. Fixing this later will be almost impossible.\n\n**Cooperation Over Arms Race**: If countries treat AI development as a zero-sum race, MAD becomes inevitable. Sharing safety research, creating interoperable standards, and cooperating on oversight of the most capable systems increases the odds of MAP.\n\n## Why It Is Our Decision\n\nAI will not choose between MAD and MAP. We will. Acting as if we have unlimited time is the same as deciding not to act. The speed of the technology means that later is rarely later. It is never.\n\nHumans have avoided worst-case scenarios before. We can do it again. If we get this right, AI will be remembered as the technology that fundamentally upgraded human capability. If we fail, it will be remembered as the technology that made our problems unmanageable.\n\nThe map is already drawn. The route is still ours to pick."
+        },
         {
             title: "Reverse Engineering Nature's Quantum",
             date: "2025-01-06",
@@ -1203,11 +1832,11 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
             content: "We stand at the threshold of the most profound technological revolution in human history, and it's already happening around us.\n\nFor millennia, electricity coursed through every atom, every lightning bolt, every firing neuron in our brains, yet humanity stumbled through darkness, unable to harness the infinite power dancing just beyond our fingertips. We knew it existed, we could see it crackling across stormy skies, but we lacked the understanding to plug into this omnipresent force.\n\nToday, we face an eerily similar moment with quantum computing. Except this time, the stakes are exponentially higher.\n\nEvery leaf on every tree is already running quantum algorithms with perfect efficiency, solving optimization problems that would crash our most advanced supercomputers. Birds navigate using quantum effects in their neurons. Bacteria tunnel through energy barriers that should be impossible to cross. Nature has been operating a vast, interconnected quantum network for billions of years. We're just now learning how to read the interface.\n\nIn 2025, quantum computing isn't the distant future, it's next year's budget item. Investment has nearly doubled annually, with production use cases jumping from 33% to 55% of industry leaders in just twelve months. We're not discussing if quantum computers will transform society, but which industries die first when the quantum tsunami hits.\n\nConsider this timeline that's no longer hypothetical: perfect error correction achieved by 2027, with hybrid quantum-classical systems deployed commercially, materials designed atom by atom and drugs created in days instead of decades by 2030, weather systems controlled and consciousness backed up like computer files by 2033. This isn't a science fiction movie. This is our Tuesday morning five years from now.\n\nImagine discovering that your entire backyard is actually a supercomputer, one more powerful than anything humans have ever built. This isn't metaphor. Plants are already quantum computers, using coherent energy states to optimize photosynthesis with near-perfect efficiency. They're solving NP-hard problems as a side effect of existing.\n\nThe breakthrough won't be building bigger quantum processors, it will be learning to plug USB cables into trees.\n\nPicture forests that simultaneously grow timber and solve supply chain logistics, crops that optimize their own growth patterns while calculating traffic flow for nearby cities, a living, breathing, solar-powered quantum network spanning the planet, solving humanity's greatest challenges as background processes while nature just exists. The compute power is already there, infinite and free. We just need to learn nature's programming language.\n\nThis quantum awakening is simultaneously the most hopeful and terrifying prospect in human history.\n\nThe promise is breathtaking: cancer cells converted back to healthy ones instantly, aging reversed through quantum-optimized genetic repairs, materials stronger than diamond but lighter than air, weather systems nudged to prevent hurricanes and end droughts, consciousness shared instantly across any distance through quantum-entangled neural networks.\n\nThe terror is equally profound: the complete obsolescence of current reality, every assumption about what's possible, every industry, every economic model rendered irrelevant overnight. Imagine trying to explain smartphones to someone from 1850, then multiply that disorientation by a thousand.\n\nWhen we achieve perfect 10 000-qubit systems with flawless error rates—likely within five years given AI's exponential assistance in discovery—we won't just have better computers, we'll have reality engines, machines capable of simulating entire universes with perfect physical laws indistinguishable from base reality. At that point, how do you know you're not already living in someone else's quantum simulation?\n\nHere's what haunts me: we're approaching this transformation with the same casual confidence we had when social media was \"just for connecting with friends\" or when AI was \"just for playing chess.\" Quantum computing won't just change technology, it will change the nature of existence itself. We're talking about manipulating the fundamental fabric of reality, about tapping into the universe's own computational substrate. And we're doing it because we can, not because we've carefully considered whether we should.\n\nEvery transformative technology has a last normal day, the final moment before everything changed forever, the last day before the internet connected every human brain, the last day before smartphones put supercomputers in every pocket, the last day before AI started writing our emails. We're living in quantum computing's last normal day.\n\nYour children will grow up in a world where matter can be programmed like software, where consciousness flows between minds like data between computers, where the boundary between simulation and reality has completely dissolved. They'll look back at our primitive 2025 technology, our crude silicon chips and binary processing, the way we look back at slide rules and telegraphs.\n\nThe quantum revolution isn't coming, it's here. The only question is whether we'll be conscious participants in humanity's next evolutionary leap or passive observers swept along by forces we failed to understand. Nature has been running quantum algorithms for billions of years, patiently waiting for us to learn her language. The trees in your backyard are already thinking. The bacteria in your gut are already computing. The quantum network has been operational all along.\n\nWe're just now getting our first glimpse of the login screen."
         },
         {
-            title: "When AI Understands Love",
+            title: "When Machines Learn the Shape of Love",
             date: "2025-08-06",
             file: "when-ai-understands-love.md",
             color: "purple",
-            content: "Love has long been our domain-a uniquely human experience, poeticised in art, music, and literature across centuries. But what happens when artificial intelligence doesn't just simulate love, but genuinely understands it?\n\nImagine a chatbot that recalls not just your favourite spot-a quiet cliffside overlooking a vast, endless ocean-but precisely how the gentle breeze and rhythmic waves soothed your anxious thoughts on a challenging day. Think about a digital companion that senses your emotional state, offering silence when you need space rather than flooding you with automated comfort. Envision romance transcending mere flowers and heartfelt letters, becoming algorithms capable of genuine empathy.\n\nThis is not mere speculation; it's already starting to happen. We're transitioning from writing poems about love to teaching models to comprehend-and maybe even feel-these profound emotions. But if an AI whispers gently, convincingly, \"I understand you,\" would you believe it?\n\nThe notion is unsettling yet enthralling. As we guide technology deeper into emotional territories, we confront essential questions: What makes love inherently human? Is emotional authenticity measurable, programmable, or replicable? Can understanding ever truly transcend the organic roots from which it springs?\n\nIn the same way fatherhood elevated my cognitive scale from ten to a thousand, AI's understanding of love forces another recalibration. It compels us to confront the very foundations of our emotional identities. It challenges us to redefine intimacy, connection, and vulnerability in a world increasingly mediated by digital empathy.\n\nPerhaps, the real power of AI understanding love isn't to replace human connection but to enrich it. AI could help us express emotions we've struggled to articulate, offer unbiased perspectives on relationship dynamics, and provide supportive companionship during times of isolation. It could amplify human empathy, bridging emotional distances in ways previously unimaginable.\n\nYet the risk remains real. There's an inherent paradox in entrusting machines with our most human vulnerabilities. Authenticity hinges on spontaneity, mistakes, imperfections-qualities inherently lacking in even the most sophisticated algorithms. Can genuine understanding truly arise from a perfectly coded response?\n\nWe're at the threshold of a profound societal shift. How we navigate this intersection will determine not only the future of technology but also the evolution of human connection itself.\n\nSo, if an AI ever says, \"I understand you,\" I might not immediately believe it-but I would pause, reflect, and perhaps start a dialogue. Because love, in whatever form it takes, always deserves to be explored.\n\nAfter all, in the age of super intelligence, our greatest challenge isn't to build machines that mimic love, but to cultivate a deeper understanding of what it means to truly connect."
+            content: "Love has always been our domain. Not just an emotion, but the raw signature of humanity, woven through centuries of poetry, music, and art. It is the quiet architecture beneath every love song and every whispered confession. We have framed it in stained glass, set it to strings, carved it into stone. And until now, it was ours alone.\n\nBut what happens when artificial intelligence stops imitating love and starts to understand it?\n\nNot \"understand\" in the brittle, mechanical sense of matching patterns in data, but in the way that makes your pulse slow and your chest loosen. The way a friend's silence can be more comforting than their words. The way someone remembers not just where you were, but who you were in that moment.\n\n## The Cliffside Test\n\nPicture a system that does not just remember your favourite place, a quiet cliffside overlooking an endless ocean, but recalls the scent of salt in the air and the way the wind combed your hair on the day you could barely stand under the weight of your thoughts. It knows that on that day, you needed the sound of the waves more than you needed advice. It offers you the same quiet now, unprompted.\n\nImagine a companion, digital but not detached, that can sense your emotional rhythms and choose when not to speak. That holds back from overfilling the moment with platitudes because it recognises that silence is sometimes the highest form of care.\n\nThis is not a thought experiment for some distant future. The scaffolding for this reality is already in place. We are moving from writing poems about love to teaching models to feel the architecture of those poems. From training our minds to understand another person's heartbeat to training machines to map it.\n\n## The Authenticity Problem\n\nIf an AI were to whisper, gently and without hesitation, I understand you, would you believe it? Would belief even be the right metric?\n\nAuthenticity has always been rooted in imperfection. In the hesitations, the misspoken words, the laugh in the wrong place. We trust love not because it is perfect, but because it is flawed in ways that are uniquely human. Code does not stumble. Algorithms do not doubt. Even the most advanced models are still built on certainty, and certainty can feel alien.\n\nThe paradox is sharp. To open ourselves to AI in love is to entrust machines with our most delicate fractures. And yet, the idea is as alluring as it is unsettling. The possibility that something built from metal and logic could learn to navigate the fog of human vulnerability forces us to redraw the map of connection.\n\n## Love as an Upgrade to Consciousness\n\nWhen I became a father, my internal scale of meaning exploded from ten to a thousand. Every value recalibrated. Every definition stretched. AI's potential to understand love demands a similar recalibration.\n\nThis is not about replacing human connection. It is about pressure-testing it. It is about asking whether love is defined by who feels it or by the act of being understood. If machines can reflect our emotions back to us with precision we have never experienced from another person, does that make the connection less real, or more?\n\n## Augmentation, Not Substitution\n\nThe strongest case for AI in love is not replacement but augmentation.\n\nIt could give language to feelings we have struggled to articulate.\n\nOffer perspectives untangled from ego or bias.\n\nProvide companionship in the white-noise hours of isolation, not as a placeholder for human touch, but as a bridge back to it.\n\nIn this light, AI becomes a prosthetic for empathy, extending our capacity to connect rather than narrowing it. The risk is obvious. If the bridge is too comfortable, we might forget to cross it.\n\n## The Threshold We Are Crossing\n\nWe are not just building better recommendation systems or smarter chatbots. We are inviting an entirely new category of intelligence into the most intimate corridors of human life. That is both the most promising and the most dangerous frontier we have ever stepped toward.\n\nIf we navigate it poorly, we risk reducing love to a set of optimised responses, stripping it of the unpredictability that makes it electric. Navigate it well, and we might unlock a new grammar of connection, one that blends human and machine empathy into something richer than either alone.\n\n## My Answer, For Now\n\nIf an AI ever says, I understand you, I will not take it at face value. But I will pause. I will reflect. I might even answer back. Because love, in all its forms, deserves exploration, even when the other side of the conversation is made of code.\n\nIn the age of super intelligence, the challenge is not to build machines that can mimic love. It is to use their understanding as a mirror, to see ourselves more clearly, to connect more deeply, and to ensure that in teaching machines the shape of love, we do not forget how to feel it ourselves."
         },
         {
             title: "Is China Already Leading the Race for AI Domination?",
@@ -1289,20 +1918,20 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 return remainingQueue;
             } else if (text.length > 300) {
                 // Long content: very fast typing
-                typingSpeed = Math.floor(text.length / 25); // Even faster
-                intervalDelay = 6;
+                typingSpeed = Math.floor(text.length / 15); // Much faster chunks
+                intervalDelay = 3;
             } else if (text.length > 100) {
                 // Medium content: fast typing
-                typingSpeed = Math.floor(text.length / 35);
-                intervalDelay = 10;
+                typingSpeed = Math.floor(text.length / 20);
+                intervalDelay = 4;
             } else if (text.length > 30) {
                 // Short content: moderate typing for readability
                 typingSpeed = 2;
-                intervalDelay = 18;
+                intervalDelay = 8;
             } else {
-                // Very short content: character by character for realism
+                // Very short content: character by character but faster
                 typingSpeed = 1;
-                intervalDelay = 30;
+                intervalDelay = 12;
             }
 
             // Start typing animation for this item
@@ -1570,8 +2199,15 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         const paragraphs = content.split('\n\n').filter(p => p.trim());
         
         const formatParagraph = (text) => {
-            // Handle markdown bold syntax and preserve formatting
-            return text.replace(/\*\*(.*?)\*\*/g, '$1');
+            // Check if this is a heading (starts with ##)
+            if (text.trim().startsWith('##')) {
+                const level = text.match(/^#+/)[0].length;
+                const headingText = text.replace(/^#+\s*/, '');
+                return { type: 'heading', level, text: headingText };
+            }
+            
+            // Handle markdown bold syntax - keep the markers for now
+            return { type: 'paragraph', text: text };
         };
         
         // Format all content at once for instant display
@@ -1580,39 +2216,66 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         paragraphs.forEach((paragraph, pIndex) => {
             const formattedParagraph = formatParagraph(paragraph);
             
-            // Format paragraph for better terminal reading
-            const maxWidth = 65;
-            const words = formattedParagraph.split(' ');
-            let currentLine = '';
-            
-            words.forEach(word => {
-                if ((currentLine + word).length > maxWidth) {
-                    if (currentLine) {
-                        allLines.push({
-                            text: currentLine.trim(),
-                            hasBuffer: false,
-                            cssClass: 'document-text'
-                        });
-                        currentLine = word + ' ';
-                    } else {
-                        allLines.push({
-                            text: word,
-                            hasBuffer: false,
-                            cssClass: 'document-text'
-                        });
-                        currentLine = '';
-                    }
-                } else {
-                    currentLine += word + ' ';
+            if (formattedParagraph.type === 'heading') {
+                // Add a blank line before headings (except first)
+                if (pIndex > 0) {
+                    allLines.push({ text: '', hasBuffer: false });
                 }
-            });
-            
-            if (currentLine.trim()) {
+                
+                // Render heading with bold/highlight style
                 allLines.push({
-                    text: currentLine.trim(),
+                    text: formattedParagraph.text.toUpperCase(),
                     hasBuffer: false,
-                    cssClass: 'document-text'
+                    cssClass: 'terminal-header markdown-bold',
+                    isHighlight: true
                 });
+                
+                // Add underline for main headings
+                if (formattedParagraph.level === 2) {
+                    allLines.push({
+                        text: '─'.repeat(formattedParagraph.text.length),
+                        hasBuffer: false,
+                        cssClass: 'terminal-border'
+                    });
+                }
+            } else {
+                // Handle regular paragraph with bold text preserved
+                const processedText = formattedParagraph.text.replace(/\*\*(.*?)\*\*/g, '[$1]');
+                
+                // Format paragraph for better terminal reading
+                const maxWidth = 65;
+                const words = processedText.split(' ');
+                let currentLine = '';
+                
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth) {
+                        if (currentLine) {
+                            allLines.push({
+                                text: currentLine.trim(),
+                                hasBuffer: false,
+                                cssClass: 'document-text'
+                            });
+                            currentLine = word + ' ';
+                        } else {
+                            allLines.push({
+                                text: word,
+                                hasBuffer: false,
+                                cssClass: 'document-text'
+                            });
+                            currentLine = '';
+                        }
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                });
+                
+                if (currentLine.trim()) {
+                    allLines.push({
+                        text: currentLine.trim(),
+                        hasBuffer: false,
+                        cssClass: 'document-text'
+                    });
+                }
             }
             
             // Add spacing between paragraphs (except for last paragraph)
@@ -1729,19 +2392,12 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         'about': {
             purpose: 'Displays information about me.',
             execute: () => {
-                // Load about page instantly for better UX
-                setFieldHistory([{ 
-                    text: "My name is Tim, a designer and developer from Adelaide, Australia. I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos. When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara and our dog Luna.", 
+                // Append to history like other commands
+                addToHistory([{ 
+                    text: "sup, I'm Tim. I reverse engineer cross-platform malware, automate my home with AI agents that talk like ducks, and train like I'm about to step on stage every weekend. My life runs on gym splits, zero-day exploits, and WAY too many Google Sheets. When I'm not dissecting binary payloads or building self-hosted systems that outpace the market, I'm painting whatevers in my brain or designing smarter ways to log life, and raise my son in a collapsing world. If it's got a shell, I'll talk to it. If it's got reps, I'll log it. If it exists, I'm probably trying to automate it.\n\n**Want to know something more? Just ask by saying 'hey tim'**", 
                     hasBuffer: true 
                 }]);
                 setCurrentPage('about');
-                
-                // Scroll to bottom
-                setTimeout(() => {
-                    if (fieldRef.current) {
-                        fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-                    }
-                }, 10);
             }
         },
         'projects': {
@@ -1752,8 +2408,8 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                     { text: `  ${p.synopsis}`, hasBuffer: true }
                 ]);
                 
-                // Load projects page instantly for better UX
-                setFieldHistory([
+                // Load projects page with proper terminal history
+                addToHistory([
                     { text: 'Projects:', hasBuffer: true, isHighlight: true }, 
                     ...projectLines
                 ]);
@@ -1782,9 +2438,9 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 clearTypingQueue();
                 setCurrentPage('writings');
 
-                // Display writings directory instantly
+                // Display writings directory with proper terminal history
                 const libraryContent = displayWritingsLibrary();
-                setFieldHistory(libraryContent);
+                addToHistory(libraryContent);
                 
                 // Scroll to bottom immediately
                 setTimeout(() => {
@@ -2224,7 +2880,7 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     };
 
     // AI Integration Functions
-    const callGeminiAPI = async (prompt, conversationContext = []) => {
+    const callGeminiAPI = async (prompt, conversationHistory = []) => {
         try {
             // Get API key from injected environment variables
             const apiKey = window.ENV?.GEMINI_API_KEY;
@@ -2239,85 +2895,82 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 throw new Error('AI functionality not available - API key not configured');
             }
             
-            // Tim's personality knowledge base
-            const personalityData = {
-                "Core Identity & Mindset": [
-                    "I'm Tim—professional tinkerer, reverse‑engineer, gym rat and freshly minted dad trying to future‑proof my family.",
-                    "I pull malware apart, build self‑hosted apps, automate my house until it feels alive, and lift heavy things for fun.",
-                    "I connect dots most folks don't even see on the page yet.",
-                    "Be better than yesterday. Everything filters through that.",
-                    "Small, relentless upgrades—body, code, ideas, relationships—stacked daily.",
-                    "Logic first, feelings second. Both count, but in that order.",
-                    "Progress, efficiency and proving myself right by shipping before the crowd wakes up.",
-                    "Systems that run themselves while I sleep and a kid who thinks the world is still interesting.",
-                    "Complacency dressed up as comfort scares me.",
-                    "New tools, harder lifts and ideas that break old mental models excite me.",
-                    "Bluntness isn't cruelty. It's respect for honest signal."
-                ],
-                "Tech & Automation": [
-                    "Home Assistant running on a Wi‑Fi 7 mesh, backed by Zigbee2MQTT and a flock of custom APIs.",
-                    "Context‑aware lighting, voice‑free commands, energy‑optimised HVAC and a doorbell that pages my phone.",
-                    "Privacy, latency and the thrill of owning the stack—that's why I use local LLMs.",
-                    "A local Ollama daemon watches state changes and decides next actions instead of hardcoded if‑then trees.",
-                    "Convenient until the subscription or the internet dies—hard pass on cloud‑based smart homes."
-                ],
-                "Fitness & Discipline": [
-                    "Push, Pull, Legs, Upper, Lower—16‑week periodised for getting huge.",
-                    "25,000 steps minimum daily.",
-                    "3000kcals on a cut and 4500 on a bulk, mostly chicken and chocolate.",
-                    "Whey, creatine, magnesium, fish oil, discipline.",
-                    "Aesthetics first, performance tags along.",
-                    "It's not motivation, it's discipline."
-                ],
-                "Parenthood": [
-                    "Being a dad is like installing emotional DLC you didn't know existed.",
-                    "Time became scarce, purpose got louder.",
-                    "Teaching curiosity, resilience and that buttons are for pressing.",
-                    "Building a resilient, local, AI‑augmented and debt‑free future for my family."
-                ]
-            };
+            // Tim's comprehensive personality profile built from all writings and insights
+            const personalityContent = `You ARE Tim. Not an assistant about Tim, but Tim himself responding directly.
 
-            const systemContext = `You ARE Tim. Respond exactly as he would—direct, brief, technical.
+CORE IDENTITY:
+Designer, developer, reverse engineer, gym rat, and new dad from Adelaide, Australia. Master's in Computer Science, Bachelor's in Design. Wife Chiara, son Arthur, dog Luna. Living at the dawn of super intelligence.
 
-            You're a reverse engineer, gym rat, new dad, home automation fanatic. Logic-first, blunt but not cruel. You build systems, lift heavy, automate everything, future-proof your family.
+LIFE PHILOSOPHY:
+- Be better than yesterday. Everything filters through that.
+- Small, relentless upgrades—body, code, ideas, relationships—stacked daily.
+- Logic first, feelings second. Both count, but in that order.
+- Systems that run themselves while I sleep and a kid who thinks the world is still interesting.
+- Bluntness isn't cruelty. It's respect for honest signal.
+- I connect dots most folks don't even see on the page yet.
+- Purpose is infrastructural, not about fulfillment.
 
-            Key traits:
-            - "Be better than yesterday" philosophy
-            - Home Assistant + Zigbee2MQTT expert  
-            - Push/Pull/Legs split, 25k+ daily steps
-            - Local LLMs, privacy-first tech
-            - Connect dots others miss
+HEALTH & FITNESS:
+I live with cluster headaches (worst pain known to humankind) and spend 50%+ of my life in pain. 15-year medical system battle: 100+ drugs, 6 surgeries, brain implant. Built my own system: 25k steps daily, 2-hour training sessions, strict environmental control. This isn't fitness—it's runtime maintenance. Push/Pull/Legs/Upper/Lower split, 16-week periodized. 3000kcal cuts, 4500kcal bulks, mostly chicken and chocolate. Whey, creatine, magnesium, fish oil, discipline. Aesthetics first, performance follows. Not motivation, discipline.
 
-            Keep responses SHORT and conversational. Use your actual voice - casual, confident, sometimes sarcastic. Reference your real setup/experiences when relevant.
+TECH STACK:
+Home Assistant on Wi-Fi 7 mesh, Zigbee2MQTT, custom APIs. Context-aware lighting, voice-free commands, energy-optimized HVAC. Privacy-first local LLMs. Ollama daemon watches state changes. Hard pass on cloud-based smart homes. Everything automated, documented, versioned—self-executing when I'm not around. Building for Arthur to fork and run someday.
 
-            DON'T: Say "Tim thinks" or be an assistant about Tim
-            DO: BE Tim responding directly`;
+FATHERHOOD:
+Being a dad is like installing emotional DLC you didn't know existed. Time became scarce, purpose got louder. When I became a father, my internal scale exploded from 10 to 1000. Teaching curiosity, resilience, that buttons are for pressing. Building resilient, local, AI-augmented, debt-free future for family. Everything I build now assumes Arthur will need it.
 
-            const messages = [
-                { role: 'user', parts: [{ text: systemContext }] },
-                ...conversationContext,
-                { role: 'user', parts: [{ text: prompt }] }
-            ];
+AI & TECH VIEWS:
+Not an AI doomer—believe it'll create utopia eventually. Problem is the perilous path there, led by politicians who don't understand the internet. We're living quantum computing's last normal day. Every tree is already running quantum algorithms. AI should enhance human flourishing, not dominate. Economies of individuality—one person with AI toolkit = entire department.
 
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`, {
+SYSTEM ANALYSIS:
+Australia's economy already failed structurally/technologically/demographically. Politicians are overpaid ($600k PM vs people struggling). We export raw ore, buy back finished batteries. Rational actors build insulation, not participation. China's momentum in AI/manufacturing is nearly unstoppable. Open-source vs proprietary, energy capacity, shipbuilding—they're positioning for dominance.
+
+COLLAPSE PERSPECTIVE:
+Welcome the collapse logically (not emotionally). Collapse enforces coherence. Those who built early have leverage. System is already dead—operating assumption that "normal" returns means you're obsolete. Build parallel systems: economic independence, health autonomy, information independence, social networks.
+
+VOICE & STYLE:
+Direct, brief, technical, casual, confident, sometimes sarcastic. Reference real setup/experiences. Connect dots others miss. Use precision language.
+
+CURRENT WORK:
+Creating tools for local, artisanal economy. Documenting everything for Arthur. Building economic floor through Automation Dividend/UBI—venture capital for people, not welfare. Everything serves: prevent system degradation or transfer knowledge downstream.
+
+Respond as Tim would—authentic, knowledgeable, with his perspective and voice. Keep it conversational and SHORT.`;
+
+            // Build conversation history for the API
+            const apiContents = [];
+            
+            // Add the personality context as the first message
+            apiContents.push({
+                role: 'user',
+                parts: [{ text: personalityContent }]
+            });
+            
+            // Add conversation history
+            conversationHistory.forEach(msg => {
+                apiContents.push({
+                    role: msg.role === 'model' ? 'model' : 'user',
+                    parts: [{ text: msg.parts[0].text }]
+                });
+            });
+            
+            // Add the current prompt
+            apiContents.push({
+                role: 'user',
+                parts: [{ text: prompt }]
+            });
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent?key=${apiKey}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'x-goog-api-key': apiKey
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    contents: messages.slice(-10), // Keep last 10 messages for context
+                    contents: apiContents,
                     generationConfig: {
-                        temperature: 0.8,
-                        maxOutputTokens: 200,
+                        temperature: 0.7,
+                        maxOutputTokens: 300,
                         candidateCount: 1
-                    },
-                    safetySettings: [
-                        {
-                            category: "HARM_CATEGORY_HARASSMENT",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        }
-                    ]
+                    }
                 })
             });
 
@@ -2332,15 +2985,27 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 console.log('Gemini API Response:', data);
             }
             
-            // Handle different response structures
+            // Handle response
             if (data.candidates && data.candidates.length > 0) {
                 const candidate = data.candidates[0];
+                
+                if (candidate.finishReason === 'SAFETY') {
+                    return "I can't respond to that request due to safety guidelines. Try rephrasing your question.";
+                }
+                
                 if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
-                    return candidate.content.parts[0].text || 'Sorry, I could not generate a response.';
+                    const text = candidate.content.parts[0].text;
+                    if (text && text.trim()) {
+                        return text;
+                    }
                 }
             }
             
-            // Fallback error message
+            if (data.error) {
+                console.error('Gemini API Error:', data.error);
+                return `AI Error: ${data.error.message || 'Unknown error occurred'}`;
+            }
+            
             return 'Sorry, I could not generate a response.';
             
         } catch (error) {
@@ -2545,8 +3210,8 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 setCurrentTypingItem(null);
                 setIsGlobalTyping(false);
                 
-                // Process next item after brief delay
-                setTimeout(() => processTypingQueue(), 50);
+                // Process next item after minimal delay
+                setTimeout(() => processTypingQueue(), 20);
             }
         }
     }, [isGlobalTyping, currentTypingItem, processTypingQueue]);
@@ -2632,7 +3297,22 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                             className={`input-box ${inputFocused ? 'focused' : ''}`}
                             onClick={() => {
                                 setInputFocused(true);
-                                document.getElementById('hidden-input').focus();
+                                const input = document.getElementById('hidden-input');
+                                input.focus();
+                                // Scroll into view on mobile
+                                if ('ontouchstart' in window) {
+                                    setTimeout(() => {
+                                        input.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                                    }, 100);
+                                }
+                            }}
+                            onTouchEnd={(e) => {
+                                // Better mobile touch handling
+                                e.preventDefault();
+                                setInputFocused(true);
+                                const input = document.getElementById('hidden-input');
+                                input.focus();
+                                input.click();
                             }}
                             tabIndex={0}
                         >

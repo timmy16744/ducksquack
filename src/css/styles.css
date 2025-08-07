@@ -38,6 +38,7 @@ body {
     width: 95vw;
     max-width: 1170px;
     height: 800px;
+    overflow: hidden; /* Ensure proper clipping */
 }
 
 #terminal-container.maximized {
@@ -196,6 +197,10 @@ body {
     color: #06B6D4 !important; /* Cyan 500 */
 }
 
+.article-pink {
+    color: #EC4899 !important; /* Pink 500 */
+}
+
 .light .preview-label {
     color: #666666;
 }
@@ -245,17 +250,25 @@ body {
 }
 
 #terminal-header {
-    position: absolute;
+    position: fixed;
     top: 40px;
     left: 0;
     right: 0;
-    z-index: 5;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    background-color: #222333;
+    background: linear-gradient(
+        to bottom,
+        rgba(34, 35, 51, 0.98) 0%,
+        rgba(34, 35, 51, 0.95) 80%,
+        rgba(34, 35, 51, 0.85) 100%
+    );
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
     min-height: 96px;
     pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 #terminal-header > * {
@@ -270,10 +283,13 @@ body {
     overflow-wrap: break-word;
     white-space: pre-wrap;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 }
 
 #terminal-body.with-header #field {
-    padding-top: 220px; /* Make room for the overlay header */
+    margin-top: 136px; /* Fixed header height + some spacing */
+    height: calc(100% - 136px);
 }
 
 #terminal-input {
@@ -309,6 +325,21 @@ body {
 
 .input-box.focused {
     border-color: #9F7AEA;
+    box-shadow: 0 0 5px rgba(159, 122, 234, 0.3);
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+    .input-box {
+        border-color: #9F7AEA;
+        min-height: 44px; /* Apple's recommended touch target size */
+        display: flex;
+        align-items: center;
+    }
+    
+    .input-box:hover {
+        border-color: #9F7AEA;
+    }
 }
 
 .light .input-box {
@@ -518,13 +549,13 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
+    top: 40px; /* Start below window controls */
     left: 0;
     overflow: visible;
     min-height: 96px;
     background: transparent;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2; /* Above field but below header */
 }
 
 #duck-container > * {
@@ -832,6 +863,32 @@ body {
     51%, 100% { opacity: 0; }
 }
 
+/* High Score System Animations */
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--warning);
+    }
+    50% { 
+        transform: scale(1.05);
+        text-shadow: 0 0 20px var(--warning), 0 0 30px var(--warning);
+    }
+}
+
+/* Retro Gaming Font Styles */
+.retro-font {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.arcade-title {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
 @keyframes blink-dark {
     0%, 100% {
         background-color: #F4F4F4;
@@ -850,7 +907,8 @@ body {
     }
 }
 
-@media only screen and (max-width: 600px), (max-height: 600px) {
+/* Mobile and small screen adjustments */
+@media only screen and (max-width: 600px) {
     #app {
         padding: 10px;
     }
@@ -865,11 +923,72 @@ body {
         padding: 10px;
     }
     #terminal-body.with-header #field {
-        padding-top: 180px;
+        margin-top: 160px; /* Adjusted for mobile stacked layout */
+        height: calc(100% - 160px);
     }
     #terminal-input {
         padding: 8px 10px;
         font-size: 0.8rem;
+    }
+    
+    /* Make navigation stack on mobile */
+    .enhanced-nav-tree {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.8rem;
+    }
+    
+    #terminal-header {
+        flex-direction: column;
+        min-height: 140px;
+        padding: 0.8rem;
+    }
+}
+
+/* Tablet and medium screens */
+@media only screen and (max-width: 768px) and (min-width: 601px) {
+    #terminal-body.with-header #field {
+        margin-top: 150px;
+        height: calc(100% - 150px);
+    }
+    
+    #terminal-header {
+        min-height: 110px;
+    }
+}
+
+/* Small height screens (landscape mobile, small laptops) */
+@media only screen and (max-height: 600px) {
+    #terminal-body.with-header #field {
+        margin-top: 100px;
+        height: calc(100% - 100px);
+    }
+    
+    .enhanced-nav-tree {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    #terminal-header {
+        min-height: 80px;
+        padding: 0.5rem;
+    }
+}
+
+/* Portrait mobile screens - extra tall */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+    #terminal-body.with-header #field {
+        margin-top: 180px;
+        height: calc(100% - 180px);
+    }
+    
+    #terminal-header {
+        min-height: 160px;
+    }
+    
+    .enhanced-nav-tree {
+        font-size: 0.75rem;
+        padding: 0.6rem;
     }
 }
 

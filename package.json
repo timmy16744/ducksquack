@@ -9,10 +9,20 @@
     "dev": "eleventy --serve --watch",
     "clean": "rm -rf dist"
   },
-  "keywords": ["blog", "portfolio", "terminal", "eleventy", "react"],
+  "keywords": [
+    "blog",
+    "portfolio",
+    "terminal",
+    "eleventy",
+    "react"
+  ],
   "author": "Tim",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@google/genai": "^1.13.0",
+    "gray-matter": "^4.0.3"
   }
 }
