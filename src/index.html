@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Terminal Portfolio</title>
+    <title>quack quack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap" rel="stylesheet">
@@ -871,6 +871,19 @@
 </head>
 <body>
     <div id="root"></div>
+    <script>
+        // Environment variables injection - simplified for development
+        window.ENV = {
+            GEMINI_API_KEY: null,
+            NODE_ENV: 'development',
+            IS_DEVELOPMENT: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        };
+        
+        // Always use the API key for localhost development
+        if (window.ENV.IS_DEVELOPMENT) {
+            window.ENV.GEMINI_API_KEY = 'AIzaSyD7JFLqjn0_U5oTh3tT0lAOUA6WZWVLOrw';
+        }
+    </script>
     <script src="js/app.js" type="text/babel"></script>
 </body>
 </html>

@@ -47,7 +47,7 @@ const App = () => {
 };
 
 // Enhanced ASCII Navigation Component
-const AsciiNav = ({ handleNavClick, currentPage }) => {
+const AsciiNav = ({ handleNavClick, currentPage, navMode, setNavMode }) => {
     const getNavLinkClass = (pageName) => {
         const baseClass = `nav-tree-item nav-${pageName}`;
         const activeClass = currentPage === pageName ? 'active-nav-item' : '';
@@ -61,11 +61,25 @@ const AsciiNav = ({ handleNavClick, currentPage }) => {
         return '├── ';
     };
 
+    const getModePrompt = () => {
+        return navMode === 'cli' ? 'tim@portfolio:~$' : 'tim@portfolio:~$';
+    };
+
+    const getModeCommand = () => {
+        return navMode === 'cli' ? 'ls -la' : 'tree';
+    };
+
+    const handleModeSwitch = () => {
+        const newMode = navMode === 'cli' ? 'ux' : 'cli';
+        setNavMode(newMode);
+        handleNavClick(`mode ${newMode}`);
+    };
+
     return (
         <div className="enhanced-nav-tree">
             <div className="nav-header">
-                <span className="nav-prompt">tim@portfolio:~$</span>
-                <span className="nav-command">tree</span>
+                <span className="nav-prompt">{getModePrompt()}</span>
+                <span className="nav-command">{getModeCommand()}</span>
             </div>
             <div className="nav-root">.</div>
             <div className="nav-item">
@@ -95,18 +109,24 @@ const AsciiNav = ({ handleNavClick, currentPage }) => {
                     writings/
                 </span>
             </div>
+            <div className="nav-item">
+                <span className="nav-branch">{getItemPrefix('mode')}</span>
+                <span>
+                    mode -> <span 
+                        className="nav-mode-button"
+                        onClick={handleModeSwitch}
+                    >
+                        {navMode}
+                    </span>
+                </span>
+            </div>
             <div className="nav-item nav-item-last">
                 <span className="nav-branch">└── </span>
-                <span 
-                    className={getNavLinkClass('mode')} 
-                    onClick={() => handleNavClick('mode cli')}
-                >
-                    config/
-                </span>
+                <span className="nav-symlink">config/</span>
             </div>
             <div className="nav-subitem">
                 <span className="nav-subbranch">    └── </span>
-                <span className="nav-symlink">mode -> cli</span>
+                <span className="nav-symlink">terminal.conf</span>
             </div>
         </div>
     );
@@ -455,6 +475,684 @@ const AnimatedDuck = () => {
     );
 };
 
+// Modern Full-screen Tetris Game Component
+const TetrisGame = ({ onExit }) => {
+    // Game Constants
+    const ROWS = 20;
+    const COLS = 10;
+    const TETROMINOES = {
+        'I': { shape: [[1,1,1,1]], color: 'I' },
+        'O': { shape: [[1,1],[1,1]], color: 'O' },
+        'T': { shape: [[0,1,0],[1,1,1]], color: 'T' },
+        'J': { shape: [[1,0,0],[1,1,1]], color: 'J' },
+        'L': { shape: [[0,0,1],[1,1,1]], color: 'L' },
+        'S': { shape: [[0,1,1],[1,1,0]], color: 'S' },
+        'Z': { shape: [[1,1,0],[0,1,1]], color: 'Z' }
+    };
+    const PIECE_TYPES = 'IOTJLSZ';
+
+    // Game State
+    const [board, setBoard] = React.useState(() => Array.from({ length: ROWS }, () => Array(COLS).fill(null)));
+    const [player, setPlayer] = React.useState(null);
+    
+    // Update playerRef whenever player changes
+    React.useEffect(() => {
+        playerRef.current = player;
+    }, [player]);
+    const [nextPiece, setNextPiece] = React.useState(null);
+    const [heldPiece, setHeldPiece] = React.useState(null);
+    const [canHold, setCanHold] = React.useState(true);
+    const [score, setScore] = React.useState(0);
+    const [linesCleared, setLinesCleared] = React.useState(0);
+    const [level, setLevel] = React.useState(1);
+    const [gameOver, setGameOver] = React.useState(false);
+    const [pieceBag, setPieceBag] = React.useState([]);
+    
+    const dropCounterRef = React.useRef(0);
+    const dropIntervalRef = React.useRef(48 * 16.67); // Level 1: 48 frames at 60 FPS
+    const lastTimeRef = React.useRef(0);
+    const gameLoopRef = React.useRef();
+    const pieceBagRef = React.useRef([]);
+    const playerRef = React.useRef(null);
+
+    // 7-Bag Generator
+    const generatePieceBag = React.useCallback(() => {
+        const shuffled = [...PIECE_TYPES].sort(() => 0.5 - Math.random());
+        return shuffled;
+    }, []);
+
+    const getNextPieceType = React.useCallback(() => {
+        if (pieceBagRef.current.length < 2) {
+            pieceBagRef.current.push(...generatePieceBag());
+        }
+        const pieceType = pieceBagRef.current.shift();
+        setPieceBag([...pieceBagRef.current]);
+        if (pieceBagRef.current.length > 0) {
+            setNextPiece(pieceBagRef.current[0]);
+        }
+        return pieceType;
+    }, [generatePieceBag]);
+
+    const createPiece = React.useCallback((type) => {
+        const pieceData = TETROMINOES[type];
+        return {
+            type: type,
+            matrix: pieceData.shape,
+            color: pieceData.color,
+            x: Math.floor(COLS / 2) - Math.floor(pieceData.shape[0].length / 2),
+            y: 0
+        };
+    }, []);
+
+    const collides = React.useCallback((piece, testBoard = board) => {
+        for (let y = 0; y < piece.matrix.length; y++) {
+            for (let x = 0; x < piece.matrix[y].length; x++) {
+                if (piece.matrix[y][x]) {
+                    const newX = x + piece.x;
+                    const newY = y + piece.y;
+                    
+                    // Check bounds
+                    if (newX < 0 || newX >= COLS || newY >= ROWS) {
+                        return true;
+                    }
+                    
+                    // Check collision with existing pieces (but allow negative Y for spawning)
+                    if (newY >= 0 && testBoard[newY][newX] !== null) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }, [board]);
+
+    const merge = React.useCallback((currentPlayer) => {
+        setBoard(currentBoard => {
+            const newBoard = currentBoard.map(row => [...row]);
+            currentPlayer.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value) {
+                        newBoard[y + currentPlayer.y][x + currentPlayer.x] = currentPlayer.color;
+                    }
+                });
+            });
+            return newBoard;
+        });
+    }, []);
+
+    const sweepLines = React.useCallback(() => {
+        setBoard(currentBoard => {
+            const newBoard = [...currentBoard];
+            let clearedCount = 0;
+            
+            for (let y = ROWS - 1; y >= 0; y--) {
+                if (newBoard[y].every(cell => cell !== null)) {
+                    clearedCount++;
+                    newBoard.splice(y, 1);
+                    newBoard.unshift(Array(COLS).fill(null));
+                    y++; // Re-check the new row at this position
+                }
+            }
+            
+            if (clearedCount > 0) {
+                // Tetris Friends Marathon scoring system
+                const basePoints = {
+                    1: 40,    // Single
+                    2: 100,   // Double  
+                    3: 300,   // Triple
+                    4: 1200   // Tetris
+                };
+                
+                setScore(prevScore => prevScore + (basePoints[clearedCount] || 0) * level);
+                setLinesCleared(prevLines => {
+                    const newLines = prevLines + clearedCount;
+                    // Tetris Friends level progression: every 10 lines
+                    const newLevel = Math.min(15, Math.floor(newLines / 10) + 1);
+                    setLevel(newLevel);
+                    
+                    // Tetris Friends Marathon speed progression (frames per drop)
+                    const speedTable = [
+                        48, 43, 38, 33, 28, 23, 18, 13, 8, 6,  // Levels 1-10
+                        5, 5, 5, 4, 4, 3                        // Levels 11-15+
+                    ];
+                    const frameDelay = speedTable[Math.min(newLevel - 1, speedTable.length - 1)];
+                    // Convert frames to milliseconds (60 FPS = ~16.67ms per frame)
+                    dropIntervalRef.current = frameDelay * 16.67;
+                    
+                    return newLines;
+                });
+            }
+            
+            return newBoard;
+        });
+    }, [level]);
+
+    const resetPlayer = React.useCallback(() => {
+        const newPieceType = getNextPieceType();
+        const newPlayer = createPiece(newPieceType);
+        
+        // Check if the new piece can be placed
+        if (collides(newPlayer)) {
+            setGameOver(true);
+            return;
+        }
+        
+        setPlayer(newPlayer);
+        setCanHold(true);
+    }, [getNextPieceType, createPiece, collides]);
+
+    const movePlayer = React.useCallback((dir) => {
+        if (!player) return;
+        
+        const newPlayer = { ...player, x: player.x + dir };
+        if (!collides(newPlayer)) {
+            setPlayer(newPlayer);
+        }
+    }, [player, collides]);
+
+    const rotatePlayer = React.useCallback(() => {
+        if (!player) return;
+        
+        const matrix = player.matrix;
+        const N = matrix.length;
+        const M = matrix[0].length;
+        const newMatrix = Array.from({ length: M }, () => Array(N).fill(0));
+        
+        for (let y = 0; y < N; y++) {
+            for (let x = 0; x < M; x++) {
+                newMatrix[x][N - 1 - y] = matrix[y][x];
+            }
+        }
+        
+        // Create test piece with original position
+        let testPlayer = { ...player, matrix: newMatrix };
+        
+        // Wall kick logic - test different positions
+        const kickTests = [0, -1, 1, -2, 2]; // Try original position first, then left/right
+        
+        for (const kick of kickTests) {
+            testPlayer.x = player.x + kick;
+            if (!collides(testPlayer)) {
+                setPlayer(testPlayer);
+                return;
+            }
+        }
+        
+        // If no position works, don't rotate
+        return;
+    }, [player, collides]);
+
+    const playerDrop = React.useCallback(() => {
+        const currentPlayer = playerRef.current;
+        if (!currentPlayer) return;
+        
+        const newPlayer = { ...currentPlayer, y: currentPlayer.y + 1 };
+        if (!collides(newPlayer)) {
+            setPlayer(newPlayer);
+        } else {
+            merge(currentPlayer);
+            sweepLines();
+            resetPlayer();
+        }
+        dropCounterRef.current = 0;
+    }, [collides, merge, sweepLines, resetPlayer]);
+
+    const playerHardDrop = React.useCallback(() => {
+        if (!player) return;
+        
+        let newPlayer = { ...player };
+        while (!collides({ ...newPlayer, y: newPlayer.y + 1 })) {
+            newPlayer.y++;
+        }
+        
+        setPlayer(newPlayer);
+        merge(newPlayer);
+        sweepLines();
+        resetPlayer();
+    }, [player, collides, merge, sweepLines, resetPlayer]);
+
+    const holdPiece = React.useCallback(() => {
+        if (!canHold || !player) return;
+        
+        if (heldPiece === null) {
+            setHeldPiece(player.type);
+            resetPlayer();
+        } else {
+            const newPlayer = createPiece(heldPiece);
+            setHeldPiece(player.type);
+            setPlayer(newPlayer);
+        }
+        setCanHold(false);
+    }, [canHold, player, heldPiece, createPiece, resetPlayer]);
+
+    const resetGame = React.useCallback(() => {
+        setBoard(Array.from({ length: ROWS }, () => Array(COLS).fill(null)));
+        pieceBagRef.current = generatePieceBag();
+        setPieceBag([...pieceBagRef.current]);
+        setScore(0);
+        setLinesCleared(0);
+        setLevel(1);
+        setGameOver(false);
+        setHeldPiece(null);
+        setCanHold(true);
+        dropIntervalRef.current = 48 * 16.67; // Level 1 speed: 48 frames
+        
+        // Initialize first piece
+        const firstType = getNextPieceType();
+        setPlayer(createPiece(firstType));
+    }, [generatePieceBag, getNextPieceType, createPiece]);
+
+    // Game Loop
+    React.useEffect(() => {
+        if (gameOver) return;
+        
+        const gameLoop = (time = 0) => {
+            if (gameOver) return;
+            
+            const deltaTime = time - lastTimeRef.current;
+            lastTimeRef.current = time;
+            dropCounterRef.current += deltaTime;
+            
+            if (dropCounterRef.current > dropIntervalRef.current) {
+                playerDrop();
+            }
+            
+            gameLoopRef.current = requestAnimationFrame(gameLoop);
+        };
+        
+        gameLoopRef.current = requestAnimationFrame(gameLoop);
+        
+        return () => {
+            if (gameLoopRef.current) {
+                cancelAnimationFrame(gameLoopRef.current);
+            }
+        };
+    }, [gameOver, playerDrop]); // playerDrop is now stable
+
+    // Controls
+    React.useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (gameOver) {
+                if (event.code === 'KeyR') {
+                    resetGame();
+                }
+                if (event.key === 'Escape') {
+                    onExit();
+                }
+                return;
+            }
+            
+            switch(event.code) {
+                case 'ArrowLeft': movePlayer(-1); break;
+                case 'ArrowRight': movePlayer(1); break;
+                case 'ArrowDown': playerDrop(); break;
+                case 'ArrowUp': rotatePlayer(); break;
+                case 'Space': 
+                    event.preventDefault(); 
+                    playerHardDrop(); 
+                    break;
+                case 'KeyC': holdPiece(); break;
+                case 'Escape': onExit(); break;
+            }
+        };
+        
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [gameOver, resetGame, onExit, movePlayer, playerDrop, rotatePlayer, playerHardDrop, holdPiece]);
+
+    // Initialize game
+    React.useEffect(() => {
+        resetGame();
+    }, []);
+
+    // Render ghost piece
+    const getGhostPiece = () => {
+        if (!player) return null;
+        
+        const ghost = { ...player };
+        while (!collides({ ...ghost, y: ghost.y + 1 })) {
+            ghost.y++;
+        }
+        return ghost;
+    };
+
+    // Render functions
+    const renderCell = (row, col) => {
+        const ghost = getGhostPiece();
+        let isPlayer = false;
+        let isGhost = false;
+        let color = null;
+        let ghostColor = null;
+        
+        // Check if this cell is part of the current player piece
+        if (player) {
+            for (let y = 0; y < player.matrix.length; y++) {
+                for (let x = 0; x < player.matrix[y].length; x++) {
+                    if (player.matrix[y][x] && 
+                        player.y + y === row && 
+                        player.x + x === col) {
+                        isPlayer = true;
+                        color = player.color;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Check if this cell is part of the ghost piece (only if not occupied by player)
+        if (!isPlayer && ghost && ghost.y !== player?.y) {
+            for (let y = 0; y < ghost.matrix.length; y++) {
+                for (let x = 0; x < ghost.matrix[y].length; x++) {
+                    if (ghost.matrix[y][x] && 
+                        ghost.y + y === row && 
+                        ghost.x + x === col) {
+                        isGhost = true;
+                        ghostColor = ghost.color;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (isPlayer) {
+            return `grid-cell color-${color}`;
+        } else if (board[row][col]) {
+            return `grid-cell color-${board[row][col]}`;
+        } else if (isGhost) {
+            return `ghost-cell ghost-${ghostColor}`;
+        }
+        return 'grid-cell';
+    };
+
+    const renderPiece = (pieceType, isSmall = false) => {
+        if (!pieceType) return null;
+        
+        const piece = TETROMINOES[pieceType];
+        const gridSize = isSmall ? 4 : 4;
+        
+        return (
+            <div style={{
+                display: 'grid',
+                gridTemplateRows: `repeat(${gridSize}, 1fr)`,
+                gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+                width: isSmall ? '80px' : '120px',
+                height: isSmall ? '80px' : '120px',
+                background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0d2e 50%, #16213e 100%)',
+                border: '2px solid #8B5CF6',
+                borderRadius: '6px',
+                boxShadow: '0 0 15px rgba(139, 92, 246, 0.2)'
+            }}>
+                {Array.from({ length: gridSize * gridSize }, (_, i) => {
+                    const row = Math.floor(i / gridSize);
+                    const col = i % gridSize;
+                    
+                    let hasBlock = false;
+                    if (piece.shape[row] && piece.shape[row][col]) {
+                        hasBlock = true;
+                    }
+                    
+                    return (
+                        <div 
+                            key={i} 
+                            className={hasBlock ? `color-${piece.color}` : ''}
+                            style={{ 
+                                border: '1px solid rgba(139, 92, 246, 0.2)',
+                                background: hasBlock ? undefined : 'rgba(139, 92, 246, 0.05)'
+                            }}
+                        />
+                    );
+                })}
+            </div>
+        );
+    };
+
+    return (
+        <>
+            <style>{`
+                .game-grid {
+                    display: grid;
+                    grid-template-rows: repeat(20, 1fr);
+                    grid-template-columns: repeat(10, 1fr);
+                    width: 300px;
+                    height: 600px;
+                    background: linear-gradient(135deg, #0a0a0a 0%, #1a0d2e 50%, #16213e 100%);
+                    border: 3px solid #8B5CF6;
+                    border-radius: 8px;
+                    box-shadow: 
+                        0 0 20px rgba(139, 92, 246, 0.3),
+                        inset 0 0 20px rgba(139, 92, 246, 0.1);
+                }
+                
+                .grid-cell {
+                    border: 1px solid rgba(139, 92, 246, 0.2);
+                    position: relative;
+                    background: rgba(139, 92, 246, 0.05);
+                }
+                
+                .ghost-cell {
+                    background: rgba(139, 92, 246, 0.05) !important;
+                    border: 1px solid rgba(139, 92, 246, 0.2);
+                    position: relative;
+                }
+                
+                .ghost-cell::after {
+                    content: '';
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    right: 1px;
+                    bottom: 1px;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 2px;
+                    pointer-events: none;
+                    opacity: 0.6;
+                    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+                }
+                
+                .ghost-I::after { 
+                    border-color: rgba(0, 255, 255, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(0, 255, 255, 0.2),
+                        0 0 4px rgba(0, 255, 255, 0.3);
+                }
+                .ghost-O::after { 
+                    border-color: rgba(255, 255, 0, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(255, 255, 0, 0.2),
+                        0 0 4px rgba(255, 255, 0, 0.3);
+                }
+                .ghost-T::after { 
+                    border-color: rgba(255, 0, 255, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(255, 0, 255, 0.2),
+                        0 0 4px rgba(255, 0, 255, 0.3);
+                }
+                .ghost-J::after { 
+                    border-color: rgba(0, 150, 255, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(0, 150, 255, 0.2),
+                        0 0 4px rgba(0, 150, 255, 0.3);
+                }
+                .ghost-L::after { 
+                    border-color: rgba(255, 100, 200, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(255, 100, 200, 0.2),
+                        0 0 4px rgba(255, 100, 200, 0.3);
+                }
+                .ghost-S::after { 
+                    border-color: rgba(50, 255, 50, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(50, 255, 50, 0.2),
+                        0 0 4px rgba(50, 255, 50, 0.3);
+                }
+                .ghost-Z::after { 
+                    border-color: rgba(255, 50, 50, 0.6); 
+                    box-shadow: 
+                        inset 0 0 8px rgba(255, 50, 50, 0.2),
+                        0 0 4px rgba(255, 50, 50, 0.3);
+                }
+                
+                /* Neon piece colors with glow effects */
+                .color-I { 
+                    background: linear-gradient(45deg, #00ffff, #00d4ff);
+                    box-shadow: 
+                        0 0 10px rgba(0, 255, 255, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #00ffff;
+                }
+                .color-O { 
+                    background: linear-gradient(45deg, #ffff00, #ffd700);
+                    box-shadow: 
+                        0 0 10px rgba(255, 255, 0, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #ffff00;
+                }
+                .color-T { 
+                    background: linear-gradient(45deg, #ff00ff, #dd00dd);
+                    box-shadow: 
+                        0 0 10px rgba(255, 0, 255, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #ff00ff;
+                }
+                .color-J { 
+                    background: linear-gradient(45deg, #0096ff, #0070dd);
+                    box-shadow: 
+                        0 0 10px rgba(0, 150, 255, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #0096ff;
+                }
+                .color-L { 
+                    background: linear-gradient(45deg, #ff64c8, #ff1493);
+                    box-shadow: 
+                        0 0 10px rgba(255, 100, 200, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #ff64c8;
+                }
+                .color-S { 
+                    background: linear-gradient(45deg, #32ff32, #00ff00);
+                    box-shadow: 
+                        0 0 10px rgba(50, 255, 50, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #32ff32;
+                }
+                .color-Z { 
+                    background: linear-gradient(45deg, #ff3232, #ff0000);
+                    box-shadow: 
+                        0 0 10px rgba(255, 50, 50, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.2);
+                    border: 1px solid #ff3232;
+                }
+            `}</style>
+            
+            <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                backgroundColor: 'var(--bg-primary)',
+                color: 'var(--text-primary)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+                fontFamily: 'Google Sans Code, monospace',
+                padding: '1rem'
+            }}>
+                {/* Exit Button */}
+                <button 
+                    onClick={onExit}
+                    style={{
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        padding: '10px 20px',
+                        backgroundColor: 'var(--primary)',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontFamily: 'Google Sans Code, monospace',
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }}
+                >
+                    ✕ EXIT
+                </button>
+                
+                <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
+                    {/* Hold Piece */}
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0, color: 'var(--text-primary)' }}>HOLD</h2>
+                        {renderPiece(heldPiece, true)}
+                        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>(C)</p>
+                    </div>
+                    
+                    {/* Main Game Board */}
+                    <div style={{ position: 'relative' }}>
+                        <div className="game-grid">
+                            {Array.from({ length: ROWS * COLS }, (_, i) => {
+                                const row = Math.floor(i / COLS);
+                                const col = i % COLS;
+                                return (
+                                    <div 
+                                        key={i} 
+                                        className={renderCell(row, col)}
+                                    />
+                                );
+                            })}
+                        </div>
+                        
+                        {/* Game Over Modal */}
+                        {gameOver && (
+                            <div style={{
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: 'var(--primary)',
+                                borderRadius: '4px',
+                                border: '2px solid var(--primary)'
+                            }}>
+                                <h2 style={{ fontSize: '3rem', fontWeight: 'bold', margin: 0, textShadow: '0 0 10px var(--primary)' }}>GAME OVER</h2>
+                                <p style={{ fontSize: '1.25rem', marginTop: '1rem', marginBottom: 0, color: 'var(--text-secondary)' }}>Press 'R' to restart</p>
+                            </div>
+                        )}
+                    </div>
+                    
+                    {/* Right Panel */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '12rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                            <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0, color: 'var(--text-primary)' }}>NEXT</h2>
+                            {renderPiece(nextPiece)}
+                        </div>
+                        
+                        <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '1rem', borderRadius: '0.5rem', fontSize: '1.125rem', border: '1px solid var(--border)' }}>
+                            <h3 style={{ fontWeight: 'bold', color: 'var(--text-muted)', margin: '0 0 0.5rem 0' }}>SCORE</h3>
+                            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: '0 0 0.5rem 0', color: 'var(--success)' }}>{score}</p>
+                            <h3 style={{ fontWeight: 'bold', color: 'var(--text-muted)', margin: '0.5rem 0 0.25rem 0' }}>LINES</h3>
+                            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: '0 0 0.5rem 0', color: 'var(--tertiary)' }}>{linesCleared}</p>
+                            <h3 style={{ fontWeight: 'bold', color: 'var(--text-muted)', margin: '0.5rem 0 0.25rem 0' }}>LEVEL</h3>
+                            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0, color: 'var(--warning)' }}>{level}</p>
+                        </div>
+                        
+                        <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+                            <h2 style={{ fontSize: '1.125rem', marginBottom: '0.25rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>CONTROLS</h2>
+                            <p style={{ margin: '0.125rem 0' }}><span style={{ fontWeight: 'bold', color: 'var(--warning)' }}>Arrows</span> : Move</p>
+                            <p style={{ margin: '0.125rem 0' }}><span style={{ fontWeight: 'bold', color: 'var(--warning)' }}>Up</span> : Rotate</p>
+                            <p style={{ margin: '0.125rem 0' }}><span style={{ fontWeight: 'bold', color: 'var(--warning)' }}>Space</span> : Hard Drop</p>
+                            <p style={{ margin: '0.125rem 0' }}><span style={{ fontWeight: 'bold', color: 'var(--warning)' }}>C</span> : Hold</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
 // Field Component
 const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     const [fieldHistory, setFieldHistory] = React.useState([]);
@@ -462,10 +1160,25 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     const [commandHistory, setCommandHistory] = React.useState([]);
     const [commandHistoryIndex, setCommandHistoryIndex] = React.useState(0);
     const [currentPage, setCurrentPage] = React.useState('home');
+    const [inputFocused, setInputFocused] = React.useState(false);
     const [typingQueue, setTypingQueue] = React.useState([]);
     const [isGlobalTyping, setIsGlobalTyping] = React.useState(false);
     const [currentTypingItem, setCurrentTypingItem] = React.useState(null);
     const fieldRef = React.useRef(null);
+    
+    // Enhanced CLI state
+    const [currentDirectory, setCurrentDirectory] = React.useState('/home/tim');
+    const [sessionStartTime] = React.useState(Date.now());
+    const [aliases] = React.useState({
+        'll': 'ls -la',
+        'la': 'ls -la',
+        'l': 'ls',
+        'c': 'clear',
+        'h': 'help'
+    });
+    const [aiActivated, setAiActivated] = React.useState(false);
+    const [conversationHistory, setConversationHistory] = React.useState([]);
+    const [tetrisActive, setTetrisActive] = React.useState(false);
     const typingIntervalRef = React.useRef(null);
 
     const projectsData = [
@@ -482,6 +1195,13 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     ];
 
     const writingsData = [
+        {
+            title: "Reverse Engineering Nature's Quantum",
+            date: "2025-01-06",
+            file: "reverse-engineering-natures-quantum.md",
+            color: "cyan",
+            content: "We stand at the threshold of the most profound technological revolution in human history, and it's already happening around us.\n\nFor millennia, electricity coursed through every atom, every lightning bolt, every firing neuron in our brains, yet humanity stumbled through darkness, unable to harness the infinite power dancing just beyond our fingertips. We knew it existed, we could see it crackling across stormy skies, but we lacked the understanding to plug into this omnipresent force.\n\nToday, we face an eerily similar moment with quantum computing. Except this time, the stakes are exponentially higher.\n\nEvery leaf on every tree is already running quantum algorithms with perfect efficiency, solving optimization problems that would crash our most advanced supercomputers. Birds navigate using quantum effects in their neurons. Bacteria tunnel through energy barriers that should be impossible to cross. Nature has been operating a vast, interconnected quantum network for billions of years. We're just now learning how to read the interface.\n\nIn 2025, quantum computing isn't the distant future, it's next year's budget item. Investment has nearly doubled annually, with production use cases jumping from 33% to 55% of industry leaders in just twelve months. We're not discussing if quantum computers will transform society, but which industries die first when the quantum tsunami hits.\n\nConsider this timeline that's no longer hypothetical: perfect error correction achieved by 2027, with hybrid quantum-classical systems deployed commercially, materials designed atom by atom and drugs created in days instead of decades by 2030, weather systems controlled and consciousness backed up like computer files by 2033. This isn't a science fiction movie. This is our Tuesday morning five years from now.\n\nImagine discovering that your entire backyard is actually a supercomputer, one more powerful than anything humans have ever built. This isn't metaphor. Plants are already quantum computers, using coherent energy states to optimize photosynthesis with near-perfect efficiency. They're solving NP-hard problems as a side effect of existing.\n\nThe breakthrough won't be building bigger quantum processors, it will be learning to plug USB cables into trees.\n\nPicture forests that simultaneously grow timber and solve supply chain logistics, crops that optimize their own growth patterns while calculating traffic flow for nearby cities, a living, breathing, solar-powered quantum network spanning the planet, solving humanity's greatest challenges as background processes while nature just exists. The compute power is already there, infinite and free. We just need to learn nature's programming language.\n\nThis quantum awakening is simultaneously the most hopeful and terrifying prospect in human history.\n\nThe promise is breathtaking: cancer cells converted back to healthy ones instantly, aging reversed through quantum-optimized genetic repairs, materials stronger than diamond but lighter than air, weather systems nudged to prevent hurricanes and end droughts, consciousness shared instantly across any distance through quantum-entangled neural networks.\n\nThe terror is equally profound: the complete obsolescence of current reality, every assumption about what's possible, every industry, every economic model rendered irrelevant overnight. Imagine trying to explain smartphones to someone from 1850, then multiply that disorientation by a thousand.\n\nWhen we achieve perfect 10 000-qubit systems with flawless error rates—likely within five years given AI's exponential assistance in discovery—we won't just have better computers, we'll have reality engines, machines capable of simulating entire universes with perfect physical laws indistinguishable from base reality. At that point, how do you know you're not already living in someone else's quantum simulation?\n\nHere's what haunts me: we're approaching this transformation with the same casual confidence we had when social media was \"just for connecting with friends\" or when AI was \"just for playing chess.\" Quantum computing won't just change technology, it will change the nature of existence itself. We're talking about manipulating the fundamental fabric of reality, about tapping into the universe's own computational substrate. And we're doing it because we can, not because we've carefully considered whether we should.\n\nEvery transformative technology has a last normal day, the final moment before everything changed forever, the last day before the internet connected every human brain, the last day before smartphones put supercomputers in every pocket, the last day before AI started writing our emails. We're living in quantum computing's last normal day.\n\nYour children will grow up in a world where matter can be programmed like software, where consciousness flows between minds like data between computers, where the boundary between simulation and reality has completely dissolved. They'll look back at our primitive 2025 technology, our crude silicon chips and binary processing, the way we look back at slide rules and telegraphs.\n\nThe quantum revolution isn't coming, it's here. The only question is whether we'll be conscious participants in humanity's next evolutionary leap or passive observers swept along by forces we failed to understand. Nature has been running quantum algorithms for billions of years, patiently waiting for us to learn her language. The trees in your backyard are already thinking. The bacteria in your gut are already computing. The quantum network has been operational all along.\n\nWe're just now getting our first glimpse of the login screen."
+        },
         {
             title: "When AI Understands Love",
             date: "2025-08-06",
@@ -1188,15 +1908,577 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 addToHistory([{ text: 'Exited CLI mode.', hasBuffer: true }]);
                 setCurrentPage('home');
             }
+        },
+        'pwd': {
+            purpose: 'Print working directory.',
+            execute: () => {
+                addToHistory([{ text: currentDirectory, hasBuffer: true }]);
+            }
+        },
+        'cd': {
+            purpose: 'Change directory (e.g., cd writings, cd .., cd /).',
+            execute: (args) => {
+                if (!args[0]) {
+                    setCurrentDirectory('/home/tim');
+                    addToHistory([{ text: 'Changed to home directory', hasBuffer: true }]);
+                } else if (args[0] === '..') {
+                    const parts = currentDirectory.split('/').filter(p => p);
+                    parts.pop();
+                    const newDir = parts.length ? '/' + parts.join('/') : '/';
+                    setCurrentDirectory(newDir);
+                    addToHistory([{ text: `Changed to ${newDir}`, hasBuffer: true }]);
+                } else if (args[0] === '/') {
+                    setCurrentDirectory('/');
+                    addToHistory([{ text: 'Changed to root directory', hasBuffer: true }]);
+                } else if (['writings', 'projects', 'about'].includes(args[0])) {
+                    const newDir = `/home/tim/${args[0]}`;
+                    setCurrentDirectory(newDir);
+                    addToHistory([{ text: `Changed to ${newDir}`, hasBuffer: true }]);
+                } else {
+                    addToHistory([{ text: `cd: ${args[0]}: No such directory`, isError: true, hasBuffer: true }]);
+                }
+            }
+        },
+        'grep': {
+            purpose: 'Search for text in articles (e.g., grep "AI" or grep "quantum").',
+            execute: (args) => {
+                if (!args[0]) {
+                    addToHistory([{ text: 'grep: missing search term', isError: true, hasBuffer: true }]);
+                    return;
+                }
+                const query = args.join(' ').replace(/"/g, '');
+                const results = searchInArticles(query);
+                
+                if (results.length === 0) {
+                    addToHistory([{ text: `grep: no matches found for "${query}"`, hasBuffer: true }]);
+                } else {
+                    const output = [`Found ${results.length} matches for "${query}":`];
+                    results.forEach(result => {
+                        output.push(`\n${result.file}:`);
+                        result.matches.forEach(line => {
+                            const highlighted = line.replace(
+                                new RegExp(query, 'gi'), 
+                                `**${query}**`
+                            );
+                            output.push(`  ${highlighted}`);
+                        });
+                    });
+                    addToHistory([{ text: output.join('\n'), hasBuffer: true }]);
+                }
+            }
+        },
+        'find': {
+            purpose: 'Find articles by name (e.g., find quantum, find *.md).',
+            execute: (args) => {
+                if (!args[0]) {
+                    const allFiles = writingsData.map(a => a.file).join('\n');
+                    addToHistory([{ text: allFiles, hasBuffer: true }]);
+                    return;
+                }
+                
+                const pattern = args[0];
+                const matches = writingsData.filter(article => {
+                    if (pattern.includes('*') || pattern.includes('?')) {
+                        return matchesWildcard(article.file, pattern) || 
+                               matchesWildcard(article.title.toLowerCase(), pattern);
+                    }
+                    return article.file.includes(pattern) || 
+                           article.title.toLowerCase().includes(pattern.toLowerCase());
+                });
+                
+                if (matches.length === 0) {
+                    addToHistory([{ text: `find: no matches found for "${pattern}"`, hasBuffer: true }]);
+                } else {
+                    const output = matches.map(a => `${a.file} - ${a.title}`).join('\n');
+                    addToHistory([{ text: output, hasBuffer: true }]);
+                }
+            }
+        },
+        'tail': {
+            purpose: 'Show last lines of an article (e.g., tail quantum.md).',
+            execute: (args) => {
+                if (!args[0]) {
+                    addToHistory([{ text: 'tail: missing file operand', isError: true, hasBuffer: true }]);
+                    return;
+                }
+                
+                const article = findArticleByName(args[0]);
+                if (!article) {
+                    addToHistory([{ text: `tail: ${args[0]}: No such file`, isError: true, hasBuffer: true }]);
+                    return;
+                }
+                
+                const lines = article.content.split('\n');
+                const lastLines = lines.slice(-10).join('\n');
+                addToHistory([{ text: lastLines, hasBuffer: true }]);
+            }
+        },
+        'wc': {
+            purpose: 'Word count for articles (e.g., wc quantum.md).',
+            execute: (args) => {
+                if (!args[0]) {
+                    const totalWords = writingsData.reduce((sum, a) => sum + a.content.split(/\s+/).length, 0);
+                    const totalLines = writingsData.reduce((sum, a) => sum + a.content.split('\n').length, 0);
+                    addToHistory([{ text: `Total: ${totalLines} lines, ${totalWords} words, ${writingsData.length} files`, hasBuffer: true }]);
+                    return;
+                }
+                
+                const article = findArticleByName(args[0]);
+                if (!article) {
+                    addToHistory([{ text: `wc: ${args[0]}: No such file`, isError: true, hasBuffer: true }]);
+                    return;
+                }
+                
+                const lines = article.content.split('\n').length;
+                const words = article.content.split(/\s+/).length;
+                const chars = article.content.length;
+                addToHistory([{ text: `${lines} lines, ${words} words, ${chars} characters - ${article.file}`, hasBuffer: true }]);
+            }
+        },
+        'history': {
+            purpose: 'Show command history.',
+            execute: () => {
+                if (commandHistory.length === 0) {
+                    addToHistory([{ text: 'No command history', hasBuffer: true }]);
+                } else {
+                    const historyOutput = commandHistory.slice(0, 20).map((cmd, i) => 
+                        `${commandHistory.length - i}: ${cmd}`
+                    ).join('\n');
+                    addToHistory([{ text: historyOutput, hasBuffer: true }]);
+                }
+            }
+        },
+        'tree': {
+            purpose: 'Display directory tree structure.',
+            execute: () => {
+                const tree = [
+                    '.',
+                    '├── about.txt',
+                    '├── projects/',
+                    '│   ├── whipsaw.md',
+                    '│   ├── petmatch.md',
+                    '│   └── more...',
+                    '├── writings/',
+                    '│   ├── reverse-engineering-natures-quantum.md',
+                    '│   ├── china-ai-domination.md',
+                    '│   ├── the-system-is-already-dead.md',
+                    '│   ├── from-cricket-to-collapse.md',
+                    '│   └── nurturing-the-future.md',
+                    '└── config/',
+                    '    └── terminal.conf'
+                ].join('\n');
+                addToHistory([{ text: tree, hasBuffer: true }]);
+            }
+        },
+        'which': {
+            purpose: 'Show command location/type.',
+            execute: (args) => {
+                if (!args[0]) {
+                    addToHistory([{ text: 'which: missing command name', isError: true, hasBuffer: true }]);
+                    return;
+                }
+                
+                if (recognizedCommands[args[0]]) {
+                    addToHistory([{ text: `/usr/local/bin/${args[0]} (built-in)`, hasBuffer: true }]);
+                } else if (aliases[args[0]]) {
+                    addToHistory([{ text: `${args[0]}: aliased to '${aliases[args[0]]}'`, hasBuffer: true }]);
+                } else {
+                    addToHistory([{ text: `which: ${args[0]}: command not found`, hasBuffer: true }]);
+                }
+            }
+        },
+        'man': {
+            purpose: 'Show manual pages (e.g., man ls).',
+            execute: (args) => {
+                if (!args[0]) {
+                    addToHistory([{ text: 'What manual page do you want?', hasBuffer: true }]);
+                    return;
+                }
+                
+                if (recognizedCommands[args[0]]) {
+                    const cmd = recognizedCommands[args[0]];
+                    addToHistory([
+                        { text: `NAME`, hasBuffer: true, isHighlight: true },
+                        { text: `    ${args[0]} - ${cmd.purpose}`, hasBuffer: true },
+                        { text: `\nDESCRIPTION`, hasBuffer: true, isHighlight: true },
+                        { text: `    ${cmd.purpose}`, hasBuffer: true },
+                        { text: `\nUSAGE`, hasBuffer: true, isHighlight: true },
+                        { text: `    ${args[0]} [options] [arguments]`, hasBuffer: true }
+                    ]);
+                } else {
+                    addToHistory([{ text: `man: no manual entry for ${args[0]}`, isError: true, hasBuffer: true }]);
+                }
+            }
+        },
+        'whoami': {
+            purpose: 'Display current user.',
+            execute: () => {
+                addToHistory([{ text: 'tim', hasBuffer: true }]);
+            }
+        },
+        'date': {
+            purpose: 'Display current date and time.',
+            execute: () => {
+                const now = new Date();
+                addToHistory([{ text: now.toString(), hasBuffer: true }]);
+            }
+        },
+        'uptime': {
+            purpose: 'Show system uptime.',
+            execute: () => {
+                addToHistory([{ text: `up ${formatUptime()}`, hasBuffer: true }]);
+            }
+        },
+        'alias': {
+            purpose: 'Show command aliases.',
+            execute: () => {
+                const aliasOutput = Object.entries(aliases)
+                    .map(([alias, command]) => `${alias}='${command}'`)
+                    .join('\n');
+                addToHistory([{ text: aliasOutput || 'No aliases defined', hasBuffer: true }]);
+            }
+        },
+        'ai': {
+            purpose: 'Show AI status or reset conversation. Use "ai reset" to clear context.',
+            execute: (args) => {
+                if (args[0] === 'reset') {
+                    setConversationHistory([]);
+                    setAiActivated(false);
+                    addToHistory([{ text: 'AI conversation history cleared.', hasBuffer: true }]);
+                } else if (args[0] === 'status') {
+                    const status = aiActivated ? 'activated' : 'waiting for "hey tim"';
+                    const historyLength = conversationHistory.length;
+                    addToHistory([
+                        { text: `AI Status: ${status}`, hasBuffer: true },
+                        { text: `Conversation history: ${historyLength} messages`, hasBuffer: true },
+                        { text: 'Say "hey tim [question]" to start a conversation', hasBuffer: true }
+                    ]);
+                } else {
+                    addToHistory([
+                        { text: 'AI Commands:', hasBuffer: true, isHighlight: true },
+                        { text: '  ai status  - Show AI status', hasBuffer: true },
+                        { text: '  ai reset   - Clear conversation history', hasBuffer: true },
+                        { text: '', hasBuffer: true },
+                        { text: 'To chat with AI, say: "hey tim [your question]"', hasBuffer: true }
+                    ]);
+                }
+            }
+        },
+        'play': {
+            purpose: 'Launch games (e.g., play tetris).',
+            execute: (args) => {
+                if (args[0] === 'tetris') {
+                    launchTetris();
+                } else {
+                    addToHistory([
+                        { text: 'Available games:', hasBuffer: true, isHighlight: true },
+                        { text: '  play tetris  - Classic Tetris game', hasBuffer: true }
+                    ]);
+                }
+            }
         }
     };
 
-    const processCommand = (input) => {
-        const [command, ...args] = input.trim().toLowerCase().split(' ');
+    // Utility functions
+    const formatUptime = () => {
+        const uptime = Date.now() - sessionStartTime;
+        const minutes = Math.floor(uptime / 60000);
+        const seconds = Math.floor((uptime % 60000) / 1000);
+        return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+    };
+
+    const matchesWildcard = (filename, pattern) => {
+        const regex = new RegExp(pattern.replace(/\*/g, '.*').replace(/\?/g, '.'));
+        return regex.test(filename);
+    };
+
+    const findArticleByName = (filename) => {
+        return writingsData.find(article => 
+            article.file === filename || 
+            article.file.includes(filename.replace('.md', '')) ||
+            article.title.toLowerCase().includes(filename.toLowerCase().replace('.md', ''))
+        );
+    };
+
+    const searchInArticles = (query) => {
+        const results = [];
+        writingsData.forEach((article, index) => {
+            const content = article.content.toLowerCase();
+            const title = article.title.toLowerCase();
+            const queryLower = query.toLowerCase();
+            
+            if (content.includes(queryLower) || title.includes(queryLower)) {
+                const lines = article.content.split('\n');
+                const matchingLines = lines.filter(line => 
+                    line.toLowerCase().includes(queryLower)
+                ).slice(0, 3);
+                
+                results.push({
+                    file: article.file,
+                    title: article.title,
+                    matches: matchingLines
+                });
+            }
+        });
+        return results;
+    };
+
+    // AI Integration Functions
+    const callGeminiAPI = async (prompt, conversationContext = []) => {
+        try {
+            // Get API key from injected environment variables
+            const apiKey = window.ENV?.GEMINI_API_KEY;
+            
+            // Debug logging for development
+            if (window.location.hostname === 'localhost') {
+                console.log('ENV object:', window.ENV);
+                console.log('API Key available:', !!apiKey);
+            }
+            
+            if (!apiKey || apiKey === 'null') {
+                throw new Error('AI functionality not available - API key not configured');
+            }
+            
+            // Tim's personality knowledge base
+            const personalityData = {
+                "Core Identity & Mindset": [
+                    "I'm Tim—professional tinkerer, reverse‑engineer, gym rat and freshly minted dad trying to future‑proof my family.",
+                    "I pull malware apart, build self‑hosted apps, automate my house until it feels alive, and lift heavy things for fun.",
+                    "I connect dots most folks don't even see on the page yet.",
+                    "Be better than yesterday. Everything filters through that.",
+                    "Small, relentless upgrades—body, code, ideas, relationships—stacked daily.",
+                    "Logic first, feelings second. Both count, but in that order.",
+                    "Progress, efficiency and proving myself right by shipping before the crowd wakes up.",
+                    "Systems that run themselves while I sleep and a kid who thinks the world is still interesting.",
+                    "Complacency dressed up as comfort scares me.",
+                    "New tools, harder lifts and ideas that break old mental models excite me.",
+                    "Bluntness isn't cruelty. It's respect for honest signal."
+                ],
+                "Tech & Automation": [
+                    "Home Assistant running on a Wi‑Fi 7 mesh, backed by Zigbee2MQTT and a flock of custom APIs.",
+                    "Context‑aware lighting, voice‑free commands, energy‑optimised HVAC and a doorbell that pages my phone.",
+                    "Privacy, latency and the thrill of owning the stack—that's why I use local LLMs.",
+                    "A local Ollama daemon watches state changes and decides next actions instead of hardcoded if‑then trees.",
+                    "Convenient until the subscription or the internet dies—hard pass on cloud‑based smart homes."
+                ],
+                "Fitness & Discipline": [
+                    "Push, Pull, Legs, Upper, Lower—16‑week periodised for getting huge.",
+                    "25,000 steps minimum daily.",
+                    "3000kcals on a cut and 4500 on a bulk, mostly chicken and chocolate.",
+                    "Whey, creatine, magnesium, fish oil, discipline.",
+                    "Aesthetics first, performance tags along.",
+                    "It's not motivation, it's discipline."
+                ],
+                "Parenthood": [
+                    "Being a dad is like installing emotional DLC you didn't know existed.",
+                    "Time became scarce, purpose got louder.",
+                    "Teaching curiosity, resilience and that buttons are for pressing.",
+                    "Building a resilient, local, AI‑augmented and debt‑free future for my family."
+                ]
+            };
+
+            const systemContext = `You ARE Tim. Respond exactly as he would—direct, brief, technical.
+
+            You're a reverse engineer, gym rat, new dad, home automation fanatic. Logic-first, blunt but not cruel. You build systems, lift heavy, automate everything, future-proof your family.
+
+            Key traits:
+            - "Be better than yesterday" philosophy
+            - Home Assistant + Zigbee2MQTT expert  
+            - Push/Pull/Legs split, 25k+ daily steps
+            - Local LLMs, privacy-first tech
+            - Connect dots others miss
+
+            Keep responses SHORT and conversational. Use your actual voice - casual, confident, sometimes sarcastic. Reference your real setup/experiences when relevant.
+
+            DON'T: Say "Tim thinks" or be an assistant about Tim
+            DO: BE Tim responding directly`;
+
+            const messages = [
+                { role: 'user', parts: [{ text: systemContext }] },
+                ...conversationContext,
+                { role: 'user', parts: [{ text: prompt }] }
+            ];
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-goog-api-key': apiKey
+                },
+                body: JSON.stringify({
+                    contents: messages.slice(-10), // Keep last 10 messages for context
+                    generationConfig: {
+                        temperature: 0.8,
+                        maxOutputTokens: 200,
+                        candidateCount: 1
+                    },
+                    safetySettings: [
+                        {
+                            category: "HARM_CATEGORY_HARASSMENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        }
+                    ]
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            
+            // Debug log the response structure
+            if (window.location.hostname === 'localhost') {
+                console.log('Gemini API Response:', data);
+            }
+            
+            // Handle different response structures
+            if (data.candidates && data.candidates.length > 0) {
+                const candidate = data.candidates[0];
+                if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
+                    return candidate.content.parts[0].text || 'Sorry, I could not generate a response.';
+                }
+            }
+            
+            // Fallback error message
+            return 'Sorry, I could not generate a response.';
+            
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+            return 'Sorry, I\'m having trouble connecting to my AI systems right now.';
+        }
+    };
+
+    const detectActivationWord = (input) => {
+        return input.toLowerCase().includes('hey tim');
+    };
+
+    const processAIQuery = async (input) => {
+        const query = input.replace(/hey tim\s*/i, '').trim();
+        if (!query) {
+            return "Hi! I'm here. What can I help you with?";
+        }
+
+        // Cool thinking animation
+        const thinkingMessages = [
+            '🧠 Accessing Tim\'s neural patterns...',
+            '⚡ Processing through quantum synapses...',
+            '🔍 Searching memory banks and blog archives...',
+            '🤖 Synthesizing response matrix...',
+            '💭 Tim\'s consciousness loading...'
+        ];
+        
+        let currentThinking = 0;
+        const thinkingInterval = setInterval(() => {
+            if (currentThinking < thinkingMessages.length) {
+                setFieldHistory(prev => {
+                    const newHistory = [...prev];
+                    if (newHistory[newHistory.length - 1]?.isThinking) {
+                        newHistory[newHistory.length - 1] = {
+                            text: thinkingMessages[currentThinking],
+                            hasBuffer: true,
+                            isHighlight: true,
+                            isThinking: true
+                        };
+                    } else {
+                        newHistory.push({
+                            text: thinkingMessages[currentThinking],
+                            hasBuffer: true,
+                            isHighlight: true,
+                            isThinking: true
+                        });
+                    }
+                    return newHistory;
+                });
+                currentThinking++;
+            }
+        }, 300);
+        
+        try {
+            const response = await callGeminiAPI(query, conversationHistory);
+            
+            // Clear thinking animation
+            clearInterval(thinkingInterval);
+            
+            // Remove thinking message from history
+            setFieldHistory(prev => prev.filter(item => !item.isThinking));
+            
+            // Update conversation history
+            setConversationHistory(prev => [
+                ...prev.slice(-8), // Keep last 8 exchanges
+                { role: 'user', parts: [{ text: query }] },
+                { role: 'model', parts: [{ text: response }] }
+            ]);
+
+            return response;
+        } catch (error) {
+            // Clear thinking animation on error too
+            clearInterval(thinkingInterval);
+            setFieldHistory(prev => prev.filter(item => !item.isThinking));
+            return 'Sorry, I encountered an error while processing your request.';
+        }
+    };
+
+    // Tetris Game Functions
+    const launchTetris = () => {
+        setTetrisActive(true);
+        addToHistory([{ 
+            text: 'Launching Modern Tetris... Use arrow keys to play, ESC to exit.', 
+            hasBuffer: true, 
+            isHighlight: true 
+        }]);
+    };
+
+
+    const processCommand = async (input) => {
+        const trimmed = input.trim();
+        if (!trimmed) return;
+
+        // Check for AI activation or if AI is already active
+        if (detectActivationWord(input) || aiActivated) {
+            // If it's the first activation, set the flag
+            if (!aiActivated) {
+                setAiActivated(true);
+            }
+            
+            // If it's a command while AI is active, check if it's a system command
+            const firstWord = trimmed.toLowerCase().split(' ')[0];
+            if (aiActivated && !detectActivationWord(input) && recognizedCommands[firstWord]) {
+                // It's a system command, process normally and stay in AI mode
+                const processedInput = trimmed.toLowerCase();
+                const [command, ...args] = processedInput.split(' ');
+                recognizedCommands[command].execute(args);
+                return;
+            }
+            
+            // Process as AI query
+            const response = await processAIQuery(input);
+            addToHistory([
+                { text: `🤖 Tim's AI:`, hasBuffer: true, isHighlight: true },
+                { text: response, hasBuffer: true }
+            ]);
+            return;
+        }
+
+        // Process as normal command (AI not activated)
+        // Handle aliases
+        let processedInput = trimmed.toLowerCase();
+        for (const [alias, command] of Object.entries(aliases)) {
+            if (processedInput.startsWith(alias + ' ') || processedInput === alias) {
+                processedInput = processedInput.replace(new RegExp(`^${alias}`), command);
+                break;
+            }
+        }
+
+        const [command, ...args] = processedInput.split(' ');
         if (command in recognizedCommands) {
             recognizedCommands[command].execute(args);
         } else {
-            addToHistory([{ text: `Command not found: ${command}`, isError: true, hasBuffer: true }]);
+            const suggestion = Object.keys(recognizedCommands).find(cmd => 
+                cmd.startsWith(command.substring(0, 2))
+            );
+            const suggestionText = suggestion ? ` Did you mean '${suggestion}'?` : '';
+            addToHistory([{ text: `Command not found: ${command}.${suggestionText}`, isError: true, hasBuffer: true }]);
         }
     };
 
@@ -1286,7 +2568,12 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         <>
             {navMode !== 'cli' && (
                 <div id="terminal-header">
-                    <AsciiNav handleNavClick={processCommand} currentPage={currentPage} />
+                    <AsciiNav 
+                        handleNavClick={processCommand} 
+                        currentPage={currentPage} 
+                        navMode={navMode} 
+                        setNavMode={setNavMode} 
+                    />
                     <AnimatedDuck />
                 </div>
             )}
@@ -1338,9 +2625,101 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 </div>
                 <div id="terminal-input">
                     <div className="input-line">
-                        <span className="prompt">$</span>
-                        <span id="query">{userInput}</span>
-                        <span id="cursor" style={theme.cursor}></span>
+                        <span className="prompt">
+                            {aiActivated ? '🤖 ' : ''}tim@portfolio:{currentDirectory}$
+                        </span>
+                        <div 
+                            className={`input-box ${inputFocused ? 'focused' : ''}`}
+                            onClick={() => {
+                                setInputFocused(true);
+                                document.getElementById('hidden-input').focus();
+                            }}
+                            tabIndex={0}
+                        >
+                            <span id="query">{userInput}</span>
+                            <span id="cursor" style={theme.cursor}></span>
+                            <input
+                                id="hidden-input"
+                                type="text"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        const newHistory = [...fieldHistory, { text: userInput, isCommand: true }];
+                                        setFieldHistory(newHistory);
+                                        
+                                        if (userInput) {
+                                            setCommandHistory([userInput, ...commandHistory]);
+                                            setCommandHistoryIndex(0);
+                                            processCommand(userInput);
+                                        }
+                                        setUserInput('');
+                                        return;
+                                    }
+                                    
+                                    if (e.key === 'Tab') {
+                                        e.preventDefault();
+                                        const words = userInput.split(' ');
+                                        const currentWord = words[words.length - 1];
+                                        
+                                        if (words.length === 1) {
+                                            // Complete command names
+                                            const commands = Object.keys(recognizedCommands);
+                                            const matches = commands.filter(cmd => cmd.startsWith(currentWord));
+                                            
+                                            if (matches.length === 1) {
+                                                setUserInput(matches[0] + ' ');
+                                            } else if (matches.length > 1) {
+                                                addToHistory([{ text: matches.join('  '), hasBuffer: true }]);
+                                            }
+                                        } else {
+                                            // Complete filenames for specific commands
+                                            const command = words[0];
+                                            if (['cat', 'head', 'tail', 'wc'].includes(command)) {
+                                                const files = writingsData.map(a => a.file);
+                                                const matches = files.filter(file => 
+                                                    file.startsWith(currentWord) || 
+                                                    file.includes(currentWord)
+                                                );
+                                                
+                                                if (matches.length === 1) {
+                                                    words[words.length - 1] = matches[0];
+                                                    setUserInput(words.join(' ') + ' ');
+                                                } else if (matches.length > 1) {
+                                                    addToHistory([{ text: matches.join('  '), hasBuffer: true }]);
+                                                }
+                                            }
+                                        }
+                                        return;
+                                    }
+                                    
+                                    if (e.key === 'ArrowUp') {
+                                        e.preventDefault();
+                                        if (commandHistoryIndex < commandHistory.length) {
+                                            const newIndex = commandHistoryIndex + 1;
+                                            setCommandHistoryIndex(newIndex);
+                                            setUserInput(commandHistory[newIndex - 1]);
+                                        }
+                                    } else if (e.key === 'ArrowDown') {
+                                        e.preventDefault();
+                                        if (commandHistoryIndex > 0) {
+                                            const newIndex = commandHistoryIndex - 1;
+                                            setCommandHistoryIndex(newIndex);
+                                            setUserInput(commandHistory[newIndex - 1] || '');
+                                        }
+                                    }
+                                }}
+                                onFocus={() => setInputFocused(true)}
+                                onBlur={() => setInputFocused(false)}
+                                style={{
+                                    position: 'absolute',
+                                    left: '-9999px',
+                                    opacity: 0,
+                                    width: '1px',
+                                    height: '1px'
+                                }}
+                            />
+                        </div>
                         {navMode === 'cli' && (
                             <span 
                                 className="exit-cli-link"
@@ -1357,6 +2736,14 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                     </div>
                 </div>
             </div>
+            {/* Full-screen Tetris overlay */}
+            {tetrisActive && (
+                <TetrisGame 
+                    onExit={() => {
+                        setTetrisActive(false);
+                    }} 
+                />
+            )}
         </>
     );
 };
