@@ -328,11 +328,48 @@ body {
     box-shadow: 0 0 5px rgba(159, 122, 234, 0.3);
 }
 
+/* Terminal Text Input Styles */
+.terminal-text-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #F4F4F4;
+    font-family: 'Google Sans Code', monospace;
+    font-size: 0.85rem;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    caret-color: #F4F4F4;
+    width: 100%;
+    min-width: 0;
+}
+
+.terminal-text-input::placeholder {
+    color: transparent;
+}
+
+.terminal-text-input:focus {
+    outline: none;
+    border: none;
+}
+
 /* Mobile touch improvements */
 @media (hover: none) and (pointer: coarse) {
+    .terminal-text-input {
+        font-size: 16px; /* Prevent zoom on iOS */
+        min-height: 44px; /* Apple's recommended touch target size */
+        padding: 12px 0;
+    }
+    
+    .input-line {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+    }
+    
     .input-box {
         border-color: #9F7AEA;
-        min-height: 44px; /* Apple's recommended touch target size */
+        min-height: 44px;
         display: flex;
         align-items: center;
     }
@@ -356,6 +393,12 @@ body {
     border-color: #6D28D9;
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
     background: rgba(255, 255, 255, 0.4);
+}
+
+/* Light theme terminal input */
+.light .terminal-text-input {
+    color: #474554;
+    caret-color: #474554;
 }
 
 .exit-cli-link {

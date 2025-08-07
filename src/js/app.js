@@ -3293,35 +3293,18 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                         <span className="prompt">
                             {aiActivated ? '🤖 ' : ''}tim@portfolio:{currentDirectory}$
                         </span>
-                        <div 
-                            className={`input-box ${inputFocused ? 'focused' : ''}`}
-                            onClick={() => {
-                                setInputFocused(true);
-                                const input = document.getElementById('hidden-input');
-                                input.focus();
-                                // Scroll into view on mobile
-                                if ('ontouchstart' in window) {
-                                    setTimeout(() => {
-                                        input.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                                    }, 100);
-                                }
-                            }}
-                            onTouchEnd={(e) => {
-                                // Better mobile touch handling
-                                e.preventDefault();
-                                setInputFocused(true);
-                                const input = document.getElementById('hidden-input');
-                                input.focus();
-                                input.click();
-                            }}
-                            tabIndex={0}
-                        >
-                            <span id="query">{userInput}</span>
-                            <span id="cursor" style={theme.cursor}></span>
-                            <input
-                                id="hidden-input"
-                                type="text"
-                                value={userInput}
+                        <input
+                            id="visible-input"
+                            className={`terminal-text-input ${inputFocused ? 'focused' : ''}`}
+                            type="text"
+                            value={userInput}
+                            placeholder={userInput || ''}
+                            onFocus={() => setInputFocused(true)}
+                            onBlur={() => setInputFocused(false)}
+                            autoCapitalize="none"
+                            autoCorrect="off"
+                            autoComplete="off"
+                            spellCheck="false"
                                 onChange={(e) => setUserInput(e.target.value)}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
@@ -3389,17 +3372,7 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                         }
                                     }
                                 }}
-                                onFocus={() => setInputFocused(true)}
-                                onBlur={() => setInputFocused(false)}
-                                style={{
-                                    position: 'absolute',
-                                    left: '-9999px',
-                                    opacity: 0,
-                                    width: '1px',
-                                    height: '1px'
-                                }}
                             />
-                        </div>
                         {navMode === 'cli' && (
                             <span 
                                 className="exit-cli-link"
