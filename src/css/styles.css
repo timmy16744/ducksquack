@@ -499,6 +499,66 @@ body {
         -webkit-touch-callout: none;
     }
     
+    /* Mobile Tetris Game Optimizations */
+    @media (hover: none) and (pointer: coarse) {
+        .game-grid {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .game-grid .grid-cell {
+            border-width: 0.5px !important;
+        }
+        
+        /* Better touch targets for mobile Tetris controls */
+        .mobile-tetris-control {
+            min-height: 44px;
+            min-width: 44px;
+            padding: 12px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-tetris-control:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+        
+        /* Mobile game over overlay improvements */
+        .mobile-game-over {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-game-over:active {
+            transform: scale(0.98);
+            background: rgba(0, 0, 0, 0.95) !important;
+        }
+        
+        /* Mobile bottom panel blur effect */
+        .mobile-bottom-panel {
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        /* Better visual feedback for pieces */
+        .mobile-piece-container {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-piece-container:active {
+            background: rgba(139, 92, 246, 0.2);
+            transform: scale(0.98);
+        }
+    }
+    
     .prompt {
         color: var(--primary) !important;
         font-weight: 700 !important;

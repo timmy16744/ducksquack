@@ -511,6 +511,18 @@ const TetrisGame = ({ onExit }) => {
     const [playerName, setPlayerName] = React.useState('');
     const [isNewHighScore, setIsNewHighScore] = React.useState(false);
     const [musicEnabled, setMusicEnabled] = React.useState(true);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    // Responsive layout detection
+    React.useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
     
     const dropCounterRef = React.useRef(0);
     const dropIntervalRef = React.useRef(48 * 16.67); // Level 1: 48 frames at 60 FPS
@@ -1513,7 +1525,173 @@ const TetrisGame = ({ onExit }) => {
                     </div>
                 )}
                 
-                <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
+                {/* Mobile Layout */}
+                <div style={{ 
+                    display: isMobile ? 'flex' : 'none',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    height: '100vh',
+                    overflow: 'hidden'
+                }}>
+                    {/* Mobile Game Board */}
+                    <div style={{ 
+                        position: 'relative',
+                        flex: '1',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingTop: '2rem'
+                    }}>
+                        <div className="game-grid" style={{
+                            width: '250px',
+                            height: '500px'
+                        }}>
+                            {Array.from({ length: ROWS * COLS }, (_, i) => {
+                                const row = Math.floor(i / COLS);
+                                const col = i % COLS;
+                                return (
+                                    <div 
+                                        key={i} 
+                                        className={renderCell(row, col)}
+                                    />
+                                );
+                            })}
+                        </div>
+                        
+                        {/* Game Over Modal */}
+                        {gameOver && (
+                            <div 
+                                className="mobile-game-over"
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: 'var(--primary)',
+                                    borderRadius: '4px',
+                                    border: '2px solid var(--primary)',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => {
+                                    if (isMobile) {
+                                        resetGame();
+                                    }
+                                }}
+                                onTouchEnd={(e) => {
+                                    e.preventDefault();
+                                    if (isMobile) {
+                                        resetGame();
+                                        // Haptic feedback
+                                        if ('vibrate' in navigator) {
+                                            navigator.vibrate([50, 25, 50]);
+                                        }
+                                    }
+                                }}
+                            >
+                                <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0, textShadow: '0 0 10px var(--primary)' }}>GAME OVER</h2>
+                                <p style={{ fontSize: '1rem', marginTop: '1rem', marginBottom: 0, color: 'var(--text-secondary)' }}>Tap to restart</p>
+                            </div>
+                        )}
+                    </div>
+                    
+                    {/* Mobile Bottom Panel */}
+                    <div className="mobile-bottom-panel" style={{
+                        width: '100%',
+                        background: 'linear-gradient(to top, rgba(34, 35, 51, 0.98), rgba(34, 35, 51, 0.9))',
+                        backdropFilter: 'blur(10px)',
+                        borderTop: '1px solid rgba(139, 92, 246, 0.3)',
+                        padding: '1rem',
+                        paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))',
+                        position: 'fixed',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        zIndex: 1000
+                    }}>
+                        {/* Top row: Hold, Score, Next */}
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            marginBottom: '1rem',
+                            gap: '1rem'
+                        }}>
+                            {/* Hold Piece */}
+                            <div className="mobile-piece-container" style={{ 
+                                display: 'flex', 
+                                flexDirection: 'column', 
+                                alignItems: 'center',
+                                minWidth: '80px'
+                            }}>
+                                <h3 style={{ fontSize: '0.8rem', fontWeight: 'bold', margin: '0 0 0.25rem 0', color: 'var(--text-primary)' }}>HOLD</h3>
+                                <div style={{ transform: 'scale(0.7)' }}>
+                                    {renderPiece(heldPiece, true)}
+                                </div>
+                            </div>
+                            
+                            {/* Score Info */}
+                            <div style={{
+                                textAlign: 'center',
+                                flex: 1
+                            }}>
+                                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--success)', margin: '0 0 0.25rem 0' }}>{score.toLocaleString()}</div>
+                                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                    L{level} • {linesCleared} lines
+                                </div>
+                            </div>
+                            
+                            {/* Next Piece */}
+                            <div className="mobile-piece-container" style={{ 
+                                display: 'flex', 
+                                flexDirection: 'column', 
+                                alignItems: 'center',
+                                minWidth: '80px'
+                            }}>
+                                <h3 style={{ fontSize: '0.8rem', fontWeight: 'bold', margin: '0 0 0.25rem 0', color: 'var(--text-primary)' }}>NEXT</h3>
+                                <div style={{ transform: 'scale(0.7)' }}>
+                                    {renderPiece(nextPiece)}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Bottom row: Mobile Controls */}
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            fontSize: '0.7rem',
+                            color: 'var(--text-muted)',
+                            textAlign: 'center'
+                        }}>
+                            <div>TAP: Rotate</div>
+                            <div>SWIPE: Move</div>
+                            <div>HOLD: Hold</div>
+                            <button
+                                onClick={toggleMusic}
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    color: musicEnabled ? 'var(--success)' : 'var(--text-muted)',
+                                    border: 'none',
+                                    fontSize: '1.2rem',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                {musicEnabled ? '🔊' : '🔇'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Desktop Layout */}
+                <div style={{ 
+                    display: !isMobile ? 'flex' : 'none',
+                    gap: '2rem', 
+                    alignItems: 'flex-start' 
+                }}>
                     {/* Left Side - High Scores and Hold */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: '200px' }}>
                         {/* High Scores */}
