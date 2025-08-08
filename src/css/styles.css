@@ -328,7 +328,7 @@ body {
     box-shadow: 0 0 5px rgba(159, 122, 234, 0.3);
 }
 
-/* Terminal Text Input Styles */
+/* Modern Mobile Terminal Input */
 .terminal-text-input {
     background: transparent;
     border: none;
@@ -342,10 +342,16 @@ body {
     caret-color: #F4F4F4;
     width: 100%;
     min-width: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .terminal-text-input::placeholder {
-    color: transparent;
+    color: rgba(244, 244, 244, 0.3);
+    transition: opacity 0.2s ease;
+}
+
+.terminal-text-input:focus::placeholder {
+    opacity: 0;
 }
 
 .terminal-text-input:focus {
@@ -353,29 +359,218 @@ body {
     border: none;
 }
 
-/* Mobile touch improvements */
+/* Mobile-First Responsive Design */
 @media (hover: none) and (pointer: coarse) {
-    .terminal-text-input {
-        font-size: 16px; /* Prevent zoom on iOS */
-        min-height: 44px; /* Apple's recommended touch target size */
-        padding: 12px 0;
+    /* Mobile terminal redesign */
+    #terminal-container {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+    }
+    
+    #terminal {
+        border-radius: 0 !important;
+        height: 100vh !important;
+    }
+    
+    #window {
+        display: none; /* Hide window controls on mobile */
+    }
+    
+    #terminal-body {
+        height: 100vh !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    
+    /* Mobile input area */
+    #terminal-input {
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(34, 35, 51, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        border-top: 1px solid rgba(159, 122, 234, 0.3) !important;
+        padding: 16px 20px !important;
+        z-index: 1000 !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+        padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
     }
     
     .input-line {
         display: flex;
         align-items: center;
-        min-height: 44px;
+        background: rgba(159, 122, 234, 0.1);
+        border: 1px solid rgba(159, 122, 234, 0.3);
+        border-radius: 12px;
+        padding: 12px 16px;
+        min-height: 48px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
     }
     
-    .input-box {
-        border-color: #9F7AEA;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
+    .input-line::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, 
+            rgba(159, 122, 234, 0.1) 0%, 
+            rgba(242, 93, 148, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
     }
     
-    .input-box:hover {
-        border-color: #9F7AEA;
+    .input-line.focused::before {
+        opacity: 1;
+    }
+    
+    .input-line.focused {
+        border-color: rgba(159, 122, 234, 0.6);
+        box-shadow: 0 0 20px rgba(159, 122, 234, 0.2);
+        transform: translateY(-2px);
+        animation: mobile-focus-pulse 0.6s ease-out;
+    }
+    
+    @keyframes mobile-focus-pulse {
+        0% {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 0 0 rgba(159, 122, 234, 0);
+        }
+        50% {
+            transform: translateY(-1px) scale(1.02);
+            box-shadow: 0 0 30px rgba(159, 122, 234, 0.4);
+        }
+        100% {
+            transform: translateY(-2px) scale(1);
+            box-shadow: 0 0 20px rgba(159, 122, 234, 0.2);
+        }
+    }
+    
+    /* Mobile command success animation */
+    @keyframes mobile-command-success {
+        0% {
+            transform: scale(1);
+            background: rgba(159, 122, 234, 0.1);
+        }
+        25% {
+            transform: scale(0.98);
+            background: rgba(16, 185, 129, 0.2);
+        }
+        50% {
+            transform: scale(1.02);
+            background: rgba(16, 185, 129, 0.15);
+        }
+        100% {
+            transform: scale(1);
+            background: rgba(159, 122, 234, 0.1);
+        }
+    }
+    
+    .mobile-command-success {
+        animation: mobile-command-success 0.4s ease-out;
+    }
+    
+    /* Enhanced touch targets for mobile */
+    .terminal-text-input:active {
+        transform: scale(0.99);
+    }
+    
+    /* Better visual feedback for mobile interactions */
+    .input-line:active {
+        transform: translateY(-1px) scale(0.99);
+        transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Prevent text selection on mobile UI elements */
+    .prompt, .nav-tree-item, .enhanced-nav-tree {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+    }
+    
+    .prompt {
+        color: var(--primary) !important;
+        font-weight: 700 !important;
+        margin-right: 12px !important;
+        font-size: 14px !important;
+        flex-shrink: 0;
+    }
+    
+    .terminal-text-input {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        color: #F4F4F4 !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        flex: 1 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-family: 'Google Sans Code', monospace !important;
+        font-weight: 400 !important;
+    }
+    
+    .terminal-text-input::placeholder {
+        color: rgba(244, 244, 244, 0.4) !important;
+        font-style: italic;
+    }
+    
+    /* Adjust field for mobile input */
+    #field {
+        padding-bottom: 120px !important; /* Space for input */
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-top: 20px !important;
+    }
+    
+    #terminal-body.with-header #field {
+        margin-top: 0 !important;
+        height: calc(100vh - 120px) !important;
+        padding-top: 160px !important;
+    }
+    
+    /* Mobile header adjustments */
+    #terminal-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(34, 35, 51, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        border-bottom: 1px solid rgba(159, 122, 234, 0.2) !important;
+        z-index: 999 !important;
+        padding: 16px 20px !important;
+        padding-top: calc(16px + env(safe-area-inset-top, 0px)) !important;
+        min-height: auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .enhanced-nav-tree {
+        width: 100% !important;
+        font-size: 13px !important;
+        padding: 0 !important;
+        margin-top: 12px !important;
+        background: rgba(159, 122, 234, 0.05) !important;
+        border: 1px solid rgba(159, 122, 234, 0.2) !important;
+        border-radius: 8px !important;
+        padding: 12px !important;
+    }
+    
+    #terminal-banner {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 8px !important;
     }
 }
 

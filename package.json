@@ -5,7 +5,8 @@
   "main": "src/index.html",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy",
+    "build": "eleventy && node scripts/inject-env.js",
+    "build:cloudflare": "eleventy && node scripts/inject-env.js",
     "dev": "eleventy --serve --watch",
     "clean": "rm -rf dist"
   },

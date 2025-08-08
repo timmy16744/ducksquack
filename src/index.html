@@ -884,9 +884,10 @@
         if (window.ENV.IS_DEVELOPMENT) {
             window.ENV.GEMINI_API_KEY = 'AIzaSyD7JFLqjn0_U5oTh3tT0lAOUA6WZWVLOrw';
         } else {
-            // For production, use Cloudflare Pages environment variable
-            // This will be replaced by Cloudflare Pages build process
-            window.ENV.GEMINI_API_KEY = '{{GEMINI_API_KEY}}';
+            // For production, we'll set it from a runtime fetch or use process.env during build
+            // Cloudflare Pages doesn't support template replacement in static files
+            // The API key will be injected via a separate endpoint or build process
+            window.ENV.GEMINI_API_KEY = null; // Will be set by build process or runtime
         }
     </script>
     <script src="js/writings-data.js"></script>

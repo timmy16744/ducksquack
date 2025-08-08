@@ -1802,6 +1802,21 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
     const [tetrisActive, setTetrisActive] = React.useState(false);
     const typingIntervalRef = React.useRef(null);
 
+    // Utility function for smooth mobile scrolling
+    const smoothScrollToBottom = React.useCallback(() => {
+        if (fieldRef.current) {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                fieldRef.current.scrollTo({
+                    top: fieldRef.current.scrollHeight,
+                    behavior: 'smooth'
+                });
+            } else {
+                fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+            }
+        }
+    }, []);
+
     const projectsData = [
         {
             title: "StormCaddie",
@@ -1968,9 +1983,17 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                     setCurrentTypingItem(null);
                     setIsGlobalTyping(false);
                     
-                    // Final scroll
+                    // Final scroll with smooth behavior on mobile
                     if (fieldRef.current) {
-                        fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                        if (isMobile) {
+                            fieldRef.current.scrollTo({
+                                top: fieldRef.current.scrollHeight,
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
+                        }
                     }
                     return;
                 }
@@ -1997,9 +2020,7 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                 });
 
                 // Auto-scroll to bottom during typing
-                if (fieldRef.current) {
-                    fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-                }
+                smoothScrollToBottom();
 
                 // Calculate next delay based on current character
                 let nextDelay = intervalDelay;
@@ -2082,13 +2103,9 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
         addToTypingQueue(items);
         
         // Auto-scroll to bottom immediately and after a delay
-        if (fieldRef.current) {
-            fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-        }
+        smoothScrollToBottom();
         setTimeout(() => {
-            if (fieldRef.current) {
-                fieldRef.current.scrollTop = fieldRef.current.scrollHeight;
-            }
+            smoothScrollToBottom();
         }, 50);
     }, [addToTypingQueue]);
 
@@ -2832,6 +2849,26 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
                     ]);
                 }
             }
+        },
+        'debug-ai': {
+            purpose: 'Debug AI configuration and connectivity.',
+            execute: () => {
+                const apiKey = window.ENV?.GEMINI_API_KEY;
+                const debugInfo = [
+                    { text: '=== AI Debug Information ===', hasBuffer: true, isHighlight: true },
+                    { text: `Hostname: ${window.location.hostname}`, hasBuffer: true },
+                    { text: `ENV object exists: ${!!window.ENV}`, hasBuffer: true },
+                    { text: `API key exists: ${!!apiKey}`, hasBuffer: true },
+                    { text: `API key length: ${apiKey ? apiKey.length : 0}`, hasBuffer: true },
+                    { text: `API key preview: ${apiKey ? apiKey.substring(0, 15) + '...' : 'none'}`, hasBuffer: true },
+                    { text: `Development mode: ${window.ENV?.IS_DEVELOPMENT}`, hasBuffer: true },
+                    { text: `AI activated: ${aiActivated}`, hasBuffer: true },
+                    { text: `Conversation history: ${conversationHistory.length} messages`, hasBuffer: true },
+                    { text: '', hasBuffer: true },
+                    { text: apiKey ? '✅ AI should be functional - try "hey tim test"' : '❌ AI not configured - check Cloudflare Pages environment variables', hasBuffer: true }
+                ];
+                addToHistory(debugInfo);
+            }
         }
     };
 
@@ -2885,14 +2922,17 @@ const Field = ({ theme, setTheme, setTitle, navMode, setNavMode }) => {
             // Get API key from injected environment variables
             const apiKey = window.ENV?.GEMINI_API_KEY;
             
-            // Debug logging for development
-            if (window.location.hostname === 'localhost') {
-                console.log('ENV object:', window.ENV);
-                console.log('API Key available:', !!apiKey);
-            }
+            // Debug logging for development and production troubleshooting
+            console.log('Environment check:', {
+                hostname: window.location.hostname,
+                ENV_exists: !!window.ENV,
+                API_key_exists: !!apiKey,
+                API_key_length: apiKey ? apiKey.length : 0,
+                API_key_starts_with: apiKey ? apiKey.substring(0, 10) + '...' : 'none'
+            });
             
-            if (!apiKey || apiKey === 'null') {
-                throw new Error('AI functionality not available - API key not configured');
+            if (!apiKey || apiKey === 'null' || apiKey === null) {
+                throw new Error('AI functionality not available - API key not configured. Check Cloudflare Pages environment variables.');
             }
             
             // Tim's comprehensive personality profile built from all writings and insights
@@ -3299,15 +3339,47 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                             type="text"
                             value={userInput}
                             placeholder={userInput || ''}
-                            onFocus={() => setInputFocused(true)}
+                            onFocus={() => {
+                                setInputFocused(true);
+                                // Haptic feedback for mobile
+                                if ('vibrate' in navigator) {
+                                    navigator.vibrate(20);
+                                }
+                            }}
                             onBlur={() => setInputFocused(false)}
                             autoCapitalize="none"
                             autoCorrect="off"
                             autoComplete="off"
                             spellCheck="false"
+                            onTouchStart={(e) => {
+                                // Smooth touch response
+                                e.currentTarget.style.transform = 'scale(0.99)';
+                                e.currentTarget.style.transition = 'transform 0.1s cubic-bezier(0.4, 0, 0.2, 1)';
+                            }}
+                            onTouchEnd={(e) => {
+                                e.currentTarget.style.transform = 'scale(1)';
+                                // Light haptic feedback on touch
+                                if ('vibrate' in navigator) {
+                                    navigator.vibrate(10);
+                                }
+                            }}
                                 onChange={(e) => setUserInput(e.target.value)}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
+                                        // Strong haptic feedback for command execution
+                                        if ('vibrate' in navigator) {
+                                            navigator.vibrate([30, 10, 30]);
+                                        }
+                                        
+                                        // Add mobile success animation
+                                        const inputLine = e.currentTarget.closest('.input-line');
+                                        if (inputLine && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                                            inputLine.classList.add('mobile-command-success');
+                                            setTimeout(() => {
+                                                inputLine.classList.remove('mobile-command-success');
+                                            }, 400);
+                                        }
+                                        
                                         const newHistory = [...fieldHistory, { text: userInput, isCommand: true }];
                                         setFieldHistory(newHistory);
                                         
@@ -3322,6 +3394,10 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                     
                                     if (e.key === 'Tab') {
                                         e.preventDefault();
+                                        // Light haptic feedback for tab completion
+                                        if ('vibrate' in navigator) {
+                                            navigator.vibrate(15);
+                                        }
                                         const words = userInput.split(' ');
                                         const currentWord = words[words.length - 1];
                                         
@@ -3332,6 +3408,10 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                             
                                             if (matches.length === 1) {
                                                 setUserInput(matches[0] + ' ');
+                                                // Success haptic for successful completion
+                                                if ('vibrate' in navigator) {
+                                                    navigator.vibrate([20, 5, 20]);
+                                                }
                                             } else if (matches.length > 1) {
                                                 addToHistory([{ text: matches.join('  '), hasBuffer: true }]);
                                             }
@@ -3348,6 +3428,10 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                                 if (matches.length === 1) {
                                                     words[words.length - 1] = matches[0];
                                                     setUserInput(words.join(' ') + ' ');
+                                                    // Success haptic for successful completion
+                                                    if ('vibrate' in navigator) {
+                                                        navigator.vibrate([20, 5, 20]);
+                                                    }
                                                 } else if (matches.length > 1) {
                                                     addToHistory([{ text: matches.join('  '), hasBuffer: true }]);
                                                 }
@@ -3359,6 +3443,10 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                     if (e.key === 'ArrowUp') {
                                         e.preventDefault();
                                         if (commandHistoryIndex < commandHistory.length) {
+                                            // Subtle haptic feedback for history navigation
+                                            if ('vibrate' in navigator) {
+                                                navigator.vibrate(12);
+                                            }
                                             const newIndex = commandHistoryIndex + 1;
                                             setCommandHistoryIndex(newIndex);
                                             setUserInput(commandHistory[newIndex - 1]);
@@ -3366,6 +3454,10 @@ Respond as Tim would—authentic, knowledgeable, with his perspective and voice.
                                     } else if (e.key === 'ArrowDown') {
                                         e.preventDefault();
                                         if (commandHistoryIndex > 0) {
+                                            // Subtle haptic feedback for history navigation
+                                            if ('vibrate' in navigator) {
+                                                navigator.vibrate(12);
+                                            }
                                             const newIndex = commandHistoryIndex - 1;
                                             setCommandHistoryIndex(newIndex);
                                             setUserInput(commandHistory[newIndex - 1] || '');
