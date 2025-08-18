@@ -499,6 +499,28 @@ body {
         -webkit-touch-callout: none;
     }
     
+    /* Improved touch targets for mobile navigation */
+    .nav-tree-item {
+        min-height: 44px !important;
+        padding: 8px 12px !important;
+        margin: 4px 0 !important;
+        display: inline-block !important;
+        border-radius: 6px !important;
+        transition: all 0.2s ease !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        background: rgba(159, 122, 234, 0.05) !important;
+        border: 1px solid rgba(159, 122, 234, 0.15) !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    .nav-tree-item:hover, .nav-tree-item:active {
+        background: rgba(159, 122, 234, 0.15) !important;
+        border-color: rgba(159, 122, 234, 0.3) !important;
+        transform: scale(0.98) !important;
+    }
+    
     /* Mobile Tetris Game Optimizations */
     @media (hover: none) and (pointer: coarse) {
         .game-grid {
@@ -595,8 +617,8 @@ body {
     
     #terminal-body.with-header #field {
         margin-top: 0 !important;
-        height: calc(100vh - 120px) !important;
-        padding-top: 60px !important; /* Reduced from 160px to account for compact header */
+        height: calc(100vh - 140px) !important;
+        padding-top: 100px !important; /* Increased to account for larger mobile header */
     }
     
     /* Mobile header adjustments - Compact version */
@@ -609,39 +631,42 @@ body {
         backdrop-filter: blur(20px) !important;
         border-bottom: 1px solid rgba(159, 122, 234, 0.3) !important;
         z-index: 999 !important;
-        padding: 8px 16px !important;
-        padding-top: calc(8px + env(safe-area-inset-top, 0px)) !important;
+        padding: 12px 16px !important;
+        padding-top: calc(12px + env(safe-area-inset-top, 0px)) !important;
         min-height: auto !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 12px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: center !important;
+        gap: 8px !important;
     }
     
     .enhanced-nav-tree {
-        width: auto !important;
-        font-size: 11px !important;
-        padding: 6px 10px !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        padding: 12px 16px !important;
         margin: 0 !important;
         background: rgba(159, 122, 234, 0.08) !important;
         border: 1px solid rgba(159, 122, 234, 0.25) !important;
-        border-radius: 6px !important;
-        flex: 1 !important;
-        max-width: 60% !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
+        border-radius: 8px !important;
+        flex: none !important;
+        max-width: none !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: initial !important;
+        line-height: 1.4 !important;
     }
     
     #terminal-banner {
-        font-size: 11px !important;
-        line-height: 1.2 !important;
+        font-size: 12px !important;
+        line-height: 1.3 !important;
         margin: 0 !important;
         flex-shrink: 0 !important;
-        max-width: 35% !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
+        max-width: none !important;
+        width: 100% !important;
+        overflow: visible !important;
+        text-overflow: initial !important;
+        white-space: normal !important;
+        text-align: center !important;
     }
 }
 
@@ -1242,74 +1267,122 @@ body {
     
     /* Compact navigation for small screens */
     .enhanced-nav-tree {
-        font-size: 10px !important;
-        padding: 4px 8px !important;
+        font-size: 13px !important;
+        padding: 10px 14px !important;
     }
     
     #terminal-header {
-        padding: 6px 12px !important;
-        padding-top: calc(6px + env(safe-area-inset-top, 0px)) !important;
+        padding: 10px 12px !important;
+        padding-top: calc(10px + env(safe-area-inset-top, 0px)) !important;
     }
     
     #terminal-banner {
-        font-size: 10px !important;
+        font-size: 11px !important;
+    }
+    
+    .nav-tree-item {
+        min-height: 40px !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
     }
 }
 
 /* Tablet and medium screens */
 @media only screen and (max-width: 768px) and (min-width: 601px) {
     #terminal-body.with-header #field {
-        margin-top: 55px; /* Compact header for tablets */
-        height: calc(100% - 55px);
+        margin-top: 0 !important;
+        height: calc(100vh - 130px) !important;
+        padding-top: 90px !important;
     }
     
     #terminal-header {
-        padding: 7px 14px !important;
-        padding-top: calc(7px + env(safe-area-inset-top, 0px)) !important;
+        padding: 10px 14px !important;
+        padding-top: calc(10px + env(safe-area-inset-top, 0px)) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+    }
+    
+    .enhanced-nav-tree {
+        font-size: 13px !important;
+        padding: 10px 14px !important;
+        width: 100% !important;
+    }
+    
+    .nav-tree-item {
+        min-height: 42px !important;
+        padding: 7px 11px !important;
+        font-size: 13px !important;
     }
 }
 
 /* Small height screens (landscape mobile, small laptops) */
 @media only screen and (max-height: 600px) {
     #terminal-body.with-header #field {
-        margin-top: 45px; /* Even more compact for landscape */
-        height: calc(100% - 45px);
+        margin-top: 0 !important;
+        height: calc(100vh - 100px) !important;
+        padding-top: 70px !important;
     }
     
     .enhanced-nav-tree {
-        padding: 3px 6px !important;
-        font-size: 9px !important;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        width: 100% !important;
     }
     
     #terminal-header {
-        padding: 4px 10px !important;
-        padding-top: calc(4px + env(safe-area-inset-top, 0px)) !important;
+        padding: 6px 10px !important;
+        padding-top: calc(6px + env(safe-area-inset-top, 0px)) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4px !important;
     }
     
     #terminal-banner {
-        font-size: 9px !important;
+        font-size: 10px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .nav-tree-item {
+        min-height: 36px !important;
+        padding: 5px 8px !important;
+        font-size: 12px !important;
     }
 }
 
 /* Portrait mobile screens - extra tall */
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     #terminal-body.with-header #field {
-        margin-top: 50px; /* Consistent compact header for portrait */
-        height: calc(100% - 50px);
+        margin-top: 0 !important;
+        height: calc(100vh - 140px) !important;
+        padding-top: 100px !important;
     }
     
     #terminal-header {
-        padding: 6px 12px !important;
-        padding-top: calc(6px + env(safe-area-inset-top, 0px)) !important;
+        padding: 12px 12px !important;
+        padding-top: calc(12px + env(safe-area-inset-top, 0px)) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
     }
     
     .enhanced-nav-tree {
-        font-size: 10px !important;
-        padding: 4px 8px !important;
+        font-size: 14px !important;
+        padding: 12px 16px !important;
+        width: 100% !important;
     }
     
     #terminal-banner {
-        font-size: 10px !important;
+        font-size: 12px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .nav-tree-item {
+        min-height: 44px !important;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
     }
 }
 
@@ -1335,4 +1408,23 @@ body {
 
 .article-preview-clickable {
     cursor: pointer;
+}
+
+/* Terminal button styles for document reader */
+.terminal-share-button {
+    color: var(--tertiary);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.terminal-share-button:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+    background-color: rgba(124, 58, 237, 0.1);
+}
+
+.terminal-success {
+    color: var(--success);
+    font-weight: bold;
 }
