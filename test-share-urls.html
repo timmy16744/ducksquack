@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Share URLs</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #222333;
+            color: #F4F4F4;
+            padding: 20px;
+        }
+        .test-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #334155;
+            border: 1px solid #F25D94;
+            color: #06B6D4;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .test-link:hover {
+            background: #1E293B;
+            color: #F25D94;
+        }
+        h1 {
+            color: #F25D94;
+        }
+        p {
+            color: #CBD5E1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Post Share URL Tests</h1>
+    <p>Click the links below to test direct deep linking to blog posts:</p>
+    
+    <a href="http://localhost:8086/#/article/china-ai-domination.md" class="test-link" target="_blank">
+        📰 China AI Domination Article
+    </a>
+    
+    <a href="http://localhost:8086/#/article/when-ai-understands-love.md" class="test-link" target="_blank">
+        💜 When AI Understands Love
+    </a>
+    
+    <a href="http://localhost:8086/#/article/navigating-mad-map.md" class="test-link" target="_blank">
+        🗺️ Navigating MAD MAP
+    </a>
+    
+    <a href="http://localhost:8086/#/article/reverse-engineering-natures-quantum.md" class="test-link" target="_blank">
+        ⚛️ Reverse Engineering Nature's Quantum
+    </a>
+    
+    <a href="http://localhost:8086/#/article/the-system-is-already-dead.md" class="test-link" target="_blank">
+        💀 The System is Already Dead
+    </a>
+    
+    <a href="http://localhost:8086/#/article/invalid-article.md" class="test-link" target="_blank">
+        ❌ Invalid Article (should redirect to home)
+    </a>
+    
+    <hr style="border-color: #F25D94; margin: 30px 0;">
+    
+    <h2>How to test:</h2>
+    <ol style="color: #CBD5E1;">
+        <li>Make sure the dev server is running (npm run dev)</li>
+        <li>Click any link above</li>
+        <li>The article should open directly in the terminal interface</li>
+        <li>Check that the URL shows the correct hash (e.g., #/article/filename.md)</li>
+        <li>Try clicking the share button in the article reader</li>
+        <li>Verify that the copied URL works when pasted in a new tab</li>
+    </ol>
+</body>
+</html>
