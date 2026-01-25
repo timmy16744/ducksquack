@@ -1,33 +1,33 @@
-title: "From Cricket to Collapse" 
-date: "2025-05-28" 
+---
+title: "From Cricket to Collapse"
+date: "2025-05-28"
 color: "green"
+---
 
-The Australian social contract is a corrupted data packet the myth of "mateship" replaced by a zero-sum extraction protocol. A select cadre floats on A$600k+ executive strata while the civilian account experiences net resource contraction. This is not a collective endeavor; it is a daylight robbery algorithm running in plain sight. Wealth is registered in inflated asset valuations yet the subjective poverty quotient hits new peaks. The system is generating notional prosperity while simultaneously enforcing material deprivation for the majority.
+There is a peculiar inversion at the heart of Australian public life that I have been struggling to articulate. We reserve our most intense scrutiny for the things that matter least, while the things that matter most proceed largely unexamined.
 
-The relentless scrutiny reserved for an isolated Sandpapergate fails to register the tectonic shifts engineered by the political class. Three consecutive quarters of economic contraction should trigger a cabinet deactivation sequence yet the apparatus continues its designated function. Fifty percent of juvenile cohorts demonstrate hydrostatic illiteracy small businesses undergo daily dissolution events and the token 3% wage increment is immediately clawed back through the roster contraction protocol. This is scalar incompetence not governance.
+Consider the Sandpaper affair. For weeks, the nation was consumed by the spectacle of cricketers cheating in a game. Inquiries were held. Careers were ended. The moral fabric of the nation was, we were assured, at stake. Meanwhile, the actual structural conditions of Australian life continued their quiet deterioration, noticed by few and addressed by fewer.
 
-The very operators presiding over this dissolution event are simultaneously the best-paid public officials on Earth. The Prime Minister's node clears approximately A$607k annually with back-bench modules starting above A$230k exceeding compensation levels in much larger GNP territories. This corporate-tier salary payload attracts careerists the system demands custodians.
+I do not say this to minimise sporting integrity. I say it because the contrast illuminates something about how we allocate our collective attention.
 
-The only effective correction mechanism is a direct linkage between executive compensation and the lower 50% percentile of national incomes: if the substrate experiences nutritional deficiency the command layer must experience the identical resource constraint.
+The social contract in this country has become something rather different from what it once was. The mythology of mateship persists in our rhetoric, but the reality has drifted toward something more extractive. A small cohort floats on salaries exceeding six hundred thousand dollars, while the majority experience what can only be described as a contraction in real living standards. Wealth is measured in inflated asset values, yet the lived experience of most Australians grows measurably harder each year.
 
-Australia possesses an unrivalled geochemical treasure chest: one-fifth of global lithium resources one-third of rutile and iron ore world-class nickel copper and rare-earth deposits. Yet the extraction protocol mandates exporting raw ore at discount then re-importing finished battery modules at luxury markup. The identical value-vaporization loop operates in agriculture: Australian beef commands a premium on a Shanghai menu yet is inaccessible in a suburban distribution center. Regulatory hypersaturation suffocates any attempt to initiate local value addition.
+Our political class is among the best compensated on Earth. The Prime Minister earns approximately six hundred thousand dollars annually. Backbenchers start above two hundred and thirty thousand. These figures exceed what comparable officials earn in nations with far larger economies. I do not begrudge anyone a decent salary, but there is something unsettling about a system where those presiding over national decline are so generously rewarded for their failures.
 
-This mimics AFL officiating logic: the recognized failure of the system led to adding redundant umpires until the game became a whistle-blown muddle. The economy requires fewer overlapping regulatory matrices and genuine transparency. Instead red tape transforms the initiation of a mine an abattoir a small startup into a bureaucratic marathon preventing material infrastructure realization.
+The only effective correction would be to link political compensation directly to the wellbeing of ordinary citizens. If the bottom half of the population struggles, those at the top should feel the pinch too. This will never happen, of course, but the thought experiment is clarifying.
 
-Energy policy is a definitive own goal. With endless solar flux and vast unpopulated desert space the nation could deploy photovoltaic carpets paired with grid-scale battery reservoirs achieving national power autonomy. Instead state mechanisms increase power tariffs and slash feed-in compensations ensuring rooftop PV households earn cents per kilowatt-hour while gentailers post record profit vectors.
+We sit atop extraordinary natural wealth. One fifth of global lithium reserves. A third of the world's rutile. Iron ore, nickel, copper, rare earths. Yet our approach to this inheritance has been remarkably consistent: dig it up, ship it out raw, then buy back the finished products at a premium. The same pattern repeats in agriculture. Australian beef commands top prices on Shanghai menus while remaining increasingly unaffordable in suburban supermarkets.
 
-The housing market is inflated beyond the access threshold fossil-fuel subsidies guarantee 50°C summer excursions "Closing the Gap" targets suffer annual non-achievement the NBN ranks 83rd globally defense R&D is starved while foreign cheques are signed and a tidal AI wave barrels toward the society with no credible national reskilling protocol.
+The regulatory environment has become something like the umpiring in modern AFL: well-intentioned in theory, suffocating in practice. Starting a mine, an abattoir, or a small business means navigating a bureaucratic labyrinth that defeats all but the most determined or well-resourced applicants. The impulse to add more rules in response to every failure has created a system that prevents things from happening rather than enabling them.
 
-The general populace remains cognitively isolated from the immense wealth potential AI will unleash a prosperity event on a scale humanity has never cataloged because the individuals most likely to lose their privileged nodal positions will not broadcast the fact. Through controlled media channels they disseminate fear and division vectors to maintain a distracted and docile substrate.
+Energy policy represents perhaps the most complete failure of imagination. We possess endless solar exposure and vast stretches of unpopulated desert. We could be the world's leader in photovoltaic deployment, exporting clean energy as readily as we once exported coal. Instead, power prices rise while feed-in tariffs fall. Households with rooftop solar earn pennies per kilowatt-hour while energy retailers post record profits.
 
-My newborn son Arthur must not merely survive this diminished Australia he must thrive in a redesigned architecture. This demands leaders who execute future construction protocols not build monuments to past failures.
+The housing market has inflated beyond any reasonable connection to underlying value. Climate policy remains largely symbolic. Indigenous disadvantage persists despite decades of targets and programmes. The National Broadband Network ranks eighty-third globally. Defence research is starved of funding while procurement contracts flow overseas. And now, a transformation in artificial intelligence approaches that will reshape every aspect of economic life, with no credible national response in sight.
 
-The solution is a clean slate deployment: a political apparatus led by the generation fluent in tomorrow's technology AI and automation experts prepared to channel the resource windfall into national sovereign programs:
+I became a father recently. My son Arthur will grow up in this country, and the thought of the world we are preparing for him weighs heavily on me. The question is not whether Australia can muddle through. It probably can, in some diminished form. The question is whether we are capable of something better.
 
-    Medicare must function as a universal medical needs coverage protocol not merely a baseline service.
+The raw materials are here. The human capital exists. What seems to be missing is the political will to do anything other than manage decline while protecting the interests of those who benefit from the current arrangements.
 
-    Energy broadband and baseline AI access must be codified as human rights.
+My son deserves leaders who are prepared to build for the future rather than maintain monuments to past failures. I suspect most Australians feel something similar. The gap between what we could be and what we are choosing to be grows wider each year.
 
-    Export levies must be funneled directly into local battery production green power networks and community infrastructure—markets cafes maker spaces—ensuring value circulates at street level not within conglomerate boardrooms.
-
-We are accelerating toward a world of material abundance where purpose and individuality face evaporation risk. Government must anticipate this change horizon and prepare for it ensuring the nation leads the future not scrambles to intercept it.
+Whether we find the collective will to close that gap remains, for now, an open question.

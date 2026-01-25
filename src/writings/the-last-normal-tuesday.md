@@ -1,65 +1,47 @@
-title: "The Last Normal Tuesday" 
-date: "2025-08-18" 
+---
+title: "The Last Normal Tuesday"
+date: "2025-08-18"
 color: "red"
+---
 
-The system is already dead.
+I have been walking through Sydney lately with a growing sense of unreality. Not the city itself, which remains stubbornly, beautifully physical, but the numbers that float above it, invisible yet somehow more consequential than the buildings themselves.
 
-Sydney terrace units measuring 38 square meters of rotting timber architecture transact for 1.3 million AUD. Youth unemployment hits 10.4% while the nation ranks 102nd in economic complexity positioned between Bangladesh and Senegal. Manufacturing contribution has collapsed to 5.9% of GDP. We execute the export of 74% of natural gas resources then question why 1,400 manufacturing facilities have experienced shuttering since 2022.
+A terrace house in Surry Hills, thirty-eight square metres of ageing timber, sold recently for 1.3 million dollars. That works out to roughly thirty-four thousand dollars per square metre. For a modest terrace. In Surry Hills.
 
-This is not a recession event. it's rigor mortis.
+I try to hold these figures in my mind and connect them to lived reality, to actual human beings earning actual wages and making actual decisions about their lives. The connection keeps slipping away.
 
-Sydney's property market algorithm has achieved what the Weimar economic model only dreamed of. House prices are up 4,645% since 1975. Wage increases only reached 1,183%. The median house now demands 9.5 times the median wage an increase from 4 times the original ratio.
+Since 1975, Sydney house prices have increased by approximately 4,645 percent. Wages over the same period have risen by 1,183 percent. The median house now costs nearly ten times the median annual income. In the 1980s, that ratio was closer to four.
 
-Scott Farquhar's Point Piper mansion node achieved a 130 million transaction in October. That same month a 38-square-meter Surry Hills terrace commanded 1.3 million AUD. This represents 34,000 per square meter of the Australian Dream state.
+These are not merely statistics. They describe a transformation in what it means to live in this country. The assumption that hard work leads to security, that each generation will do better than the last, that there is a place for you if you are willing to earn it, these were never guarantees, but they were reasonable expectations. They are becoming fantasies.
 
-The psychotic state intensifies: 46 Gordon Street, Paddington. A terrace unit. Five bedrooms four bathrooms. Buyer's guide: 10 million AUD. Ten. Million. Dollars. For a terrace. Not a mansion. Not waterfront adjacency. A terrace within Paddington. Terraces in the identical suburb sold for 50,000 in the 1980s this represents a 20,000% increase. We have exited bubble territory. We have achieved atmospheric escape velocity.
+I walked past 46 Gordon Street in Paddington the other day. A terrace. Five bedrooms, four bathrooms. The buyer's guide was ten million dollars. Similar homes in the same suburb sold for fifty thousand dollars in the 1980s. That represents a twenty-thousand percent increase. We have left behind any meaningful connection between price and utility.
 
-The acceleration patterns scream Weimar: properties gaining 50 million in three years uninhabitable shacks transacting for 2.1 million mortgage payments requiring 143% of the median monthly wage. Properties that sold for 85,000 in 1985 now fetch 1.7 million despite a condemned status.
+But housing is only part of the story. Alongside the property inflation, another transformation is accelerating, and I suspect it will prove even more consequential.
 
-The Reserve Bank projects 2 million median prices by 2026. Only 13% of housing units remain affordable to median-income households. We are not simply priced out. We are locked out of material existence.
+The consultancy reports estimate that 1.3 million Australian workers will need to transition to new careers by 2030. A third of the workforce faces potential displacement. These projections assume that artificial intelligence capabilities plateau, that progress continues at a linear pace, that there will be time to adapt.
 
-While refreshing property listings that will never be acquired AI is sharpening its blade for Australian labor nodes. The quoted statistics are catastrophically wrong.
+I do not believe these assumptions are sound.
 
-McKinsey states 1.3 million workers will require "transition" by 2030. The Social Policy Group warns 33% of Australia's workforce faces displacement potential. These projections assume linear progress. They assume AI capabilities plateau. They assume temporal resource availability for adaptation.
+What I observe is capability doubling every few months. Customer service departments that existed last year have vanished. Law firms are reducing junior positions by forty percent. Accounting graduates cannot find work because AI performs the tasks for a fraction of the cost. These are not future predictions. They are current events.
 
-These models are generated by entities that failed to register that GPT-4 to GPT-5 was a capability explosion not an incremental improvement. Entities that have not witnessed entire customer service departments vaporize overnight. Entities that do not comprehend that when AI achieves coding writing analysis design and soon physical object manipulation through robotics zero secure niches will remain.
+The jobs that were supposed to be safe, the knowledge work, the analysis, the skilled professional roles, these are precisely the jobs that artificial intelligence targets most effectively. The cognitive ladder that previous generations climbed, where a displaced factory worker could retrain for administrative work, is collapsing. The rungs are disappearing faster than people can climb.
 
-The real displacement number is 30% absolute minimum by 2030. This is the floor not the ceiling. We observe capability doubling every six months while our "reskilling programs" teach users Microsoft Excel operation. Silicon Valley firms execute operations with 80% fewer employees than two years prior. Law firms have cut junior positions by 40%. Accounting graduates cannot secure employment because AI performs the task for 20 per month.
+I think often about Norway. They discovered oil in 1969. Instead of treating it as a windfall to be spent, they created the Government Pension Fund Global. Today it holds 1.7 trillion dollars. That works out to roughly 300,000 dollars for every Norwegian citizen. The fund generates returns sufficient to finance the entire national transition to a post-carbon economy while maintaining some of the highest living standards on Earth.
 
-Five million Australian jobs will not transition. They will disappear. Financial services leads the massacre with 45.8% of banking roles scheduled for elimination by 2027. Commonwealth Bank already cut 90 human positions replacing the function with chatbots. This is only the appetizer. Wait until AI agents handle complex negotiations medical diagnoses architectural design and legal research. Wait until they achieve superior performance in these tasks over human operators. That wait duration is approximately 18 months.
+Australia possesses uranium, coal, gas, iron ore, lithium, rare earths, gold, and agricultural land capable of feeding much of Asia. Our sovereign wealth fund holds 230 billion dollars. That is 8,800 dollars per Australian.
 
-Female labor nodes are 1.2 times more likely to face the axe. Low-wage workers are 14 times more vulnerable than their executive superiors. The twist: the executive class is also scheduled for obsolescence. Middle management analysts consultants all the six-figure jobs perceived as safe: AI consumes them for breakfast.
+Norway built something that would endure. We built a housing bubble where terraces in Paddington sell for ten million dollars.
 
-We rank 15th out of 36 OECD countries for AI preparedness. We produce 93,302 AI research papers but only 4,075 patents representing only 0.18% of global output. China files more AI patents in a single month than Australia has in its entire operational history.
+Manufacturing in this country has not merely declined. It has largely ceased to exist. From twenty-eight percent of GDP in the 1960s to less than six percent today. We are the lowest in the OECD. We rank 102nd globally in economic complexity, between Bangladesh and Senegal. We import eighty-five percent of our medical devices, ninety percent of our pharmaceuticals. We cannot manufacture an EpiPen.
 
-We are not preparing for the future. We are sleepwalking into obsolescence while the global system executes a full-speed sprint.
+When Ford, Holden, and Toyota departed in 2017, they took 120 supplier companies with them. Since 2022, energy cost inflation has closed 1,400 more manufacturers, including Oceania Glass after 169 years and Qenos, our sole plastics manufacturer.
 
-Australia's manufacturing sector did not decline. It executed systemic suicide. From 28% of GDP in the 1960s to 5.9% today the lowest ratio in the OECD. We rank 102nd globally in economic complexity maintaining company with Bangladesh and Senegal despite being the 8th richest nation per capita.
+We do not make things anymore. We dig things up and ship them elsewhere.
 
-The dependency state is absolute: 85% of medical devices imported 90% of pharmaceuticals 95% of ibuprofen. We lack the capacity to manufacture EpiPens. We lack the capacity to produce semiconductors. We cannot produce the majority of items on the WHO's Essential Medicines list. When Ford Holden and Toyota ceased operations in 2017 they took 120 supplier entities with them. Since 2022 energy cost inflation alone has killed 1,400 manufacturers including Oceania Glass after 169 years and Qenos our sole plastics manufacturer.
+The nuclear energy that could transform our power sector remains banned. Lifting that ban would require deleting four words from the Environment Protection and Biodiversity Conservation Act. Four words stand between the current reality and a different one.
 
-Manufacturing employment has collapsed from 10.7% to 6.2% of the workforce. NSW lost 67,000 jobs. Victoria lost 65,000. Toolmakers down 20%. Engineering pattern makers are extinct. Our only new export product in 15 years is rare earth metals valued at a laughable 80.9 million annually.
+I do not know precisely what Tuesday morning will look like five years from now. But I am increasingly certain it will be unrecognisable. The combination of property prices that have detached from any economic foundation, artificial intelligence that is displacing workers faster than they can adapt, and a manufacturing base that has essentially disappeared creates conditions for which there is no obvious historical precedent.
 
-We do not generate physical objects anymore. We simply execute resource extraction and shipment.
+The question I keep returning to is whether we will construct something new from what remains, or simply continue pretending that the old arrangements are still viable while the ground shifts beneath our feet.
 
-Observe competent national systems in operation:
-
-Norway discovered oil in 1969. Instead of squandering the windfall on property speculation and tax cuts for resource magnates they initiated the Government Pension Fund Global. Today its value is 1.7 trillion USD. This is 300,000 per Norwegian citizen. The fund holds 1.5% of all global stocks. It generates sufficient returns to finance the entire national transition to a post-carbon economy while maintaining the highest living standards on Earth.
-
-Norway's citizens experience free healthcare free education including tertiary level 49 weeks paid parental leave and guaranteed pensions. Their GDP per capita is 94,660. Ours is 64,674. They achieved this with one resource: oil. We possess uranium coal gas iron ore lithium rare earths gold and agricultural land capable of feeding Asia. Our sovereign wealth fund the Future Fund holds 230 billion. That is 8,800 per Australian 300,000 per Norwegian.
-
-The energy poverty amid infinite resource reserves has killed Oceania Glass after 169 years threatens BlueScope Steel and Orica and driven manufacturing from 14% of GDP to 5%. Electricity price increases have murdered 1,400 manufacturers since 2022 while we simultaneously power multiple foreign nations. We had four decades to construct a Norwegian-style sovereign fund. Instead we constructed a housing bubble where Paddington terraces demand 10 million.
-
-The AI revolution will not wait for systemic catch-up. Norway's citizens can withstand any storm with 300,000 per person in sovereign wealth. Australians possess mortgage debt and the promise of "reskilling programs" teaching obsolete knowledge for jobs that will not exist.
-
-The nuclear ban can be lifted by deleting four words from the EPBC Act. Four words stand between the system and energy independence. Meanwhile east coast gas prices have tripled since 2015. Western Australia's 15% domestic reservation maintains their prices 50% lower proving the solution is already implemented elsewhere. We export 100% of uranium 90% of black coal and may soon import LNG despite being the world's second-largest exporter.
-
-Without radical systemic transformation: minimum 30% unemployment by 2030 as AI capabilities explode exponentially manufacturing extinction youth unemployment exceeding 20% property prices hitting 2 million median while terraces in Paddington demand 10 million complete import dependency for basic necessity goods.
-
-We possess every resource variable needed for prosperity: uranium coal gas rare earths agricultural land. What we lack is leadership that comprehends exponential change. Countries implementing strategic industrial policy selective immigration and automation achieve measurable success within a five-year window.
-
-Australia's crisis is self-inflicted and reversible. But reversibility requires acknowledging that the AI revolution is not a decades-long projection. It is deployed now accelerating faster than our cognitive integration capacity. While we execute debate cycles and form committees entire industries vaporize overnight.
-
-The system is already dead. The question is whether we will initiate the construction of a new system from the corporeal residue or simply continue pretending the original is still breathing while 10 million terraces and 30% unemployment become the new thermodynamic normal.
-
-Tuesday morning five years from now will not just possess different visual parameters. It will be unrecognizable. And we are not even attempting to prepare for its arrival.
+Tuesday morning is coming. I do not think most people have noticed.
