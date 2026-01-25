@@ -56,13 +56,13 @@
         .redirect-notice a { color: #F25D94; font-weight: bold; }
     </style>
 
-    <!-- Redirect to interactive version after short delay for real users -->
+    <!-- Redirect to interactive XP Notepad version -->
     <script>
-        // Allow crawlers to see content, redirect users to interactive version
+        // Allow crawlers to see static content, redirect real users to SPA
         if (typeof window !== 'undefined' && !navigator.userAgent.match(/bot|crawler|spider|googlebot|bingbot/i)) {
-            setTimeout(function() {
-                window.location.href = '/?post={{ page.fileSlug }}';
-            }, 100);
+            // Use replaceState to set the correct URL, then navigate to root
+            // The SPA at root will read the URL and show the correct post
+            window.location.replace('/#/writings/{{ page.fileSlug }}');
         }
     </script>
 </head>

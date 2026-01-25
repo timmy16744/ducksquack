@@ -8,10 +8,17 @@ window.AppComponents.XPNotepad = () => {
     const [isMaximized, setIsMaximized] = React.useState(false);
     const [isMinimized, setIsMinimized] = React.useState(false);
 
-    // URL routing
+    // URL routing - supports both pathname and hash-based routes
     React.useEffect(() => {
         const handleRoute = () => {
-            const path = window.location.pathname;
+            // Check hash first (for redirects from static pages)
+            let path = window.location.hash ? window.location.hash.replace('#', '') : window.location.pathname;
+
+            // If we have a hash route, update the URL to use pathname
+            if (window.location.hash && window.location.hash.startsWith('#/')) {
+                path = window.location.hash.replace('#', '');
+                window.history.replaceState({}, '', path);
+            }
 
             if (path === '/' || path === '') {
                 setCurrentPage('home');
@@ -43,9 +50,13 @@ window.AppComponents.XPNotepad = () => {
         // Handle initial route
         handleRoute();
 
-        // Listen for popstate (back/forward)
+        // Listen for popstate (back/forward) and hashchange
         window.addEventListener('popstate', handleRoute);
-        return () => window.removeEventListener('popstate', handleRoute);
+        window.addEventListener('hashchange', handleRoute);
+        return () => {
+            window.removeEventListener('popstate', handleRoute);
+            window.removeEventListener('hashchange', handleRoute);
+        };
     }, []);
 
     const createSlug = (title) => {
