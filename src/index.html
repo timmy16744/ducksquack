@@ -29,57 +29,67 @@
     <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://unpkg.com">
 
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/notepad.css" as="style">
-    <link rel="preload" href="js/writings-data.js" as="script">
+    <!-- XP.css for authentic Windows XP Luna styling -->
+    <link rel="stylesheet" href="https://unpkg.com/xp.css@0.2.3/dist/XP.css">
 
-    <!-- Windows 98 inspired styling -->
-    <link rel="stylesheet" href="css/notepad.css">
+    <!-- Custom XP Notepad styles -->
+    <link rel="stylesheet" href="css/xp-notepad.css">
 
     <!-- Critical inline styles for immediate render -->
     <style>
         /* Prevent flash of unstyled content */
-        body {
+        html, body {
             margin: 0;
             padding: 0;
-            background: #008080;
-        }
-        .theme-dark body, body.theme-dark {
-            background: #0a0a14;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
         }
         #root {
-            min-height: 100vh;
+            height: 100%;
+            width: 100%;
+        }
+        .loading-placeholder {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #245edb 0%, #3a8bc2 30%, #5cb270 70%, #4a9f4c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .loading-placeholder {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            color: #fff;
-            font-size: 11px;
-            background: #c0c0c0;
+        .loading-box {
+            background: #ece9d8;
             border: 2px solid;
             border-color: #fff #808080 #808080 #fff;
             padding: 20px 40px;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 12px;
         }
-        .loading-placeholder .duck {
-            color: #FFD700;
+        .loading-box .duck {
+            color: #000;
             font-family: monospace;
             white-space: pre;
             line-height: 1.1;
             margin-bottom: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div id="root">
         <div class="loading-placeholder">
-            <div class="duck">    __
+            <div class="loading-box">
+                <div class="duck">    __
   >(o )___
    ( ._> /
     `---'</div>
-            <div style="color: #000; text-align: center;">Loading DuckSquack...</div>
+                <div>Loading DuckSquack...</div>
+            </div>
         </div>
     </div>
 
@@ -98,27 +108,21 @@
 
     <!-- Data -->
     <script src="js/writings-data.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/components/FileSystem.js"></script>
 
-    <!-- New Notepad Components -->
-    <script src="js/components/TitleBar.js" type="text/babel"></script>
-    <script src="js/components/MenuBar.js" type="text/babel"></script>
-    <script src="js/components/TabBar.js" type="text/babel"></script>
-    <script src="js/components/DocumentArea.js" type="text/babel"></script>
-    <script src="js/components/StatusBar.js" type="text/babel"></script>
-    <script src="js/components/NotepadWindow.js" type="text/babel"></script>
-    <script src="js/components/FileDialog.js" type="text/babel"></script>
-    <script src="js/components/AboutDialog.js" type="text/babel"></script>
-    <script src="js/components/FindDialog.js" type="text/babel"></script>
-    <script src="js/components/KeyboardShortcutsDialog.js" type="text/babel"></script>
+    <!-- XP Notepad Components -->
+    <script src="js/components/XPTitleBar.js" type="text/babel"></script>
+    <script src="js/components/XPNavBar.js" type="text/babel"></script>
+    <script src="js/components/XPStatusBar.js" type="text/babel"></script>
+    <script src="js/components/XPWritingsList.js" type="text/babel"></script>
+    <script src="js/components/XPContent.js" type="text/babel"></script>
+    <script src="js/components/XPNotepad.js" type="text/babel"></script>
+    <script src="js/components/XPDesktop.js" type="text/babel"></script>
 
-    <!-- Keep DraggableWindow and SecretsMaze for the secrets easter egg -->
+    <!-- Keep SecretsMaze for easter egg (accessible via special command) -->
     <script src="js/components/DraggableWindow.js" type="text/babel"></script>
     <script src="js/components/SecretsMaze.js" type="text/babel"></script>
 
-    <!-- Main Notepad component and app entry -->
-    <script src="js/components/Notepad.js" type="text/babel"></script>
+    <!-- Main app entry -->
     <script src="js/app.js" type="text/babel"></script>
 </body>
 </html>
