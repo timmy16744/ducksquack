@@ -1,0 +1,1220 @@
+/* =========================================
+   DUCKSQUACK NOTEPAD - Windows 98 Style
+   Built on 98.css with custom branding
+   ========================================= */
+
+/* ===== CSS Custom Properties (DuckSquack Palette) ===== */
+:root {
+    /* DuckSquack Brand Colors */
+    --duck-yellow: #FFD700;
+    --duck-orange: #FFA500;
+    --duck-beak: #FF8C00;
+
+    /* Windows 98 System Colors */
+    --win98-bg: #c0c0c0;
+    --win98-dark: #808080;
+    --win98-light: #ffffff;
+    --win98-darkest: #000000;
+    --win98-blue: #000080;
+    --win98-title-active: linear-gradient(90deg, #000080, #1084d0);
+    --win98-title-inactive: linear-gradient(90deg, #808080, #c0c0c0);
+
+    /* Document Colors */
+    --doc-bg: #ffffff;
+    --doc-text: #000000;
+    --doc-selection: #000080;
+    --doc-selection-text: #ffffff;
+
+    /* Status Bar */
+    --status-bg: #c0c0c0;
+    --status-text: #000000;
+
+    /* Tab Colors */
+    --tab-active-bg: #ffffff;
+    --tab-inactive-bg: #c0c0c0;
+    --tab-border: #808080;
+}
+
+/* Dark mode overrides */
+.theme-dark {
+    --win98-bg: #2d2d2d;
+    --win98-dark: #1a1a1a;
+    --win98-light: #4a4a4a;
+    --win98-darkest: #000000;
+    --win98-blue: #1a1a6e;
+    --win98-title-active: linear-gradient(90deg, #1a1a6e, #2a4a8e);
+    --win98-title-inactive: linear-gradient(90deg, #3a3a3a, #2d2d2d);
+
+    --doc-bg: #1e1e1e;
+    --doc-text: #d4d4d4;
+    --doc-selection: #264f78;
+    --doc-selection-text: #ffffff;
+
+    --status-bg: #2d2d2d;
+    --status-text: #cccccc;
+
+    --tab-active-bg: #1e1e1e;
+    --tab-inactive-bg: #2d2d2d;
+    --tab-border: #4a4a4a;
+}
+
+/* ===== Base Reset ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Pixelated MS Sans Serif', 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 11px;
+    background: #008080; /* Classic teal desktop */
+}
+
+.theme-dark body, body.theme-dark {
+    background: #0a0a14;
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Main Notepad Container ===== */
+.notepad-app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.notepad-app.maximized {
+    padding: 0;
+}
+
+/* ===== Window Frame ===== */
+.notepad-window {
+    display: flex;
+    flex-direction: column;
+    background: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    box-shadow:
+        inset 1px 1px 0 var(--win98-light),
+        inset -1px -1px 0 var(--win98-darkest),
+        2px 2px 8px rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: 700px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+}
+
+.notepad-window.maximized {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw;
+    max-height: 100vh;
+    border: none;
+    box-shadow: none;
+}
+
+/* ===== Title Bar ===== */
+.title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 3px;
+    background: var(--win98-title-active);
+    color: white;
+    font-weight: bold;
+    user-select: none;
+    cursor: default;
+    height: 22px;
+    min-height: 22px;
+}
+
+.title-bar.inactive {
+    background: var(--win98-title-inactive);
+    color: #c0c0c0;
+}
+
+.title-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 2px;
+}
+
+.title-bar-text img,
+.title-bar-text .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.title-bar-controls button {
+    width: 16px;
+    height: 14px;
+    min-width: 16px;
+    min-height: 14px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: bold;
+    background: var(--win98-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    cursor: pointer;
+}
+
+.title-bar-controls button:active {
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+}
+
+.title-bar-controls button:disabled {
+    color: var(--win98-dark);
+}
+
+/* ===== Menu Bar ===== */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    background: var(--win98-bg);
+    padding: 2px 0;
+    border-bottom: 1px solid var(--win98-dark);
+}
+
+.menu-item {
+    position: relative;
+    padding: 2px 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--win98-blue);
+    color: white;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 180px;
+    z-index: 1000;
+    padding: 2px 0;
+}
+
+.menu-dropdown-item {
+    padding: 4px 24px 4px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.menu-dropdown-item:hover {
+    background: var(--win98-blue);
+    color: white;
+}
+
+.menu-dropdown-item.disabled {
+    color: var(--win98-dark);
+    cursor: default;
+}
+
+.menu-dropdown-item.disabled:hover {
+    background: transparent;
+    color: var(--win98-dark);
+}
+
+.menu-separator {
+    height: 1px;
+    background: var(--win98-dark);
+    margin: 4px 2px;
+    border-bottom: 1px solid var(--win98-light);
+}
+
+.menu-shortcut {
+    margin-left: 20px;
+    color: var(--win98-dark);
+}
+
+.menu-dropdown-item:hover .menu-shortcut {
+    color: var(--win98-light);
+}
+
+.menu-submenu {
+    position: relative;
+}
+
+.menu-submenu::after {
+    content: '\25B6';
+    font-size: 8px;
+    margin-left: auto;
+}
+
+.menu-submenu-content {
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    background: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    padding: 2px 0;
+    display: none;
+}
+
+.menu-submenu:hover .menu-submenu-content {
+    display: block;
+}
+
+/* ===== Tab Bar ===== */
+.tab-bar {
+    display: flex;
+    align-items: flex-end;
+    background: var(--win98-bg);
+    padding: 4px 4px 0 4px;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: 28px;
+    border-bottom: 1px solid var(--win98-dark);
+}
+
+.tab-bar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tab-bar::-webkit-scrollbar-thumb {
+    background: var(--win98-dark);
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: var(--tab-inactive-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-bg) var(--win98-light);
+    border-bottom: none;
+    cursor: pointer;
+    user-select: none;
+    max-width: 200px;
+    min-width: 100px;
+    position: relative;
+    top: 1px;
+    margin-right: -1px;
+    font-size: 11px;
+}
+
+.tab:hover {
+    background: #d4d4d4;
+}
+
+.tab.active {
+    background: var(--tab-active-bg);
+    border-bottom-color: var(--tab-active-bg);
+    z-index: 1;
+}
+
+.theme-dark .tab.active {
+    background: var(--doc-bg);
+}
+
+.tab-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab-close {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.tab-close:hover {
+    background: #e0e0e0;
+    border-color: var(--win98-dark);
+}
+
+.tab-add {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--win98-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    margin-left: 4px;
+}
+
+.tab-add:hover {
+    background: #d4d4d4;
+}
+
+.tab-add:active {
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+}
+
+/* ===== Document Area ===== */
+.document-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--doc-bg);
+    overflow: hidden;
+}
+
+.document-content {
+    flex: 1;
+    padding: 8px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--doc-text);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.document-content.word-wrap-off {
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* Document Typography */
+.document-content h1,
+.document-content h2,
+.document-content h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    margin: 1em 0 0.5em 0;
+    line-height: 1.3;
+}
+
+.document-content h1 {
+    font-size: 1.8em;
+    color: var(--win98-blue);
+    border-bottom: 2px solid var(--win98-blue);
+    padding-bottom: 0.3em;
+}
+
+.theme-dark .document-content h1 {
+    color: var(--duck-yellow);
+    border-bottom-color: var(--duck-yellow);
+}
+
+.document-content h2 {
+    font-size: 1.4em;
+    color: #333;
+}
+
+.theme-dark .document-content h2 {
+    color: #e0e0e0;
+}
+
+.document-content h3 {
+    font-size: 1.2em;
+}
+
+.document-content p {
+    margin: 0.8em 0;
+    text-align: justify;
+}
+
+.document-content a {
+    color: var(--win98-blue);
+    text-decoration: underline;
+}
+
+.theme-dark .document-content a {
+    color: #6ca0dc;
+}
+
+.document-content blockquote {
+    border-left: 4px solid var(--win98-dark);
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background: rgba(0, 0, 0, 0.05);
+    font-style: italic;
+}
+
+.theme-dark .document-content blockquote {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.document-content code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.theme-dark .document-content code {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.document-content ul,
+.document-content ol {
+    margin: 0.5em 0;
+    padding-left: 2em;
+}
+
+.document-content li {
+    margin: 0.3em 0;
+}
+
+/* Selection */
+.document-content ::selection {
+    background: var(--doc-selection);
+    color: var(--doc-selection-text);
+}
+
+/* Custom Scrollbar */
+.document-content::-webkit-scrollbar {
+    width: 16px;
+}
+
+.document-content::-webkit-scrollbar-track {
+    background: var(--win98-bg);
+    border-left: 1px solid var(--win98-dark);
+}
+
+.document-content::-webkit-scrollbar-thumb {
+    background: var(--win98-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+}
+
+.document-content::-webkit-scrollbar-thumb:hover {
+    background: #d4d4d4;
+}
+
+.document-content::-webkit-scrollbar-button {
+    height: 16px;
+    background: var(--win98-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+}
+
+/* ===== Status Bar ===== */
+.status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--status-bg);
+    border-top: 1px solid var(--win98-light);
+    padding: 2px 4px;
+    font-size: 11px;
+    color: var(--status-text);
+    min-height: 22px;
+}
+
+.status-bar-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    border-right: 1px solid var(--win98-dark);
+}
+
+.status-bar-section:last-child {
+    border-right: none;
+}
+
+.status-bar-section.sunken {
+    border: 1px solid;
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+    padding: 1px 8px;
+    background: var(--win98-bg);
+}
+
+.status-message {
+    flex: 1;
+}
+
+/* Duck personality messages */
+.status-duck-message {
+    font-style: italic;
+    color: var(--duck-orange);
+}
+
+/* ===== Dialogs ===== */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.dialog {
+    background: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    min-width: 300px;
+    max-width: 90vw;
+}
+
+.dialog-title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 3px;
+    background: var(--win98-title-active);
+    color: white;
+    font-weight: bold;
+}
+
+.dialog-title-bar button {
+    width: 16px;
+    height: 14px;
+    padding: 0;
+    font-size: 10px;
+    background: var(--win98-bg);
+    border: 1px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    cursor: pointer;
+}
+
+.dialog-content {
+    padding: 12px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px 12px;
+    border-top: 1px solid var(--win98-dark);
+}
+
+/* ===== File Dialog ===== */
+.file-dialog {
+    width: 500px;
+    max-height: 80vh;
+}
+
+.file-dialog-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--win98-bg);
+    border-bottom: 1px solid var(--win98-dark);
+}
+
+.file-dialog-address label {
+    font-weight: bold;
+}
+
+.file-dialog-address-bar {
+    flex: 1;
+    padding: 2px 4px;
+    background: white;
+    border: 1px solid;
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+}
+
+.file-dialog-list {
+    background: white;
+    border: 1px solid;
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+    margin: 8px 12px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.file-dialog-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.file-dialog-item:hover {
+    background: var(--win98-blue);
+    color: white;
+}
+
+.file-dialog-item.selected {
+    background: var(--win98-blue);
+    color: white;
+}
+
+.file-dialog-item-icon {
+    font-size: 16px;
+}
+
+.file-dialog-item-name {
+    flex: 1;
+}
+
+.file-dialog-item-date {
+    color: var(--win98-dark);
+    font-size: 10px;
+}
+
+.file-dialog-item:hover .file-dialog-item-date {
+    color: #c0c0c0;
+}
+
+/* ===== About Dialog ===== */
+.about-dialog {
+    width: 400px;
+    text-align: center;
+}
+
+.about-dialog-content {
+    padding: 20px;
+}
+
+.about-logo {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.1;
+    color: var(--duck-yellow);
+    white-space: pre;
+    margin: 20px 0;
+    text-shadow: 2px 2px 0 var(--duck-orange);
+}
+
+.about-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.about-version {
+    color: var(--win98-dark);
+    margin: 5px 0;
+}
+
+.about-copyright {
+    font-size: 10px;
+    color: var(--win98-dark);
+    margin-top: 20px;
+}
+
+.about-links {
+    margin: 15px 0;
+}
+
+.about-links a {
+    color: var(--win98-blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Animated duck in about */
+.about-duck {
+    margin: 20px auto;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--duck-yellow);
+    white-space: pre;
+}
+
+.about-duck.quacking {
+    animation: quack-bounce 0.2s ease-in-out 3;
+}
+
+@keyframes quack-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(-5deg); }
+}
+
+/* ===== Find Dialog ===== */
+.find-dialog {
+    width: 350px;
+}
+
+.find-dialog-content {
+    padding: 12px;
+}
+
+.find-dialog-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.find-dialog-row label {
+    width: 80px;
+}
+
+.find-dialog-row input[type="text"] {
+    flex: 1;
+    padding: 2px 4px;
+    border: 1px solid;
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+}
+
+.find-dialog-options {
+    display: flex;
+    gap: 16px;
+    margin: 12px 0;
+}
+
+.find-dialog-options label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+/* ===== Buttons (98 style) ===== */
+.btn-98 {
+    padding: 4px 16px;
+    background: var(--win98-bg);
+    border: 2px solid;
+    border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    min-width: 75px;
+}
+
+.btn-98:hover {
+    background: #d4d4d4;
+}
+
+.btn-98:active {
+    border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark);
+    padding: 5px 15px 3px 17px;
+}
+
+.btn-98:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+.btn-98.primary {
+    font-weight: bold;
+}
+
+/* ===== Welcome Document ===== */
+.welcome-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.welcome-duck-art {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.1;
+    color: var(--duck-yellow);
+    white-space: pre;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.welcome-tagline {
+    font-style: italic;
+    color: var(--win98-dark);
+}
+
+.theme-dark .welcome-tagline {
+    color: #888;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+    .notepad-app {
+        padding: 0;
+    }
+
+    .notepad-window {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    /* Mobile menu bar - collapsible */
+    .menu-bar {
+        display: none;
+    }
+
+    .menu-bar.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 22px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background: var(--win98-bg);
+    }
+
+    .menu-bar.mobile-open .menu-item {
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--win98-dark);
+    }
+
+    .menu-bar.mobile-open .menu-dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 18px;
+        cursor: pointer;
+        background: var(--win98-bg);
+        border: 1px solid;
+        border-color: var(--win98-light) var(--win98-dark) var(--win98-dark) var(--win98-light);
+        font-size: 12px;
+    }
+
+    .tab-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .tab-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        min-width: 80px;
+        padding: 4px 8px;
+        flex-shrink: 0;
+    }
+
+    .tab-add {
+        flex-shrink: 0;
+    }
+
+    .document-content {
+        font-size: 15px;
+        padding: 16px;
+        -webkit-overflow-scrolling: touch;
+        line-height: 1.7;
+    }
+
+    .document-content h1 {
+        font-size: 1.5em;
+    }
+
+    .document-content h2 {
+        font-size: 1.3em;
+    }
+
+    .status-bar {
+        flex-wrap: wrap;
+        font-size: 10px;
+    }
+
+    .status-bar-section {
+        padding: 0 4px;
+    }
+
+    .dialog {
+        width: 95vw !important;
+        max-height: 90vh;
+    }
+
+    .file-dialog-list {
+        height: 200px;
+    }
+
+    .file-dialog-item {
+        padding: 8px 12px;
+    }
+
+    /* Touch-friendly buttons */
+    .btn-98 {
+        padding: 8px 20px;
+        min-width: 80px;
+    }
+
+    .title-bar-controls button {
+        width: 24px;
+        height: 20px;
+    }
+
+    /* Swipe hint for tabs */
+    .tab-bar::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, transparent, var(--win98-bg));
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .tab {
+        min-width: 60px;
+        max-width: 120px;
+    }
+
+    .tab-title {
+        font-size: 10px;
+    }
+
+    .document-content {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .welcome-content {
+        padding: 0;
+    }
+
+    .welcome-duck-art {
+        font-size: 10px;
+    }
+
+    .status-bar-section.sunken {
+        display: none;
+    }
+
+    .status-message {
+        font-size: 10px;
+    }
+}
+
+/* Desktop: hide mobile toggle */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+/* Landscape mobile - reduce chrome height */
+@media (max-height: 500px) and (orientation: landscape) {
+    .title-bar {
+        height: 18px;
+        min-height: 18px;
+    }
+
+    .menu-bar {
+        padding: 1px 0;
+    }
+
+    .tab-bar {
+        min-height: 22px;
+        padding: 2px 4px 0 4px;
+    }
+
+    .tab {
+        padding: 2px 8px;
+    }
+
+    .status-bar {
+        min-height: 18px;
+        padding: 1px 4px;
+    }
+}
+
+/* ===== Loading State ===== */
+.loading-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--win98-dark);
+    font-style: italic;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dialog-overlay {
+    animation: fadeIn 0.15s ease-out;
+}
+
+/* ===== Secrets Maze / Draggable Window Overlay ===== */
+.draggable-window {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 11px;
+}
+
+.draggable-window.active {
+    z-index: 2000 !important;
+}
+
+.draggable-window .window-header {
+    background: var(--win98-title-active) !important;
+}
+
+.draggable-window.maximized {
+    border-radius: 0;
+}
+
+/* Overlay backdrop for secrets window */
+.notepad-app > .draggable-window {
+    position: fixed !important;
+}
+
+/* ===== Touch / Gesture Support ===== */
+.tab-bar {
+    scroll-snap-type: x mandatory;
+}
+
+.tab {
+    scroll-snap-align: start;
+}
+
+/* Touch action for better mobile scrolling */
+.document-content {
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+}
+
+/* ===== Focus States ===== */
+.menu-item:focus,
+.tab:focus,
+.btn-98:focus {
+    outline: 1px dotted #000;
+    outline-offset: -2px;
+}
+
+.document-content:focus {
+    outline: none;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== High Contrast Mode ===== */
+@media (prefers-contrast: high) {
+    .notepad-window {
+        border-width: 3px;
+    }
+
+    .menu-dropdown-item:hover,
+    .tab.active {
+        outline: 2px solid #000;
+    }
+
+    .document-content ::selection {
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .title-bar,
+    .menu-bar,
+    .tab-bar,
+    .status-bar,
+    .dialog-overlay,
+    .draggable-window {
+        display: none !important;
+    }
+
+    .notepad-app {
+        padding: 0;
+    }
+
+    .notepad-window {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: auto;
+        max-width: none;
+        max-height: none;
+    }
+
+    .document-area {
+        overflow: visible;
+    }
+
+    .document-content {
+        overflow: visible;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    .document-content h1 {
+        page-break-after: avoid;
+    }
+
+    .document-content p {
+        orphans: 3;
+        widows: 3;
+    }
+}

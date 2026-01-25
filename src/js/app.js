@@ -1,4 +1,9 @@
-// Main Application Entry Point
+// Main Application Entry Point - DuckSquack Notepad
+
+// Initialize FileSystem with writings data
+if (window.FileSystem && window.FileSystem.init) {
+    window.FileSystem.init();
+}
 
 // App Component
 const App = () => {
@@ -7,28 +12,30 @@ const App = () => {
     // Theme Management
     React.useEffect(() => {
         const root = document.documentElement;
+        const body = document.body;
+
         if (theme === 'dark') {
-            root.style.setProperty('--bg-primary', '#0F172A');
-            root.style.setProperty('--bg-secondary', '#1E293B');
-            root.style.setProperty('--text-primary', '#F8FAFC');
-            root.style.setProperty('--text-secondary', '#CBD5E1');
-            root.style.setProperty('--border', '#334155');
-            document.body.style.backgroundColor = '#0F172A';
-            document.body.style.color = '#F8FAFC';
+            body.classList.add('theme-dark');
+            body.classList.remove('theme-light');
+            root.style.setProperty('--win98-bg', '#2d2d2d');
+            root.style.setProperty('--win98-dark', '#1a1a1a');
+            root.style.setProperty('--win98-light', '#4a4a4a');
+            root.style.setProperty('--doc-bg', '#1e1e1e');
+            root.style.setProperty('--doc-text', '#d4d4d4');
         } else {
-            root.style.setProperty('--bg-primary', '#F8FAFC');
-            root.style.setProperty('--bg-secondary', '#E2E8F0');
-            root.style.setProperty('--text-primary', '#0F172A');
-            root.style.setProperty('--text-secondary', '#334155');
-            root.style.setProperty('--border', '#CBD5E1');
-            document.body.style.backgroundColor = '#F8FAFC';
-            document.body.style.color = '#0F172A';
+            body.classList.remove('theme-dark');
+            body.classList.add('theme-light');
+            root.style.setProperty('--win98-bg', '#c0c0c0');
+            root.style.setProperty('--win98-dark', '#808080');
+            root.style.setProperty('--win98-light', '#ffffff');
+            root.style.setProperty('--doc-bg', '#ffffff');
+            root.style.setProperty('--doc-text', '#000000');
         }
     }, [theme]);
 
     return (
         <div id="app-container" className={`theme-${theme}`} style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
-            <window.AppComponents.Desktop theme={theme} setTheme={setTheme} />
+            <window.AppComponents.Notepad theme={theme} setTheme={setTheme} />
         </div>
     );
 };

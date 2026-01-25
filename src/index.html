@@ -27,70 +27,98 @@
     <meta name="twitter:image" content="https://ducksquack.com/og-image.png">
 
     <!-- Preconnect to external domains for faster loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="css/notepad.css" as="style">
     <link rel="preload" href="js/writings-data.js" as="script">
 
-    <!-- Fonts with display=swap for faster text rendering -->
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-    <!-- Main Stylesheet (extracted for caching) -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Windows 98 inspired styling -->
+    <link rel="stylesheet" href="css/notepad.css">
 
     <!-- Critical inline styles for immediate render -->
     <style>
         /* Prevent flash of unstyled content */
-        body { background-color: #0F172A; color: #F8FAFC; }
-        #root { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .loading-placeholder { font-family: monospace; color: #94A3B8; }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #008080;
+        }
+        .theme-dark body, body.theme-dark {
+            background: #0a0a14;
+        }
+        #root {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loading-placeholder {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #fff;
+            font-size: 11px;
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #fff #808080 #808080 #fff;
+            padding: 20px 40px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .loading-placeholder .duck {
+            color: #FFD700;
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div id="root">
-        <div class="loading-placeholder">Loading terminal...</div>
+        <div class="loading-placeholder">
+            <div class="duck">    __
+  >(o )___
+   ( ._> /
+    `---'</div>
+            <div style="color: #000; text-align: center;">Loading DuckSquack...</div>
+        </div>
     </div>
 
     <!-- Environment variables injection -->
     <script>
         window.ENV = {
-            GEMINI_API_KEY: null,
             NODE_ENV: 'production',
             IS_DEVELOPMENT: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         };
-
-        if (window.ENV.IS_DEVELOPMENT) {
-            window.ENV.GEMINI_API_KEY = 'AIzaSyD7JFLqjn0_U5oTh3tT0lAOUA6WZWVLOrw';
-        } else {
-            window.ENV.GEMINI_API_KEY = null;
-        }
     </script>
 
-    <!-- Core libraries - load synchronously as they're required -->
+    <!-- Core libraries -->
     <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Anime.js - defer as it's only needed after initial render -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
-
-    <!-- Application scripts -->
+    <!-- Data -->
     <script src="js/writings-data.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/components/FileSystem.js"></script>
-    <script src="js/components/NavComponents.js" type="text/babel"></script>
+
+    <!-- New Notepad Components -->
+    <script src="js/components/TitleBar.js" type="text/babel"></script>
+    <script src="js/components/MenuBar.js" type="text/babel"></script>
+    <script src="js/components/TabBar.js" type="text/babel"></script>
+    <script src="js/components/DocumentArea.js" type="text/babel"></script>
+    <script src="js/components/StatusBar.js" type="text/babel"></script>
+    <script src="js/components/NotepadWindow.js" type="text/babel"></script>
+    <script src="js/components/FileDialog.js" type="text/babel"></script>
+    <script src="js/components/AboutDialog.js" type="text/babel"></script>
+    <script src="js/components/FindDialog.js" type="text/babel"></script>
+    <script src="js/components/KeyboardShortcutsDialog.js" type="text/babel"></script>
+
+    <!-- Keep DraggableWindow and SecretsMaze for the secrets easter egg -->
     <script src="js/components/DraggableWindow.js" type="text/babel"></script>
     <script src="js/components/SecretsMaze.js" type="text/babel"></script>
-    <script src="js/components/Desktop.js" type="text/babel"></script>
-    <script src="js/components/ArticleReader.js" type="text/babel"></script>
-    <script src="js/components/AnimatedDuck.js" type="text/babel"></script>
-    <script src="js/components/Terminal.js" type="text/babel"></script>
+
+    <!-- Main Notepad component and app entry -->
+    <script src="js/components/Notepad.js" type="text/babel"></script>
     <script src="js/app.js" type="text/babel"></script>
 </body>
 </html>
