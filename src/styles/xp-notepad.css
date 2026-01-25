@@ -469,6 +469,16 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.xp-post-view .post-content .internal-link {
+    color: #0066cc;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.xp-post-view .post-content .internal-link:hover {
+    color: #003399;
+}
+
 /* About Page */
 .xp-about-content h1 {
     margin-bottom: 16px;

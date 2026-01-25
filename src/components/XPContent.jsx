@@ -2,6 +2,47 @@ import React from 'react';
 import { formatDate } from '../utils/date';
 import XPWritingsList from './XPWritingsList';
 
+// Parse content and convert internal links to clickable elements
+function parseContent(content, onNavigate) {
+  // Match patterns like (/writings/slug/) or "text" (/writings/slug/)
+  const linkPattern = /(?:"([^"]+)"\s*)?\(\/writings\/([a-z0-9-]+)\/?\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkPattern.exec(content)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push(content.slice(lastIndex, match.index));
+    }
+
+    const linkText = match[1] || match[2].replace(/-/g, ' ');
+    const slug = match[2];
+
+    parts.push(
+      <a
+        key={match.index}
+        className="internal-link"
+        onClick={(e) => {
+          e.preventDefault();
+          onNavigate('post', slug);
+        }}
+      >
+        {linkText}
+      </a>
+    );
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text
+  if (lastIndex < content.length) {
+    parts.push(content.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : content;
+}
+
 export default function XPContent({ currentPage, currentPost, loading, onNavigate, onSelectPost }) {
   const renderHome = () => (
     <div className="xp-home-content xp-content">
@@ -69,7 +110,7 @@ I write about artificial intelligence, technological transformation, and the fut
         <hr className="post-divider" />
 
         <div className="post-content">
-          {currentPost.content}
+          {parseContent(currentPost.content, onNavigate)}
         </div>
       </div>
     );
