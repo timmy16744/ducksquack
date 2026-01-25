@@ -1,29 +1,30 @@
 {
-  "name": "cli-blog",
-  "version": "1.0.0",
-  "description": "Terminal-style portfolio blog built with Eleventy and React",
-  "main": "src/index.html",
+  "name": "ducksquack",
+  "version": "2.0.0",
+  "description": "Essays on AI, Technology & Society - Windows XP Notepad aesthetic",
+  "type": "module",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy && node scripts/inject-env.js",
-    "build:cloudflare": "eleventy && node scripts/inject-env.js",
-    "dev": "eleventy --serve --watch",
-    "clean": "rm -rf dist"
+    "dev": "npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "preview": "vite preview",
+    "generate": "node scripts/generate-writings.js"
   },
   "keywords": [
     "blog",
     "portfolio",
-    "terminal",
-    "eleventy",
-    "react"
+    "react",
+    "vite",
+    "windows-xp"
   ],
-  "author": "Tim",
+  "author": "Tim Hughes",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.4.2"
   },
   "dependencies": {
-    "@google/genai": "^1.13.0",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

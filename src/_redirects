@@ -1,6 +1,0 @@
-# Cloudflare Pages SPA routing
-# Handle clean URLs for writings - serve index.html for client-side routing
-/writings/*  /index.html  200
-
-# Fallback for any other routes
-/*  /index.html  200
