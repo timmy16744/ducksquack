@@ -40,7 +40,7 @@ window.AppComponents.Terminal = ({ theme, setTheme, externalWindowState, onWindo
         window.FileSystem.init();
         addToHistory('Welcome to the interactive portfolio.', 'info');
         addToHistory('Type "help" for commands.', 'info');
-        
+
         setTimeout(() => {
             const aboutNode = window.FileSystem.readFile('about.md');
             if (aboutNode) {
@@ -48,10 +48,23 @@ window.AppComponents.Terminal = ({ theme, setTheme, externalWindowState, onWindo
             }
         }, 1000);
 
-        const postSlug = window.Utils.getQueryParam('post');
+        // Support both /writings/slug/ and ?post=slug URL formats
+        const postSlug = window.Utils.getWritingSlug();
         if (postSlug) {
             openFile(`writings/${postSlug}.md`);
         }
+
+        // Handle browser back/forward navigation
+        const handlePopState = (event) => {
+            const slug = window.Utils.getWritingSlug();
+            if (slug) {
+                openFile(`writings/${slug}.md`);
+            } else {
+                setActiveFile(null);
+            }
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
     }, []);
 
     // Scroll to bottom

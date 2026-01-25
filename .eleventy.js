@@ -4,7 +4,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/writings");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/index.html");
-  
+
+  // Copy _redirects for Cloudflare Pages SPA routing
+  eleventyConfig.addPassthroughCopy("src/_redirects");
+
   // Disable template processing for HTML files to avoid conflicts
   return {
     htmlTemplateEngine: false,

@@ -4,11 +4,27 @@ window.AppComponents = window.AppComponents || {};
 window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id, isEmbedded = false }) => {
     const [copyFeedback, setCopyFeedback] = React.useState('');
 
+    // Update URL when article is opened
+    React.useEffect(() => {
+        if (article?.file) {
+            window.Utils.navigateToWriting(article.file);
+        }
+        return () => {
+            // Don't clear URL on unmount - let Terminal handle that
+        };
+    }, [article?.file]);
+
     const handleCopyLink = () => {
-        const url = `${window.location.origin}${window.location.pathname}?post=${article?.file?.replace('.md', '')}`;
+        const slug = article?.file?.replace('.md', '');
+        const url = `${window.location.origin}/writings/${slug}/`;
         window.Utils.copyToClipboard(url);
         setCopyFeedback('Copied!');
         setTimeout(() => setCopyFeedback(''), 2000);
+    };
+
+    const handleClose = () => {
+        window.Utils.clearWritingUrl();
+        onClose();
     };
 
     const InnerContent = (
@@ -24,8 +40,8 @@ window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id,
                 alignItems: 'center'
             }}>
                 {isEmbedded && (
-                    <button 
-                        onClick={onClose}
+                    <button
+                        onClick={handleClose}
                         className="terminal-btn"
                         style={{
                             background: 'var(--primary)',
@@ -41,7 +57,7 @@ window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id,
                         &lt; BACK
                     </button>
                 )}
-                <button 
+                <button
                     onClick={handleCopyLink}
                     className="terminal-btn"
                     style={{
@@ -56,22 +72,22 @@ window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id,
                     {copyFeedback || '[Copy Link]'}
                 </button>
                 <span style={{ color: 'var(--text-muted)' }}>{article?.date}</span>
-                
+
                 {/* Title in Toolbar for Embedded Mode */}
                 {isEmbedded && (
-                     <span style={{ color: 'var(--text-primary)', fontWeight: 'bold', marginLeft: '10px' }}>
+                    <span style={{ color: 'var(--text-primary)', fontWeight: 'bold', marginLeft: '10px' }}>
                         {article?.title}
-                     </span>
+                    </span>
                 )}
 
                 <span style={{ marginLeft: 'auto', color: 'var(--text-muted)' }}>{article?.file}</span>
             </div>
 
             {/* Content */}
-            <div style={{ 
-                padding: '40px', 
-                flex: 1, 
-                overflowY: 'auto', 
+            <div style={{
+                padding: '40px',
+                flex: 1,
+                overflowY: 'auto',
                 fontFamily: 'Google Sans Code, monospace',
                 lineHeight: '1.6',
                 color: 'var(--text-primary)',
@@ -80,7 +96,7 @@ window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id,
                 width: '100%'
             }}>
                 {window.Utils.parseMarkdown(article?.content || 'No content available.')}
-                
+
                 <div style={{ marginTop: '4rem', borderTop: '1px dashed var(--border)', paddingTop: '1rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
                     End of file.
                 </div>
@@ -96,7 +112,7 @@ window.AppComponents.ArticleReader = ({ article, onClose, isActive, onFocus, id,
         <window.AppComponents.DraggableWindow
             id={id}
             title={`Viewing: ${article?.title || 'Untitled'}`}
-            onClose={onClose}
+            onClose={handleClose}
             isActive={isActive}
             onFocus={onFocus}
             initialSize={{ width: 800, height: 600 }}
