@@ -1,6 +1,14 @@
 import React from 'react';
 
-export default function XPStatusBar({ currentPage, currentPost, writingsCount = 0 }) {
+export default function XPStatusBar({
+  currentPage,
+  currentPost,
+  writingsCount = 0,
+  fontSize,
+  onFontSizeChange,
+  canDecrease,
+  canIncrease
+}) {
   const getStatusText = () => {
     switch (currentPage) {
       case 'home':
@@ -16,9 +24,7 @@ export default function XPStatusBar({ currentPage, currentPost, writingsCount = 
     }
   };
 
-  const getLineCol = () => {
-    return 'Ln 1, Col 1';
-  };
+  const showFontControl = currentPage === 'writings' || currentPage === 'post';
 
   return (
     <div className="xp-status-bar">
@@ -26,7 +32,27 @@ export default function XPStatusBar({ currentPage, currentPost, writingsCount = 
         {getStatusText()}
       </div>
       <div className="status-right">
-        <span>{getLineCol()}</span>
+        {showFontControl && (
+          <div className="font-size-control">
+            <button
+              className="font-btn"
+              onClick={() => onFontSizeChange(-1)}
+              disabled={!canDecrease}
+              title="Decrease font size"
+            >
+              A<span className="font-arrow">-</span>
+            </button>
+            <span className="font-size-display">{fontSize}</span>
+            <button
+              className="font-btn"
+              onClick={() => onFontSizeChange(1)}
+              disabled={!canIncrease}
+              title="Increase font size"
+            >
+              A<span className="font-arrow">+</span>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

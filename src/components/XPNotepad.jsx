@@ -7,12 +7,26 @@ import XPNavBar from './XPNavBar';
 import XPContent from './XPContent';
 import XPStatusBar from './XPStatusBar';
 
+const FONT_SIZES = [12, 13, 14, 16, 18, 20];
+const DEFAULT_FONT_SIZE_INDEX = 1; // 13px
+
 export default function XPNotepad() {
   const { page, slug, navigate } = useRoute();
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [writingsCount, setWritingsCount] = useState(0);
+  const [fontSizeIndex, setFontSizeIndex] = useState(DEFAULT_FONT_SIZE_INDEX);
+
+  const fontSize = FONT_SIZES[fontSizeIndex];
+
+  const handleFontSizeChange = (delta) => {
+    setFontSizeIndex(prev => {
+      const next = prev + delta;
+      if (next < 0 || next >= FONT_SIZES.length) return prev;
+      return next;
+    });
+  };
 
   useEffect(() => {
     fetchWritingsIndex()
@@ -72,7 +86,7 @@ export default function XPNotepad() {
         onNavigate={navigate}
       />
 
-      <div className="xp-content-area">
+      <div className="xp-content-area" style={{ fontSize: `${fontSize}px` }}>
         <XPContent
           currentPage={page}
           currentPost={currentPost}
@@ -86,6 +100,10 @@ export default function XPNotepad() {
         currentPage={page}
         currentPost={currentPost}
         writingsCount={writingsCount}
+        fontSize={fontSize}
+        onFontSizeChange={handleFontSizeChange}
+        canDecrease={fontSizeIndex > 0}
+        canIncrease={fontSizeIndex < FONT_SIZES.length - 1}
       />
     </div>
   );
