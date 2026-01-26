@@ -204,9 +204,9 @@ export default function XPContent({ currentPage, currentPost, loading, onNavigat
             <h1>About Me</h1>
 
             <div className="bio">
-{`My writings are all my words. The only AI used is for grammar checking and to periodically update this about page, summarising my core beliefs from my writings in a succinct manner.
+{`Sup, I'm Tim Hughes, also known as Duck. I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
 
-Sup, I'm Tim Hughes, also known as Duck. I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
+My writings are all my words. The only AI used is for grammar checking and to periodically update this about page, summarising my core beliefs from my writings in a succinct manner.
 
 My formal education spans Computer Science (specialising in AI and pattern recognition), Design, and I am currently a student of Philosophy. This combination has shaped how I approach technology: not merely as systems to be engineered, but as forces that fundamentally reshape how we live, work, and relate to one another. I find genuine joy in creating things, breaking things, reverse engineering things. All the things.
 
