@@ -4,6 +4,8 @@
     "date": "2026-01-26",
     "color": "orange",
     "slug": "the-rustle-in-the-grass",
+    "wordCount": 2510,
+    "synopsis": "A fifteen-year follow-up finding that warning signs have intensified and patterns of imperial decline have become more pronounced.",
     "preview": "The Rerun of Rome: Fifteen Years On Fifteen years ago, in the spring of 2011, I wrote a piece on my blog titled \"The Rerun of Rome\" (/writings/the-..."
   },
   {
@@ -11,6 +13,8 @@
     "date": "2026-01-17",
     "color": "purple",
     "slug": "the-widening-gyre",
+    "wordCount": 1128,
+    "synopsis": "Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.",
     "preview": "I want to begin with something I believe deeply: that these tools should be accessible to everyone. That anyone willing to engage seriously with ar..."
   },
   {
@@ -18,6 +22,8 @@
     "date": "2025-08-18",
     "color": "red",
     "slug": "the-last-normal-tuesday",
+    "wordCount": 843,
+    "synopsis": "Examines Australia's housing bubble, manufacturing collapse, and AI-driven job displacement, arguing that unprecedented economic disruption is imminent.",
     "preview": "I have been walking through Sydney lately with a growing sense of unreality. Not the city itself, which remains stubbornly, beautifully physical, b..."
   },
   {
@@ -25,6 +31,8 @@
     "date": "2025-08-06",
     "color": "purple",
     "slug": "a-prosthetic-for-empathy",
+    "wordCount": 870,
+    "synopsis": "Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.",
     "preview": "Love was our exclusive territory. Not merely an emotion, but the signature of what it meant to be human, woven through centuries of poetry and musi..."
   },
   {
@@ -32,6 +40,8 @@
     "date": "2025-08-02",
     "color": "blue",
     "slug": "escape-velocity",
+    "wordCount": 678,
+    "synopsis": "Argues that China has achieved structural advantages in AI development through manufacturing dominance, energy capacity, and civil-military integration that may prove insurmountable.",
     "preview": "I have been reluctant to write this piece because the conclusions feel almost too significant to commit to paper. But the evidence has accumulated ..."
   },
   {
@@ -39,6 +49,8 @@
     "date": "2025-07-15",
     "color": "red",
     "slug": "the-system-is-already-dead",
+    "wordCount": 1022,
+    "synopsis": "A personal account of navigating systemic failure through chronic illness, arguing we must build for continuity rather than recovery.",
     "preview": "I want to begin with a premise that may sound provocative but which I believe to be straightforwardly true: the system we were taught to participat..."
   },
   {
@@ -46,6 +58,8 @@
     "date": "2025-05-28",
     "color": "green",
     "slug": "sandpapering-our-structural-decay",
+    "wordCount": 733,
+    "synopsis": "Critiques Australia's misplaced priorities, comparing national outrage over cricket cheating to indifference toward economic decline and squandered natural resources.",
     "preview": "There is a peculiar inversion at the heart of Australian public life that I have been struggling to articulate. We reserve our most intense scrutin..."
   },
   {
@@ -53,6 +67,8 @@
     "date": "2025-04-20",
     "color": "pink",
     "slug": "parenthood-in-the-age-of-super-intelligence",
+    "wordCount": 827,
+    "synopsis": "Reflects on becoming a father during the AI revolution, exploring how to prepare a child for a world where traditional education and work are being transformed.",
     "preview": "Before my son was born, I thought I understood what it meant to care about something. I was wrong. Fatherhood has not merely added a new dimension ..."
   },
   {
@@ -60,6 +76,8 @@
     "date": "2025-01-06",
     "color": "teal",
     "slug": "reverse-engineering-nature-s-quantum",
+    "wordCount": 854,
+    "synopsis": "Explores how quantum phenomena already pervade biology, suggesting we are catching up to computational processes that have existed for billions of years.",
     "preview": "There is a strange symmetry to the history of human discovery. For millennia, electricity flowed through every atom, crackled across the sky in lig..."
   },
   {
@@ -67,6 +85,8 @@
     "date": "2024-12-19",
     "color": "pink",
     "slug": "navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity",
+    "wordCount": 686,
+    "synopsis": "Presents two possible AI futures: Mutual Assured Destruction through conflict and fragmentation, or Mutual Assured Prosperity through cooperation.",
     "preview": "I have been thinking about maps lately. Not the geographical kind, but the mental models we use to navigate an uncertain future. The maps we choose..."
   },
   {
@@ -74,6 +94,8 @@
     "date": "2011-03-15",
     "color": "orange",
     "slug": "the-rerun-of-rome",
+    "wordCount": 1187,
+    "synopsis": "A 2011 essay comparing American structural patterns to late Rome: currency debasement, military overextension, infrastructure decay, and declining civic virtue.",
     "preview": "*Originally published March 2011. Re-uploaded January 2026 as referenced in a recent article.* I have been thinking a great deal lately about patte..."
   }
 ]

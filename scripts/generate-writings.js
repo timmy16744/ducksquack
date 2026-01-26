@@ -21,8 +21,11 @@ function createSlug(title) {
     .replace(/^-|-$/g, '');
 }
 
+function getWordCount(content) {
+  return content.trim().split(/\s+/).filter(word => word.length > 0).length;
+}
+
 function getPreview(content, maxLength = 150) {
-  // Get first meaningful paragraph, truncate to maxLength
   const lines = content.split('\n').filter(line => line.trim().length > 0);
   const preview = lines.slice(0, 3).join(' ').trim();
 
@@ -31,6 +34,21 @@ function getPreview(content, maxLength = 150) {
   }
   return preview;
 }
+
+// AI-generated synopses for each essay
+const SYNOPSES = {
+  'escape-velocity': 'Argues that China has achieved structural advantages in AI development through manufacturing dominance, energy capacity, and civil-military integration that may prove insurmountable.',
+  'sandpapering-our-structural-decay': 'Critiques Australia\'s misplaced priorities, comparing national outrage over cricket cheating to indifference toward economic decline and squandered natural resources.',
+  'navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity': 'Presents two possible AI futures: Mutual Assured Destruction through conflict and fragmentation, or Mutual Assured Prosperity through cooperation.',
+  'parenthood-in-the-age-of-super-intelligence': 'Reflects on becoming a father during the AI revolution, exploring how to prepare a child for a world where traditional education and work are being transformed.',
+  'reverse-engineering-nature-s-quantum': 'Explores how quantum phenomena already pervade biology, suggesting we are catching up to computational processes that have existed for billions of years.',
+  'the-last-normal-tuesday': 'Examines Australia\'s housing bubble, manufacturing collapse, and AI-driven job displacement, arguing that unprecedented economic disruption is imminent.',
+  'the-rerun-of-rome': 'A 2011 essay comparing American structural patterns to late Rome: currency debasement, military overextension, infrastructure decay, and declining civic virtue.',
+  'the-rustle-in-the-grass': 'A fifteen-year follow-up finding that warning signs have intensified and patterns of imperial decline have become more pronounced.',
+  'the-system-is-already-dead': 'A personal account of navigating systemic failure through chronic illness, arguing we must build for continuity rather than recovery.',
+  'the-widening-gyre': 'Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.',
+  'a-prosthetic-for-empathy': 'Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.'
+};
 
 function processWritings() {
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
@@ -42,11 +60,16 @@ function processWritings() {
     const { data, content } = matter(fileContent);
 
     const slug = createSlug(data.title);
+    const wordCount = getWordCount(content);
+    const synopsis = SYNOPSES[slug] || getPreview(content);
+
     const writing = {
       title: data.title,
       date: data.date,
       color: data.color || 'blue',
       slug,
+      wordCount,
+      synopsis,
       preview: getPreview(content)
     };
 
@@ -62,7 +85,7 @@ function processWritings() {
       JSON.stringify(postData, null, 2)
     );
 
-    console.log(`Generated: ${slug}.json`);
+    console.log(`Generated: ${slug}.json (${wordCount} words)`);
   }
 
   // Sort by date (newest first)
