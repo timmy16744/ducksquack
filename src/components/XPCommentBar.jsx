@@ -31,8 +31,7 @@ const CommentIcon = () => (
   </svg>
 );
 
-// Replace with your Formspree form ID from https://formspree.io
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwpewgvn';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mreqlkwv';
 
 export default function XPCommentBar({ currentPage, currentPost }) {
   const [message, setMessage] = useState('');
