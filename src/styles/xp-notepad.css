@@ -149,37 +149,112 @@ html, body {
     background: linear-gradient(180deg, #e06060 0%, #c94040 50%, #b02828 100%);
 }
 
-/* Nav Bar (replacing menu bar) */
-.xp-nav-bar {
-    background: var(--xp-button-face);
-    border-bottom: 1px solid #808080;
-    padding: 0;
+/* Global XP Toolbar with Navigation */
+.xp-global-toolbar {
+    background: linear-gradient(180deg,
+        #F6F4EC 0%,
+        #EAE8E0 20%,
+        #DCD8CE 50%,
+        #D0CCC2 80%,
+        #C8C4BA 100%
+    );
+    border-bottom: 1px solid #919B9C;
+    padding: 4px 6px;
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    gap: 0;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
 }
 
-.xp-nav-bar button {
+.xp-global-toolbar .toolbar-section {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.xp-global-toolbar .toolbar-btn {
     background: transparent;
-    border: none;
-    padding: 6px 16px;
-    font-size: 12px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
     cursor: pointer;
-    border-right: 1px solid #d4d0c8;
-    color: var(--xp-text-color);
+    font-size: 11px;
+    color: #000;
+    margin: 0 1px;
+    transition: none;
 }
 
-.xp-nav-bar button:hover {
-    background: linear-gradient(180deg, #fafafa 0%, #e8e8e8 100%);
+.xp-global-toolbar .toolbar-btn:hover:not(:disabled) {
+    background: linear-gradient(180deg,
+        rgba(255,255,255,0.9) 0%,
+        rgba(240,236,224,0.95) 50%,
+        rgba(208,204,188,0.6) 100%
+    );
+    border: 1px solid;
+    border-color: #D8DCD8 #808070 #808070 #D8DCD8;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-.xp-nav-bar button.active {
-    background: #ffffff;
-    font-weight: bold;
+.xp-global-toolbar .toolbar-btn:active:not(:disabled) {
+    background: linear-gradient(180deg,
+        rgba(192,188,172,0.7) 0%,
+        rgba(232,228,216,0.95) 100%
+    );
+    border-color: #808070 #D8DCD8 #D8DCD8 #808070;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
 }
 
-.xp-nav-bar button:first-child {
-    border-left: none;
+.xp-global-toolbar .toolbar-btn.active {
+    background: linear-gradient(180deg,
+        rgba(240,244,252,0.95) 0%,
+        rgba(200,216,240,0.9) 50%,
+        rgba(168,192,224,0.85) 100%
+    );
+    border: 1px solid;
+    border-color: #88A8C8 #5878A0 #5878A0 #88A8C8;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.xp-global-toolbar .toolbar-btn:disabled {
+    cursor: default;
+}
+
+.xp-global-toolbar .toolbar-btn-nav {
+    padding: 2px 6px 2px 3px;
+}
+
+.xp-global-toolbar .toolbar-btn-small {
+    padding: 2px 3px;
+}
+
+.xp-global-toolbar .toolbar-label {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+.xp-global-toolbar .toolbar-dropdown {
+    font-size: 8px;
+    margin-left: 2px;
+    opacity: 0.6;
+}
+
+.xp-global-toolbar .toolbar-separator {
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #B8B8A8 40%,
+        #FFFFFF 60%,
+        transparent 100%
+    );
+    margin: 0 6px;
+}
+
+.xp-global-toolbar .toolbar-pages {
+    gap: 1px;
 }
 
 /* Content Area */
@@ -381,33 +456,6 @@ html, body {
     margin: -16px -20px;
     font-family: 'Tahoma', 'Segoe UI', sans-serif;
     font-size: 11px;
-}
-
-/* Explorer Menu Bar - Authentic XP */
-.xp-explorer-menubar {
-    background: linear-gradient(180deg, #EBE9ED 0%, #D4D0C8 100%);
-    padding: 1px 2px;
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid #ACA899;
-    box-shadow: inset 0 1px 0 #fff;
-}
-
-.xp-explorer-menubar .menu-item {
-    padding: 3px 7px;
-    font-size: 11px;
-    color: #000;
-    cursor: pointer;
-    letter-spacing: 0;
-}
-
-.xp-explorer-menubar .menu-item:hover {
-    background: #316AC5;
-    color: #fff;
-}
-
-.xp-explorer-menubar .menu-item u {
-    text-decoration: underline;
 }
 
 /* Explorer Toolbar - Authentic XP with proper gradients */
@@ -1220,16 +1268,16 @@ html, body {
         min-height: 32px;
     }
 
-    .xp-nav-bar {
-        flex-wrap: wrap;
+    .xp-global-toolbar {
+        padding: 6px 8px;
     }
 
-    .xp-nav-bar button {
-        padding: 12px 16px;
-        font-size: 14px;
-        min-height: 44px;
-        flex: 1;
-        text-align: center;
+    .xp-global-toolbar .toolbar-btn {
+        padding: 6px 8px;
+    }
+
+    .xp-global-toolbar .toolbar-label {
+        display: none;
     }
 
     .xp-content-area {
@@ -1283,9 +1331,12 @@ html, body {
         white-space: nowrap;
     }
 
-    .xp-nav-bar button {
-        padding: 10px 8px;
-        font-size: 13px;
+    .xp-global-toolbar .toolbar-separator {
+        display: none;
+    }
+
+    .xp-global-toolbar .toolbar-dropdown {
+        display: none;
     }
 
     .xp-content-area {

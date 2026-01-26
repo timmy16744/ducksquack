@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRoute } from '../hooks/useRoute';
 import { useWriting } from '../hooks/useWriting';
 import { fetchWritingsIndex } from '../utils/content';
 import XPTitleBar from './XPTitleBar';
-import XPNavBar from './XPNavBar';
+import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
 import XPStatusBar from './XPStatusBar';
 
@@ -17,6 +17,11 @@ export default function XPNotepad() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [writingsCount, setWritingsCount] = useState(0);
   const [fontSizeIndex, setFontSizeIndex] = useState(DEFAULT_FONT_SIZE_INDEX);
+
+  // History tracking for back/forward navigation
+  const [history, setHistory] = useState([{ page: page, slug: slug }]);
+  const [historyIndex, setHistoryIndex] = useState(0);
+  const isNavigatingRef = useRef(false);
 
   const fontSize = FONT_SIZES[fontSizeIndex];
 
@@ -33,6 +38,46 @@ export default function XPNotepad() {
       .then(writings => setWritingsCount(writings.length))
       .catch(console.error);
   }, []);
+
+  // Track page changes in history
+  useEffect(() => {
+    if (isNavigatingRef.current) {
+      isNavigatingRef.current = false;
+      return;
+    }
+
+    const currentEntry = history[historyIndex];
+    if (currentEntry && currentEntry.page === page && currentEntry.slug === slug) {
+      return;
+    }
+
+    // Add new entry to history, truncating forward history if we navigated back then went somewhere new
+    const newHistory = history.slice(0, historyIndex + 1);
+    newHistory.push({ page, slug });
+    setHistory(newHistory);
+    setHistoryIndex(newHistory.length - 1);
+  }, [page, slug]);
+
+  const canGoBack = historyIndex > 0;
+  const canGoForward = historyIndex < history.length - 1;
+
+  const handleBack = () => {
+    if (canGoBack) {
+      isNavigatingRef.current = true;
+      const prevEntry = history[historyIndex - 1];
+      setHistoryIndex(historyIndex - 1);
+      navigate(prevEntry.page, prevEntry.slug);
+    }
+  };
+
+  const handleForward = () => {
+    if (canGoForward) {
+      isNavigatingRef.current = true;
+      const nextEntry = history[historyIndex + 1];
+      setHistoryIndex(historyIndex + 1);
+      navigate(nextEntry.page, nextEntry.slug);
+    }
+  };
 
   const handleSelectPost = (post) => {
     navigate('post', post.slug);
@@ -81,9 +126,13 @@ export default function XPNotepad() {
         onClose={handleClose}
       />
 
-      <XPNavBar
+      <XPToolbar
         currentPage={page}
         onNavigate={navigate}
+        canGoBack={canGoBack}
+        canGoForward={canGoForward}
+        onBack={handleBack}
+        onForward={handleForward}
       />
 
       <div className="xp-content-area" style={{ fontSize: `${fontSize}px` }}>

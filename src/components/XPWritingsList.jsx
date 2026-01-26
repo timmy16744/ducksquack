@@ -43,51 +43,6 @@ const FolderIcon = ({ size = 16, className = '', open = false }) => (
   </svg>
 );
 
-// XP-style back arrow icon
-const BackIcon = ({ disabled = false }) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" style={{ opacity: disabled ? 0.4 : 1 }}>
-    <defs>
-      <linearGradient id="arrowGreen" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#7ED87E"/>
-        <stop offset="50%" stopColor="#4AB84A"/>
-        <stop offset="100%" stopColor="#2A982A"/>
-      </linearGradient>
-    </defs>
-    <circle cx="10" cy="10" r="8" fill="url(#arrowGreen)" stroke="#1A6A1A" strokeWidth="1"/>
-    <path d="M11 6L7 10L11 14" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-// XP-style forward arrow icon
-const ForwardIcon = ({ disabled = false }) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" style={{ opacity: disabled ? 0.4 : 1 }}>
-    <defs>
-      <linearGradient id="arrowGreen2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#7ED87E"/>
-        <stop offset="50%" stopColor="#4AB84A"/>
-        <stop offset="100%" stopColor="#2A982A"/>
-      </linearGradient>
-    </defs>
-    <circle cx="10" cy="10" r="8" fill="url(#arrowGreen2)" stroke="#1A6A1A" strokeWidth="1"/>
-    <path d="M9 6L13 10L9 14" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-// Up folder icon
-const UpIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <defs>
-      <linearGradient id="upFolder" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FFE88C"/>
-        <stop offset="100%" stopColor="#E8C84C"/>
-      </linearGradient>
-    </defs>
-    <rect x="3" y="7" width="14" height="10" rx="1" fill="url(#upFolder)" stroke="#B89848" strokeWidth="0.75"/>
-    <path d="M3 7V6a1 1 0 011-1h4l1 2h8" fill="none" stroke="#B89848" strokeWidth="0.75"/>
-    <path d="M10 8V14M7 11L10 8L13 11" stroke="#2A6A2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
 // Search icon
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18">
@@ -103,7 +58,7 @@ const SearchIcon = () => (
   </svg>
 );
 
-// Views/Folders icon
+// Views icon
 const ViewsIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18">
     <rect x="1" y="1" width="7" height="7" rx="1" fill="#6B9CD5" stroke="#3A5A8C" strokeWidth="0.75"/>
@@ -162,32 +117,9 @@ export default function XPWritingsList({ onSelectPost }) {
 
   return (
     <div className="xp-explorer">
-      {/* XP Explorer Menu Bar */}
-      <div className="xp-explorer-menubar">
-        <span className="menu-item"><u>F</u>ile</span>
-        <span className="menu-item"><u>E</u>dit</span>
-        <span className="menu-item"><u>V</u>iew</span>
-        <span className="menu-item">F<u>a</u>vorites</span>
-        <span className="menu-item"><u>T</u>ools</span>
-        <span className="menu-item"><u>H</u>elp</span>
-      </div>
-
-      {/* XP Explorer Toolbar */}
+      {/* Explorer Secondary Toolbar - Search/Views */}
       <div className="xp-explorer-toolbar">
         <div className="toolbar-buttons">
-          <button className="toolbar-btn toolbar-btn-nav" title="Back" disabled>
-            <BackIcon disabled />
-            <span className="toolbar-label">Back</span>
-            <span className="toolbar-dropdown">▾</span>
-          </button>
-          <button className="toolbar-btn toolbar-btn-nav toolbar-btn-small" title="Forward" disabled>
-            <ForwardIcon disabled />
-          </button>
-          <div className="toolbar-separator"></div>
-          <button className="toolbar-btn" title="Up One Level">
-            <UpIcon />
-          </button>
-          <div className="toolbar-separator"></div>
           <button className="toolbar-btn" title="Search">
             <SearchIcon />
             <span className="toolbar-label">Search</span>
