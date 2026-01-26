@@ -21,21 +21,25 @@
 }
 
 .windows-bubbles .bubble {
-    transform: translate(-50%, -50%);
     border-radius: 9rem;
     height: 9rem;
     width: 9rem;
+    margin-left: -4.5rem; /* Center horizontally */
+    margin-top: -4.5rem;  /* Center vertically */
     display: block;
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 1;
+    will-change: transform, box-shadow;
     transition: box-shadow 0.5s ease-in-out,
-        transform 0.07s ease-out,
         opacity 0.04s ease-in;
 }
 
 .windows-bubbles .bubble.popped {
-    transform: translate(-50%, -50%) scale(2);
+    transform: scale(2);
     opacity: 0;
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
 }
 
 .windows-bubbles .bubble::after {

@@ -10,46 +10,46 @@ const rotate = (x, y, sin, cos, reverse) => {
 const flatten = (arr) =>
   arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-export default function WindowsBubbles({ paused = false }) {
+export default function WindowsBubbles() {
   const [circles, setCircles] = useState([]);
   const containerRef = useRef(null);
   const lastExecRef = useRef(null);
   const lastCollisionsRef = useRef([]);
-  const movingRef = useRef(true);
   const animationRef = useRef(null);
   const circlesRef = useRef([]);
-
-  // Pause animation when requested
-  useEffect(() => {
-    if (paused) {
-      movingRef.current = false;
-    } else {
-      movingRef.current = true;
-      lastExecRef.current = null; // Reset to avoid jump
-    }
-  }, [paused]);
+  const bubbleRefs = useRef({});
 
   // Keep circlesRef in sync
   useEffect(() => {
     circlesRef.current = circles;
   }, [circles]);
 
-  const update = useCallback((tm) => {
-    if (!movingRef.current) {
-      animationRef.current = requestAnimationFrame(update);
-      return;
+  // Direct DOM update - no React re-render
+  const updateBubbleDOM = useCallback((circle) => {
+    const el = bubbleRefs.current[circle.key];
+    if (el) {
+      el.style.transform = `translate(${circle.x}px, ${circle.y}px)`;
+      el.style.boxShadow = `0 0 2rem hsl(${circle.hue}, 75%, 50%) inset`;
     }
+  }, []);
 
+  const update = useCallback((tm) => {
     const currentCircles = circlesRef.current;
 
     if (lastExecRef.current && currentCircles.length) {
       const diff = tm - lastExecRef.current;
       const container = containerRef.current;
-      if (!container) return;
+      if (!container) {
+        animationRef.current = requestAnimationFrame(update);
+        return;
+      }
 
       const box = container.getBoundingClientRect();
       const radiusEl = container.querySelector('#bubbleradius');
-      if (!radiusEl) return;
+      if (!radiusEl) {
+        animationRef.current = requestAnimationFrame(update);
+        return;
+      }
       const radius = radiusEl.getBoundingClientRect().width;
 
       // Build collision pairs
@@ -139,8 +139,10 @@ export default function WindowsBubbles({ paused = false }) {
       const collided = [...new Set(flatten(newCollisions))];
       const collidedKeys = collided.map((c) => c.key);
 
-      // Update positions
+      // Update positions - direct DOM manipulation, no React re-render
       currentCircles.forEach((c) => {
+        if (c.popped) return;
+
         c.collisionFree = c.collisionFree || collidedKeys.indexOf(c.key) < 0;
 
         // Bounce off walls
@@ -157,24 +159,22 @@ export default function WindowsBubbles({ paused = false }) {
 
         c.y += c.vy * diff;
         c.x += c.vx * diff;
-      });
 
-      // Trigger re-render
-      setCircles([...currentCircles]);
+        // Update DOM directly - no setState!
+        updateBubbleDOM(c);
+      });
     }
 
     lastExecRef.current = tm;
     animationRef.current = requestAnimationFrame(update);
-  }, []);
+  }, [updateBubbleDOM]);
 
   const handleVisibilityChange = useCallback(() => {
     if (!document.hidden) {
-      movingRef.current = true;
       lastExecRef.current = null; // Reset to avoid huge diff jump
       animationRef.current = requestAnimationFrame(update);
     } else {
       cancelAnimationFrame(animationRef.current);
-      movingRef.current = false;
     }
   }, [update]);
 
@@ -203,6 +203,7 @@ export default function WindowsBubbles({ paused = false }) {
 
     if (nearest) {
       nearest.popped = true;
+      // Only trigger re-render for pop animation
       setCircles([...circlesRef.current]);
     }
   }, []);
@@ -249,11 +250,12 @@ export default function WindowsBubbles({ paused = false }) {
     };
   }, [update, handleVisibilityChange]);
 
-  const getStyle = (c) => ({
-    top: `${c.y}px`,
-    left: `${c.x}px`,
-    boxShadow: `0 0 2rem hsl(${c.hue}, 75%, 50%) inset`,
-  });
+  // Store ref to bubble element
+  const setBubbleRef = useCallback((key) => (el) => {
+    if (el) {
+      bubbleRefs.current[key] = el;
+    }
+  }, []);
 
   return (
     <div
@@ -265,8 +267,12 @@ export default function WindowsBubbles({ paused = false }) {
       {circles.map((c) => (
         <span
           key={c.key}
+          ref={setBubbleRef(c.key)}
           className={`bubble ${c.popped ? 'popped' : ''}`}
-          style={getStyle(c)}
+          style={{
+            transform: `translate(${c.x}px, ${c.y}px)`,
+            boxShadow: `0 0 2rem hsl(${c.hue}, 75%, 50%) inset`,
+          }}
         />
       ))}
     </div>
