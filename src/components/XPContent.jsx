@@ -229,7 +229,7 @@ This is my echo.`}
   );
 
   const renderWritings = () => (
-    <XPWritingsList onSelectPost={onSelectPost} />
+    <XPWritingsList onSelectPost={onSelectPost} onNavigate={onNavigate} />
   );
 
   const renderPost = () => {

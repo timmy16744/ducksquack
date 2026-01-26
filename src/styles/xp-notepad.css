@@ -806,6 +806,11 @@ html, body {
     text-decoration: underline;
 }
 
+.xp-explorer-tasks .task-item.active {
+    background: #D0E4F8;
+    font-weight: bold;
+}
+
 .xp-explorer-tasks .task-details {
     display: flex;
     flex-direction: column;

@@ -68,7 +68,61 @@ const ViewsIcon = () => (
   </svg>
 );
 
-export default function XPWritingsList({ onSelectPost }) {
+// Home icon for sidebar
+const HomeIconSmall = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" style={{ flexShrink: 0 }}>
+    <defs>
+      <linearGradient id="homeRoofSmallW" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#C85040"/>
+        <stop offset="100%" stopColor="#983028"/>
+      </linearGradient>
+      <linearGradient id="homeWallSmallW" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#F0E8C0"/>
+        <stop offset="100%" stopColor="#D8C888"/>
+      </linearGradient>
+    </defs>
+    <path d="M8 1L1 7H3V14H13V7H15L8 1Z" fill="url(#homeWallSmallW)" stroke="#705830" strokeWidth="0.5"/>
+    <path d="M8 1L1 7H3L8 3L13 7H15L8 1Z" fill="url(#homeRoofSmallW)" stroke="#602820" strokeWidth="0.5"/>
+    <rect x="6" y="9" width="4" height="5" fill="#6080A0" stroke="#404040" strokeWidth="0.4"/>
+  </svg>
+);
+
+// Person icon for sidebar
+const PersonIconSmall = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" style={{ flexShrink: 0 }}>
+    <defs>
+      <linearGradient id="personHeadSmallW" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#F8D8B8"/>
+        <stop offset="100%" stopColor="#D8B088"/>
+      </linearGradient>
+      <linearGradient id="personBodySmallW" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#4888C8"/>
+        <stop offset="100%" stopColor="#185898"/>
+      </linearGradient>
+    </defs>
+    <circle cx="8" cy="5" r="3" fill="url(#personHeadSmallW)" stroke="#A08060" strokeWidth="0.5"/>
+    <path d="M2 15C2 11 5 9 8 9C11 9 14 11 14 15" fill="url(#personBodySmallW)" stroke="#184878" strokeWidth="0.5"/>
+  </svg>
+);
+
+// Document icon for sidebar (small)
+const DocumentIconSmall = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" style={{ flexShrink: 0 }}>
+    <defs>
+      <linearGradient id="docBodySmallW" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#FFFFFF"/>
+        <stop offset="100%" stopColor="#C4D4E8"/>
+      </linearGradient>
+    </defs>
+    <path d="M2 1h8l4 4v10H2V1z" fill="url(#docBodySmallW)" stroke="#7A97B8" strokeWidth="0.5"/>
+    <path d="M10 1v4h4" fill="#B8C8D8" stroke="#7A97B8" strokeWidth="0.5"/>
+    <line x1="4" y1="7" x2="12" y2="7" stroke="#4A6A8A" strokeWidth="0.5"/>
+    <line x1="4" y1="9" x2="12" y2="9" stroke="#4A6A8A" strokeWidth="0.5"/>
+    <line x1="4" y1="11" x2="10" y2="11" stroke="#4A6A8A" strokeWidth="0.5"/>
+  </svg>
+);
+
+export default function XPWritingsList({ onSelectPost, onNavigate }) {
   const [writings, setWritings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -149,21 +203,25 @@ export default function XPWritingsList({ onSelectPost }) {
 
       {/* Main Content Area */}
       <div className="xp-explorer-main">
-        {/* Left Panel - Folder Tasks */}
+        {/* Left Panel - Navigation Sidebar */}
         <div className="xp-explorer-tasks">
           <div className="task-group">
             <div className="task-header">
               <span className="task-header-icon">»</span>
-              <span>File and Folder Tasks</span>
+              <span>Navigation</span>
             </div>
             <div className="task-body">
-              <div className="task-item">
-                <DocumentIcon size={16} />
-                <span>Make a new folder</span>
+              <div className="task-item" onClick={() => onNavigate('home')}>
+                <HomeIconSmall />
+                <span>Home</span>
               </div>
-              <div className="task-item">
-                <DocumentIcon size={16} />
-                <span>Publish folder to Web</span>
+              <div className="task-item" onClick={() => onNavigate('about')}>
+                <PersonIconSmall />
+                <span>About Me</span>
+              </div>
+              <div className="task-item active">
+                <DocumentIconSmall />
+                <span>Writings</span>
               </div>
             </div>
           </div>
@@ -180,10 +238,6 @@ export default function XPWritingsList({ onSelectPost }) {
               <div className="task-item">
                 <FolderIcon size={16} />
                 <span>My Computer</span>
-              </div>
-              <div className="task-item">
-                <FolderIcon size={16} />
-                <span>My Network Places</span>
               </div>
             </div>
           </div>
