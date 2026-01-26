@@ -1,0 +1,57 @@
+---
+title: "The Chronic Patient and the Algorithm"
+date: "2025-09-17"
+color: "teal"
+---
+
+I have spent fifteen years as a case study in how healthcare systems fail. This is not self-pity. It is data. The failures have been consistent enough, repeated enough, documented enough, that they constitute something like evidence. Evidence of what happens when a system optimised for acute intervention encounters a condition that does not resolve.
+
+Cluster headaches. The medical literature describes them as among the most painful conditions known to humanity. I can confirm that the literature, in this instance, does not exaggerate. More than half my existence involves managing this pain. The other half involves managing the systems that are supposed to help me manage this pain. I am not certain which is more exhausting.
+
+Over a hundred different medications tried. Six surgical interventions. Procedures that should never have been performed. Diagnoses that were simply wrong. Imaging studies misread by specialists who were, on paper, experts in their field. Blood tests interpreted incorrectly. Recommendations made with confidence that later proved unfounded.
+
+I want to be careful here. I am not suggesting that every clinician I have encountered was incompetent. Many were skilled, conscientious, doing their best within constraints they did not create. The failure is not primarily individual. It is structural. The system is not designed for people like me.
+
+Modern healthcare excels at acute problems. If you have a heart attack, a broken bone, an infection that requires antibiotics, you will likely receive competent care. The protocols exist. The training is thorough. The feedback loops are tight: the intervention either works or it does not, and you know quickly.
+
+Chronic conditions are different. They do not resolve. They require ongoing management across years and decades. They involve uncertainty, experimentation, treatments that help somewhat but not entirely. The feedback loops are slow and ambiguous. What works today may not work tomorrow. What seemed like progress may prove temporary.
+
+The system does not know how to handle this. Appointment structures assume discrete problems with discrete solutions. Funding models reward procedures over ongoing care. Specialists see narrow slices of a person and rarely communicate with each other. The patient becomes the only continuous thread, the only entity with the full picture, but the patient's knowledge is systematically discounted because they lack credentials.
+
+I have sat in waiting rooms for six months to see a specialist. Six months of pain, of uncertainty, of life constrained by a condition that could perhaps be better managed if someone with expertise would simply look at my case. The specialist, when finally seen, spends fifteen minutes reviewing a file they have just encountered. They make recommendations based on incomplete information. They schedule a follow-up in another six months. The cycle continues.
+
+This is where I begin to think about artificial intelligence. Not as salvation, I am past believing in salvation, but as a potential shift in what is possible.
+
+Consider diagnosis. An AI system can analyse imaging studies in minutes. It can cross-reference symptoms against the full medical literature, not the subset that any individual clinician happens to remember. It can identify patterns that human cognition, limited by attention and fatigue and the sheer volume of information, might miss. The accuracy of AI diagnostic systems already exceeds human performance in several domains. This is not speculation. It is measured.
+
+I think about the MRI studies that were read incorrectly. The blood tests whose significance was missed. The diagnoses that took years to reach when an AI might have reached them in hours. How much suffering was extended by the limitations of human pattern recognition? How much could have been avoided if the system had access to tools that processed information at a different scale?
+
+The speed matters as much as the accuracy. Six months to see a specialist is not a law of nature. It is a function of scarcity: there are not enough specialists, and their time is allocated by queues that make no distinction between urgent and routine. AI does not queue. AI does not have limited appointment slots. AI could, in principle, provide initial assessment immediately, triaging cases so that human expertise is directed where it is most needed.
+
+I imagine a system where my scans are analysed within minutes of being taken. Where anomalies are flagged automatically. Where my blood work is interpreted not by a single physician glancing at numbers between patients but by a system that considers the full context of my history and the full range of relevant research. Where I arrive at a specialist appointment with a preliminary analysis already complete, so that the precious minutes of human attention can be spent on judgment rather than data gathering.
+
+This is not fantasy. The components exist. The barriers are institutional, regulatory, cultural: the deep conservatism of healthcare systems that change slowly even when faster change would save lives.
+
+But I want to complicate this optimism, because the story is not simply that AI will fix what humans have broken.
+
+There is something that AI cannot provide, something I have learned to value precisely because I have experienced its absence so often. It is difficult to name. Compassion is close but not quite right. Presence, perhaps. The quality of being seen as a human being rather than a case.
+
+The best care I have received has come primarily from nurses. Not because nurses have more expertise than physicians, they often have less in the narrow technical sense, but because the nursing role involves a different kind of attention. A nurse sits with you. A nurse notices when you are struggling before you say so. A nurse provides what I can only describe as a kind of maternal presence, the feeling that someone cares about your suffering as suffering, not merely as a problem to be solved.
+
+This cannot be automated. I do not say this as a mystical claim about human uniqueness. I say it as an observation about what actually helps when you are vulnerable, frightened, in pain. The human touch matters. The knowledge that another conscious being is present with you, not just processing your data but accompanying you through the experience, makes a difference that no algorithm can replicate.
+
+The failure of healthcare, as I have experienced it, has two distinct components. One is informational: errors of diagnosis, delays in assessment, expertise that is scarce and poorly allocated. AI can address this component. It can make information processing faster, more accurate, more available.
+
+The other component is relational: the reduction of patients to cases, the loss of continuity, the absence of presence. AI cannot address this. Indeed, AI deployed carelessly could worsen it, further depersonalising a system that already struggles to see patients as people.
+
+The question is whether we can have both. Whether AI can handle the informational burden, freeing human caregivers to provide the relational care that only humans can provide. Or whether the introduction of AI will simply become another excuse to reduce human contact, to cut costs, to optimise metrics while the thing that actually matters quietly disappears.
+
+I am not optimistic by temperament. Fifteen years of navigating a broken system will do that. But I can see a possible future where chronic patients like me receive faster diagnosis, more accurate assessment, better-coordinated care, all enabled by AI, while still having access to human beings who see us as human beings. That future is not guaranteed. It will not arrive automatically. It requires choices about how we deploy these technologies and what we choose to value.
+
+I have learned to build my own infrastructure for survival. The exercise routines, the dietary controls, the careful management of cognitive load and environmental factors. I have become my own case manager because the system could not manage my case. This has taught me self-reliance, which is valuable, but it has also taught me what is lost when systems fail.
+
+No one should have to become an expert in their own condition simply to survive. No one should spend years seeking diagnosis that a competent system could have provided in weeks. No one should undergo procedures that should never have been performed, recommended by specialists whose incentives were misaligned with patient welfare.
+
+AI will not fix all of this. Some of it is human, and human failures require human solutions. But AI could fix some of it. Perhaps enough to matter. Perhaps enough that the next person with an intractable condition does not have to spend fifteen years learning what I have learned.
+
+That possibility seems worth pursuing. Even for someone who has stopped believing in salvation.
