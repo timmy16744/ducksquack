@@ -12,7 +12,7 @@ async function main() {
     // Fetch writings index - try production first, fallback to local
     let writings;
     try {
-      const indexResponse = await fetch('https://ducksquack.com/writings/index.json');
+      const indexResponse = await fetch('https://ducksquack.me/writings/index.json');
       if (indexResponse.ok) {
         writings = await indexResponse.json();
       } else {

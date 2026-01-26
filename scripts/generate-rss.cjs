@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://ducksquack.com';
+const SITE_URL = 'https://ducksquack.me';
 const SITE_TITLE = 'DuckSquack';
 const SITE_DESCRIPTION = 'Essays on AI, Technology & Society by Tim Hughes';
 
