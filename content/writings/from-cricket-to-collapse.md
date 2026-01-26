@@ -1,5 +1,5 @@
 ---
-title: "From Cricket to Collapse"
+title: "Sandpapering Our Structural Decay"
 date: "2025-05-28"
 color: "green"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Nurturing the Future: Becoming a Father at the Dawn of Super Intelligence"
+title: "Parenthood in the Age of Super Intelligence"
 date: "2025-04-20"
 color: "pink"
 ---

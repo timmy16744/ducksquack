@@ -1,5 +1,5 @@
 ---
-title: "When Machines Learn the Shape of Love"
+title: "A Prosthetic for Empathy"
 date: "2025-08-06"
 color: "purple"
 ---

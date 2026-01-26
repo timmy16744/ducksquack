@@ -1,5 +1,5 @@
 ---
-title: "Is China Already Leading the Race for AI Domination?"
+title: "Escape Velocity"
 date: "2025-08-02"
 color: "blue"
 ---
