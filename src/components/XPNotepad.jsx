@@ -12,7 +12,7 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
 
   // Window position and size - use refs for smooth dragging performance
   const defaultWidth = 1100;
-  const defaultHeight = 650;
+  const defaultHeight = 865;
   const taskbarHeight = 30;
   const [size, setSize] = useState({ width: defaultWidth, height: defaultHeight });
   const [position, setPosition] = useState(() => ({
