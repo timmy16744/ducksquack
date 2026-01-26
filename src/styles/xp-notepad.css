@@ -450,8 +450,8 @@ html, body {
 /* Page Layout with Sidebar - for Home and About pages */
 .xp-page-layout {
     display: flex;
-    height: 100%;
-    margin: -16px -20px;
+    min-height: calc(100% + 32px);
+    margin: -16px -20px -16px -20px;
     font-family: 'Tahoma', 'Segoe UI', sans-serif;
 }
 
