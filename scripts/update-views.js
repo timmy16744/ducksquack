@@ -57,8 +57,8 @@ async function main() {
 
       // Only process articles within the growth period
       if (daysSincePublish <= GROWTH_PERIOD_DAYS && daysSincePublish >= 0) {
-        // Target: surpass previous highest by 5-15%
-        const targetViews = Math.floor(previousHighestViews * (1.05 + Math.random() * 0.1));
+        // Target: surpass previous highest by 4-7%
+        const targetViews = Math.floor(previousHighestViews * (1.04 + Math.random() * 0.03));
 
         // Calculate progress (0 to 1 over 7 days)
         const progress = Math.min(daysSincePublish / GROWTH_PERIOD_DAYS, 1);
