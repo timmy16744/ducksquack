@@ -1,43 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRoute } from '../hooks/useRoute';
 import { useWriting } from '../hooks/useWriting';
-import { fetchWritingsIndex } from '../utils/content';
 import XPTitleBar from './XPTitleBar';
 import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
-import XPStatusBar from './XPStatusBar';
-
-const FONT_SIZES = [12, 13, 14, 16, 18, 20];
-const DEFAULT_FONT_SIZE_INDEX = 1; // 13px
 
 export default function XPNotepad() {
   const { page, slug, navigate } = useRoute();
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [writingsCount, setWritingsCount] = useState(0);
-  const [fontSizeIndex, setFontSizeIndex] = useState(DEFAULT_FONT_SIZE_INDEX);
 
   // History tracking for back/forward navigation
   const [history, setHistory] = useState([{ page: page, slug: slug }]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const isNavigatingRef = useRef(false);
-
-  const fontSize = FONT_SIZES[fontSizeIndex];
-
-  const handleFontSizeChange = (delta) => {
-    setFontSizeIndex(prev => {
-      const next = prev + delta;
-      if (next < 0 || next >= FONT_SIZES.length) return prev;
-      return next;
-    });
-  };
-
-  useEffect(() => {
-    fetchWritingsIndex()
-      .then(writings => setWritingsCount(writings.length))
-      .catch(console.error);
-  }, []);
 
   // Track page changes in history
   useEffect(() => {
@@ -135,7 +112,7 @@ export default function XPNotepad() {
         onForward={handleForward}
       />
 
-      <div className="xp-content-area" style={{ fontSize: `${fontSize}px` }}>
+      <div className="xp-content-area">
         <XPContent
           currentPage={page}
           currentPost={currentPost}
@@ -144,16 +121,6 @@ export default function XPNotepad() {
           onSelectPost={handleSelectPost}
         />
       </div>
-
-      <XPStatusBar
-        currentPage={page}
-        currentPost={currentPost}
-        writingsCount={writingsCount}
-        fontSize={fontSize}
-        onFontSizeChange={handleFontSizeChange}
-        canDecrease={fontSizeIndex > 0}
-        canIncrease={fontSizeIndex < FONT_SIZES.length - 1}
-      />
     </div>
   );
 }
