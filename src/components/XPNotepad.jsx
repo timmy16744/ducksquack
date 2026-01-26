@@ -10,14 +10,24 @@ export default function XPNotepad() {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
 
-  // Window position and size state
-  const [position, setPosition] = useState({ x: 40, y: 20 });
-  const [size, setSize] = useState({ width: 1100, height: 700 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [isResizing, setIsResizing] = useState(false);
-  const [resizeDirection, setResizeDirection] = useState(null);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  // Window position and size - use refs for smooth dragging performance
+  const defaultWidth = 1100;
+  const defaultHeight = 700;
+  const [size, setSize] = useState({ width: defaultWidth, height: defaultHeight });
+  const [position, setPosition] = useState(() => ({
+    x: Math.max(20, (window.innerWidth - defaultWidth) / 2),
+    y: Math.max(20, (window.innerHeight - defaultHeight) / 2)
+  }));
+
+  // Refs for smooth drag/resize (avoid re-renders during movement)
   const windowRef = useRef(null);
+  const positionRef = useRef(position);
+  const sizeRef = useRef(size);
+  const isDraggingRef = useRef(false);
+  const isResizingRef = useRef(false);
+  const resizeDirectionRef = useRef(null);
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef(null);
 
   // History tracking for back/forward navigation
   const [history, setHistory] = useState([{ page: page, slug: slug }]);
@@ -46,85 +56,133 @@ export default function XPNotepad() {
   const canGoBack = historyIndex > 0;
   const canGoForward = historyIndex < history.length - 1;
 
-  // Dragging handlers
+  // Keep refs in sync with state
+  useEffect(() => {
+    positionRef.current = position;
+  }, [position]);
+
+  useEffect(() => {
+    sizeRef.current = size;
+  }, [size]);
+
+  // Apply transform directly to DOM for smooth dragging
+  const applyTransform = useCallback(() => {
+    if (windowRef.current && !isMaximized) {
+      windowRef.current.style.transform = `translate(${positionRef.current.x}px, ${positionRef.current.y}px)`;
+      windowRef.current.style.width = `${sizeRef.current.width}px`;
+      windowRef.current.style.height = `${sizeRef.current.height}px`;
+    }
+  }, [isMaximized]);
+
+  // Dragging handlers - optimized with direct DOM manipulation
   const handleMouseDown = useCallback((e) => {
     if (isMaximized) return;
     if (e.target.closest('.title-bar-controls')) return;
 
-    setIsDragging(true);
-    setDragOffset({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
-    });
-  }, [isMaximized, position]);
+    isDraggingRef.current = true;
+    dragOffsetRef.current = {
+      x: e.clientX - positionRef.current.x,
+      y: e.clientY - positionRef.current.y
+    };
+
+    if (windowRef.current) {
+      windowRef.current.classList.add('dragging');
+    }
+  }, [isMaximized]);
 
   const handleMouseMove = useCallback((e) => {
-    if (isDragging) {
-      const newX = Math.max(0, Math.min(e.clientX - dragOffset.x, window.innerWidth - 100));
-      const newY = Math.max(0, Math.min(e.clientY - dragOffset.y, window.innerHeight - 50));
-      setPosition({ x: newX, y: newY });
+    if (!isDraggingRef.current && !isResizingRef.current) return;
+
+    // Cancel any pending animation frame
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
     }
 
-    if (isResizing && resizeDirection) {
-      const rect = windowRef.current?.getBoundingClientRect();
-      if (!rect) return;
-
-      let newWidth = size.width;
-      let newHeight = size.height;
-      let newX = position.x;
-      let newY = position.y;
-
-      if (resizeDirection.includes('e')) {
-        newWidth = Math.max(400, e.clientX - position.x);
+    rafRef.current = requestAnimationFrame(() => {
+      if (isDraggingRef.current) {
+        const newX = Math.max(0, Math.min(e.clientX - dragOffsetRef.current.x, window.innerWidth - 100));
+        const newY = Math.max(0, Math.min(e.clientY - dragOffsetRef.current.y, window.innerHeight - 50));
+        positionRef.current = { x: newX, y: newY };
+        applyTransform();
       }
-      if (resizeDirection.includes('w')) {
-        const delta = position.x - e.clientX;
-        newWidth = Math.max(400, size.width + delta);
-        if (newWidth !== size.width) {
-          newX = e.clientX;
+
+      if (isResizingRef.current && resizeDirectionRef.current) {
+        let newWidth = sizeRef.current.width;
+        let newHeight = sizeRef.current.height;
+        let newX = positionRef.current.x;
+        let newY = positionRef.current.y;
+        const dir = resizeDirectionRef.current;
+
+        if (dir.includes('e')) {
+          newWidth = Math.max(400, e.clientX - positionRef.current.x);
         }
-      }
-      if (resizeDirection.includes('s')) {
-        newHeight = Math.max(300, e.clientY - position.y);
-      }
-      if (resizeDirection.includes('n')) {
-        const delta = position.y - e.clientY;
-        newHeight = Math.max(300, size.height + delta);
-        if (newHeight !== size.height) {
-          newY = e.clientY;
+        if (dir.includes('w')) {
+          const delta = positionRef.current.x - e.clientX;
+          const proposedWidth = sizeRef.current.width + delta;
+          if (proposedWidth >= 400) {
+            newWidth = proposedWidth;
+            newX = e.clientX;
+          }
         }
-      }
+        if (dir.includes('s')) {
+          newHeight = Math.max(300, e.clientY - positionRef.current.y);
+        }
+        if (dir.includes('n')) {
+          const delta = positionRef.current.y - e.clientY;
+          const proposedHeight = sizeRef.current.height + delta;
+          if (proposedHeight >= 300) {
+            newHeight = proposedHeight;
+            newY = e.clientY;
+          }
+        }
 
-      setSize({ width: newWidth, height: newHeight });
-      setPosition({ x: newX, y: newY });
-    }
-  }, [isDragging, isResizing, resizeDirection, dragOffset, position, size]);
+        sizeRef.current = { width: newWidth, height: newHeight };
+        positionRef.current = { x: newX, y: newY };
+        applyTransform();
+      }
+    });
+  }, [applyTransform]);
 
   const handleMouseUp = useCallback(() => {
-    setIsDragging(false);
-    setIsResizing(false);
-    setResizeDirection(null);
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+
+    // Sync refs back to state when done
+    if (isDraggingRef.current || isResizingRef.current) {
+      setPosition({ ...positionRef.current });
+      setSize({ ...sizeRef.current });
+    }
+
+    isDraggingRef.current = false;
+    isResizingRef.current = false;
+    resizeDirectionRef.current = null;
+
+    if (windowRef.current) {
+      windowRef.current.classList.remove('dragging');
+    }
   }, []);
 
   const handleResizeStart = useCallback((direction) => (e) => {
     if (isMaximized) return;
     e.preventDefault();
     e.stopPropagation();
-    setIsResizing(true);
-    setResizeDirection(direction);
+    isResizingRef.current = true;
+    resizeDirectionRef.current = direction;
   }, [isMaximized]);
 
-  // Add global mouse event listeners for dragging/resizing
+  // Add global mouse event listeners
   useEffect(() => {
-    if (isDragging || isResizing) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleMouseUp);
-      };
-    }
-  }, [isDragging, isResizing, handleMouseMove, handleMouseUp]);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [handleMouseMove, handleMouseUp]);
 
   // Double-click title bar to maximize/restore
   const handleTitleBarDoubleClick = useCallback(() => {
@@ -187,8 +245,7 @@ export default function XPNotepad() {
   }
 
   const windowStyle = isMaximized ? {} : {
-    left: position.x,
-    top: position.y,
+    transform: `translate(${position.x}px, ${position.y}px)`,
     width: size.width,
     height: size.height,
   };
@@ -196,7 +253,7 @@ export default function XPNotepad() {
   return (
     <div
       ref={windowRef}
-      className={`window xp-notepad-window ${isMaximized ? 'maximized' : ''} ${isDragging ? 'dragging' : ''}`}
+      className={`window xp-notepad-window ${isMaximized ? 'maximized' : ''}`}
       style={windowStyle}
     >
       {/* Resize handles */}

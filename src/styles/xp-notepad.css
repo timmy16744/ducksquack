@@ -56,21 +56,34 @@ html, body {
 /* Notepad Window */
 .xp-notepad-window {
     position: absolute;
+    left: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     min-width: 400px;
     min-height: 300px;
+    will-change: transform, width, height;
 }
 
 .xp-notepad-window.dragging {
     user-select: none;
     cursor: move;
+    will-change: transform;
+}
+
+.xp-notepad-window.dragging * {
+    pointer-events: none;
+}
+
+.xp-notepad-window.dragging .title-bar,
+.xp-notepad-window.dragging .title-bar-controls,
+.xp-notepad-window.dragging .title-bar-controls button {
+    pointer-events: auto;
 }
 
 .xp-notepad-window.maximized {
-    left: 0 !important;
-    top: 0 !important;
+    transform: translate(0, 0) !important;
     width: 100vw !important;
     height: 100vh !important;
     border-radius: 0;
@@ -1446,8 +1459,7 @@ html, body {
 /* Mobile Responsive - Large tablets and below */
 @media (max-width: 1024px) {
     .xp-notepad-window {
-        left: 20px !important;
-        top: 20px !important;
+        transform: translate(20px, 20px) !important;
         width: calc(100vw - 40px) !important;
         height: calc(100vh - 40px) !important;
     }
@@ -1460,8 +1472,7 @@ html, body {
     }
 
     .xp-notepad-window {
-        left: 0 !important;
-        top: 0 !important;
+        transform: translate(0, 0) !important;
         width: 100vw !important;
         height: 100vh !important;
         border-radius: 0;
