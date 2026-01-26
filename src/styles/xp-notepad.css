@@ -872,11 +872,10 @@ html, body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: 2px solid;
-    border-color: #96969A #FFF #FFF #96969A;
-    margin: 6px 4px 6px 0;
+    border: none;
+    border-left: 1px solid #96969A;
+    margin: 0;
     background: #fff;
-    box-shadow: inset 1px 1px 0 #CECECE;
 }
 
 /* Column Headers - Authentic XP Style */
@@ -1273,7 +1272,8 @@ html, body {
     }
 
     .xp-explorer-content {
-        margin: 4px;
+        margin: 0;
+        border-left: none;
     }
 
     .xp-explorer-headers .date-col,
