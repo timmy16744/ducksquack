@@ -50,7 +50,8 @@ const SYNOPSES = {
   'a-prosthetic-for-empathy': 'Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.',
   'the-inheritance-cliff': 'Examines how parental wealth has become the primary determinant of home ownership in Australia, arguing we have constructed a de facto aristocracy while maintaining democratic forms.',
   'the-death-of-the-junior-role': 'Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.',
-  'what-does-australia-actually-make': 'Catalogues Australia\'s manufacturing collapse and strategic vulnerabilities, arguing we have become a mine with a housing bubble attached through deliberate policy failure.'
+  'what-does-australia-actually-make': 'Catalogues Australia\'s manufacturing collapse and strategic vulnerabilities, arguing we have become a mine with a housing bubble attached through deliberate policy failure.',
+  'teaching-arthur': 'A father\'s curriculum for his son: practical skills, critical thinking, kindness with boundaries, and the lesson that you are stronger than you believe.'
 };
 
 function processWritings() {
