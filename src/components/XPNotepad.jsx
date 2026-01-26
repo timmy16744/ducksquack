@@ -5,19 +5,19 @@ import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
 import XPCommentBar from './XPCommentBar';
 
-export default function XPNotepad() {
+export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange }) {
   const { page, slug, navigate } = useRoute();
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
 
   // Window position and size - use refs for smooth dragging performance
   const defaultWidth = 1100;
-  const defaultHeight = 700;
+  const defaultHeight = 650;
+  const taskbarHeight = 30;
   const [size, setSize] = useState({ width: defaultWidth, height: defaultHeight });
   const [position, setPosition] = useState(() => ({
     x: Math.max(20, (window.innerWidth - defaultWidth) / 2),
-    y: Math.max(20, (window.innerHeight - defaultHeight) / 2)
+    y: Math.max(10, (window.innerHeight - defaultHeight - taskbarHeight) / 2)
   }));
 
   // Refs for smooth drag/resize (avoid re-renders during movement)
@@ -102,7 +102,7 @@ export default function XPNotepad() {
     rafRef.current = requestAnimationFrame(() => {
       if (isDraggingRef.current) {
         const newX = Math.max(0, Math.min(e.clientX - dragOffsetRef.current.x, window.innerWidth - 100));
-        const newY = Math.max(0, Math.min(e.clientY - dragOffsetRef.current.y, window.innerHeight - 50));
+        const newY = Math.max(0, Math.min(e.clientY - dragOffsetRef.current.y, window.innerHeight - 80)); // Account for taskbar
         positionRef.current = { x: newX, y: newY };
         applyTransform();
       }
@@ -212,23 +212,38 @@ export default function XPNotepad() {
     navigate('post', post.slug);
   };
 
-  const getWindowTitle = () => {
+  const getWindowTitle = useCallback(() => {
+    let title;
     switch (page) {
       case 'home':
-        return 'DuckSquack - Home';
+        title = 'DuckSquack - Home';
+        break;
       case 'about':
-        return 'DuckSquack - About';
+        title = 'DuckSquack - About';
+        break;
       case 'writings':
-        return 'DuckSquack - Writings';
+        title = 'DuckSquack - Writings';
+        break;
       case 'post':
-        return currentPost ? `DuckSquack - ${currentPost.title}` : 'DuckSquack';
+        title = currentPost ? `DuckSquack - ${currentPost.title}` : 'DuckSquack';
+        break;
       default:
-        return 'DuckSquack';
+        title = 'DuckSquack';
     }
-  };
+    return title;
+  }, [page, currentPost]);
+
+  // Notify parent of title changes
+  useEffect(() => {
+    if (onTitleChange) {
+      onTitleChange(getWindowTitle());
+    }
+  }, [getWindowTitle, onTitleChange]);
 
   const handleMinimize = () => {
-    setIsMinimized(true);
+    if (onMinimize) {
+      onMinimize(getWindowTitle());
+    }
   };
 
   const handleMaximize = () => {
@@ -241,7 +256,7 @@ export default function XPNotepad() {
     }
   };
 
-  if (isMinimized) {
+  if (!isVisible) {
     return null;
   }
 

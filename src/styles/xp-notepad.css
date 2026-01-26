@@ -1812,40 +1812,215 @@ html, body {
     }
 }
 
-/* Optional: XP Taskbar (stretch goal) */
+/* XP Taskbar */
 .xp-taskbar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 30px;
-    background: linear-gradient(180deg, #3168d5 0%, #4993e6 3%, #2157d7 97%, #1941a5 100%);
+    background: linear-gradient(180deg,
+        #245EDC 0%,
+        #3F8CF3 3%,
+        #245EDC 6%,
+        #245EDC 94%,
+        #1941A5 97%,
+        #1941A5 100%
+    );
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 8px;
+    padding: 0;
     z-index: 1000;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
 }
 
 .xp-taskbar .start-button {
-    background: linear-gradient(180deg, #3c9a3c 0%, #288a28 50%, #1e7a1e 100%);
+    background: linear-gradient(180deg,
+        #5CB85C 0%,
+        #3C9A3C 8%,
+        #2D8E2D 40%,
+        #288A28 50%,
+        #288A28 60%,
+        #1E7A1E 92%,
+        #166A16 100%
+    );
     color: white;
     border: none;
     border-radius: 0 8px 8px 0;
-    padding: 2px 12px 2px 8px;
+    padding: 2px 14px 2px 6px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 11px;
+    font-style: italic;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 30px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        inset 0 -1px 0 rgba(0,0,0,0.2),
+        1px 0 1px rgba(0,0,0,0.3);
+    text-transform: lowercase;
+}
+
+.xp-taskbar .start-button:hover {
+    background: linear-gradient(180deg,
+        #6CD86C 0%,
+        #4CAA4C 8%,
+        #3D9E3D 40%,
+        #389A38 50%,
+        #389A38 60%,
+        #2E8A2E 92%,
+        #267A26 100%
+    );
+}
+
+.xp-taskbar .start-button:active {
+    background: linear-gradient(180deg,
+        #1E7A1E 0%,
+        #288A28 50%,
+        #3C9A3C 100%
+    );
+}
+
+.xp-taskbar .taskbar-divider {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(0,0,0,0.2) 50%,
+        transparent 100%
+    );
+    margin: 0 2px;
+}
+
+.xp-taskbar .taskbar-windows {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    padding: 2px 4px;
+    gap: 2px;
+}
+
+.xp-taskbar .taskbar-window-btn {
+    background: linear-gradient(180deg,
+        #3D95FF 0%,
+        #2570D4 30%,
+        #1C5EB8 70%,
+        #1850A0 100%
+    );
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.3) rgba(0,0,0,0.3) rgba(0,0,0,0.3) rgba(255,255,255,0.3);
+    border-radius: 2px;
+    padding: 2px 8px;
+    color: white;
+    font-size: 11px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 4px;
-    height: 26px;
+    height: 22px;
+    min-width: 140px;
+    max-width: 180px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 1px 1px rgba(0,0,0,0.2);
+}
+
+.xp-taskbar .taskbar-window-btn:hover {
+    background: linear-gradient(180deg,
+        #4DA5FF 0%,
+        #3580E4 30%,
+        #2C6EC8 70%,
+        #2860B0 100%
+    );
+}
+
+.xp-taskbar .taskbar-window-btn:active {
+    background: linear-gradient(180deg,
+        #1850A0 0%,
+        #1C5EB8 30%,
+        #2570D4 70%,
+        #3D95FF 100%
+    );
+    border-color: rgba(0,0,0,0.3) rgba(255,255,255,0.3) rgba(255,255,255,0.3) rgba(0,0,0,0.3);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.xp-taskbar .taskbar-window-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.xp-taskbar .taskbar-tray {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 8px;
+}
+
+.xp-taskbar .tray-divider {
+    width: 1px;
+    height: 20px;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(255,255,255,0.2) 20%,
+        rgba(255,255,255,0.2) 80%,
+        transparent 100%
+    );
+    margin-right: 4px;
+    box-shadow: 1px 0 0 rgba(0,0,0,0.2);
 }
 
 .xp-taskbar .taskbar-clock {
-    background: linear-gradient(180deg, #1290e9 0%, #1a80d9 100%);
+    background: linear-gradient(180deg,
+        #1E8AEE 0%,
+        #166BD4 100%
+    );
     color: white;
-    padding: 2px 8px;
+    padding: 4px 10px;
     font-size: 11px;
-    border-left: 1px solid #1a80d9;
+    border-radius: 2px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+/* Adjust desktop to account for taskbar */
+.xp-desktop {
+    padding-bottom: 30px;
+}
+
+/* Mobile taskbar adjustments */
+@media (max-width: 768px) {
+    .xp-taskbar {
+        height: 40px;
+    }
+
+    .xp-taskbar .start-button {
+        height: 40px;
+        padding: 2px 12px 2px 8px;
+        font-size: 13px;
+    }
+
+    .xp-taskbar .taskbar-window-btn {
+        height: 32px;
+        min-width: 100px;
+        font-size: 12px;
+    }
+
+    .xp-taskbar .taskbar-clock {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .xp-desktop {
+        padding-bottom: 40px;
+    }
 }
