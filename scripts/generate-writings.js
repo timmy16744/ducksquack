@@ -49,7 +49,8 @@ const SYNOPSES = {
   'the-widening-gyre': 'Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.',
   'a-prosthetic-for-empathy': 'Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.',
   'the-inheritance-cliff': 'Examines how parental wealth has become the primary determinant of home ownership in Australia, arguing we have constructed a de facto aristocracy while maintaining democratic forms.',
-  'the-death-of-the-junior-role': 'Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.'
+  'the-death-of-the-junior-role': 'Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.',
+  'what-does-australia-actually-make': 'Catalogues Australia\'s manufacturing collapse and strategic vulnerabilities, arguing we have become a mine with a housing bubble attached through deliberate policy failure.'
 };
 
 function processWritings() {
