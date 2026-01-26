@@ -7,7 +7,7 @@
     "dev": "npm run generate && vite",
     "build": "npm run generate && vite build",
     "preview": "vite preview",
-    "generate": "node scripts/generate-writings.js"
+    "generate": "node scripts/generate-writings.js && node scripts/generate-rss.cjs"
   },
   "keywords": [
     "blog",

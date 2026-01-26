@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DuckSquack</title>
+    <link>https://ducksquack.com</link>
+    <description>Essays on AI, Technology &amp; Society by Tim Hughes</description>
+    <language>en-au</language>
+    <lastBuildDate>Mon, 26 Jan 2026 19:38:55 GMT</lastBuildDate>
+    <atom:link href="https://ducksquack.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Rustle in the Grass</title>
+      <link>https://ducksquack.com/#/writings/the-rustle-in-the-grass</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-rustle-in-the-grass</guid>
+      <pubDate>Mon, 26 Jan 2026 00:00:00 GMT</pubDate>
+      <description>A fifteen-year follow-up finding that warning signs have intensified and patterns of imperial decline have become more pronounced.</description>
+    </item>
+    <item>
+      <title>The Widening Gyre</title>
+      <link>https://ducksquack.com/#/writings/the-widening-gyre</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-widening-gyre</guid>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
+      <description>Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.</description>
+    </item>
+    <item>
+      <title>Teaching Arthur</title>
+      <link>https://ducksquack.com/#/writings/teaching-arthur</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/teaching-arthur</guid>
+      <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
+      <description>A father&apos;s curriculum for his son: practical skills, critical thinking, kindness with boundaries, and the lesson that you are stronger than you believe.</description>
+    </item>
+    <item>
+      <title>The Meaning Void</title>
+      <link>https://ducksquack.com/#/writings/the-meaning-void</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-meaning-void</guid>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Asks what happens to meaning when work disappears, suggesting the answer may involve returning to older sources of identity: community, presence, and local contribution.</description>
+    </item>
+    <item>
+      <title>The Loneliness Dividend</title>
+      <link>https://ducksquack.com/#/writings/the-loneliness-dividend</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-loneliness-dividend</guid>
+      <pubDate>Tue, 21 Oct 2025 00:00:00 GMT</pubDate>
+      <description>Explores how loneliness has become an industry, with AI companions as the latest product that addresses the symptom while leaving the underlying causes untouched.</description>
+    </item>
+    <item>
+      <title>Digital Sovereignty</title>
+      <link>https://ducksquack.com/#/writings/digital-sovereignty</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/digital-sovereignty</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <description>Examines Australia&apos;s dependence on foreign-controlled digital infrastructure, asking what sovereignty means when critical systems are owned by others.</description>
+    </item>
+    <item>
+      <title>The Chronic Patient and the Algorithm</title>
+      <link>https://ducksquack.com/#/writings/the-chronic-patient-and-the-algorithm</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-chronic-patient-and-the-algorithm</guid>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 GMT</pubDate>
+      <description>Fifteen years of healthcare system failures examined through the lens of chronic illness, exploring how AI might fix informational failures while human presence remains irreplaceable.</description>
+    </item>
+    <item>
+      <title>The Last Normal Tuesday</title>
+      <link>https://ducksquack.com/#/writings/the-last-normal-tuesday</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-last-normal-tuesday</guid>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
+      <description>Examines Australia&apos;s housing bubble, manufacturing collapse, and AI-driven job displacement, arguing that unprecedented economic disruption is imminent.</description>
+    </item>
+    <item>
+      <title>A Prosthetic for Empathy</title>
+      <link>https://ducksquack.com/#/writings/a-prosthetic-for-empathy</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/a-prosthetic-for-empathy</guid>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 GMT</pubDate>
+      <description>Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.</description>
+    </item>
+    <item>
+      <title>Escape Velocity</title>
+      <link>https://ducksquack.com/#/writings/escape-velocity</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/escape-velocity</guid>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 GMT</pubDate>
+      <description>Argues that China has achieved structural advantages in AI development through manufacturing dominance, energy capacity, and civil-military integration that may prove insurmountable.</description>
+    </item>
+    <item>
+      <title>The System is Already Dead</title>
+      <link>https://ducksquack.com/#/writings/the-system-is-already-dead</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-system-is-already-dead</guid>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <description>A personal account of navigating systemic failure through chronic illness, arguing we must build for continuity rather than recovery.</description>
+    </item>
+    <item>
+      <title>What Does Australia Actually Make?</title>
+      <link>https://ducksquack.com/#/writings/what-does-australia-actually-make</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/what-does-australia-actually-make</guid>
+      <pubDate>Wed, 18 Jun 2025 00:00:00 GMT</pubDate>
+      <description>Catalogues Australia&apos;s manufacturing collapse and strategic vulnerabilities, arguing we have become a mine with a housing bubble attached through deliberate policy failure.</description>
+    </item>
+    <item>
+      <title>Sandpapering Our Structural Decay</title>
+      <link>https://ducksquack.com/#/writings/sandpapering-our-structural-decay</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/sandpapering-our-structural-decay</guid>
+      <pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate>
+      <description>Critiques Australia&apos;s misplaced priorities, comparing national outrage over cricket cheating to indifference toward economic decline and squandered natural resources.</description>
+    </item>
+    <item>
+      <title>Parenthood in the Age of Super Intelligence</title>
+      <link>https://ducksquack.com/#/writings/parenthood-in-the-age-of-super-intelligence</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/parenthood-in-the-age-of-super-intelligence</guid>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
+      <description>Reflects on becoming a father during the AI revolution, exploring how to prepare a child for a world where traditional education and work are being transformed.</description>
+    </item>
+    <item>
+      <title>Reverse Engineering Nature&apos;s Quantum</title>
+      <link>https://ducksquack.com/#/writings/reverse-engineering-nature-s-quantum</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/reverse-engineering-nature-s-quantum</guid>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 GMT</pubDate>
+      <description>Explores how quantum phenomena already pervade biology, suggesting we are catching up to computational processes that have existed for billions of years.</description>
+    </item>
+    <item>
+      <title>Navigating the MAD MAP: Mutual Assured Destruction vs. Mutual Assured Prosperity</title>
+      <link>https://ducksquack.com/#/writings/navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity</guid>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 GMT</pubDate>
+      <description>Presents two possible AI futures: Mutual Assured Destruction through conflict and fragmentation, or Mutual Assured Prosperity through cooperation.</description>
+    </item>
+    <item>
+      <title>The Inheritance Cliff</title>
+      <link>https://ducksquack.com/#/writings/the-inheritance-cliff</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-inheritance-cliff</guid>
+      <pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate>
+      <description>Examines how parental wealth has become the primary determinant of home ownership in Australia, arguing we have constructed a de facto aristocracy while maintaining democratic forms.</description>
+    </item>
+    <item>
+      <title>The Death of the Junior Role</title>
+      <link>https://ducksquack.com/#/writings/the-death-of-the-junior-role</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-death-of-the-junior-role</guid>
+      <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+      <description>Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.</description>
+    </item>
+    <item>
+      <title>The Rerun of Rome</title>
+      <link>https://ducksquack.com/#/writings/the-rerun-of-rome</link>
+      <guid isPermaLink="true">https://ducksquack.com/#/writings/the-rerun-of-rome</guid>
+      <pubDate>Tue, 15 Mar 2011 00:00:00 GMT</pubDate>
+      <description>A 2011 essay comparing American structural patterns to late Rome: currency debasement, military overextension, infrastructure decay, and declining civic virtue.</description>
+    </item>
+  </channel>
+</rss>
