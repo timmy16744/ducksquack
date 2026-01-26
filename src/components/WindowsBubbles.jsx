@@ -25,11 +25,14 @@ function WindowsBubbles() {
   }, [circles]);
 
   // Direct DOM update - no React re-render
-  const updateBubbleDOM = useCallback((circle) => {
+  const updateBubbleDOM = useCallback((circle, hueChanged = false) => {
     const el = bubbleRefs.current[circle.key];
     if (el) {
       el.style.transform = `translate(${circle.x}px, ${circle.y}px)`;
-      el.style.boxShadow = `0 0 2rem hsl(${circle.hue}, 75%, 50%) inset`;
+      // Only update expensive box-shadow when hue actually changes
+      if (hueChanged) {
+        el.style.boxShadow = `0 0 2rem hsl(${circle.hue}, 75%, 50%) inset`;
+      }
     }
   }, []);
 
@@ -115,6 +118,7 @@ function WindowsBubbles() {
       });
 
       // Apply collision results
+      const hueChangedKeys = new Set();
       newCollisions.forEach((couple) => {
         const a = couple[0];
         if (a.new_vy !== undefined) {
@@ -123,6 +127,7 @@ function WindowsBubbles() {
           a.x = a.new_x;
           a.y = a.new_y;
           a.hue = (a.hue + 20) % 360;
+          hueChangedKeys.add(a.key);
           // Clean up temp values
           delete a.new_vx;
           delete a.new_vy;
@@ -161,7 +166,7 @@ function WindowsBubbles() {
         c.x += c.vx * diff;
 
         // Update DOM directly - no setState!
-        updateBubbleDOM(c);
+        updateBubbleDOM(c, hueChangedKeys.has(c.key));
       });
     }
 
@@ -218,9 +223,9 @@ function WindowsBubbles() {
     if (!radiusEl) return;
     const radius = radiusEl.getBoundingClientRect().width;
 
-    const max = Math.floor(
-      (box.width * box.height) / 300 / Math.pow(radius, 1.2)
-    );
+    const max = Math.min(25, Math.floor(
+      (box.width * box.height) / 500 / Math.pow(radius, 1.2)
+    ));
 
     const initialCircles = [];
     for (let i = 0; i < max; i++) {
