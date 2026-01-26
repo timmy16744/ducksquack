@@ -43,31 +43,6 @@ const FolderIcon = ({ size = 16, className = '', open = false }) => (
   </svg>
 );
 
-// Search icon
-const SearchIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <defs>
-      <linearGradient id="searchLens" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#B8D8F8"/>
-        <stop offset="100%" stopColor="#68A8E8"/>
-      </linearGradient>
-    </defs>
-    <circle cx="7" cy="7" r="5" fill="url(#searchLens)" stroke="#4878A8" strokeWidth="1.5"/>
-    <line x1="11" y1="11" x2="16" y2="16" stroke="#8B4513" strokeWidth="3" strokeLinecap="round"/>
-    <ellipse cx="5.5" cy="5.5" rx="2" ry="1.5" fill="rgba(255,255,255,0.4)" transform="rotate(-45 5.5 5.5)"/>
-  </svg>
-);
-
-// Views icon
-const ViewsIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <rect x="1" y="1" width="7" height="7" rx="1" fill="#6B9CD5" stroke="#3A5A8C" strokeWidth="0.75"/>
-    <rect x="10" y="1" width="7" height="7" rx="1" fill="#6B9CD5" stroke="#3A5A8C" strokeWidth="0.75"/>
-    <rect x="1" y="10" width="7" height="7" rx="1" fill="#6B9CD5" stroke="#3A5A8C" strokeWidth="0.75"/>
-    <rect x="10" y="10" width="7" height="7" rx="1" fill="#6B9CD5" stroke="#3A5A8C" strokeWidth="0.75"/>
-  </svg>
-);
-
 // Home icon for sidebar
 const HomeIconSmall = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" style={{ flexShrink: 0 }}>
@@ -171,36 +146,6 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
 
   return (
     <div className="xp-explorer">
-      {/* Explorer Secondary Toolbar - Search/Views */}
-      <div className="xp-explorer-toolbar">
-        <div className="toolbar-buttons">
-          <button className="toolbar-btn" title="Search">
-            <SearchIcon />
-            <span className="toolbar-label">Search</span>
-          </button>
-          <button className="toolbar-btn" title="Folders">
-            <FolderIcon size={18} />
-            <span className="toolbar-label">Folders</span>
-          </button>
-          <div className="toolbar-separator"></div>
-          <button className="toolbar-btn" title="Views">
-            <ViewsIcon />
-            <span className="toolbar-dropdown">▾</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Address Bar */}
-      <div className="xp-explorer-addressbar">
-        <span className="address-label">Address</span>
-        <div className="address-input">
-          <FolderIcon size={16} />
-          <span className="address-text">C:\My Documents\Writings</span>
-          <span className="address-dropdown">▾</span>
-        </div>
-        <button className="address-go">Go</button>
-      </div>
-
       {/* Main Content Area */}
       <div className="xp-explorer-main">
         {/* Left Panel - Navigation Sidebar */}
@@ -379,21 +324,8 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
 
       {/* Status Bar */}
       <div className="xp-explorer-status">
-        <div className="status-section status-count">
+        <div className="status-section">
           {writings.length} object(s)
-        </div>
-        <div className="status-section status-size">
-          {selectedIndex !== null && sortedWritings[selectedIndex] && (
-            <>{(sortedWritings[selectedIndex].wordCount || 0).toLocaleString()} words</>
-          )}
-        </div>
-        <div className="status-section status-info">
-          <img
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='2' y='4' width='12' height='10' rx='1' fill='%23C0C0C0' stroke='%23808080'/%3E%3Crect x='4' y='2' width='8' height='3' rx='1' fill='%23C0C0C0' stroke='%23808080'/%3E%3C/svg%3E"
-            alt=""
-            style={{ width: 16, height: 16, marginRight: 4, verticalAlign: 'middle' }}
-          />
-          My Computer
         </div>
       </div>
     </div>
