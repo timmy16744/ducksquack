@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { formatDate } from '../utils/date';
 import { fetchWritingsIndex } from '../utils/content';
+import { subscribeToViewCounts } from '../utils/firebase';
 
 // XP-style document icon as inline SVG
 const DocumentIcon = ({ size = 16, className = '' }) => (
@@ -99,6 +100,7 @@ const DocumentIconSmall = () => (
 
 export default function XPWritingsList({ onSelectPost, onNavigate }) {
   const [writings, setWritings] = useState([]);
+  const [viewCounts, setViewCounts] = useState({});
   const [loading, setLoading] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [sortBy, setSortBy] = useState('date');
@@ -111,6 +113,12 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
       .finally(() => setLoading(false));
   }, []);
 
+  // Subscribe to real-time view counts from Firebase
+  useEffect(() => {
+    const unsubscribe = subscribeToViewCounts(setViewCounts);
+    return () => unsubscribe();
+  }, []);
+
   const handleSort = (column) => {
     if (sortBy === column) {
       setSortAsc(!sortAsc);
@@ -120,7 +128,13 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     }
   };
 
-  const sortedWritings = [...writings].sort((a, b) => {
+  // Merge view counts from Firebase with writings
+  const writingsWithViews = writings.map(w => ({
+    ...w,
+    views: viewCounts[w.slug] || 0
+  }));
+
+  const sortedWritings = [...writingsWithViews].sort((a, b) => {
     let cmp = 0;
     if (sortBy === 'title') {
       cmp = a.title.localeCompare(b.title);
@@ -135,7 +149,7 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
   });
 
   const formatViews = (views) => {
-    if (views === undefined || views === null) return '-';
+    if (views === undefined || views === null || views === 0) return '-';
     if (views >= 1000000) return `${(views / 1000000).toFixed(1)}M`;
     if (views >= 1000) return `${(views / 1000).toFixed(1)}K`;
     return views.toLocaleString();

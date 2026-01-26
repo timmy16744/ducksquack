@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { fetchWriting } from '../utils/content';
+import { incrementViewCount } from '../utils/firebase';
 
 /**
  * Custom hook for lazy loading writing content
@@ -10,6 +11,7 @@ export function useWriting(slug) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const viewedSlugsRef = useRef(new Set());
 
   useEffect(() => {
     if (!slug) {
@@ -23,7 +25,15 @@ export function useWriting(slug) {
     setError(null);
 
     fetchWriting(slug)
-      .then(setData)
+      .then((writingData) => {
+        setData(writingData);
+
+        // Increment view count only once per session per slug
+        if (!viewedSlugsRef.current.has(slug)) {
+          viewedSlugsRef.current.add(slug);
+          incrementViewCount(slug);
+        }
+      })
       .catch(setError)
       .finally(() => setLoading(false));
   }, [slug]);
