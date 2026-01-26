@@ -63,7 +63,7 @@ export default function XPDesktop() {
 
   return (
     <div className="xp-desktop">
-      <WindowsBubbles />
+      <WindowsBubbles paused={!windowVisible} />
       <XPNotepad
         isVisible={windowVisible}
         onMinimize={handleMinimize}

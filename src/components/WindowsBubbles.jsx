@@ -10,7 +10,7 @@ const rotate = (x, y, sin, cos, reverse) => {
 const flatten = (arr) =>
   arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-export default function WindowsBubbles() {
+export default function WindowsBubbles({ paused = false }) {
   const [circles, setCircles] = useState([]);
   const containerRef = useRef(null);
   const lastExecRef = useRef(null);
@@ -18,6 +18,16 @@ export default function WindowsBubbles() {
   const movingRef = useRef(true);
   const animationRef = useRef(null);
   const circlesRef = useRef([]);
+
+  // Pause animation when requested
+  useEffect(() => {
+    if (paused) {
+      movingRef.current = false;
+    } else {
+      movingRef.current = true;
+      lastExecRef.current = null; // Reset to avoid jump
+    }
+  }, [paused]);
 
   // Keep circlesRef in sync
   useEffect(() => {
