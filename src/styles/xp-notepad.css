@@ -53,11 +53,6 @@ html, body {
     z-index: -1;
 }
 
-/* Windows Bubbles Animation */
-.windows-bubbles {
-    cursor: pointer;
-}
-
 /* Notepad Window */
 .xp-notepad-window {
     position: absolute;
