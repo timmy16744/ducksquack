@@ -170,36 +170,40 @@ function parseContent(content, onNavigate) {
 export default function XPContent({ currentPage, currentPost, loading, onNavigate, onSelectPost }) {
   const renderHome = () => (
     <div className="xp-page-layout">
-      <XPSidebar currentPage={currentPage} onNavigate={onNavigate} />
-      <div className="xp-page-main">
-        <div className="xp-home-content xp-content">
-          <h1 className="welcome-title">Welcome to DuckSquack</h1>
-          <div className="subtitle">Essays on AI, Technology & Society by Tim Hughes.</div>
+      <div className="xp-page-layout-main">
+        <XPSidebar currentPage={currentPage} onNavigate={onNavigate} />
+        <div className="xp-page-main">
+          <div className="xp-home-content xp-content">
+            <h1 className="welcome-title">Welcome to DuckSquack</h1>
+            <div className="subtitle">Essays on AI, Technology & Society by Tim Hughes.</div>
 
-          <p className="description">
-            I write about artificial intelligence, technological transformation,
-            and the future we're building together. These essays explore pattern
-            recognition, systems thinking, and what it means to be human in an
-            age of machine intelligence.
-          </p>
+            <p className="description">
+              I write about artificial intelligence, technological transformation,
+              and the future we're building together. These essays explore pattern
+              recognition, systems thinking, and what it means to be human in an
+              age of machine intelligence.
+            </p>
 
-          <div className="nav-links">
-            <a onClick={() => onNavigate('writings')}>&#8594; Read my writings</a>
-            <a onClick={() => onNavigate('about')}>&#8594; About me</a>
+            <div className="nav-links">
+              <a onClick={() => onNavigate('writings')}>&#8594; Read my writings</a>
+              <a onClick={() => onNavigate('about')}>&#8594; About me</a>
+            </div>
           </div>
         </div>
       </div>
+      <div className="xp-page-status">Home</div>
     </div>
   );
 
   const renderAbout = () => (
     <div className="xp-page-layout">
-      <XPSidebar currentPage={currentPage} onNavigate={onNavigate} />
-      <div className="xp-page-main">
-        <div className="xp-about-content xp-content">
-          <h1>About Me</h1>
+      <div className="xp-page-layout-main">
+        <XPSidebar currentPage={currentPage} onNavigate={onNavigate} />
+        <div className="xp-page-main">
+          <div className="xp-about-content xp-content">
+            <h1>About Me</h1>
 
-          <div className="bio">
+            <div className="bio">
 {`Sup, I'm Tim Hughes aka Duck and I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
 
 I have an education in Computer Science—specialising in AI and pattern recognition—Design and currently a student of Philosophy; a combination that has shaped how I think about technology: not just as systems to be built, but as forces that reshape how we live, work, and relate to each other. I love creating things, breaking things, reverse engineering things, all the things.
@@ -215,16 +219,18 @@ I write from Australia, which means I watch the great powers manoeuvre from a di
 I believe we are living through a turning point in human history. I believe the decisions made in the coming years will echo through generations. And I believe most of us haven't noticed.
 
 This is my echo.`}
-          </div>
+            </div>
 
-          <div className="contact-section">
-            <h2>Contact</h2>
-            <p>
-              Twitter: <a href="https://twitter.com/timmy16744" target="_blank" rel="noopener noreferrer">@timmy16744</a>
-            </p>
+            <div className="contact-section">
+              <h2>Contact</h2>
+              <p>
+                Twitter: <a href="https://twitter.com/timmy16744" target="_blank" rel="noopener noreferrer">@timmy16744</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
+      <div className="xp-page-status">About</div>
     </div>
   );
 

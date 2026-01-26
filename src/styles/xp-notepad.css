@@ -450,9 +450,17 @@ html, body {
 /* Page Layout with Sidebar - for Home and About pages */
 .xp-page-layout {
     display: flex;
-    min-height: calc(100% + 32px);
+    flex-direction: column;
+    height: calc(100% + 32px);
     margin: -16px -20px -16px -20px;
     font-family: 'Tahoma', 'Segoe UI', sans-serif;
+}
+
+.xp-page-layout-main {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .xp-page-main {
@@ -460,6 +468,18 @@ html, body {
     overflow-y: auto;
     padding: 16px 20px;
     background: #fff;
+}
+
+/* Page Status Bar - for Home and About */
+.xp-page-status {
+    background: linear-gradient(180deg, #EBE9E4 0%, #D8D4CC 100%);
+    border-top: 1px solid #FFF;
+    padding: 2px 12px;
+    font-size: 11px;
+    display: flex;
+    color: #000;
+    flex-shrink: 0;
+    box-shadow: inset 0 1px 0 #F8F8F4;
 }
 
 /* XP Sidebar - Authentic XP Blue Task Pane */
@@ -543,6 +563,7 @@ html, body {
 @media (max-width: 768px) {
     .xp-page-layout {
         margin: -16px;
+        height: calc(100% + 32px);
     }
 
     .xp-sidebar {
@@ -558,7 +579,7 @@ html, body {
 .xp-explorer {
     display: flex;
     flex-direction: column;
-    min-height: calc(100% + 32px);
+    height: calc(100% + 32px);
     background: #fff;
     margin: -16px -20px -16px -20px;
     font-family: 'Tahoma', 'Segoe UI', sans-serif;
@@ -732,6 +753,7 @@ html, body {
     display: flex;
     overflow: hidden;
     background: #fff;
+    min-height: 0;
 }
 
 /* Left Task Pane - Authentic XP Blue */
