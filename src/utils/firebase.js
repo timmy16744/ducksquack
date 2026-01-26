@@ -1,15 +1,15 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get, set, increment, onValue } from 'firebase/database';
 
-// Firebase configuration - replace with your config from Firebase Console
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBuMmp4a_TVzS2AzWaS_LO9ibYBa0CM3c4",
+  authDomain: "ducksquack.firebaseapp.com",
+  databaseURL: "https://ducksquack-default-rtdb.firebaseio.com",
+  projectId: "ducksquack",
+  storageBucket: "ducksquack.firebasestorage.app",
+  messagingSenderId: "998001273117",
+  appId: "1:998001273117:web:41307739907261436fd9f4"
 };
 
 // Initialize Firebase

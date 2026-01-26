@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "views": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
