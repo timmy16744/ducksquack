@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { formatDate } from '../utils/date';
+import { formatDate, formatDateShort } from '../utils/date';
 import { fetchWritingsIndex } from '../utils/content';
 import { subscribeToViewCounts } from '../utils/firebase';
 
@@ -155,6 +155,13 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     return views.toLocaleString();
   };
 
+  // Format word count for mobile display (e.g., "1.1k words")
+  const formatWordCount = (count) => {
+    if (!count) return '0 words';
+    if (count >= 1000) return `${(count / 1000).toFixed(1)}k words`;
+    return `${count} words`;
+  };
+
   const handleRowClick = (index, writing) => {
     setSelectedIndex(index);
   };
@@ -297,6 +304,18 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                 </div>
                 <div className="file-cell views-col">
                   {formatViews(writing.views)}
+                </div>
+                {/* Mobile metadata subtitle - visible only on mobile via CSS */}
+                <div className="mobile-metadata">
+                  <span>{formatDateShort(writing.date)}</span>
+                  <span>·</span>
+                  <span>{formatWordCount(writing.wordCount)}</span>
+                  {writing.views > 0 && (
+                    <>
+                      <span>·</span>
+                      <span>{formatViews(writing.views)} views</span>
+                    </>
+                  )}
                 </div>
               </div>
             ))}

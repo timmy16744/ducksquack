@@ -1141,6 +1141,11 @@ html, body {
     text-overflow: ellipsis;
 }
 
+/* Mobile metadata subtitle - hidden on desktop */
+.xp-explorer-row .mobile-metadata {
+    display: none;
+}
+
 .xp-explorer-row.selected .file-name,
 .xp-explorer-row.selected .file-cell,
 .xp-explorer-row.selected .views-col {
@@ -1381,26 +1386,55 @@ html, body {
         border-left: none;
     }
 
-    .xp-explorer-headers .date-col,
+    /* Phase 2: Hide column headers on mobile - we use card layout instead */
+    .xp-explorer-headers {
+        display: none;
+    }
+
+    /* Phase 2: Card layout for writings list on mobile */
+    .xp-explorer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 12px;
+        min-height: 44px;
+        border-bottom: 1px solid #E8E4DC;
+    }
+
+    .xp-explorer-row .file-cell {
+        padding: 0;
+        width: 100%;
+    }
+
+    .xp-explorer-row .name-col {
+        flex: none;
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* Hide individual columns - we show metadata in subtitle instead */
     .xp-explorer-row .date-col,
-    .xp-explorer-headers .views-col,
+    .xp-explorer-row .words-col,
     .xp-explorer-row .views-col {
         display: none;
     }
 
-    .xp-explorer-headers .name-col,
-    .xp-explorer-row .name-col {
-        flex: 1;
-        min-width: 0;
+    /* Mobile metadata subtitle line */
+    .xp-explorer-row .mobile-metadata {
+        display: flex;
+        font-size: 11px;
+        color: #666;
+        margin-top: 4px;
+        padding-left: 22px;
+        gap: 4px;
     }
 
-    .xp-explorer-headers .words-col,
-    .xp-explorer-row .words-col {
-        flex: 0 0 80px;
+    .xp-explorer-row.selected .mobile-metadata {
+        color: rgba(255, 255, 255, 0.85);
     }
 
-    .xp-explorer-row .file-cell {
-        padding: 10px 8px;
+    /* Phase 4: Touch feedback */
+    .xp-explorer-row:active:not(.selected) {
+        background: #D0E4F8;
     }
 }
 
@@ -1409,9 +1443,13 @@ html, body {
         display: none;
     }
 
-    .xp-explorer-headers .words-col,
-    .xp-explorer-row .words-col {
-        display: none;
+    .xp-explorer-row {
+        padding: 12px 10px;
+    }
+
+    .xp-explorer-row .mobile-metadata {
+        font-size: 10px;
+        padding-left: 22px;
     }
 }
 
@@ -1512,22 +1550,58 @@ html, body {
         min-height: 32px;
     }
 
+    /* Phase 1: Toolbar with labels on mobile - stacked icon/label layout */
     .xp-global-toolbar {
-        padding: 6px 8px;
+        padding: 4px 6px;
     }
 
     .xp-global-toolbar .toolbar-btn {
-        padding: 6px 8px;
+        padding: 4px 8px;
+        flex-direction: column;
+        gap: 1px;
+        min-height: 44px;
+    }
+
+    .xp-global-toolbar .toolbar-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
     .xp-global-toolbar .toolbar-label {
-        display: none;
+        display: block;
+        font-size: 9px;
+        margin: 0;
     }
 
+    .xp-global-toolbar .toolbar-btn-nav {
+        flex-direction: row;
+        gap: 3px;
+        min-height: auto;
+        padding: 4px 6px;
+    }
+
+    .xp-global-toolbar .toolbar-btn-nav .toolbar-label {
+        font-size: 10px;
+    }
+
+    .xp-global-toolbar .toolbar-btn-small {
+        padding: 4px;
+        min-height: auto;
+    }
+
+    .xp-global-toolbar .toolbar-separator {
+        height: 36px;
+        margin: 0 4px;
+    }
+
+    /* Phase 3: Typography improvements */
     .xp-content-area {
         padding: 16px;
+        font-size: 15px;
+        line-height: 1.7;
     }
 
+    /* Phase 4: Touch optimizations */
     .xp-writing-item {
         padding: 16px 0;
         min-height: 44px;
@@ -1538,11 +1612,19 @@ html, body {
         padding: 16px;
     }
 
+    .xp-writing-item:active {
+        background: #D0E4F8;
+    }
+
     .xp-home-content .nav-links a {
         display: block;
         padding: 12px 0;
         min-height: 44px;
         font-size: 16px;
+    }
+
+    .xp-home-content .nav-links a:active {
+        background: #E8F0F8;
     }
 
     .xp-post-view .back-link {
@@ -1561,7 +1643,7 @@ html, body {
     }
 
     .xp-post-view .post-title {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
@@ -1575,6 +1657,25 @@ html, body {
         white-space: nowrap;
     }
 
+    /* Phase 1: Toolbar - more compact on small screens */
+    .xp-global-toolbar {
+        padding: 2px 4px;
+    }
+
+    .xp-global-toolbar .toolbar-btn {
+        padding: 3px 6px;
+        min-height: 40px;
+    }
+
+    .xp-global-toolbar .toolbar-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .xp-global-toolbar .toolbar-label {
+        font-size: 8px;
+    }
+
     .xp-global-toolbar .toolbar-separator {
         display: none;
     }
@@ -1583,10 +1684,27 @@ html, body {
         display: none;
     }
 
+    .xp-global-toolbar .toolbar-btn-nav {
+        padding: 3px 4px;
+    }
+
+    .xp-global-toolbar .toolbar-btn-nav .toolbar-label {
+        display: none;
+    }
+
+    /* Phase 3: Typography - optimized for small screens */
     .xp-content-area {
-        padding: 12px;
-        font-size: 14px;
-        line-height: 1.5;
+        padding: 14px 12px;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .xp-content h1 {
+        font-size: 18px;
+    }
+
+    .xp-post-view .post-title {
+        font-size: 18px;
     }
 
     .xp-writing-item .title {
@@ -1604,8 +1722,8 @@ html, body {
     }
 
     .xp-post-view .post-content {
-        font-size: 14px;
-        line-height: 1.6;
+        font-size: 16px;
+        line-height: 1.8;
     }
 
     .xp-status-bar {
