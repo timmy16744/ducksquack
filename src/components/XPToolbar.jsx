@@ -130,6 +130,7 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
           onClick={() => onNavigate('home')}
         >
           <HomeIcon active={currentPage === 'home'} />
+          <span className="toolbar-label">Home</span>
         </button>
         <button
           className={`toolbar-btn ${currentPage === 'about' ? 'active' : ''}`}
@@ -137,6 +138,7 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
           onClick={() => onNavigate('about')}
         >
           <PersonIcon active={currentPage === 'about'} />
+          <span className="toolbar-label">About</span>
         </button>
         <button
           className={`toolbar-btn ${currentPage === 'writings' || currentPage === 'post' ? 'active' : ''}`}
@@ -144,6 +146,7 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
           onClick={() => onNavigate('writings')}
         >
           <DocumentsIcon active={currentPage === 'writings' || currentPage === 'post'} />
+          <span className="toolbar-label">Writings</span>
         </button>
       </div>
     </div>
