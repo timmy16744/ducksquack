@@ -204,19 +204,21 @@ export default function XPContent({ currentPage, currentPost, loading, onNavigat
             <h1>About Me</h1>
 
             <div className="bio">
-{`Sup, I'm Tim Hughes aka Duck and I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
+{`My writings are all my words. The only AI used is for grammar checking and to periodically update this about page, summarising my core beliefs from my writings in a succinct manner.
 
-I have an education in Computer Science—specialising in AI and pattern recognition—Design and currently a student of Philosophy; a combination that has shaped how I think about technology: not just as systems to be built, but as forces that reshape how we live, work, and relate to each other. I love creating things, breaking things, reverse engineering things, all the things.
+Sup, I'm Tim Hughes, also known as Duck. I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
 
-I live with cluster headaches, a condition the medical literature describes as among the most painful known to humanity. More than half my existence involves managing this pain. I mention this not for sympathy but because it has fundamentally shaped my perspective. It taught me that you are stronger than you think you are, in nearly every aspect of your life. It forced me to find meaning outside of work and income long before AI made that search relevant for everyone else. And it gave me a fifteen-year education in how systems fail when they encounter problems that don't fit their standard categories.
+My formal education spans Computer Science (specialising in AI and pattern recognition), Design, and I am currently a student of Philosophy. This combination has shaped how I approach technology: not merely as systems to be engineered, but as forces that fundamentally reshape how we live, work, and relate to one another. I find genuine joy in creating things, breaking things, reverse engineering things. All the things.
 
-When I'm not talking to a computer, you can find me at the gym, playing footy, cricket or golf, painting, or spending time with my bestfriend and fiancee Chiara, our son Arthur, and our dog Luna. Arthur's arrival recalibrated everything. Before him, I thought I understood what it meant to care about something. I was wrong. The scale I operated on went to ten. After him, I discovered it goes to a thousand.
+I live with cluster headaches, a condition the medical literature describes as among the most painful known to humanity. More than half my existence involves managing this pain. I mention this not seeking sympathy but because it has fundamentally shaped my perspective. It taught me that human resilience exceeds our intuitions about it, in nearly every domain. It forced me to find meaning outside of productivity and income long before AI made that search relevant for everyone else. And it provided a fifteen year education in how systems fail when they encounter problems that do not fit their standard categories.
 
-I write about artificial intelligence, technological transformation, and the future we're building together—whether we're paying attention or not. My essays explore the intersection of technology and humanity: the economic implications of AI, the philosophical questions raised by machine intelligence, and the structural decay of institutions that were built for a world that is rapidly ceasing to exist.
+When I am not talking to a computer, you can find me at the gym, playing footy, cricket or golf, painting, or spending time with my best friend and fiancee Chiara, our son Arthur, and our dog Luna. Arthur's arrival recalibrated everything. Before him, I thought I understood what it meant to care about something. I was wrong. The scale I operated on went to ten. After him, I discovered it goes to a thousand.
 
-I write from Australia, which means I watch the great powers manoeuvre from a distance, with the particular clarity that comes from having no illusions about our own significance.
+I write about artificial intelligence, technological transformation, and the future we are constructing together, whether we are paying attention or not. My essays explore the intersection of technology and humanity: the economic implications of AI, the philosophical questions raised by machine intelligence, and the structural decay of institutions that were built for a world that is rapidly ceasing to exist.
 
-I believe we are living through a turning point in human history. I believe the decisions made in the coming years will echo through generations. And I believe most of us haven't noticed.
+I write from Australia, which means I observe the great powers manoeuvre from a distance, with the particular clarity that comes from having no illusions about our own significance.
+
+I believe we are living through a turning point in human history. I believe the decisions made in the coming years will echo through generations. And I believe most of us have not yet noticed.
 
 This is my echo.`}
             </div>
