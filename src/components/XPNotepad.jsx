@@ -3,6 +3,7 @@ import { useRoute } from '../hooks/useRoute';
 import { useWriting } from '../hooks/useWriting';
 import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
+import XPCommentBar from './XPCommentBar';
 
 export default function XPNotepad() {
   const { page, slug, navigate } = useRoute();
@@ -348,6 +349,8 @@ export default function XPNotepad() {
           onSelectPost={handleSelectPost}
         />
       </div>
+
+      <XPCommentBar currentPage={page} currentPost={currentPost} />
     </div>
   );
 }
