@@ -1032,6 +1032,12 @@ html, body {
     flex: 0 0 100px;
     text-align: right;
     justify-content: flex-end;
+}
+
+.xp-explorer-headers .views-col {
+    flex: 0 0 70px;
+    text-align: right;
+    justify-content: flex-end;
     border-right: none;
 }
 
@@ -1123,13 +1129,20 @@ html, body {
     justify-content: flex-end;
 }
 
+.xp-explorer-row .views-col {
+    flex: 0 0 70px;
+    justify-content: flex-end;
+    color: #666;
+}
+
 .xp-explorer-row .file-name {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .xp-explorer-row.selected .file-name,
-.xp-explorer-row.selected .file-cell {
+.xp-explorer-row.selected .file-cell,
+.xp-explorer-row.selected .views-col {
     color: #fff;
 }
 
@@ -1368,7 +1381,9 @@ html, body {
     }
 
     .xp-explorer-headers .date-col,
-    .xp-explorer-row .date-col {
+    .xp-explorer-row .date-col,
+    .xp-explorer-headers .views-col,
+    .xp-explorer-row .views-col {
         display: none;
     }
 

@@ -128,9 +128,18 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
       cmp = new Date(b.date) - new Date(a.date);
     } else if (sortBy === 'words') {
       cmp = (b.wordCount || 0) - (a.wordCount || 0);
+    } else if (sortBy === 'views') {
+      cmp = (b.views || 0) - (a.views || 0);
     }
     return sortAsc ? -cmp : cmp;
   });
+
+  const formatViews = (views) => {
+    if (views === undefined || views === null) return '-';
+    if (views >= 1000000) return `${(views / 1000000).toFixed(1)}M`;
+    if (views >= 1000) return `${(views / 1000).toFixed(1)}K`;
+    return views.toLocaleString();
+  };
 
   const handleRowClick = (index, writing) => {
     setSelectedIndex(index);
@@ -205,6 +214,9 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                   <div className="task-detail-info">
                     Size: {(sortedWritings[selectedIndex].wordCount || 0).toLocaleString()} words
                   </div>
+                  <div className="task-detail-info">
+                    Views: {formatViews(sortedWritings[selectedIndex].views)}
+                  </div>
                 </>
               ) : (
                 <>
@@ -242,6 +254,12 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
             >
               Size {sortBy === 'words' && <span className="sort-arrow">{sortAsc ? '▲' : '▼'}</span>}
             </div>
+            <div
+              className={`header-cell views-col ${sortBy === 'views' ? 'sorted' : ''}`}
+              onClick={() => handleSort('views')}
+            >
+              Views {sortBy === 'views' && <span className="sort-arrow">{sortAsc ? '▲' : '▼'}</span>}
+            </div>
           </div>
 
           {/* File Rows */}
@@ -262,6 +280,9 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                 </div>
                 <div className="file-cell words-col">
                   {(writing.wordCount || 0).toLocaleString()} words
+                </div>
+                <div className="file-cell views-col">
+                  {formatViews(writing.views)}
                 </div>
               </div>
             ))}
@@ -292,6 +313,10 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                 <div className="details-row">
                   <span className="details-label">Size:</span>
                   <span className="details-value">{(sortedWritings[selectedIndex].wordCount || 0).toLocaleString()} words</span>
+                </div>
+                <div className="details-row">
+                  <span className="details-label">Views:</span>
+                  <span className="details-value">{formatViews(sortedWritings[selectedIndex].views)}</span>
                 </div>
               </div>
 
