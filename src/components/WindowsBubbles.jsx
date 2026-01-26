@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import './WindowsBubbles.css';
 
 const rotate = (x, y, sin, cos, reverse) => {
@@ -10,7 +10,7 @@ const rotate = (x, y, sin, cos, reverse) => {
 const flatten = (arr) =>
   arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
-export default function WindowsBubbles() {
+function WindowsBubbles() {
   const [circles, setCircles] = useState([]);
   const containerRef = useRef(null);
   const lastExecRef = useRef(null);
@@ -278,3 +278,5 @@ export default function WindowsBubbles() {
     </div>
   );
 }
+
+export default memo(WindowsBubbles);

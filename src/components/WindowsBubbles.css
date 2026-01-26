@@ -9,6 +9,8 @@
     z-index: 0;
     pointer-events: auto;
     overflow: hidden;
+    contain: strict;
+    isolation: isolate;
 }
 
 #bubbleradius {
