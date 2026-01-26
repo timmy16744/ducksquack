@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import XPNotepad from './XPNotepad';
 import XPTaskbar from './XPTaskbar';
+import WindowsBubbles from './WindowsBubbles';
 
 export default function XPDesktop() {
   const [minimizedWindows, setMinimizedWindows] = useState([]);
@@ -27,6 +28,7 @@ export default function XPDesktop() {
 
   return (
     <div className="xp-desktop">
+      <WindowsBubbles bubbleCount={15} />
       <XPNotepad
         isVisible={windowVisible}
         onMinimize={handleMinimize}
