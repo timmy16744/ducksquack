@@ -258,15 +258,17 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
     }
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
   const windowStyle = isMaximized ? {} : {
     transform: `translate(${position.x}px, ${position.y}px)`,
     width: size.width,
     height: size.height,
   };
+
+  // Hide with CSS instead of unmounting to keep compositor layers stable
+  if (!isVisible) {
+    windowStyle.visibility = 'hidden';
+    windowStyle.pointerEvents = 'none';
+  }
 
   return (
     <div
