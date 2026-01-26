@@ -68,13 +68,21 @@ export default function XPContent({ currentPage, currentPost, loading, onNavigat
       <h1>About Me</h1>
 
       <div className="bio">
-{`My name is Tim Hughes. I'm a designer and developer from Adelaide, Australia.
+{`Sup, I'm Tim Hughes aka Duck and I'm a dad, developer, and just a dude from Adelaide, Australia. All the D's.
 
-I have a Master's in Computer Science and a Bachelor's in Design. I love creating things, from web apps to logos.
+I have an education in Computer Science—specialising in AI and pattern recognition—Design and currently a student of Philosophy; a combination that has shaped how I think about technology: not just as systems to be built, but as forces that reshape how we live, work, and relate to each other. I love creating things, breaking things, reverse engineering things, all the things.
 
-When I'm not coding, you can find me at the gym, painting, or spending time with my wife Chiara, our son Arthur, and our dog Luna.
+I live with cluster headaches, a condition the medical literature describes as among the most painful known to humanity. More than half my existence involves managing this pain. I mention this not for sympathy but because it has fundamentally shaped my perspective. It taught me that you are stronger than you think you are, in nearly every aspect of your life. It forced me to find meaning outside of work and income long before AI made that search relevant for everyone else. And it gave me a fifteen-year education in how systems fail when they encounter problems that don't fit their standard categories.
 
-I write about artificial intelligence, technological transformation, and the future we're building together. My essays explore the intersection of technology and humanity, from the economic implications of AI to the philosophical questions raised by machine intelligence.`}
+When I'm not talking to a computer, you can find me at the gym, playing footy, cricket or golf, painting, or spending time with my bestfriend and fiancee Chiara, our son Arthur, and our dog Luna. Arthur's arrival recalibrated everything. Before him, I thought I understood what it meant to care about something. I was wrong. The scale I operated on went to ten. After him, I discovered it goes to a thousand.
+
+I write about artificial intelligence, technological transformation, and the future we're building together—whether we're paying attention or not. My essays explore the intersection of technology and humanity: the economic implications of AI, the philosophical questions raised by machine intelligence, and the structural decay of institutions that were built for a world that is rapidly ceasing to exist.
+
+I write from Australia, which means I watch the great powers manoeuvre from a distance, with the particular clarity that comes from having no illusions about our own significance.
+
+I believe we are living through a turning point in human history. I believe the decisions made in the coming years will echo through generations. And I believe most of us haven't noticed.
+
+This is my echo.`}
       </div>
 
       <div className="contact-section">
