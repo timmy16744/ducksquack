@@ -47,7 +47,8 @@ const SYNOPSES = {
   'the-rustle-in-the-grass': 'A fifteen-year follow-up finding that warning signs have intensified and patterns of imperial decline have become more pronounced.',
   'the-system-is-already-dead': 'A personal account of navigating systemic failure through chronic illness, arguing we must build for continuity rather than recovery.',
   'the-widening-gyre': 'Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.',
-  'a-prosthetic-for-empathy': 'Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.'
+  'a-prosthetic-for-empathy': 'Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.',
+  'the-inheritance-cliff': 'Examines how parental wealth has become the primary determinant of home ownership in Australia, arguing we have constructed a de facto aristocracy while maintaining democratic forms.'
 };
 
 function processWritings() {
