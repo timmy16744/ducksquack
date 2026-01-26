@@ -172,8 +172,10 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
     resizeDirectionRef.current = direction;
   }, [isMaximized]);
 
-  // Add global mouse event listeners
+  // Add global mouse event listeners only when visible
   useEffect(() => {
+    if (!isVisible) return;
+
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
     return () => {
@@ -183,7 +185,7 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [handleMouseMove, handleMouseUp]);
+  }, [isVisible, handleMouseMove, handleMouseUp]);
 
   // Double-click title bar to maximize/restore
   const handleTitleBarDoubleClick = useCallback(() => {
