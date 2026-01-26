@@ -12,7 +12,17 @@ The technology itself is agnostic. Artificial intelligence is an amplifier. It m
 
 The MAD map is not difficult to describe. In this version of the future, AI becomes an accelerant for human conflict and fragmentation. Autonomous weapons operate at machine speed, too fast for human judgement to intervene. Cyber attacks grow more sophisticated and more frequent. Disinformation becomes the ambient background noise of public discourse. Trust in institutions erodes to the point where collective action becomes impossible.
 
-What makes this scenario particularly insidious is that it does not arrive through dramatic catastrophe. It unfolds gradually, one small erosion at a time. Each individual step seems manageable. It is only when you look up that you realise how far you have drifted from shore.
+Consider what machine-speed warfare actually means. Human reaction time operates in hundreds of milliseconds. AI systems operate in fractions of that. A conflict between autonomous systems would unfold faster than any human could comprehend, let alone control. Escalation would occur in the space between one breath and the next. The pause that has historically prevented catastrophe—the moment when a decision-maker hesitates, reconsiders, chooses de-escalation—disappears entirely. We would have built systems capable of ending civilisation and removed the human capacity to stop them.
+
+The disinformation problem may prove equally corrosive, if less dramatic. We are approaching a threshold where generating convincing falsehood becomes cheaper than verifying truth. Every image can be fabricated. Every video can be synthesised. Every voice can be cloned. When the cost of producing a lie approaches zero and the cost of debunking it remains substantial, the economics favour deception. Truth becomes not impossible but exhausting, a luxury that requires resources most people do not have.
+
+What follows is the collapse of shared reality. We have already seen the early stages: people inhabiting different factual universes, unable to agree on what has happened, let alone what should be done. AI accelerates this fragmentation. When anyone can generate evidence for any claim, evidence itself becomes suspect. The common ground required for collective action erodes. We become a society of isolated individuals, each trapped in a personalised information environment, unable to coordinate even when coordination is clearly in everyone's interest.
+
+This is what trust erosion looks like in practice. Not a dramatic betrayal but a slow acidification. Institutions lose legitimacy not through single failures but through accumulated doubt. Each small deception, each manipulation revealed, each synthetic media incident adds to the corrosion. Eventually the structures that enable cooperation—governments, media, scientific consensus, shared norms—become too weak to bear weight. And by the time we notice, the rebuilding may take generations.
+
+What makes this scenario particularly insidious is that it does not arrive through dramatic catastrophe. It unfolds gradually, one small erosion at a time. Each individual step seems manageable. A slightly more capable weapon system. A somewhat more convincing deepfake. A marginally more polarised discourse. No single development crosses a bright line. It is only when you look up that you realise how far you have drifted from shore.
+
+This is the nature of drift. The current carries you so gently that movement is imperceptible. You adjust to each new position, treating it as normal, as the baseline from which to measure future change. The shore that once seemed close becomes distant, then faint, then invisible. And at no point can you identify the moment when return became impossible, because there was no such moment. There was only the accumulation of small movements, each insignificant, together constituting a journey you never chose to take.
 
 The MAP alternative imagines something different. In this version, artificial intelligence becomes the most powerful tool humanity has ever possessed for solving problems. Disease yields to AI-accelerated drug discovery. Poverty retreats before AI-optimised resource distribution. Education becomes personalised in ways that unlock human potential at scale. The rate at which we generate solutions begins to exceed the rate at which new problems emerge.
 
@@ -22,6 +32,10 @@ Both maps describe futures that are physically possible. The question is which o
 
 The decisions we make over the next few years will determine the answer. Some of these decisions concern how we regulate artificial intelligence. Governance that moves at the speed of technology, rather than years behind it, can integrate safety without sacrificing innovation. Delay ensures that the most dangerous applications achieve deployment before oversight catches up.
 
+But what would governance at the speed of technology actually look like? Our current institutions were designed for a world where change happened slowly enough to study, deliberate, and respond. Legislation takes years. Regulatory frameworks take longer. By the time oversight catches up to a technology, that technology has already transformed and been replaced by something newer. We are attempting to regulate with tools built for a different temporal reality.
+
+Perhaps governance at technological speed requires entirely new mechanisms. Regulatory sandboxes that permit experimentation within boundaries. AI systems that monitor AI systems, providing oversight at the speed of the thing being overseen. International coordination structures that can respond in weeks rather than decades. I do not know if these are achievable. I do know that our current approach—attempting to govern exponential change with linear institutions—is a recipe for perpetual lag.
+
 Other decisions concern how we handle the transformation of work. Artificial intelligence will automate tasks before it automates entire jobs, but the ultimate destination is a fundamental restructuring of how human beings contribute economically. This is an opportunity to create new forms of meaningful work, but only if we invest seriously in adaptation rather than offering platitudes about reskilling.
 
 Privacy presents another fork in the road. Artificial intelligence processes unprecedented quantities of personal information. Without data ownership and consent built into the architecture from the beginning, we drift toward surveillance as the default. Attempting to retrofit privacy later will prove extraordinarily difficult.
@@ -30,6 +44,12 @@ Perhaps most importantly, we must decide whether to approach AI development as a
 
 I do not believe the future is predetermined. I believe it is shaped by the accumulation of choices, most of them small, many of them made without full awareness of their consequences. But I also believe that some moments matter more than others, and I think we are living through one of those moments now.
 
-Humanity has navigated existential risks before. We have made collective decisions that averted catastrophe. We have the capacity to do so again. But capacity is not the same as certainty, and the window for action is not unlimited.
+Humanity has navigated existential risks before. We have made collective decisions that averted catastrophe. The Cuban Missile Crisis brought us to the brink of nuclear war, and we stepped back. The Montreal Protocol addressed ozone depletion before it became irreversible. The Cold War ended without the conflagration that seemed, for decades, inevitable. These were not accidents. They were choices, made by individuals and institutions that recognised the stakes and acted accordingly.
 
-The maps are drawn. The routes are clear. What remains is to choose which path we will walk.
+What made those moments work? In each case, there was sufficient shared understanding of the risk. The decision-makers grasped, viscerally, what failure would mean. There was also, crucially, time. Time to recognise the danger. Time to communicate. Time to negotiate. Time to choose differently.
+
+I am not certain we will have that time with artificial intelligence. The technology moves faster than nuclear proliferation or atmospheric chemistry. The feedback loops are shorter. The decision points may arrive and pass before we recognise them as decision points. This is not a reason for despair, but it is a reason for urgency.
+
+We have the capacity to navigate toward MAP. But capacity is not the same as certainty, and the window for action is not unlimited. The current carries us whether we paddle or not. The only question is whether we will steer.
+
+The maps are drawn. The routes are clear. What remains is to choose which path we will walk, and to make that choice while choice is still possible.
