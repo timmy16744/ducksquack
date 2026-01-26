@@ -46,7 +46,13 @@ const NotepadIcon = () => (
   </svg>
 );
 
-export default function XPTaskbar({ minimizedWindows, onRestoreWindow }) {
+export default function XPTaskbar({
+  minimizedWindows,
+  onRestoreWindow,
+  onStartClick,
+  onClockClick,
+  startMenuOpen
+}) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -64,7 +70,10 @@ export default function XPTaskbar({ minimizedWindows, onRestoreWindow }) {
 
   return (
     <div className="xp-taskbar">
-      <button className="start-button">
+      <button
+        className={`start-button ${startMenuOpen ? 'active' : ''}`}
+        onClick={onStartClick}
+      >
         <StartLogo />
         <span>start</span>
       </button>
@@ -86,7 +95,11 @@ export default function XPTaskbar({ minimizedWindows, onRestoreWindow }) {
 
       <div className="taskbar-tray">
         <div className="tray-divider"></div>
-        <div className="taskbar-clock">
+        <div
+          className="taskbar-clock"
+          onClick={onClockClick}
+          title="Click to open Date and Time Properties"
+        >
           {formatTime(time)}
         </div>
       </div>

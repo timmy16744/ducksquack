@@ -1878,12 +1878,16 @@ html, body {
     );
 }
 
-.xp-taskbar .start-button:active {
+.xp-taskbar .start-button:active,
+.xp-taskbar .start-button.active {
     background: linear-gradient(180deg,
         #1E7A1E 0%,
         #288A28 50%,
         #3C9A3C 100%
     );
+    box-shadow:
+        inset 0 1px 2px rgba(0,0,0,0.3),
+        inset 0 -1px 0 rgba(255,255,255,0.1);
 }
 
 .xp-taskbar .taskbar-divider {
@@ -1991,6 +1995,24 @@ html, body {
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.1),
         inset 0 -1px 0 rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.xp-taskbar .taskbar-clock:hover {
+    background: linear-gradient(180deg,
+        #2E9AFF 0%,
+        #267BE4 100%
+    );
+}
+
+.xp-taskbar .taskbar-clock:active {
+    background: linear-gradient(180deg,
+        #166BD4 0%,
+        #1E8AEE 100%
+    );
+    box-shadow:
+        inset 0 1px 2px rgba(0,0,0,0.2);
 }
 
 /* Adjust desktop to account for taskbar */

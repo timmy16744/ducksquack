@@ -1,0 +1,257 @@
+/* XP Start Menu Styles */
+
+.start-menu {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 380px;
+    background: #fff;
+    border: 1px solid;
+    border-color: #4580c4 #1e4a88 #1e4a88 #4580c4;
+    border-radius: 6px 6px 0 0;
+    box-shadow:
+        2px 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 1500;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    font-size: 11px;
+    overflow: hidden;
+    animation: startMenuOpen 0.15s ease-out;
+}
+
+@keyframes startMenuOpen {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header with user info */
+.start-menu-header {
+    background: linear-gradient(180deg,
+        #2b71bc 0%,
+        #245eab 30%,
+        #1d4d8c 70%,
+        #18407a 100%
+    );
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.start-menu-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.start-menu-username {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Main body - two columns */
+.start-menu-body {
+    display: flex;
+    min-height: 280px;
+}
+
+/* Left column - white background */
+.start-menu-left {
+    flex: 1;
+    background: #fff;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #d0d0d0;
+}
+
+/* Right column - blue gradient */
+.start-menu-right {
+    width: 180px;
+    background: linear-gradient(180deg,
+        #d3e5fa 0%,
+        #c1daf5 50%,
+        #a8cdf0 100%
+    );
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu items */
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #000;
+    transition: background 0.1s;
+}
+
+.start-menu-item:hover {
+    background: #316ac5;
+    color: #fff;
+}
+
+.start-menu-item:hover .start-menu-item-subtitle {
+    color: #c0d8f0;
+}
+
+.start-menu-item svg {
+    flex-shrink: 0;
+}
+
+.start-menu-item-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.start-menu-item-title {
+    font-size: 11px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.start-menu-left .start-menu-item-title {
+    font-weight: bold;
+}
+
+.start-menu-item-subtitle {
+    font-size: 10px;
+    color: #666;
+}
+
+/* All Programs item */
+.start-menu-all-programs {
+    margin-top: auto;
+    padding: 8px 12px;
+    justify-content: space-between;
+    border-top: 1px solid #e0e0e0;
+}
+
+.start-menu-all-programs .start-menu-item-title {
+    font-weight: bold;
+}
+
+/* Separator */
+.start-menu-separator {
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 8px,
+        #d0d0d0 8px,
+        #d0d0d0 calc(100% - 8px),
+        transparent calc(100% - 8px)
+    );
+    margin: 4px 0;
+}
+
+/* Right column separator */
+.start-menu-right .start-menu-separator {
+    background: linear-gradient(90deg,
+        transparent 8px,
+        #a8c8e8 8px,
+        #a8c8e8 calc(100% - 8px),
+        transparent calc(100% - 8px)
+    );
+}
+
+.start-menu-spacer {
+    flex: 1;
+}
+
+/* Footer */
+.start-menu-footer {
+    background: linear-gradient(180deg,
+        #4b8ccb 0%,
+        #3878b8 30%,
+        #2d68a8 70%,
+        #245898 100%
+    );
+    padding: 6px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1e4a88;
+}
+
+.start-menu-footer-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    font-size: 11px;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.start-menu-footer-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.start-menu-footer-btn:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.start-menu-footer-btn.shutdown {
+    /* Slightly different hover for emphasis */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .start-menu {
+        width: 320px;
+        bottom: 40px;
+    }
+
+    .start-menu-right {
+        width: 150px;
+    }
+
+    .start-menu-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .start-menu-item {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .start-menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .start-menu-body {
+        min-height: 240px;
+    }
+
+    .start-menu-right {
+        width: 140px;
+    }
+}
