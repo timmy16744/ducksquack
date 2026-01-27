@@ -7,9 +7,6 @@ const rotate = (x, y, sin, cos, reverse) => {
     : { x: cos * x - sin * y, y: cos * y + sin * x };
 };
 
-const flatten = (arr) =>
-  arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
-
 function WindowsBubbles() {
   const [circles, setCircles] = useState([]);
   const containerRef = useRef(null);
@@ -18,6 +15,8 @@ function WindowsBubbles() {
   const animationRef = useRef(null);
   const circlesRef = useRef([]);
   const bubbleRefs = useRef({});
+  const radiusRef = useRef(0);
+  const boundsRef = useRef({ width: 0, height: 0 });
 
   // Keep circlesRef in sync
   useEffect(() => {
@@ -47,13 +46,12 @@ function WindowsBubbles() {
         return;
       }
 
-      const box = container.getBoundingClientRect();
-      const radiusEl = container.querySelector('#bubbleradius');
-      if (!radiusEl) {
+      const box = boundsRef.current;
+      const radius = radiusRef.current;
+      if (!radius) {
         animationRef.current = requestAnimationFrame(update);
         return;
       }
-      const radius = radiusEl.getBoundingClientRect().width;
 
       // Build collision pairs
       const couples = [];
@@ -141,7 +139,7 @@ function WindowsBubbles() {
         (couple) => couple[0].key + couple[1].key
       );
 
-      const collided = [...new Set(flatten(newCollisions))];
+      const collided = [...new Set(newCollisions.flat())];
       const collidedKeys = collided.map((c) => c.key);
 
       // Update positions - direct DOM manipulation, no React re-render
@@ -188,9 +186,8 @@ function WindowsBubbles() {
     const container = containerRef.current;
     if (!container) return;
 
-    const radiusEl = container.querySelector('#bubbleradius');
-    if (!radiusEl) return;
-    const radius = radiusEl.getBoundingClientRect().width;
+    const radius = radiusRef.current;
+    if (!radius) return;
 
     let nearest = null;
     let nearestDistSq = Infinity;
@@ -208,8 +205,15 @@ function WindowsBubbles() {
 
     if (nearest) {
       nearest.popped = true;
-      // Only trigger re-render for pop animation
       setCircles([...circlesRef.current]);
+
+      // Clean up after pop animation completes
+      const poppedKey = nearest.key;
+      setTimeout(() => {
+        circlesRef.current = circlesRef.current.filter(c => c.key !== poppedKey);
+        delete bubbleRefs.current[poppedKey];
+        setCircles([...circlesRef.current]);
+      }, 350); // After pop animation (220ms) and ring (300ms) complete
     }
   }, []);
 
@@ -222,6 +226,15 @@ function WindowsBubbles() {
     const radiusEl = container.querySelector('#bubbleradius');
     if (!radiusEl) return;
     const radius = radiusEl.getBoundingClientRect().width;
+
+    // Cache radius and viewport bounds
+    radiusRef.current = radius;
+    boundsRef.current = { width: box.width, height: box.height };
+
+    const handleResize = () => {
+      boundsRef.current = { width: window.innerWidth, height: window.innerHeight };
+    };
+    window.addEventListener('resize', handleResize);
 
     const max = Math.min(25, Math.floor(
       (box.width * box.height) / 500 / Math.pow(radius, 1.2)
@@ -252,6 +265,7 @@ function WindowsBubbles() {
     return () => {
       cancelAnimationFrame(animationRef.current);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('resize', handleResize);
     };
   }, [update, handleVisibilityChange]);
 
@@ -266,7 +280,7 @@ function WindowsBubbles() {
     <div
       ref={containerRef}
       className="windows-bubbles"
-      onClick={handleClick}
+      onPointerDown={handleClick}
     >
       <i id="bubbleradius"></i>
       {circles.map((c) => (
