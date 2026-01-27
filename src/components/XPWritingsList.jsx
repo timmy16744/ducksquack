@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { formatDate, formatDateShort } from '../utils/date';
 import { fetchWritingsIndex } from '../utils/content';
 import { subscribeToViewCounts } from '../utils/firebase';
@@ -134,6 +134,21 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     views: viewCounts[w.slug] || 0
   }));
 
+  const overallStats = useMemo(() => {
+    if (!writingsWithViews.length) return null;
+    const totalWords = writingsWithViews.reduce((sum, w) => sum + (w.wordCount || 0), 0);
+    const totalViews = writingsWithViews.reduce((sum, w) => sum + (w.views || 0), 0);
+    const dates = writingsWithViews.map(w => new Date(w.date)).sort((a, b) => a - b);
+    return {
+      count: writingsWithViews.length,
+      totalWords,
+      totalViews,
+      avgWords: Math.round(totalWords / writingsWithViews.length),
+      oldest: dates[0],
+      newest: dates[dates.length - 1],
+    };
+  }, [writingsWithViews]);
+
   const sortedWritings = [...writingsWithViews].sort((a, b) => {
     let cmp = 0;
     if (sortBy === 'title') {
@@ -246,7 +261,17 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                   </div>
                   <div className="task-detail-name">Writings</div>
                   <div className="task-detail-type">File Folder</div>
-                  <div className="task-detail-info">{writings.length} items</div>
+                  {overallStats && (
+                    <>
+                      <div className="task-detail-info">Essays: {overallStats.count}</div>
+                      <div className="task-detail-info">Total Words: {overallStats.totalWords.toLocaleString()}</div>
+                      <div className="task-detail-info">Avg. Length: {overallStats.avgWords.toLocaleString()} words</div>
+                      <div className="task-detail-info">Total Views: {formatViews(overallStats.totalViews)}</div>
+                      <div className="task-detail-info">
+                        Published: {formatDate(overallStats.oldest)} – {formatDate(overallStats.newest)}
+                      </div>
+                    </>
+                  )}
                 </>
               )}
             </div>
