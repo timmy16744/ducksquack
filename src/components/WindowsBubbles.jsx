@@ -27,7 +27,7 @@ function WindowsBubbles() {
   const updateBubbleDOM = useCallback((circle, hueChanged = false) => {
     const el = bubbleRefs.current[circle.key];
     if (el) {
-      el.style.transform = `translate(${circle.x}px, ${circle.y}px)`;
+      el.style.translate = `${circle.x}px ${circle.y}px`;
       // Only update expensive box-shadow when hue actually changes
       if (hueChanged) {
         el.style.boxShadow = `0 0 2rem hsl(${circle.hue}, 75%, 50%) inset`;
@@ -289,7 +289,7 @@ function WindowsBubbles() {
           ref={setBubbleRef(c.key)}
           className={`bubble ${c.popped ? 'popped' : ''}`}
           style={{
-            transform: `translate(${c.x}px, ${c.y}px)`,
+            translate: `${c.x}px ${c.y}px`,
             boxShadow: `0 0 2rem hsl(${c.hue}, 75%, 50%) inset`,
           }}
         />

@@ -33,7 +33,7 @@
     top: 0;
     left: 0;
     opacity: 1;
-    will-change: transform, box-shadow;
+    will-change: translate, box-shadow;
     transition: box-shadow 0.5s ease-in-out,
         opacity 0.04s ease-in;
 }
