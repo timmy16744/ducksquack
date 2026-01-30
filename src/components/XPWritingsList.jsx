@@ -286,12 +286,13 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
       <div className="xp-explorer-toolbar">
         <div className="toolbar-buttons">
           <button
-            className={`toolbar-btn ${isPodcastPlaying ? 'active' : ''}`}
-            title={isPodcastPlaying ? "Pause podcast" : "Listen to all essays"}
+            className={`toolbar-btn podcast-btn ${isPodcastPlaying ? 'active' : ''}`}
+            title={isPodcastPlaying ? "Pause podcast" : "Listen to all essays (35 min)"}
             onClick={handleTogglePodcast}
           >
             <PodcastIcon isPlaying={isPodcastPlaying} />
             <span className="toolbar-label">Podcast</span>
+            <span className="podcast-duration">{podcastDuration ? formatTime(podcastDuration) : '35:00'}</span>
           </button>
           {(isPodcastPlaying || podcastTime > 0) && (
             <>
