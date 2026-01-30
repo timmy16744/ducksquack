@@ -36,6 +36,16 @@ const formatTime = (seconds) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
+// Link/share icon
+const LinkIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 16 16">
+    <path d="M6.5 10.5L9.5 7.5M7 9L4.5 11.5C3.5 12.5 3.5 14 4.5 15C5.5 16 7 16 8 15L10.5 12.5"
+          fill="none" stroke="#4070A0" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M9 7L11.5 4.5C12.5 3.5 12.5 2 11.5 1C10.5 0 9 0 8 1L5.5 3.5"
+          fill="none" stroke="#4070A0" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
 // XP-style document icon as inline SVG
 const DocumentIcon = ({ size = 16, className = '' }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" className={className} style={{ flexShrink: 0 }}>
@@ -145,6 +155,7 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
   const [isPodcastPlaying, setIsPodcastPlaying] = useState(false);
   const [podcastTime, setPodcastTime] = useState(0);
   const [podcastDuration, setPodcastDuration] = useState(0);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   // Podcast audio event handlers
   useEffect(() => {
@@ -154,6 +165,10 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     const handleEnded = () => {
       setIsPodcastPlaying(false);
       setPodcastTime(0);
+      // Remove podcast param from URL when done
+      const url = new URL(window.location);
+      url.searchParams.delete('podcast');
+      window.history.replaceState({}, '', url);
     };
     const handleTimeUpdate = () => setPodcastTime(audio.currentTime);
     const handleLoadedMetadata = () => setPodcastDuration(audio.duration);
@@ -169,16 +184,43 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     };
   }, []);
 
+  // Auto-play podcast if ?podcast is in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('podcast') && podcastRef.current && !isPodcastPlaying) {
+      // Small delay to ensure audio is ready
+      const timer = setTimeout(() => {
+        podcastRef.current.play().catch(() => {});
+        setIsPodcastPlaying(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const handleTogglePodcast = useCallback(() => {
     if (!podcastRef.current) return;
+    const url = new URL(window.location);
     if (isPodcastPlaying) {
       podcastRef.current.pause();
       setIsPodcastPlaying(false);
+      url.searchParams.delete('podcast');
+      window.history.replaceState({}, '', url);
     } else {
       podcastRef.current.play().catch(() => {});
       setIsPodcastPlaying(true);
+      url.searchParams.set('podcast', '1');
+      window.history.replaceState({}, '', url);
     }
   }, [isPodcastPlaying]);
+
+  const handleCopyPodcastLink = useCallback(() => {
+    const url = new URL(window.location.origin + '/writings/');
+    url.searchParams.set('podcast', '1');
+    navigator.clipboard.writeText(url.toString()).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    }).catch(() => {});
+  }, []);
 
   const handlePodcastSeek = useCallback((e) => {
     if (!progressRef.current || !podcastDuration || !podcastRef.current) return;
@@ -293,6 +335,13 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
             <PodcastIcon isPlaying={isPodcastPlaying} />
             <span className="toolbar-label">Podcast</span>
             <span className="podcast-duration">{podcastDuration ? formatTime(podcastDuration) : '35:00'}</span>
+          </button>
+          <button
+            className={`toolbar-btn toolbar-btn-small podcast-share-btn ${linkCopied ? 'copied' : ''}`}
+            title="Copy podcast link"
+            onClick={handleCopyPodcastLink}
+          >
+            {linkCopied ? <span className="copied-text">Copied!</span> : <LinkIcon />}
           </button>
           {(isPodcastPlaying || podcastTime > 0) && (
             <>

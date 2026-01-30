@@ -2032,6 +2032,25 @@ html, body {
     font-weight: bold;
 }
 
+.podcast-share-btn {
+    padding: 4px 6px !important;
+    min-width: auto !important;
+}
+
+.podcast-share-btn.copied {
+    background: linear-gradient(180deg,
+        rgba(220,255,220,0.95) 0%,
+        rgba(180,240,180,0.9) 100%
+    ) !important;
+    border-color: #60A060 !important;
+}
+
+.podcast-share-btn .copied-text {
+    font-size: 9px;
+    color: #308030;
+    font-weight: bold;
+}
+
 /* Podcast timeline in explorer toolbar */
 .podcast-timeline {
     display: flex;
