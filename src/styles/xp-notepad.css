@@ -1605,6 +1605,7 @@ html, body {
     /* Phase 1: Toolbar with labels on mobile - clean horizontal layout */
     .xp-global-toolbar {
         padding: 6px 8px;
+        padding-right: 16px;
         gap: 2px;
     }
 
@@ -1613,11 +1614,12 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-nav {
-        gap: 4px;
+        gap: 0;
     }
 
     .xp-global-toolbar .toolbar-pages {
         gap: 0;
+        margin-left: 4px;
     }
 
     .xp-global-toolbar .toolbar-btn {
@@ -1644,7 +1646,7 @@ html, body {
         flex-direction: row;
         gap: 4px;
         min-height: 36px;
-        padding: 6px 8px;
+        padding: 6px 4px;
     }
 
     .xp-global-toolbar .toolbar-btn-nav svg {
@@ -1658,13 +1660,13 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-btn-small {
-        padding: 6px;
+        padding: 6px 4px;
         min-height: 36px;
     }
 
     .xp-global-toolbar .toolbar-separator {
         height: 32px;
-        margin: 0 6px;
+        margin: 0 8px;
         width: 1px;
         background: linear-gradient(180deg,
             transparent 0%,
@@ -1752,6 +1754,7 @@ html, body {
     /* Phase 1: Toolbar - compact but touch-friendly */
     .xp-global-toolbar {
         padding: 4px 6px;
+        padding-right: 12px;
         gap: 0;
     }
 
@@ -1780,7 +1783,7 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-btn-nav {
-        padding: 4px 6px;
+        padding: 4px 3px;
         min-height: 32px;
     }
 
@@ -1794,8 +1797,16 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-btn-small {
-        padding: 4px;
+        padding: 4px 3px;
         min-height: 32px;
+    }
+
+    .xp-global-toolbar .toolbar-separator {
+        margin: 0 6px;
+    }
+
+    .xp-global-toolbar .toolbar-pages {
+        margin-left: 2px;
     }
 
     /* Explorer toolbar - even more compact on small phones */
