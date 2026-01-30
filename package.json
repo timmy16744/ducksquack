@@ -7,7 +7,11 @@
     "dev": "npm run generate && vite",
     "build": "npm run generate && vite build",
     "preview": "vite preview",
-    "generate": "node scripts/generate-writings.js && node scripts/generate-rss.cjs"
+    "generate": "node scripts/generate-writings.js && node scripts/generate-rss.cjs",
+    "generate:writings": "node scripts/generate-writings.js",
+    "generate:audio": "python scripts/generate-audio.py",
+    "generate:audio:force": "python scripts/generate-audio.py --force",
+    "generate:all": "node scripts/generate-writings.js && python scripts/generate-audio.py && node scripts/generate-writings.js && node scripts/generate-rss.cjs"
   },
   "keywords": [
     "blog",

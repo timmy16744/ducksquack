@@ -8,6 +8,8 @@ const __dirname = path.dirname(__filename);
 
 const CONTENT_DIR = path.join(__dirname, '../content/writings');
 const OUTPUT_DIR = path.join(__dirname, '../public/writings');
+const AUDIO_DIR = path.join(__dirname, '../public/audio');
+const AUDIO_CACHE_FILE = path.join(__dirname, '.audio_cache.json');
 
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_DIR)) {
@@ -33,6 +35,49 @@ function getPreview(content, maxLength = 150) {
     return preview.substring(0, maxLength - 3) + '...';
   }
   return preview;
+}
+
+function getAudioInfo(slug) {
+  // Check for AI-generated audio files (AI_ prefix)
+  const aiMp3Path = path.join(AUDIO_DIR, `AI_${slug}.mp3`);
+  const mp3Path = path.join(AUDIO_DIR, `${slug}.mp3`);
+  const wavPath = path.join(AUDIO_DIR, `${slug}.wav`);
+
+  let audioFile = null;
+  let audioUrl = null;
+
+  if (fs.existsSync(aiMp3Path)) {
+    audioFile = aiMp3Path;
+    audioUrl = `/audio/AI_${slug}.mp3`;
+  } else if (fs.existsSync(mp3Path)) {
+    audioFile = mp3Path;
+    audioUrl = `/audio/${slug}.mp3`;
+  } else if (fs.existsSync(wavPath)) {
+    audioFile = wavPath;
+    audioUrl = `/audio/${slug}.wav`;
+  }
+
+  if (!audioFile) {
+    return null;
+  }
+
+  // Get duration from cache if available
+  let duration = null;
+  if (fs.existsSync(AUDIO_CACHE_FILE)) {
+    try {
+      const cache = JSON.parse(fs.readFileSync(AUDIO_CACHE_FILE, 'utf-8'));
+      if (cache[slug] && cache[slug].duration) {
+        duration = cache[slug].duration;
+      }
+    } catch (e) {
+      // Ignore cache read errors
+    }
+  }
+
+  return {
+    url: audioUrl,
+    duration: duration
+  };
 }
 
 // AI-generated synopses for each essay
@@ -71,6 +116,9 @@ function processWritings() {
     const wordCount = getWordCount(content);
     const synopsis = SYNOPSES[slug] || getPreview(content);
 
+    // Check for audio file
+    const audioInfo = getAudioInfo(slug);
+
     const writing = {
       title: data.title,
       date: data.date,
@@ -78,7 +126,8 @@ function processWritings() {
       slug,
       wordCount,
       synopsis,
-      preview: getPreview(content)
+      preview: getPreview(content),
+      ...(audioInfo && { audio: audioInfo })
     };
 
     writings.push(writing);
@@ -93,7 +142,8 @@ function processWritings() {
       JSON.stringify(postData, null, 2)
     );
 
-    console.log(`Generated: ${slug}.json (${wordCount} words)`);
+    const audioStatus = audioInfo ? ' [audio]' : '';
+    console.log(`Generated: ${slug}.json (${wordCount} words)${audioStatus}`);
   }
 
   // Sort by date (newest first)

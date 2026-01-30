@@ -72,6 +72,32 @@ const PersonIcon = ({ active = false }) => (
   </svg>
 );
 
+// Speaker icon for audio playback
+const SpeakerIcon = ({ isPlaying = false }) => (
+  <svg width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+      <linearGradient id="speakerBody" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={isPlaying ? "#6090D0" : "#808080"}/>
+        <stop offset="100%" stopColor={isPlaying ? "#3060A0" : "#505050"}/>
+      </linearGradient>
+    </defs>
+    {/* Speaker body */}
+    <path d="M3 8v4h3l4 4V4L6 8H3z" fill="url(#speakerBody)" stroke={isPlaying ? "#204080" : "#303030"} strokeWidth="0.75"/>
+    {/* Sound waves */}
+    {isPlaying ? (
+      <>
+        <path d="M12 7c1.5 1 1.5 5 0 6" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M14 5c2.5 2 2.5 8 0 10" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round"/>
+      </>
+    ) : (
+      <>
+        <path d="M12 7c1.5 1 1.5 5 0 6" fill="none" stroke="#707070" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M14 5c2.5 2 2.5 8 0 10" fill="none" stroke="#707070" strokeWidth="1.5" strokeLinecap="round"/>
+      </>
+    )}
+  </svg>
+);
+
 // Writings icon - Documents/Files
 const DocumentsIcon = ({ active = false }) => (
   <svg width="20" height="20" viewBox="0 0 20 20">
@@ -97,7 +123,7 @@ const DocumentsIcon = ({ active = false }) => (
   </svg>
 );
 
-export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward }) {
+export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio }) {
   return (
     <div className="xp-global-toolbar">
       <div className="toolbar-section toolbar-nav">
@@ -149,6 +175,22 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
           <span className="toolbar-label">Writings</span>
         </button>
       </div>
+
+      {audioUrl && (
+        <>
+          <div className="toolbar-separator"></div>
+          <div className="toolbar-section">
+            <button
+              className={`toolbar-btn ${isPlaying ? 'active' : ''}`}
+              title={isPlaying ? "Pause audio" : "Play audio"}
+              onClick={onToggleAudio}
+            >
+              <SpeakerIcon isPlaying={isPlaying} />
+              <span className="toolbar-label">{isPlaying ? 'Pause' : 'Listen'}</span>
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

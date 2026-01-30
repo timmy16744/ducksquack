@@ -10,6 +10,44 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
 
+  // Audio playback state
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const currentAudioUrl = currentPost?.audio?.url || null;
+
+  // Stop audio when navigating away from post
+  useEffect(() => {
+    if (page !== 'post' || !currentAudioUrl) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      setIsPlaying(false);
+    }
+  }, [page, currentAudioUrl]);
+
+  // Handle audio ended
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => setIsPlaying(false);
+    audio.addEventListener('ended', handleEnded);
+    return () => audio.removeEventListener('ended', handleEnded);
+  }, []);
+
+  const handleToggleAudio = useCallback(() => {
+    if (!audioRef.current || !currentAudioUrl) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  }, [isPlaying, currentAudioUrl]);
+
   // Window position and size - use refs for smooth dragging performance
   const defaultWidth = 1100;
   const defaultHeight = 865;
@@ -357,6 +395,9 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         canGoForward={canGoForward}
         onBack={handleBack}
         onForward={handleForward}
+        audioUrl={page === 'post' ? currentAudioUrl : null}
+        isPlaying={isPlaying}
+        onToggleAudio={handleToggleAudio}
       />
 
       <div className="xp-content-area">
@@ -370,6 +411,11 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
       </div>
 
       <XPCommentBar currentPage={page} currentPost={currentPost} />
+
+      {/* Hidden audio element for playback */}
+      {currentAudioUrl && (
+        <audio ref={audioRef} src={currentAudioUrl} preload="metadata" />
+      )}
     </div>
   );
 }
