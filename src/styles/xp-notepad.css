@@ -1373,7 +1373,59 @@ html, body {
         display: none;
     }
 
+    /* Show explorer toolbar on mobile with compact podcast button */
     .xp-explorer-toolbar {
+        display: flex;
+        padding: 6px 10px;
+        justify-content: center;
+        background: linear-gradient(180deg,
+            #F6F4EC 0%,
+            #E8E6DE 50%,
+            #D8D4CC 100%
+        );
+        border-bottom: 1px solid #A0A090;
+    }
+
+    .xp-explorer-toolbar .toolbar-buttons {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .xp-explorer-toolbar .toolbar-btn {
+        flex-direction: row;
+        gap: 6px;
+        padding: 8px 12px;
+        min-height: 40px;
+        border-radius: 4px;
+    }
+
+    .xp-explorer-toolbar .toolbar-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .xp-explorer-toolbar .toolbar-label {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .xp-explorer-toolbar .podcast-duration {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .xp-explorer-toolbar .podcast-share-btn {
+        padding: 8px 10px !important;
+        min-height: 40px;
+    }
+
+    .xp-explorer-toolbar .podcast-share-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .xp-explorer-toolbar .toolbar-separator {
         display: none;
     }
 
@@ -1550,16 +1602,30 @@ html, body {
         min-height: 32px;
     }
 
-    /* Phase 1: Toolbar with labels on mobile - stacked icon/label layout */
+    /* Phase 1: Toolbar with labels on mobile - clean horizontal layout */
     .xp-global-toolbar {
-        padding: 4px 6px;
+        padding: 6px 8px;
+        gap: 2px;
+    }
+
+    .xp-global-toolbar .toolbar-section {
+        gap: 2px;
+    }
+
+    .xp-global-toolbar .toolbar-nav {
+        gap: 4px;
+    }
+
+    .xp-global-toolbar .toolbar-pages {
+        gap: 0;
     }
 
     .xp-global-toolbar .toolbar-btn {
-        padding: 4px 8px;
+        padding: 6px 10px;
         flex-direction: column;
-        gap: 1px;
-        min-height: 44px;
+        gap: 2px;
+        min-height: 46px;
+        border-radius: 3px;
     }
 
     .xp-global-toolbar .toolbar-btn svg {
@@ -1571,27 +1637,53 @@ html, body {
         display: block;
         font-size: 9px;
         margin: 0;
+        font-weight: 500;
     }
 
     .xp-global-toolbar .toolbar-btn-nav {
         flex-direction: row;
-        gap: 3px;
-        min-height: auto;
-        padding: 4px 6px;
+        gap: 4px;
+        min-height: 36px;
+        padding: 6px 8px;
+    }
+
+    .xp-global-toolbar .toolbar-btn-nav svg {
+        width: 20px;
+        height: 20px;
     }
 
     .xp-global-toolbar .toolbar-btn-nav .toolbar-label {
-        font-size: 10px;
+        font-size: 11px;
+        display: none;
     }
 
     .xp-global-toolbar .toolbar-btn-small {
-        padding: 4px;
-        min-height: auto;
+        padding: 6px;
+        min-height: 36px;
     }
 
     .xp-global-toolbar .toolbar-separator {
-        height: 36px;
-        margin: 0 4px;
+        height: 32px;
+        margin: 0 6px;
+        width: 1px;
+        background: linear-gradient(180deg,
+            transparent 0%,
+            #B8B8A8 20%,
+            #B8B8A8 80%,
+            transparent 100%
+        );
+    }
+
+    /* Audio controls in toolbar - compact on mobile */
+    .xp-global-toolbar .toolbar-audio {
+        gap: 4px;
+    }
+
+    .xp-global-toolbar .toolbar-audio .toolbar-btn {
+        padding: 6px 8px;
+        min-height: 36px;
+        flex-direction: row;
+        gap: 4px;
     }
 
     /* Phase 3: Typography improvements */
@@ -1651,20 +1743,22 @@ html, body {
 @media (max-width: 480px) {
     .xp-notepad-window .title-bar-text {
         font-size: 12px;
-        max-width: 60%;
+        max-width: 55%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
-    /* Phase 1: Toolbar - more compact on small screens */
+    /* Phase 1: Toolbar - compact but touch-friendly */
     .xp-global-toolbar {
-        padding: 2px 4px;
+        padding: 4px 6px;
+        gap: 0;
     }
 
     .xp-global-toolbar .toolbar-btn {
-        padding: 3px 6px;
-        min-height: 40px;
+        padding: 4px 8px;
+        min-height: 42px;
+        gap: 1px;
     }
 
     .xp-global-toolbar .toolbar-btn svg {
@@ -1677,7 +1771,8 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-separator {
-        display: none;
+        margin: 0 4px;
+        height: 28px;
     }
 
     .xp-global-toolbar .toolbar-dropdown {
@@ -1685,11 +1780,51 @@ html, body {
     }
 
     .xp-global-toolbar .toolbar-btn-nav {
-        padding: 3px 4px;
+        padding: 4px 6px;
+        min-height: 32px;
+    }
+
+    .xp-global-toolbar .toolbar-btn-nav svg {
+        width: 18px;
+        height: 18px;
     }
 
     .xp-global-toolbar .toolbar-btn-nav .toolbar-label {
         display: none;
+    }
+
+    .xp-global-toolbar .toolbar-btn-small {
+        padding: 4px;
+        min-height: 32px;
+    }
+
+    /* Explorer toolbar - even more compact on small phones */
+    .xp-explorer-toolbar {
+        padding: 5px 8px;
+    }
+
+    .xp-explorer-toolbar .toolbar-btn {
+        padding: 6px 10px;
+        min-height: 36px;
+    }
+
+    .xp-explorer-toolbar .toolbar-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .xp-explorer-toolbar .toolbar-label {
+        font-size: 11px;
+    }
+
+    .xp-explorer-toolbar .podcast-duration {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+
+    .xp-explorer-toolbar .podcast-share-btn {
+        padding: 6px 8px !important;
+        min-height: 36px;
     }
 
     /* Phase 3: Typography - optimized for small screens */
