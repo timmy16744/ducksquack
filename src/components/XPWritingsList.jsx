@@ -1,7 +1,40 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { formatDate, formatDateShort } from '../utils/date';
 import { fetchWritingsIndex } from '../utils/content';
 import { subscribeToViewCounts } from '../utils/firebase';
+
+// Podcast/headphones icon
+const PodcastIcon = ({ isPlaying = false }) => (
+  <svg width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+      <linearGradient id="podcastBody" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={isPlaying ? "#6090D0" : "#808080"}/>
+        <stop offset="100%" stopColor={isPlaying ? "#3060A0" : "#505050"}/>
+      </linearGradient>
+    </defs>
+    {/* Headphone band */}
+    <path d="M4 10C4 6 6.5 3 10 3C13.5 3 16 6 16 10" fill="none" stroke={isPlaying ? "#4080C0" : "#606060"} strokeWidth="2" strokeLinecap="round"/>
+    {/* Left earpiece */}
+    <rect x="2" y="10" width="4" height="6" rx="1" fill="url(#podcastBody)" stroke={isPlaying ? "#204080" : "#404040"} strokeWidth="0.5"/>
+    {/* Right earpiece */}
+    <rect x="14" y="10" width="4" height="6" rx="1" fill="url(#podcastBody)" stroke={isPlaying ? "#204080" : "#404040"} strokeWidth="0.5"/>
+    {/* Sound waves when playing */}
+    {isPlaying && (
+      <>
+        <circle cx="10" cy="13" r="2" fill="none" stroke="#4080C0" strokeWidth="1"/>
+        <circle cx="10" cy="13" r="4" fill="none" stroke="#4080C0" strokeWidth="0.5" opacity="0.6"/>
+      </>
+    )}
+  </svg>
+);
+
+// Format time as mm:ss
+const formatTime = (seconds) => {
+  if (!seconds || isNaN(seconds)) return '0:00';
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
 
 // XP-style document icon as inline SVG
 const DocumentIcon = ({ size = 16, className = '' }) => (
@@ -106,6 +139,64 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
   const [sortBy, setSortBy] = useState('date');
   const [sortAsc, setSortAsc] = useState(false);
 
+  // Podcast audio state
+  const podcastRef = useRef(null);
+  const progressRef = useRef(null);
+  const [isPodcastPlaying, setIsPodcastPlaying] = useState(false);
+  const [podcastTime, setPodcastTime] = useState(0);
+  const [podcastDuration, setPodcastDuration] = useState(0);
+
+  // Podcast audio event handlers
+  useEffect(() => {
+    const audio = podcastRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      setIsPodcastPlaying(false);
+      setPodcastTime(0);
+    };
+    const handleTimeUpdate = () => setPodcastTime(audio.currentTime);
+    const handleLoadedMetadata = () => setPodcastDuration(audio.duration);
+
+    audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    };
+  }, []);
+
+  const handleTogglePodcast = useCallback(() => {
+    if (!podcastRef.current) return;
+    if (isPodcastPlaying) {
+      podcastRef.current.pause();
+      setIsPodcastPlaying(false);
+    } else {
+      podcastRef.current.play().catch(() => {});
+      setIsPodcastPlaying(true);
+    }
+  }, [isPodcastPlaying]);
+
+  const handlePodcastSeek = useCallback((e) => {
+    if (!progressRef.current || !podcastDuration || !podcastRef.current) return;
+    const rect = progressRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    const newTime = percent * podcastDuration;
+    podcastRef.current.currentTime = newTime;
+    setPodcastTime(newTime);
+  }, [podcastDuration]);
+
+  const handlePodcastDrag = useCallback((e) => {
+    if (e.buttons !== 1) return;
+    handlePodcastSeek(e);
+  }, [handlePodcastSeek]);
+
+  const podcastProgress = podcastDuration > 0 ? (podcastTime / podcastDuration) * 100 : 0;
+
   useEffect(() => {
     fetchWritingsIndex()
       .then(setWritings)
@@ -191,6 +282,41 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
 
   return (
     <div className="xp-explorer">
+      {/* Podcast Toolbar */}
+      <div className="xp-explorer-toolbar">
+        <div className="toolbar-buttons">
+          <button
+            className={`toolbar-btn ${isPodcastPlaying ? 'active' : ''}`}
+            title={isPodcastPlaying ? "Pause podcast" : "Listen to all essays"}
+            onClick={handleTogglePodcast}
+          >
+            <PodcastIcon isPlaying={isPodcastPlaying} />
+            <span className="toolbar-label">Podcast</span>
+          </button>
+          {(isPodcastPlaying || podcastTime > 0) && (
+            <>
+              <div className="toolbar-separator"></div>
+              <div className="podcast-timeline">
+                <span className="audio-time">{formatTime(podcastTime)}</span>
+                <div
+                  ref={progressRef}
+                  className="audio-progress-bar podcast-progress"
+                  onClick={handlePodcastSeek}
+                  onMouseMove={handlePodcastDrag}
+                >
+                  <div className="audio-progress-fill" style={{ width: `${podcastProgress}%` }} />
+                  <div className="audio-progress-thumb" style={{ left: `${podcastProgress}%` }} />
+                </div>
+                <span className="audio-time">{formatTime(podcastDuration)}</span>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Hidden podcast audio element */}
+      <audio ref={podcastRef} src="/audio/podcast.mp3" preload="metadata" />
+
       {/* Main Content Area */}
       <div className="xp-explorer-main">
         {/* Left Panel - Navigation Sidebar */}

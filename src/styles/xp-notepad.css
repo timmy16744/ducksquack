@@ -1983,6 +1983,18 @@ html, body {
     box-shadow: 0 0 0 2px #FFF4B8;
 }
 
+/* Podcast timeline in explorer toolbar */
+.podcast-timeline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 4px;
+}
+
+.podcast-progress {
+    width: 180px;
+}
+
 /* Mobile adjustments for audio timeline */
 @media (max-width: 768px) {
     .audio-timeline {
@@ -1991,6 +2003,10 @@ html, body {
 
     .toolbar-audio {
         gap: 4px;
+    }
+
+    .podcast-timeline {
+        display: none;
     }
 }
 
