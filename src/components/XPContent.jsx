@@ -167,7 +167,117 @@ function parseContent(content, onNavigate) {
   return parts.length > 0 ? parts : content;
 }
 
-export default function XPContent({ currentPage, currentPost, loading, onNavigate, onSelectPost }) {
+// Split content into sentences for highlighting
+function splitIntoSentences(content) {
+  // Split on sentence-ending punctuation followed by space or end of string
+  // Keep the punctuation with the sentence
+  const sentences = [];
+  let current = '';
+
+  for (let i = 0; i < content.length; i++) {
+    current += content[i];
+    // Check for sentence ending: . ! ? followed by space, newline, or end
+    if ((content[i] === '.' || content[i] === '!' || content[i] === '?') &&
+        (i === content.length - 1 || content[i + 1] === ' ' || content[i + 1] === '\n')) {
+      sentences.push(current.trim());
+      current = '';
+    }
+  }
+  // Don't forget any remaining text
+  if (current.trim()) {
+    sentences.push(current.trim());
+  }
+  return sentences;
+}
+
+// Calculate which sentence should be highlighted based on time
+function getCurrentSentenceIndex(sentences, currentTime, duration) {
+  if (!duration || duration === 0 || sentences.length === 0) return -1;
+
+  // Count words per sentence
+  const wordCounts = sentences.map(s => s.split(/\s+/).filter(w => w.length > 0).length);
+  const totalWords = wordCounts.reduce((a, b) => a + b, 0);
+
+  // Estimate reading speed: words per second = totalWords / duration
+  const wordsPerSecond = totalWords / duration;
+
+  // Calculate cumulative time for each sentence
+  let cumulativeWords = 0;
+  for (let i = 0; i < sentences.length; i++) {
+    cumulativeWords += wordCounts[i];
+    const sentenceEndTime = cumulativeWords / wordsPerSecond;
+    if (currentTime < sentenceEndTime) {
+      return i;
+    }
+  }
+  return sentences.length - 1;
+}
+
+// Render content with sentence highlighting
+function renderHighlightedContent(content, onNavigate, isPlaying, currentTime, duration) {
+  // First, handle internal links by replacing them with placeholders
+  const linkPattern = /(?:"([^"]+)"\s*)?\(\/writings\/([a-z0-9-]+)\/?\)/g;
+  const links = [];
+  let linkIndex = 0;
+  const contentWithPlaceholders = content.replace(linkPattern, (match, text, slug) => {
+    links.push({ text: text || slug.replace(/-/g, ' '), slug });
+    return `__LINK_${linkIndex++}__`;
+  });
+
+  // Split into sentences
+  const sentences = splitIntoSentences(contentWithPlaceholders);
+  const currentSentenceIdx = isPlaying ? getCurrentSentenceIndex(sentences, currentTime, duration) : -1;
+
+  // Restore links and render
+  return sentences.map((sentence, idx) => {
+    // Restore any links in this sentence
+    let processed = sentence;
+    const parts = [];
+    let lastIndex = 0;
+    const linkPlaceholderPattern = /__LINK_(\d+)__/g;
+    let match;
+
+    while ((match = linkPlaceholderPattern.exec(sentence)) !== null) {
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(processed.slice(lastIndex, match.index));
+      }
+      // Add the link
+      const link = links[parseInt(match[1])];
+      parts.push(
+        <a
+          key={`link-${idx}-${match[1]}`}
+          className="internal-link"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('post', link.slug);
+          }}
+        >
+          {link.text}
+        </a>
+      );
+      lastIndex = match.index + match[0].length;
+    }
+    // Add remaining text
+    if (lastIndex < sentence.length) {
+      parts.push(sentence.slice(lastIndex));
+    }
+
+    const isHighlighted = idx === currentSentenceIdx;
+    const content = parts.length > 0 ? parts : sentence;
+
+    return (
+      <span
+        key={idx}
+        className={`sentence ${isHighlighted ? 'sentence-highlighted' : ''}`}
+      >
+        {content}{' '}
+      </span>
+    );
+  });
+}
+
+export default function XPContent({ currentPage, currentPost, loading, onNavigate, onSelectPost, isAudioPlaying = false, audioCurrentTime = 0, audioDuration = 0 }) {
   const renderHome = () => (
     <div className="xp-page-layout">
       <div className="xp-page-layout-main">
@@ -263,7 +373,9 @@ This is my echo.`}
         <hr className="post-divider" />
 
         <div className="post-content">
-          {parseContent(currentPost.content, onNavigate)}
+          {currentPost.audio
+            ? renderHighlightedContent(currentPost.content, onNavigate, isAudioPlaying, audioCurrentTime, audioDuration)
+            : parseContent(currentPost.content, onNavigate)}
         </div>
       </div>
     );

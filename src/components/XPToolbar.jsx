@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 
 // XP-style back arrow icon
 const BackIcon = ({ disabled = false }) => (
@@ -123,7 +123,32 @@ const DocumentsIcon = ({ active = false }) => (
   </svg>
 );
 
-export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio }) {
+// Format time as mm:ss
+const formatTime = (seconds) => {
+  if (!seconds || isNaN(seconds)) return '0:00';
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+
+export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio, currentTime = 0, duration = 0, onSeek }) {
+  const progressRef = useRef(null);
+
+  const handleProgressClick = useCallback((e) => {
+    if (!progressRef.current || !duration || !onSeek) return;
+    const rect = progressRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    onSeek(percent * duration);
+  }, [duration, onSeek]);
+
+  const handleProgressDrag = useCallback((e) => {
+    if (e.buttons !== 1) return; // Only left mouse button
+    handleProgressClick(e);
+  }, [handleProgressClick]);
+
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
   return (
     <div className="xp-global-toolbar">
       <div className="toolbar-section toolbar-nav">
@@ -179,7 +204,7 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
       {audioUrl && (
         <>
           <div className="toolbar-separator"></div>
-          <div className="toolbar-section">
+          <div className="toolbar-section toolbar-audio">
             <button
               className={`toolbar-btn ${isPlaying ? 'active' : ''}`}
               title={isPlaying ? "Pause audio" : "Play audio"}
@@ -188,6 +213,21 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
               <SpeakerIcon isPlaying={isPlaying} />
               <span className="toolbar-label">{isPlaying ? 'Pause' : 'Listen'}</span>
             </button>
+            {(isPlaying || currentTime > 0) && (
+              <div className="audio-timeline">
+                <span className="audio-time">{formatTime(currentTime)}</span>
+                <div
+                  ref={progressRef}
+                  className="audio-progress-bar"
+                  onClick={handleProgressClick}
+                  onMouseMove={handleProgressDrag}
+                >
+                  <div className="audio-progress-fill" style={{ width: `${progress}%` }} />
+                  <div className="audio-progress-thumb" style={{ left: `${progress}%` }} />
+                </div>
+                <span className="audio-time">{formatTime(duration)}</span>
+              </div>
+            )}
           </div>
         </>
       )}

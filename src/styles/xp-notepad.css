@@ -1906,6 +1906,100 @@ html, body {
     }
 }
 
+/* Audio Timeline in Toolbar */
+.toolbar-audio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-timeline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 4px;
+}
+
+.audio-time {
+    font-size: 10px;
+    color: #444;
+    min-width: 32px;
+    font-family: 'Tahoma', 'Segoe UI', monospace;
+}
+
+.audio-progress-bar {
+    width: 120px;
+    height: 8px;
+    background: linear-gradient(180deg, #D8D4C8 0%, #E8E4D8 100%);
+    border: 1px solid;
+    border-color: #808070 #F0F0EA #F0F0EA #808070;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15);
+}
+
+.audio-progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(180deg,
+        #6090D0 0%,
+        #4070B0 50%,
+        #3060A0 100%
+    );
+    border-radius: 1px;
+    transition: width 0.1s linear;
+}
+
+.audio-progress-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(180deg, #FFF 0%, #E8E4D8 100%);
+    border: 1px solid #707060;
+    border-radius: 2px;
+    cursor: grab;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.audio-progress-thumb:active {
+    cursor: grabbing;
+}
+
+/* Sentence Highlighting */
+.sentence {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+.sentence-highlighted {
+    background-color: #FFF4B8;
+    color: #000;
+    box-shadow: 0 0 0 2px #FFF4B8;
+}
+
+/* Mobile adjustments for audio timeline */
+@media (max-width: 768px) {
+    .audio-timeline {
+        display: none;
+    }
+
+    .toolbar-audio {
+        gap: 4px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+    .audio-progress-bar {
+        width: 80px;
+    }
+}
+
 /* Loading State */
 .xp-loading {
     display: flex;
@@ -2136,6 +2230,22 @@ html, body {
 /* Adjust desktop to account for taskbar */
 .xp-desktop {
     padding-bottom: 30px;
+}
+
+/* Taskbar notification flash - Windows XP attention animation */
+@keyframes taskbar-flash {
+  0%, 49% {
+    background: linear-gradient(180deg,
+      #FFB342 0%, #E87400 30%, #C05800 100%);
+  }
+  50%, 100% {
+    background: linear-gradient(180deg,
+      #3D95FF 0%, #2570D4 30%, #1B5EB8 100%);
+  }
+}
+
+.xp-taskbar .taskbar-window-btn.flashing {
+  animation: taskbar-flash 1s step-end infinite;
 }
 
 /* Mobile taskbar adjustments */

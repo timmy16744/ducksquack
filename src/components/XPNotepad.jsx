@@ -13,6 +13,8 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
   // Audio playback state
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const currentAudioUrl = currentPost?.audio?.url || null;
 
   // Stop audio when navigating away from post
@@ -23,18 +25,33 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         audioRef.current.currentTime = 0;
       }
       setIsPlaying(false);
+      setCurrentTime(0);
+      setDuration(0);
     }
   }, [page, currentAudioUrl]);
 
-  // Handle audio ended
+  // Handle audio events (ended, timeupdate, loadedmetadata)
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const handleEnded = () => setIsPlaying(false);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    };
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+
     audio.addEventListener('ended', handleEnded);
-    return () => audio.removeEventListener('ended', handleEnded);
-  }, []);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    };
+  }, [currentAudioUrl]);
 
   const handleToggleAudio = useCallback(() => {
     if (!audioRef.current || !currentAudioUrl) return;
@@ -47,6 +64,12 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
       setIsPlaying(true);
     }
   }, [isPlaying, currentAudioUrl]);
+
+  const handleSeek = useCallback((time) => {
+    if (!audioRef.current) return;
+    audioRef.current.currentTime = time;
+    setCurrentTime(time);
+  }, []);
 
   // Window position and size - use refs for smooth dragging performance
   const defaultWidth = 1100;
@@ -398,6 +421,9 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         audioUrl={page === 'post' ? currentAudioUrl : null}
         isPlaying={isPlaying}
         onToggleAudio={handleToggleAudio}
+        currentTime={currentTime}
+        duration={duration}
+        onSeek={handleSeek}
       />
 
       <div className="xp-content-area">
@@ -407,6 +433,9 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
           loading={loading}
           onNavigate={navigate}
           onSelectPost={handleSelectPost}
+          isAudioPlaying={isPlaying}
+          audioCurrentTime={currentTime}
+          audioDuration={duration}
         />
       </div>
 
