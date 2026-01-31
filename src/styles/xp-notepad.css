@@ -1530,8 +1530,16 @@ html, body {
 }
 
 .xp-post-view .post-content {
-    white-space: pre-wrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.xp-post-view .post-content .content-paragraph {
+    margin: 0 0 1.2em 0;
+    line-height: 1.7;
+}
+
+.xp-post-view .post-content .content-paragraph:last-child {
+    margin-bottom: 0;
 }
 
 .xp-post-view .post-content .internal-link {

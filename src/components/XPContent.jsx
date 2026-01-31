@@ -128,43 +128,56 @@ const XPSidebar = ({ currentPage, onNavigate }) => (
 
 // Parse content and convert internal links to clickable elements
 function parseContent(content, onNavigate) {
+  // Split content into paragraphs (double newline)
+  const paragraphs = content.split(/\n\n+/);
+
   // Match patterns like (/writings/slug/) or "text" (/writings/slug/)
   const linkPattern = /(?:"([^"]+)"\s*)?\(\/writings\/([a-z0-9-]+)\/?\)/g;
-  const parts = [];
-  let lastIndex = 0;
-  let match;
 
-  while ((match = linkPattern.exec(content)) !== null) {
-    // Add text before the match
-    if (match.index > lastIndex) {
-      parts.push(content.slice(lastIndex, match.index));
+  return paragraphs.map((paragraph, pIdx) => {
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    // Reset regex state
+    linkPattern.lastIndex = 0;
+
+    while ((match = linkPattern.exec(paragraph)) !== null) {
+      // Add text before the match
+      if (match.index > lastIndex) {
+        parts.push(paragraph.slice(lastIndex, match.index));
+      }
+
+      const linkText = match[1] || match[2].replace(/-/g, ' ');
+      const slug = match[2];
+
+      parts.push(
+        <a
+          key={`${pIdx}-${match.index}`}
+          className="internal-link"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('post', slug);
+          }}
+        >
+          {linkText}
+        </a>
+      );
+
+      lastIndex = match.index + match[0].length;
     }
 
-    const linkText = match[1] || match[2].replace(/-/g, ' ');
-    const slug = match[2];
+    // Add remaining text
+    if (lastIndex < paragraph.length) {
+      parts.push(paragraph.slice(lastIndex));
+    }
 
-    parts.push(
-      <a
-        key={match.index}
-        className="internal-link"
-        onClick={(e) => {
-          e.preventDefault();
-          onNavigate('post', slug);
-        }}
-      >
-        {linkText}
-      </a>
+    return (
+      <p key={pIdx} className="content-paragraph">
+        {parts.length > 0 ? parts : paragraph}
+      </p>
     );
-
-    lastIndex = match.index + match[0].length;
-  }
-
-  // Add remaining text
-  if (lastIndex < content.length) {
-    parts.push(content.slice(lastIndex));
-  }
-
-  return parts.length > 0 ? parts : content;
+  });
 }
 
 // Split content into sentences for highlighting
@@ -213,7 +226,7 @@ function getCurrentSentenceIndex(sentences, currentTime, duration) {
   return sentences.length - 1;
 }
 
-// Render content with sentence highlighting
+// Render content with sentence highlighting, preserving paragraphs
 function renderHighlightedContent(content, onNavigate, isPlaying, currentTime, duration) {
   // First, handle internal links by replacing them with placeholders
   const linkPattern = /(?:"([^"]+)"\s*)?\(\/writings\/([a-z0-9-]+)\/?\)/g;
@@ -224,55 +237,78 @@ function renderHighlightedContent(content, onNavigate, isPlaying, currentTime, d
     return `__LINK_${linkIndex++}__`;
   });
 
-  // Split into sentences
-  const sentences = splitIntoSentences(contentWithPlaceholders);
-  const currentSentenceIdx = isPlaying ? getCurrentSentenceIndex(sentences, currentTime, duration) : -1;
+  // Split into paragraphs first
+  const paragraphs = contentWithPlaceholders.split(/\n\n+/);
 
-  // Restore links and render
-  return sentences.map((sentence, idx) => {
-    // Restore any links in this sentence
-    let processed = sentence;
-    const parts = [];
-    let lastIndex = 0;
-    const linkPlaceholderPattern = /__LINK_(\d+)__/g;
-    let match;
+  // Get all sentences across all paragraphs for timing calculation
+  const allSentences = [];
+  const paragraphSentenceRanges = [];
+  paragraphs.forEach((para) => {
+    const startIdx = allSentences.length;
+    const paraSentences = splitIntoSentences(para);
+    allSentences.push(...paraSentences);
+    paragraphSentenceRanges.push({ start: startIdx, end: allSentences.length });
+  });
 
-    while ((match = linkPlaceholderPattern.exec(sentence)) !== null) {
-      // Add text before the link
-      if (match.index > lastIndex) {
-        parts.push(processed.slice(lastIndex, match.index));
+  const currentSentenceIdx = isPlaying ? getCurrentSentenceIndex(allSentences, currentTime, duration) : -1;
+
+  // Render each paragraph with its sentences
+  return paragraphs.map((paragraph, pIdx) => {
+    const { start, end } = paragraphSentenceRanges[pIdx];
+    const paraSentences = allSentences.slice(start, end);
+
+    const renderedSentences = paraSentences.map((sentence, sIdx) => {
+      const globalIdx = start + sIdx;
+
+      // Restore any links in this sentence
+      const parts = [];
+      let lastIndex = 0;
+      const linkPlaceholderPattern = /__LINK_(\d+)__/g;
+      let match;
+
+      while ((match = linkPlaceholderPattern.exec(sentence)) !== null) {
+        // Add text before the link
+        if (match.index > lastIndex) {
+          parts.push(sentence.slice(lastIndex, match.index));
+        }
+        // Add the link
+        const link = links[parseInt(match[1])];
+        parts.push(
+          <a
+            key={`link-${pIdx}-${sIdx}-${match[1]}`}
+            className="internal-link"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('post', link.slug);
+            }}
+          >
+            {link.text}
+          </a>
+        );
+        lastIndex = match.index + match[0].length;
       }
-      // Add the link
-      const link = links[parseInt(match[1])];
-      parts.push(
-        <a
-          key={`link-${idx}-${match[1]}`}
-          className="internal-link"
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate('post', link.slug);
-          }}
-        >
-          {link.text}
-        </a>
-      );
-      lastIndex = match.index + match[0].length;
-    }
-    // Add remaining text
-    if (lastIndex < sentence.length) {
-      parts.push(sentence.slice(lastIndex));
-    }
+      // Add remaining text
+      if (lastIndex < sentence.length) {
+        parts.push(sentence.slice(lastIndex));
+      }
 
-    const isHighlighted = idx === currentSentenceIdx;
-    const content = parts.length > 0 ? parts : sentence;
+      const isHighlighted = globalIdx === currentSentenceIdx;
+      const sentenceContent = parts.length > 0 ? parts : sentence;
+
+      return (
+        <span
+          key={sIdx}
+          className={`sentence ${isHighlighted ? 'sentence-highlighted' : ''}`}
+        >
+          {sentenceContent}{' '}
+        </span>
+      );
+    });
 
     return (
-      <span
-        key={idx}
-        className={`sentence ${isHighlighted ? 'sentence-highlighted' : ''}`}
-      >
-        {content}{' '}
-      </span>
+      <p key={pIdx} className="content-paragraph">
+        {renderedSentences}
+      </p>
     );
   });
 }
