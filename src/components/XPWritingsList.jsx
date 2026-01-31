@@ -329,11 +329,11 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
         <div className="toolbar-buttons">
           <button
             className={`toolbar-btn podcast-btn ${isPodcastPlaying ? 'active' : ''}`}
-            title={isPodcastPlaying ? "Pause podcast" : "Listen to all essays (35 min)"}
+            title={isPodcastPlaying ? "Pause NLM Podcast" : "NLM Podcast - Listen to all essays (35 min)"}
             onClick={handleTogglePodcast}
           >
             <PodcastIcon isPlaying={isPodcastPlaying} />
-            <span className="toolbar-label">Podcast</span>
+            <span className="toolbar-label">NLM Podcast of All Essays</span>
             <span className="podcast-duration">{podcastDuration ? formatTime(podcastDuration) : '35:00'}</span>
           </button>
           <button
