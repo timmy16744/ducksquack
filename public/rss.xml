@@ -5,7 +5,7 @@
     <link>https://ducksquack.me</link>
     <description>Essays on AI, Technology &amp; Society by Tim Hughes</description>
     <language>en-au</language>
-    <lastBuildDate>Sat, 31 Jan 2026 14:49:38 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 15:40:58 GMT</lastBuildDate>
     <atom:link href="https://ducksquack.me/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>The Fixed Point</title>
@@ -111,6 +111,13 @@
       <guid isPermaLink="true">https://ducksquack.me/#/writings/parenthood-in-the-age-of-super-intelligence</guid>
       <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
       <description>Reflects on becoming a father during the AI revolution, exploring how to prepare a child for a world where traditional education and work are being transformed.</description>
+    </item>
+    <item>
+      <title>After Scarcity, Mastery</title>
+      <link>https://ducksquack.me/#/writings/after-scarcity-mastery</link>
+      <guid isPermaLink="true">https://ducksquack.me/#/writings/after-scarcity-mastery</guid>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 GMT</pubDate>
+      <description>Envisions a post-scarcity future where survival is automated and meaning is found in craft and excellence for its own sake. Proposes the foundations needed: closed-loop manufacturing, peace infrastructure, and stable capital.</description>
     </item>
     <item>
       <title>Reverse Engineering Nature&apos;s Quantum</title>

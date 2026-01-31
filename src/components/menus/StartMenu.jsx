@@ -104,20 +104,16 @@ const ArrowIcon = () => (
   </svg>
 );
 
-// User avatar placeholder
+// User avatar with profile picture
 const UserAvatar = () => (
   <div className="start-menu-avatar">
-    <svg width="48" height="48" viewBox="0 0 48 48">
-      <defs>
-        <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#6090c0"/>
-          <stop offset="100%" stopColor="#4070a0"/>
-        </linearGradient>
-      </defs>
-      <rect width="48" height="48" rx="4" fill="url(#avatarBg)"/>
-      <circle cx="24" cy="18" r="10" fill="#e0d0c0"/>
-      <ellipse cx="24" cy="44" rx="16" ry="14" fill="#e0d0c0"/>
-    </svg>
+    <img
+      src="/assets/tim-profile-small.jpg"
+      alt="Tim Hughes"
+      width="48"
+      height="48"
+      style={{ borderRadius: '4px', objectFit: 'cover' }}
+    />
   </div>
 );
 
