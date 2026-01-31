@@ -4,6 +4,7 @@ import XPTaskbar from './XPTaskbar';
 import WindowsBubbles from './WindowsBubbles';
 import DateTimeDialog from './dialogs/DateTimeDialog';
 import StartMenu from './menus/StartMenu';
+import MSNMessenger from './MSNMessenger';
 
 export default function XPDesktop() {
   const [minimizedWindows, setMinimizedWindows] = useState([]);
@@ -11,6 +12,8 @@ export default function XPDesktop() {
   const [windowTitle, setWindowTitle] = useState('DuckSquack');
   const [dateTimeDialogOpen, setDateTimeDialogOpen] = useState(false);
   const [startMenuOpen, setStartMenuOpen] = useState(false);
+  const [secretUnlocked, setSecretUnlocked] = useState(false);
+  const [msnOpen, setMsnOpen] = useState(false);
 
   const handleMinimize = (title) => {
     setWindowVisible(false);
@@ -61,9 +64,31 @@ export default function XPDesktop() {
     window.dispatchEvent(new PopStateEvent('popstate'));
   }, []);
 
+  const handleAllBubblesPopped = useCallback(() => {
+    setSecretUnlocked(true);
+  }, []);
+
+  const handleSecretClick = useCallback(() => {
+    window.history.pushState({}, '', '/writings/for-arthur/');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    setWindowVisible(true);
+    setMinimizedWindows([]);
+    setSecretUnlocked(false);
+  }, []);
+
+  const handleMSNClick = useCallback(() => {
+    setMsnOpen(prev => !prev);
+    setStartMenuOpen(false);
+    setDateTimeDialogOpen(false);
+  }, []);
+
+  const handleMSNClose = useCallback(() => {
+    setMsnOpen(false);
+  }, []);
+
   return (
     <div className="xp-desktop">
-      <WindowsBubbles />
+      <WindowsBubbles onAllPopped={handleAllBubblesPopped} />
       <XPNotepad
         isVisible={windowVisible}
         onMinimize={handleMinimize}
@@ -75,7 +100,12 @@ export default function XPDesktop() {
         onClockClick={handleClockClick}
         onStartClick={handleStartClick}
         startMenuOpen={startMenuOpen}
+        notificationWindows={secretUnlocked ? [{ id: 'secret', title: 'For Arthur' }] : []}
+        onNotificationClick={handleSecretClick}
+        onMSNClick={handleMSNClick}
       />
+
+      <MSNMessenger isOpen={msnOpen} onClose={handleMSNClose} />
 
       {startMenuOpen && (
         <StartMenu

@@ -3,7 +3,6 @@ import { useRoute } from '../hooks/useRoute';
 import { useWriting } from '../hooks/useWriting';
 import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
-import XPCommentBar from './XPCommentBar';
 
 export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange }) {
   const { page, slug, navigate } = useRoute();
@@ -438,8 +437,6 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
           audioDuration={duration}
         />
       </div>
-
-      <XPCommentBar currentPage={page} currentPost={currentPost} />
 
       {/* Hidden audio element for playback */}
       {currentAudioUrl && (

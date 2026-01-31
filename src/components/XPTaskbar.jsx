@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MSNTrayIcon } from './MSNMessenger';
 
 // Windows XP Start button logo
 const StartLogo = () => (
@@ -51,7 +52,10 @@ export default function XPTaskbar({
   onRestoreWindow,
   onStartClick,
   onClockClick,
-  startMenuOpen
+  startMenuOpen,
+  notificationWindows,
+  onNotificationClick,
+  onMSNClick
 }) {
   const [time, setTime] = useState(new Date());
 
@@ -91,10 +95,21 @@ export default function XPTaskbar({
             <span className="taskbar-window-title">{window.title}</span>
           </button>
         ))}
+        {notificationWindows?.map((win) => (
+          <button
+            key={win.id}
+            className="taskbar-window-btn flashing"
+            onClick={() => onNotificationClick(win.id)}
+          >
+            <NotepadIcon />
+            <span className="taskbar-window-title">{win.title}</span>
+          </button>
+        ))}
       </div>
 
       <div className="taskbar-tray">
         <div className="tray-divider"></div>
+        <MSNTrayIcon onClick={onMSNClick} />
         <div
           className="taskbar-clock"
           onClick={onClockClick}
