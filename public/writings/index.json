@@ -1,5 +1,14 @@
 [
   {
+    "title": "The Fixed Point",
+    "date": "2026-02-01T00:00:00.000Z",
+    "color": "blue",
+    "slug": "the-fixed-point",
+    "wordCount": 2881,
+    "synopsis": "Reflects on world models and the strange loop where matter arranges itself into configurations that simulate the physics that produced it. Intelligence as the universe comprehending itself.",
+    "preview": "I have been playing with Genie 3. That verb feels important to get right. Playing. Not testing, not evaluating, not conducting research. Playing, i..."
+  },
+  {
     "title": "The Rustle in the Grass",
     "date": "2026-01-26",
     "color": "orange",
@@ -180,15 +189,6 @@
       "url": "/audio/AI_parenthood-in-the-age-of-super-intelligence.mp3",
       "duration": 356
     }
-  },
-  {
-    "title": "The Fixed Point",
-    "date": "2025-02-01T00:00:00.000Z",
-    "color": "blue",
-    "slug": "the-fixed-point",
-    "wordCount": 2881,
-    "synopsis": "Reflects on world models and the strange loop where matter arranges itself into configurations that simulate the physics that produced it. Intelligence as the universe comprehending itself.",
-    "preview": "I have been playing with Genie 3. That verb feels important to get right. Playing. Not testing, not evaluating, not conducting research. Playing, i..."
   },
   {
     "title": "Reverse Engineering Nature's Quantum",
