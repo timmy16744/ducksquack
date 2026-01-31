@@ -33,18 +33,6 @@ const MSNLogo = ({ size = 24 }) => (
   </svg>
 );
 
-// Small tray icon version
-export const MSNTrayIcon = ({ hasUnread = false, onClick }) => (
-  <div
-    className="msn-tray-icon"
-    onClick={onClick}
-    title="MSN Messenger - Send Tim a message"
-  >
-    <MSNLogo size={18} />
-    {hasUnread && <span className="msn-unread-dot" />}
-  </div>
-);
-
 // Online status indicator
 const OnlineIndicator = () => (
   <svg width="10" height="10" viewBox="0 0 10 10">
@@ -172,14 +160,31 @@ export default function MSNMessenger({ isOpen, onClose }) {
           <span>Tim Hughes - Conversation</span>
         </div>
         <div className="msn-title-bar-controls">
-          <button className="msn-btn-minimize" onClick={onClose}>
-            <span>_</span>
+          <button aria-label="Minimize" onClick={onClose}>
+            <span style={{
+              display: 'block',
+              width: '8px',
+              height: '2px',
+              background: 'white',
+              marginTop: '6px'
+            }}></span>
           </button>
-          <button className="msn-btn-maximize" disabled>
-            <span>[]</span>
+          <button aria-label="Maximize" disabled>
+            <span style={{
+              display: 'block',
+              width: '9px',
+              height: '9px',
+              border: '1px solid white',
+              borderTop: '2px solid white'
+            }}></span>
           </button>
-          <button className="msn-btn-close" onClick={onClose}>
-            <span>X</span>
+          <button aria-label="Close" onClick={onClose}>
+            <span style={{
+              color: 'white',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              lineHeight: '1'
+            }}>×</span>
           </button>
         </div>
       </div>

@@ -2288,34 +2288,35 @@ html, body {
 .msn-title-bar-controls button {
     width: 21px;
     height: 21px;
-    border: none;
+    min-width: 21px;
+    min-height: 21px;
+    padding: 0;
     border-radius: 3px;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
+    border: none;
+    background: linear-gradient(180deg, #3c89cf 0%, #2764a3 50%, #1e5185 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    cursor: pointer;
 }
 
-.msn-btn-minimize, .msn-btn-maximize {
-    background: linear-gradient(180deg, #3c89cf 0%, #2764a3 50%, #1e5185 100%);
-}
-
-.msn-btn-minimize:hover, .msn-btn-maximize:hover {
+.msn-title-bar-controls button:hover {
     background: linear-gradient(180deg, #5ca7eb 0%, #3d8cd1 50%, #2d6aa9 100%);
 }
 
-.msn-btn-close {
+.msn-title-bar-controls button:active {
+    background: linear-gradient(180deg, #1e5185 0%, #2764a3 50%, #3c89cf 100%);
+}
+
+.msn-title-bar-controls button[aria-label="Close"] {
     background: linear-gradient(180deg, #c75050 0%, #b33030 50%, #9a1c1c 100%);
 }
 
-.msn-btn-close:hover {
+.msn-title-bar-controls button[aria-label="Close"]:hover {
     background: linear-gradient(180deg, #e06060 0%, #c94040 50%, #b02828 100%);
 }
 
-.msn-btn-maximize:disabled {
+.msn-title-bar-controls button:disabled {
     opacity: 0.5;
     cursor: default;
 }

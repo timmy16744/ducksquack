@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MSNTrayIcon } from './MSNMessenger';
 
 // Windows XP Start button logo
 const StartLogo = () => (
@@ -26,6 +25,30 @@ const StartLogo = () => (
     <rect x="9" y="1" width="6" height="6" rx="1" fill="url(#winGreen)"/>
     <rect x="1" y="9" width="6" height="6" rx="1" fill="url(#winBlue)"/>
     <rect x="9" y="9" width="6" height="6" rx="1" fill="url(#winYellow)"/>
+  </svg>
+);
+
+// MSN Messenger icon for taskbar
+const MSNIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="msnOrangeTask" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#FFB347"/>
+        <stop offset="100%" stopColor="#FF6B00"/>
+      </linearGradient>
+      <linearGradient id="msnGreenTask" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#7ED957"/>
+        <stop offset="100%" stopColor="#38A800"/>
+      </linearGradient>
+      <linearGradient id="msnBlueTask" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#5BC8F7"/>
+        <stop offset="100%" stopColor="#0078D4"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="8" cy="10" rx="5" ry="7" fill="url(#msnOrangeTask)" transform="rotate(-20 8 10)"/>
+    <ellipse cx="16" cy="10" rx="5" ry="7" fill="url(#msnGreenTask)" transform="rotate(20 16 10)"/>
+    <ellipse cx="12" cy="14" rx="1.5" ry="3" fill="url(#msnBlueTask)"/>
+    <circle cx="12" cy="8" r="2" fill="url(#msnBlueTask)"/>
   </svg>
 );
 
@@ -85,6 +108,14 @@ export default function XPTaskbar({
       <div className="taskbar-divider"></div>
 
       <div className="taskbar-windows">
+        <button
+          className="taskbar-window-btn taskbar-msn-btn"
+          onClick={onMSNClick}
+          title="MSN Messenger - Send Tim a message"
+        >
+          <MSNIcon />
+          <span className="taskbar-window-title">MSN Messenger</span>
+        </button>
         {minimizedWindows.map((window) => (
           <button
             key={window.id}
@@ -109,7 +140,6 @@ export default function XPTaskbar({
 
       <div className="taskbar-tray">
         <div className="tray-divider"></div>
-        <MSNTrayIcon onClick={onMSNClick} />
         <div
           className="taskbar-clock"
           onClick={onClockClick}
