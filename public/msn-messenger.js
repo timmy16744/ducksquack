@@ -391,7 +391,7 @@ class MSNMessengerChat extends HTMLElement {
       </div>
       <div class="chat">
         <div class="chat-area">
-          <textarea class="chat-input" placeholder="Type a message..."></textarea>
+          <textarea class="chat-input"></textarea>
         </div>
         <div class="buttons">
           <button class="normal send-btn"><span>S</span>end</button>
