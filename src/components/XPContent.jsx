@@ -336,7 +336,7 @@ This is my echo.`}
             <div className="contact-section">
               <h2>Contact</h2>
               <p>
-                Twitter: <a href="https://twitter.com/timmy16744" target="_blank" rel="noopener noreferrer">@timmy16744</a>
+                Twitter: <a href="https://twitter.com/timhughes92" target="_blank" rel="noopener noreferrer">@timhughes92</a>
               </p>
               <p>
                 RSS: <a href="/rss.xml" target="_blank" rel="noopener noreferrer">Subscribe to new posts</a>
