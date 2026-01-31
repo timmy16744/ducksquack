@@ -100,7 +100,8 @@ const SYNOPSES = {
   'the-meaning-void': 'Asks what happens to meaning when work disappears, suggesting the answer may involve returning to older sources of identity: community, presence, and local contribution.',
   'the-chronic-patient-and-the-algorithm': 'Fifteen years of healthcare system failures examined through the lens of chronic illness, exploring how AI might fix informational failures while human presence remains irreplaceable.',
   'digital-sovereignty': 'Examines Australia\'s dependence on foreign-controlled digital infrastructure, asking what sovereignty means when critical systems are owned by others.',
-  'the-loneliness-dividend': 'Explores how loneliness has become an industry, with AI companions as the latest product that addresses the symptom while leaving the underlying causes untouched.'
+  'the-loneliness-dividend': 'Explores how loneliness has become an industry, with AI companions as the latest product that addresses the symptom while leaving the underlying causes untouched.',
+  'the-fixed-point': 'Reflects on world models and the strange loop where matter arranges itself into configurations that simulate the physics that produced it. Intelligence as the universe comprehending itself.'
 };
 
 function processWritings() {
