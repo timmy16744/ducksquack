@@ -46,6 +46,27 @@ const LinkIcon = () => (
   </svg>
 );
 
+// Small volume icon for podcast toolbar
+const VolumeIcon = ({ volume = 1 }) => (
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+      <linearGradient id="volBody" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#6090D0"/>
+        <stop offset="100%" stopColor="#3060A0"/>
+      </linearGradient>
+    </defs>
+    <path d="M2 6v4h2.5l3 3V3L4.5 6H2z" fill="url(#volBody)" stroke="#204080" strokeWidth="0.5"/>
+    {volume === 0 ? (
+      <path d="M9 5l4 6M13 5l-4 6" fill="none" stroke="#C04040" strokeWidth="1.5" strokeLinecap="round"/>
+    ) : (
+      <>
+        <path d="M9.5 5.5c1 0.8 1 4.2 0 5" fill="none" stroke="#4080C0" strokeWidth="1" strokeLinecap="round" opacity={volume > 0.3 ? 1 : 0.3}/>
+        <path d="M11 4c1.8 1.5 1.8 6.5 0 8" fill="none" stroke="#4080C0" strokeWidth="1" strokeLinecap="round" opacity={volume > 0.6 ? 1 : 0.3}/>
+      </>
+    )}
+  </svg>
+);
+
 // XP-style document icon as inline SVG
 const DocumentIcon = ({ size = 16, className = '' }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" className={className} style={{ flexShrink: 0 }}>
@@ -152,10 +173,15 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
   // Podcast audio state
   const podcastRef = useRef(null);
   const progressRef = useRef(null);
+  const volumeRef = useRef(null);
   const [isPodcastPlaying, setIsPodcastPlaying] = useState(false);
   const [podcastTime, setPodcastTime] = useState(0);
   const [podcastDuration, setPodcastDuration] = useState(0);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [podcastVolume, setPodcastVolume] = useState(() => {
+    const saved = localStorage.getItem('podcastVolume');
+    return saved ? parseFloat(saved) : 0.8;
+  });
 
   // Podcast audio event handlers
   useEffect(() => {
@@ -176,6 +202,11 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     audio.addEventListener('ended', handleEnded);
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    // Check if metadata is already loaded (readyState >= 1)
+    if (audio.readyState >= 1 && audio.duration) {
+      setPodcastDuration(audio.duration);
+    }
 
     return () => {
       audio.removeEventListener('ended', handleEnded);
@@ -199,15 +230,20 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
 
   const handleTogglePodcast = useCallback(() => {
     if (!podcastRef.current) return;
+    const audio = podcastRef.current;
     const url = new URL(window.location);
     if (isPodcastPlaying) {
-      podcastRef.current.pause();
+      audio.pause();
       setIsPodcastPlaying(false);
       url.searchParams.delete('podcast');
       window.history.replaceState({}, '', url);
     } else {
-      podcastRef.current.play().catch(() => {});
+      audio.play().catch(() => {});
       setIsPodcastPlaying(true);
+      // Ensure duration is set when playing starts
+      if (audio.duration && !isNaN(audio.duration)) {
+        setPodcastDuration(audio.duration);
+      }
       url.searchParams.set('podcast', '1');
       window.history.replaceState({}, '', url);
     }
@@ -237,7 +273,37 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
     handlePodcastSeek(e);
   }, [handlePodcastSeek]);
 
+  const handleVolumeChange = useCallback((newVolume) => {
+    const clamped = Math.max(0, Math.min(1, newVolume));
+    setPodcastVolume(clamped);
+    localStorage.setItem('podcastVolume', clamped.toString());
+    if (podcastRef.current) {
+      podcastRef.current.volume = clamped;
+    }
+  }, []);
+
+  const handleVolumeSeek = useCallback((e) => {
+    if (!volumeRef.current) return;
+    const rect = volumeRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    handleVolumeChange(percent);
+  }, [handleVolumeChange]);
+
+  const handleVolumeDrag = useCallback((e) => {
+    if (e.buttons !== 1) return;
+    handleVolumeSeek(e);
+  }, [handleVolumeSeek]);
+
+  // Sync volume to audio element on mount
+  useEffect(() => {
+    if (podcastRef.current) {
+      podcastRef.current.volume = podcastVolume;
+    }
+  }, [podcastVolume]);
+
   const podcastProgress = podcastDuration > 0 ? (podcastTime / podcastDuration) * 100 : 0;
+  const volumePercent = podcastVolume * 100;
 
   useEffect(() => {
     fetchWritingsIndex()
@@ -358,6 +424,27 @@ export default function XPWritingsList({ onSelectPost, onNavigate }) {
                   <div className="audio-progress-thumb" style={{ left: `${podcastProgress}%` }} />
                 </div>
                 <span className="audio-time">{formatTime(podcastDuration)}</span>
+              </div>
+              <div className="podcast-volume-control">
+                <button
+                  className="volume-btn"
+                  onClick={() => handleVolumeChange(podcastVolume === 0 ? 0.8 : 0)}
+                  title={podcastVolume === 0 ? "Unmute" : "Mute"}
+                >
+                  <VolumeIcon volume={podcastVolume} />
+                </button>
+                <div
+                  ref={volumeRef}
+                  className="volume-slider"
+                  onClick={handleVolumeSeek}
+                  onMouseMove={handleVolumeDrag}
+                  title={`Volume: ${Math.round(volumePercent)}%`}
+                >
+                  <div className="volume-track">
+                    <div className="volume-fill" style={{ width: `${volumePercent}%` }} />
+                    <div className="volume-thumb" style={{ left: `${volumePercent}%` }} />
+                  </div>
+                </div>
               </div>
             </>
           )}

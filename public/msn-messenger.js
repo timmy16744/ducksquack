@@ -438,7 +438,6 @@ class MSNMessengerChat extends HTMLElement {
   setupEvents() {
     const sendBtn = this.shadowRoot.querySelector('.send-btn');
     const textarea = this.shadowRoot.querySelector('.chat-input');
-    const emojiPicker = this.shadowRoot.querySelector('.emoji-picker');
 
     sendBtn.addEventListener('click', () => this.sendMessage());
     textarea.addEventListener('keydown', (e) => {
@@ -462,8 +461,8 @@ class MSNMessengerChat extends HTMLElement {
       });
     });
 
-    // Listen for button clicks from action bar
-    this.addEventListener('msn-button-click', (e) => {
+    // Listen for button clicks from action bar (listening on shadowRoot to catch composed events)
+    this.shadowRoot.addEventListener('msn-button-click', (e) => {
       if (e.detail.type === 'happy') {
         this.toggleEmojiPicker();
       } else if (e.detail.type === 'wink') {
@@ -481,7 +480,10 @@ class MSNMessengerChat extends HTMLElement {
 
     // Close emoji picker when clicking outside
     document.addEventListener('click', (e) => {
-      if (!this.contains(e.target)) {
+      // Use composedPath to properly check if click was inside this element (across shadow DOM)
+      const path = e.composedPath();
+      const clickedInside = path.includes(this);
+      if (!clickedInside) {
         this.hideEmojiPicker();
       }
     });
@@ -513,7 +515,9 @@ class MSNMessengerChat extends HTMLElement {
   toggleEmojiPicker() {
     const picker = this.shadowRoot.querySelector('.emoji-picker');
     this.showEmojiPicker = !this.showEmojiPicker;
-    picker.classList.toggle('show', this.showEmojiPicker);
+    if (picker) {
+      picker.classList.toggle('show', this.showEmojiPicker);
+    }
   }
 
   hideEmojiPicker() {
@@ -1079,6 +1083,8 @@ class MSNMessengerWindow extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    this.isDragging = false;
+    this.dragOffset = { x: 0, y: 0 };
   }
 
   static get styles() {
@@ -1087,6 +1093,10 @@ class MSNMessengerWindow extends HTMLElement {
         --width: 475px;
         --height: 400px;
         --border-radius: 6px;
+        position: absolute;
+        left: 80px;
+        top: 60px;
+        pointer-events: auto;
       }
       .container {
         width: var(--width);
@@ -1101,6 +1111,10 @@ class MSNMessengerWindow extends HTMLElement {
           5px 5px 10px #000c;
         position: relative;
         transform: translate(var(--x, 0), var(--y, 0));
+        cursor: default;
+      }
+      msn-messenger-toolbar {
+        cursor: move;
       }
       .border-window {
           position: absolute;
@@ -1146,12 +1160,73 @@ class MSNMessengerWindow extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.setupDragHandlers();
     this.addEventListener("nudge", () => this.nudge());
     this.addEventListener("message-sent", (e) => {
       const historyChat = this.shadowRoot.querySelector('msn-messenger-remote-user')
         .shadowRoot.querySelector('msn-messenger-history-chat');
       historyChat.addMessage(e.detail.message, e.detail.time, e.detail.format);
     });
+  }
+
+  setupDragHandlers() {
+    const toolbar = this.shadowRoot.querySelector('msn-messenger-toolbar');
+    const container = this.shadowRoot.querySelector('.container');
+
+    const onMouseDown = (e) => {
+      // Only drag from toolbar area and not from buttons
+      const path = e.composedPath();
+
+      // Check if we're in the toolbar area (first 60px of the window)
+      const containerRect = container.getBoundingClientRect();
+      const relativeY = e.clientY - containerRect.top;
+      const inToolbarArea = relativeY < 60;
+
+      // Check if the actual click target is a button or interactive element
+      // Only check the first 3 elements - the clicked element and its immediate shadow hosts
+      const clickedButton = path.slice(0, 3).some(el => {
+        if (!el.tagName) return false;
+        const tag = el.tagName.toLowerCase();
+        return tag === 'button' || tag === 'img' || el.classList?.contains('window-btn');
+      });
+
+      if (!inToolbarArea || clickedButton) return;
+
+      this.isDragging = true;
+      const windowRect = this.getBoundingClientRect();
+      this.dragOffset = {
+        x: e.clientX - windowRect.left,
+        y: e.clientY - windowRect.top
+      };
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+      e.preventDefault();
+    };
+
+    const onMouseMove = (e) => {
+      if (!this.isDragging) return;
+
+      // Calculate new position - window coordinates
+      let newX = e.clientX - this.dragOffset.x;
+      let newY = e.clientY - this.dragOffset.y;
+
+      // Keep window within viewport bounds
+      newX = Math.max(0, Math.min(newX, window.innerWidth - 475));
+      newY = Math.max(0, Math.min(newY, window.innerHeight - 400));
+
+      // Apply position via style
+      this.style.left = `${newX}px`;
+      this.style.top = `${newY}px`;
+    };
+
+    const onMouseUp = () => {
+      this.isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    container.addEventListener('mousedown', onMouseDown);
   }
 
   render() {

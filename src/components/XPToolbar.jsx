@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 
 // XP-style back arrow icon
 const BackIcon = ({ disabled = false }) => (
@@ -73,7 +73,7 @@ const PersonIcon = ({ active = false }) => (
 );
 
 // Speaker icon for audio playback
-const SpeakerIcon = ({ isPlaying = false }) => (
+const SpeakerIcon = ({ isPlaying = false, volume = 1 }) => (
   <svg width="20" height="20" viewBox="0 0 20 20">
     <defs>
       <linearGradient id="speakerBody" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -83,11 +83,14 @@ const SpeakerIcon = ({ isPlaying = false }) => (
     </defs>
     {/* Speaker body */}
     <path d="M3 8v4h3l4 4V4L6 8H3z" fill="url(#speakerBody)" stroke={isPlaying ? "#204080" : "#303030"} strokeWidth="0.75"/>
-    {/* Sound waves */}
-    {isPlaying ? (
+    {/* Sound waves - show based on volume */}
+    {volume === 0 ? (
+      /* Muted - show X */
+      <path d="M12 7l5 6M17 7l-5 6" fill="none" stroke="#C04040" strokeWidth="1.5" strokeLinecap="round"/>
+    ) : isPlaying ? (
       <>
-        <path d="M12 7c1.5 1 1.5 5 0 6" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M14 5c2.5 2 2.5 8 0 10" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M12 7c1.5 1 1.5 5 0 6" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round" opacity={volume > 0.3 ? 1 : 0.4}/>
+        <path d="M14 5c2.5 2 2.5 8 0 10" fill="none" stroke="#4080C0" strokeWidth="1.5" strokeLinecap="round" opacity={volume > 0.6 ? 1 : 0.3}/>
       </>
     ) : (
       <>
@@ -97,6 +100,41 @@ const SpeakerIcon = ({ isPlaying = false }) => (
     )}
   </svg>
 );
+
+// Volume slider component
+const VolumeSlider = ({ volume, onChange }) => {
+  const sliderRef = useRef(null);
+
+  const handleClick = useCallback((e) => {
+    if (!sliderRef.current) return;
+    const rect = sliderRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const newVolume = Math.max(0, Math.min(1, x / rect.width));
+    onChange(newVolume);
+  }, [onChange]);
+
+  const handleDrag = useCallback((e) => {
+    if (e.buttons !== 1) return;
+    handleClick(e);
+  }, [handleClick]);
+
+  const percentage = volume * 100;
+
+  return (
+    <div
+      ref={sliderRef}
+      className="volume-slider"
+      onClick={handleClick}
+      onMouseMove={handleDrag}
+      title={`Volume: ${Math.round(percentage)}%`}
+    >
+      <div className="volume-track">
+        <div className="volume-fill" style={{ width: `${percentage}%` }} />
+        <div className="volume-thumb" style={{ left: `${percentage}%` }} />
+      </div>
+    </div>
+  );
+};
 
 // Writings icon - Documents/Files
 const DocumentsIcon = ({ active = false }) => (
@@ -131,8 +169,9 @@ const formatTime = (seconds) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio, currentTime = 0, duration = 0, onSeek }) {
+export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio, currentTime = 0, duration = 0, onSeek, volume = 0.8, onVolumeChange }) {
   const progressRef = useRef(null);
+  const [showVolumeSlider, setShowVolumeSlider] = useState(false);
 
   const handleProgressClick = useCallback((e) => {
     if (!progressRef.current || !duration || !onSeek) return;
@@ -210,7 +249,7 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
               title={isPlaying ? "Pause audio" : "Play audio"}
               onClick={onToggleAudio}
             >
-              <SpeakerIcon isPlaying={isPlaying} />
+              <SpeakerIcon isPlaying={isPlaying} volume={volume} />
               <span className="toolbar-label">{isPlaying ? 'Pause' : 'Listen'}</span>
             </button>
             {(isPlaying || currentTime > 0) && (
@@ -226,6 +265,18 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
                   <div className="audio-progress-thumb" style={{ left: `${progress}%` }} />
                 </div>
                 <span className="audio-time">{formatTime(duration)}</span>
+              </div>
+            )}
+            {onVolumeChange && (
+              <div className="audio-volume-control">
+                <button
+                  className="volume-btn"
+                  onClick={() => onVolumeChange(volume === 0 ? 0.8 : 0)}
+                  title={volume === 0 ? "Unmute" : "Mute"}
+                >
+                  <SpeakerIcon isPlaying={true} volume={volume} />
+                </button>
+                <VolumeSlider volume={volume} onChange={onVolumeChange} />
               </div>
             )}
           </div>

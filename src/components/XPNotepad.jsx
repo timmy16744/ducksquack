@@ -14,7 +14,28 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(() => {
+    // Persist volume in localStorage
+    const saved = localStorage.getItem('audioVolume');
+    return saved ? parseFloat(saved) : 0.8;
+  });
   const currentAudioUrl = currentPost?.audio?.url || null;
+
+  // Sync volume to audio element
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  const handleVolumeChange = useCallback((newVolume) => {
+    const clamped = Math.max(0, Math.min(1, newVolume));
+    setVolume(clamped);
+    localStorage.setItem('audioVolume', clamped.toString());
+    if (audioRef.current) {
+      audioRef.current.volume = clamped;
+    }
+  }, []);
 
   // Stop audio when navigating away from post
   useEffect(() => {
@@ -423,6 +444,8 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         currentTime={currentTime}
         duration={duration}
         onSeek={handleSeek}
+        volume={volume}
+        onVolumeChange={handleVolumeChange}
       />
 
       <div className="xp-content-area">
