@@ -25,17 +25,12 @@ const MSNButterfly = ({ size = 32 }) => (
         <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
       </radialGradient>
     </defs>
-    {/* Left wing - orange */}
     <ellipse cx="10" cy="12" rx="8" ry="10" fill="url(#wingOrange)" transform="rotate(-15 10 12)"/>
     <ellipse cx="10" cy="12" rx="8" ry="10" fill="url(#wingShine)" transform="rotate(-15 10 12)"/>
-    {/* Right wing - green */}
     <ellipse cx="22" cy="12" rx="8" ry="10" fill="url(#wingGreen)" transform="rotate(15 22 12)"/>
     <ellipse cx="22" cy="12" rx="8" ry="10" fill="url(#wingShine)" transform="rotate(15 22 12)"/>
-    {/* Body */}
     <ellipse cx="16" cy="18" rx="2.5" ry="6" fill="url(#wingBlue)"/>
-    {/* Head */}
     <circle cx="16" cy="10" r="3" fill="url(#wingBlue)"/>
-    {/* Antennae */}
     <path d="M14.5 8Q12 4 9 5" stroke="#0078D4" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
     <path d="M17.5 8Q20 4 23 5" stroke="#0078D4" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
     <circle cx="9" cy="5" r="1" fill="#0078D4"/>
@@ -45,112 +40,129 @@ const MSNButterfly = ({ size = 32 }) => (
 
 // Toolbar icons
 const InviteIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <circle cx="8" cy="6" r="3" fill="#4A90A4"/>
-    <path d="M3 16c0-3 2-5 5-5s5 2 5 5" fill="#4A90A4"/>
-    <circle cx="14" cy="8" r="2" fill="#7AB8CC"/>
-    <path d="M11 16c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5" fill="#7AB8CC"/>
-    <path d="M16 4v4M14 6h4" stroke="#2E7D32" strokeWidth="1.5"/>
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <circle cx="8" cy="7" r="3.5" fill="#4A90A4"/>
+    <path d="M2 18c0-4 2.5-6 6-6s6 2 6 6" fill="#4A90A4"/>
+    <circle cx="15" cy="9" r="2.5" fill="#7AB8CC"/>
+    <path d="M11 18c0-3 2-4.5 4-4.5s4 1.5 4 4.5" fill="#7AB8CC"/>
+    <path d="M17 4v5M14.5 6.5h5" stroke="#2E7D32" strokeWidth="1.8"/>
   </svg>
 );
 
 const SendFilesIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <rect x="3" y="4" width="10" height="12" rx="1" fill="#F5D547" stroke="#B8941F" strokeWidth="0.5"/>
-    <path d="M6 8h4M6 10h4M6 12h2" stroke="#8B7355" strokeWidth="1"/>
-    <path d="M11 7l4-3v12l-4-3" fill="#4A90A4"/>
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <rect x="3" y="4" width="11" height="14" rx="1" fill="#F5D547" stroke="#B8941F" strokeWidth="0.5"/>
+    <path d="M6 8h5M6 10.5h5M6 13h3" stroke="#8B7355" strokeWidth="1.2"/>
+    <path d="M12 8l5-4v14l-5-4" fill="#4A90A4"/>
+  </svg>
+);
+
+const VideoIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <rect x="2" y="6" width="12" height="10" rx="2" fill="#5C6BC0"/>
+    <path d="M14 9l5-3v10l-5-3z" fill="#7986CB"/>
+    <circle cx="8" cy="11" r="2" fill="#9FA8DA"/>
   </svg>
 );
 
 const VoiceIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <ellipse cx="10" cy="8" rx="3" ry="5" fill="#666"/>
-    <path d="M5 8c0 4 2.5 6 5 6s5-2 5-6" fill="none" stroke="#666" strokeWidth="1.5"/>
-    <path d="M10 14v3M7 17h6" stroke="#666" strokeWidth="1.5"/>
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <ellipse cx="11" cy="8" rx="3" ry="5" fill="#666"/>
+    <path d="M6 8c0 4 2.5 7 5 7s5-3 5-7" fill="none" stroke="#666" strokeWidth="1.5"/>
+    <path d="M11 15v4M8 19h6" stroke="#666" strokeWidth="1.5"/>
   </svg>
 );
 
 const ActivitiesIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <circle cx="10" cy="10" r="7" fill="none" stroke="#E65100" strokeWidth="2"/>
-    <circle cx="10" cy="10" r="3" fill="#FFB74D"/>
-    <path d="M10 3v2M10 15v2M3 10h2M15 10h2" stroke="#E65100" strokeWidth="1.5"/>
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <circle cx="11" cy="11" r="8" fill="none" stroke="#E65100" strokeWidth="2"/>
+    <circle cx="11" cy="11" r="3" fill="#FFB74D"/>
+    <path d="M11 3v2.5M11 15.5v2.5M3 11h2.5M15.5 11h2.5" stroke="#E65100" strokeWidth="1.5"/>
   </svg>
 );
 
 const GamesIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20">
-    <rect x="2" y="6" width="16" height="10" rx="3" fill="#5C6BC0"/>
-    <circle cx="6" cy="11" r="2" fill="#303F9F"/>
-    <rect x="12" y="9" width="4" height="4" rx="1" fill="#303F9F"/>
-    <circle cx="6" cy="11" r="1" fill="#9FA8DA"/>
+  <svg width="22" height="22" viewBox="0 0 22 22">
+    <rect x="2" y="6" width="18" height="11" rx="3" fill="#5C6BC0"/>
+    <circle cx="7" cy="11.5" r="2.5" fill="#303F9F"/>
+    <rect x="13" y="9" width="5" height="5" rx="1" fill="#303F9F"/>
+    <circle cx="7" cy="11.5" r="1.2" fill="#9FA8DA"/>
   </svg>
 );
 
-// Info icon
-const InfoIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14">
-    <circle cx="7" cy="7" r="6" fill="#3B7BBE" stroke="#2557A3" strokeWidth="0.5"/>
-    <text x="7" y="11" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">i</text>
-  </svg>
-);
-
-// Warning icon
-const WarningIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14">
-    <path d="M7 1L13 12H1L7 1Z" fill="#FFD93D" stroke="#C9A400" strokeWidth="0.5"/>
-    <text x="7" y="10" textAnchor="middle" fill="#5D4E00" fontSize="8" fontWeight="bold">!</text>
-  </svg>
-);
-
-// Format toolbar icons
-const FontIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <text x="4" y="14" fontSize="14" fontWeight="bold" fill="#333" fontFamily="Times New Roman">A</text>
+// Emoticon icons
+const LetterIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <text x="3" y="13" fontSize="12" fontWeight="bold" fill="#333" fontFamily="Times New Roman">A</text>
   </svg>
 );
 
 const EmoticonIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <circle cx="9" cy="9" r="7" fill="#FFD93D" stroke="#E6A800" strokeWidth="0.5"/>
-    <circle cx="6" cy="7" r="1" fill="#333"/>
-    <circle cx="12" cy="7" r="1" fill="#333"/>
-    <path d="M5 11q4 3 8 0" fill="none" stroke="#333" strokeWidth="1"/>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.5" fill="#FFD93D" stroke="#E6A800" strokeWidth="0.5"/>
+    <circle cx="5.5" cy="6.5" r="1" fill="#333"/>
+    <circle cx="10.5" cy="6.5" r="1" fill="#333"/>
+    <path d="M4.5 10q3.5 2.5 7 0" fill="none" stroke="#333" strokeWidth="1"/>
+  </svg>
+);
+
+const VoiceClipIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <ellipse cx="8" cy="6" rx="2" ry="3.5" fill="#666"/>
+    <path d="M4.5 6c0 3 1.5 4.5 3.5 4.5s3.5-1.5 3.5-4.5" fill="none" stroke="#666" strokeWidth="1"/>
+    <path d="M8 10.5v2.5M6 13h4" stroke="#666" strokeWidth="1"/>
   </svg>
 );
 
 const WinkIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <circle cx="9" cy="9" r="7" fill="#FFD93D" stroke="#E6A800" strokeWidth="0.5"/>
-    <circle cx="6" cy="7" r="1" fill="#333"/>
-    <path d="M11 6q2 2 0 2" fill="none" stroke="#333" strokeWidth="1"/>
-    <path d="M5 11q4 3 8 0" fill="none" stroke="#333" strokeWidth="1"/>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.5" fill="#FFD93D" stroke="#E6A800" strokeWidth="0.5"/>
+    <circle cx="5.5" cy="6.5" r="1" fill="#333"/>
+    <path d="M9.5 5.5q1.5 1.5 0 2" fill="none" stroke="#333" strokeWidth="1"/>
+    <path d="M4.5 10q3.5 2.5 7 0" fill="none" stroke="#333" strokeWidth="1"/>
+  </svg>
+);
+
+const MountainIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <rect x="1" y="3" width="14" height="10" fill="#87CEEB" stroke="#5B9BD5" strokeWidth="0.5"/>
+    <path d="M1 13l5-6 3 3 4-5 2 2.5v5.5z" fill="#228B22"/>
+    <circle cx="12" cy="5" r="1.5" fill="#FFD700"/>
+  </svg>
+);
+
+const GiftIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <rect x="2" y="6" width="12" height="8" fill="#FF6B6B" stroke="#CC5555" strokeWidth="0.5"/>
+    <rect x="2" y="4" width="12" height="3" fill="#FFD93D"/>
+    <rect x="7" y="4" width="2" height="10" fill="#FF4757"/>
+    <path d="M5 4c0-2 3-2 3 0M8 4c0-2 3-2 3 0" stroke="#FF4757" strokeWidth="1" fill="none"/>
   </svg>
 );
 
 const NudgeIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <path d="M4 9h10M7 6l-3 3 3 3M11 6l3 3-3 3" fill="none" stroke="#E65100" strokeWidth="1.5"/>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <path d="M3 8h10M5.5 5.5l-2.5 2.5 2.5 2.5M10.5 5.5l2.5 2.5-2.5 2.5" fill="none" stroke="#E65100" strokeWidth="1.5"/>
   </svg>
 );
 
 // Text formatting icons
 const BoldIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <text x="5" y="14" fontSize="13" fontWeight="bold" fill="#333" fontFamily="Arial">B</text>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <text x="4" y="12" fontSize="11" fontWeight="bold" fill="#333" fontFamily="Arial">B</text>
   </svg>
 );
 
 const ItalicIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <text x="6" y="14" fontSize="13" fontStyle="italic" fill="#333" fontFamily="Times New Roman">I</text>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <text x="5" y="12" fontSize="11" fontStyle="italic" fill="#333" fontFamily="Times New Roman">I</text>
   </svg>
 );
 
 const UnderlineIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18">
-    <text x="5" y="12" fontSize="12" fill="#333" fontFamily="Arial">U</text>
-    <line x1="4" y1="15" x2="14" y2="15" stroke="#333" strokeWidth="1.5"/>
+  <svg width="16" height="16" viewBox="0 0 16 16">
+    <text x="4" y="10" fontSize="10" fill="#333" fontFamily="Arial">U</text>
+    <line x1="3" y1="13" x2="13" y2="13" stroke="#333" strokeWidth="1.5"/>
   </svg>
 );
 
@@ -182,16 +194,27 @@ const MSN_EMOTICONS = [
   { emoji: '👍', code: '(Y)' },
 ];
 
+// Circular button component
+const CircularButton = ({ onClick }) => (
+  <button className="msn-circular-btn" onClick={onClick}>
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <path d="M4 6l4 4 4-4" fill="none" stroke="#4D5967" strokeWidth="2"/>
+    </svg>
+  </button>
+);
+
 export default function MSNMessenger({ isOpen, onClose }) {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('idle');
   const [chatHistory, setChatHistory] = useState([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [textFormat, setTextFormat] = useState({ bold: false, italic: false, underline: false });
+  const [isNudging, setIsNudging] = useState(false);
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
   const windowRef = useRef(null);
   const emojiPickerRef = useRef(null);
+  const nudgeAudioRef = useRef(null);
   const [position, setPosition] = useState({ x: 80, y: 60 });
   const [isDragging, setIsDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
@@ -268,6 +291,20 @@ export default function MSNMessenger({ isOpen, onClose }) {
     };
   };
 
+  const handleNudge = () => {
+    if (isNudging) return;
+    setIsNudging(true);
+
+    // Play nudge sound
+    if (nudgeAudioRef.current) {
+      nudgeAudioRef.current.currentTime = 0;
+      nudgeAudioRef.current.play().catch(() => {});
+    }
+
+    // Stop nudge after animation
+    setTimeout(() => setIsNudging(false), 800);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!message.trim() || status === 'sending') return;
@@ -307,18 +344,44 @@ export default function MSNMessenger({ isOpen, onClose }) {
   return (
     <div
       ref={windowRef}
-      className="msn-window"
+      className={`msn-window ${isNudging ? 'msn-nudging' : ''}`}
       style={{ left: position.x, top: position.y }}
     >
-      {/* Title Bar - Dark Blue Gradient */}
-      <div className="msn-title-bar" onMouseDown={handleMouseDown}>
-        <div className="msn-title-bar-left">
-          <MSNButterfly size={18} />
-          <span className="msn-title-text">Tim Hughes - Conversation</span>
+      {/* Nudge sound */}
+      <audio ref={nudgeAudioRef} src="/sounds/nudge.mp3" preload="auto" />
+
+      {/* Main Toolbar with MSN branding */}
+      <div className="msn-main-toolbar" onMouseDown={handleMouseDown}>
+        <div className="msn-toolbar-buttons">
+          <CircularButton />
+          <button className="msn-toolbar-btn">
+            <InviteIcon />
+            <span><u>I</u>nvite</span>
+          </button>
+          <button className="msn-toolbar-btn">
+            <SendFilesIcon />
+            <span>Send Fi<u>l</u>es</span>
+          </button>
+          <button className="msn-toolbar-btn">
+            <VideoIcon />
+            <span>Vide<u>o</u></span>
+          </button>
+          <button className="msn-toolbar-btn">
+            <VoiceIcon />
+            <span>Voi<u>c</u>e</span>
+          </button>
+          <button className="msn-toolbar-btn">
+            <ActivitiesIcon />
+            <span>Acti<u>v</u>ities</span>
+          </button>
+          <button className="msn-toolbar-btn">
+            <GamesIcon />
+            <span><u>G</u>ames</span>
+          </button>
         </div>
-        <div className="msn-title-bar-right">
-          <span className="msn-brand">msn</span>
-          <MSNButterfly size={24} />
+        <div className="msn-toolbar-brand">
+          <span className="msn-brand-text">msn</span>
+          <MSNButterfly size={28} />
         </div>
         <div className="msn-title-bar-controls">
           <button aria-label="Minimize" onClick={onClose}>
@@ -333,52 +396,24 @@ export default function MSNMessenger({ isOpen, onClose }) {
         </div>
       </div>
 
-      {/* Toolbar */}
-      <div className="msn-toolbar">
-        <button className="msn-toolbar-btn">
-          <InviteIcon />
-          <span>Invite</span>
-        </button>
-        <button className="msn-toolbar-btn">
-          <SendFilesIcon />
-          <span>Send Files</span>
-        </button>
-        <button className="msn-toolbar-btn">
-          <VoiceIcon />
-          <span>Voice</span>
-        </button>
-        <button className="msn-toolbar-btn">
-          <ActivitiesIcon />
-          <span>Activities</span>
-        </button>
-        <button className="msn-toolbar-btn">
-          <GamesIcon />
-          <span>Games</span>
-        </button>
-      </div>
-
-      {/* To: Line */}
-      <div className="msn-to-line">
-        <span className="msn-to-label">To:</span>
-        <span className="msn-to-recipient">Tim Hughes &lt;tim@ducksquack.me&gt;</span>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="msn-content-area">
-        {/* Chat Panel */}
-        <div className="msn-chat-panel">
-          {/* Info Messages */}
-          <div className="msn-info-box msn-info-status">
-            <InfoIcon />
-            <span>Tim may not reply immediately because he's probably writing essays or playing with his son.</span>
+      {/* Remote User Area (Chat History + Avatar) */}
+      <div className="msn-remote-user">
+        <div className="msn-history-chat">
+          <div className="msn-history-subject">
+            To: <strong>Tim Hughes (tim@ducksquack.me)</strong>
           </div>
-          <div className="msn-info-box msn-info-warning">
-            <WarningIcon />
-            <span>Never give out your password or credit card number in an instant message conversation.</span>
-          </div>
+          <div className="msn-history-content">
+            {/* Info Messages */}
+            <div className="msn-info-line">
+              <span className="msn-info-icon">ℹ️</span>
+              <span>Tim may not reply immediately because he's probably writing essays or playing with his son.</span>
+            </div>
+            <div className="msn-warning-line">
+              <span className="msn-warning-icon">⚠️</span>
+              <span>Never give out your password or credit card number in an instant message conversation.</span>
+            </div>
 
-          {/* Chat Messages */}
-          <div className="msn-messages">
+            {/* Chat Messages */}
             {chatHistory.map((msg, i) => (
               <div key={i} className={`msn-msg msn-msg-${msg.type}`}>
                 {msg.type === 'sent' && (
@@ -405,128 +440,164 @@ export default function MSNMessenger({ isOpen, onClose }) {
             <div ref={chatEndRef} />
           </div>
         </div>
-
-        {/* Buddy Display Picture */}
-        <div className="msn-buddy-panel">
-          <div className="msn-buddy-dp">
-            <div className="msn-dp-frame">
-              <img
-                src="/assets/tim-profile-small.jpg"
-                alt="Tim Hughes"
-                className="msn-dp-image"
-              />
-            </div>
+        <div className="msn-avatar-container">
+          <div className="msn-avatar-frame">
+            <img
+              src="/assets/tim-profile-small.jpg"
+              alt="Tim Hughes"
+              className="msn-avatar-image"
+            />
           </div>
+          <button className="msn-avatar-dropdown">▼</button>
+          <div className="msn-avatar-expand">◀</div>
         </div>
       </div>
 
-      {/* Input Area */}
-      <div className="msn-input-area">
-        {/* Format Toolbar */}
-        <div className="msn-format-toolbar">
-          <button
-            className={`msn-format-btn ${textFormat.bold ? 'active' : ''}`}
-            title="Bold (Ctrl+B)"
-            onClick={() => toggleFormat('bold')}
-          >
-            <BoldIcon />
-          </button>
-          <button
-            className={`msn-format-btn ${textFormat.italic ? 'active' : ''}`}
-            title="Italic (Ctrl+I)"
-            onClick={() => toggleFormat('italic')}
-          >
-            <ItalicIcon />
-          </button>
-          <button
-            className={`msn-format-btn ${textFormat.underline ? 'active' : ''}`}
-            title="Underline (Ctrl+U)"
-            onClick={() => toggleFormat('underline')}
-          >
-            <UnderlineIcon />
-          </button>
-          <div className="msn-format-separator" />
-          <div className="msn-emoji-container">
-            <button
-              className={`msn-format-btn msn-emoji-btn ${showEmojiPicker ? 'active' : ''}`}
-              title="Emoticons"
-              onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-            >
-              <EmoticonIcon />
-              <span className="msn-format-dropdown">▼</span>
+      {/* Local User Area (Input + Avatar) */}
+      <div className="msn-local-user">
+        <div className="msn-chat-input-container">
+          {/* Action bar with emoticon buttons */}
+          <div className="msn-action-bar">
+            <button className="msn-action-btn" title="Font">
+              <LetterIcon />
             </button>
-            {showEmojiPicker && (
-              <div ref={emojiPickerRef} className="msn-emoji-picker">
-                <div className="msn-emoji-grid">
-                  {MSN_EMOTICONS.map((item, i) => (
-                    <button
-                      key={i}
-                      className="msn-emoji-item"
-                      onClick={() => insertEmoji(item.emoji)}
-                      title={item.code}
-                    >
-                      {item.emoji}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="msn-format-separator" />
-          <button className="msn-format-btn" title="Send a wink ;)" onClick={() => insertEmoji('😉')}>
-            <WinkIcon />
-          </button>
-          <button className="msn-format-btn" title="Send a nudge" onClick={() => insertEmoji('👋')}>
-            <NudgeIcon />
-          </button>
-        </div>
-
-        {/* Message Input */}
-        <div className="msn-message-input">
-          <form onSubmit={handleSubmit} className="msn-input-form">
-            <textarea
-              ref={inputRef}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSubmit(e);
-                }
-                // Keyboard shortcuts for formatting
-                if (e.ctrlKey || e.metaKey) {
-                  if (e.key === 'b') { e.preventDefault(); toggleFormat('bold'); }
-                  if (e.key === 'i') { e.preventDefault(); toggleFormat('italic'); }
-                  if (e.key === 'u') { e.preventDefault(); toggleFormat('underline'); }
-                }
-              }}
-              placeholder=""
-              disabled={status === 'sending'}
-              rows={3}
-              style={getTextareaStyle()}
-            />
-            <div className="msn-input-side">
+            <div className="msn-emoji-container">
               <button
-                type="submit"
-                className="msn-send-btn"
-                disabled={!message.trim() || status === 'sending'}
+                className={`msn-action-btn msn-emoji-btn ${showEmojiPicker ? 'active' : ''}`}
+                title="Emoticons"
+                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
               >
-                Send
+                <EmoticonIcon />
+                <span className="msn-action-arrow">▼</span>
+              </button>
+              {showEmojiPicker && (
+                <div ref={emojiPickerRef} className="msn-emoji-picker">
+                  <div className="msn-emoji-grid">
+                    {MSN_EMOTICONS.map((item, i) => (
+                      <button
+                        key={i}
+                        className="msn-emoji-item"
+                        onClick={() => insertEmoji(item.emoji)}
+                        title={item.code}
+                      >
+                        {item.emoji}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <button className="msn-action-btn" title="Voice clip">
+              <VoiceClipIcon />
+              <span className="msn-action-label">Voice clip</span>
+            </button>
+            <button className="msn-action-btn" title="Wink" onClick={() => insertEmoji('😉')}>
+              <WinkIcon />
+              <span className="msn-action-arrow">▼</span>
+            </button>
+            <button className="msn-action-btn" title="Background">
+              <MountainIcon />
+              <span className="msn-action-arrow">▼</span>
+            </button>
+            <button className="msn-action-btn" title="Gift">
+              <GiftIcon />
+              <span className="msn-action-arrow">▼</span>
+            </button>
+            <button className="msn-action-btn" title="Nudge" onClick={handleNudge}>
+              <NudgeIcon />
+            </button>
+          </div>
+
+          {/* Message input area */}
+          <div className="msn-message-area">
+            <form onSubmit={handleSubmit} className="msn-input-form">
+              <textarea
+                ref={inputRef}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSubmit(e);
+                  }
+                  if (e.ctrlKey || e.metaKey) {
+                    if (e.key === 'b') { e.preventDefault(); toggleFormat('bold'); }
+                    if (e.key === 'i') { e.preventDefault(); toggleFormat('italic'); }
+                    if (e.key === 'u') { e.preventDefault(); toggleFormat('underline'); }
+                  }
+                }}
+                placeholder=""
+                disabled={status === 'sending'}
+                rows={3}
+                style={getTextareaStyle()}
+              />
+              <div className="msn-input-buttons">
+                <button
+                  type="submit"
+                  className="msn-send-btn"
+                  disabled={!message.trim() || status === 'sending'}
+                >
+                  <u>S</u>end
+                </button>
+                <button type="button" className="msn-search-btn">
+                  Sea<u>r</u>ch
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Tab bar */}
+          <div className="msn-tab-bar">
+            <div className="msn-format-buttons">
+              <button
+                className={`msn-format-btn ${textFormat.bold ? 'active' : ''}`}
+                title="Bold (Ctrl+B)"
+                onClick={() => toggleFormat('bold')}
+              >
+                <BoldIcon />
+              </button>
+              <button
+                className={`msn-format-btn ${textFormat.italic ? 'active' : ''}`}
+                title="Italic (Ctrl+I)"
+                onClick={() => toggleFormat('italic')}
+              >
+                <ItalicIcon />
+              </button>
+              <button
+                className={`msn-format-btn ${textFormat.underline ? 'active' : ''}`}
+                title="Underline (Ctrl+U)"
+                onClick={() => toggleFormat('underline')}
+              >
+                <UnderlineIcon />
               </button>
             </div>
-          </form>
+            <div className="msn-tabs">
+              <button className="msn-tab">🖌️</button>
+              <button className="msn-tab msn-tab-active">✉️</button>
+            </div>
+          </div>
+        </div>
+        <div className="msn-avatar-container msn-avatar-local">
+          <div className="msn-avatar-frame msn-avatar-frame-local">
+            <div className="msn-local-avatar-placeholder">
+              <MSNButterfly size={64} />
+            </div>
+          </div>
+          <button className="msn-avatar-dropdown">▼</button>
+          <div className="msn-avatar-expand">◀</div>
         </div>
       </div>
 
       {/* Status Bar */}
       <div className="msn-status-bar">
-        <div className="msn-status-left">
-          <MSNButterfly size={14} />
-        </div>
-        <div className="msn-status-right">
-          <span className="msn-font-indicator">A</span>
-        </div>
+        <MSNButterfly size={12} />
+        <span className="msn-status-text">
+          More content on <a href="https://ducksquack.me" target="_blank" rel="noopener noreferrer">ducksquack.me</a>
+        </span>
       </div>
+
+      {/* Decorative border frame */}
+      <div className="msn-border-frame"></div>
     </div>
   );
 }
