@@ -53,6 +53,34 @@ class ImageButton extends HTMLElement {
 
 customElements.define("image-button", ImageButton);
 
+// MSN-style emoticons
+const MSN_EMOTICONS = [
+  { emoji: '😊', code: ':)' },
+  { emoji: '😃', code: ':D' },
+  { emoji: '😉', code: ';)' },
+  { emoji: '😛', code: ':P' },
+  { emoji: '😢', code: ':(' },
+  { emoji: '😮', code: ':O' },
+  { emoji: '😎', code: '8)' },
+  { emoji: '😇', code: '(A)' },
+  { emoji: '😈', code: '(6)' },
+  { emoji: '🤔', code: ':/' },
+  { emoji: '😐', code: ':|' },
+  { emoji: '😍', code: '(L)' },
+  { emoji: '💔', code: '(U)' },
+  { emoji: '🌹', code: '(F)' },
+  { emoji: '🌟', code: '(*)' },
+  { emoji: '☀️', code: '(#)' },
+  { emoji: '🎵', code: '(8)' },
+  { emoji: '📧', code: '(E)' },
+  { emoji: '☕', code: '(C)' },
+  { emoji: '🎂', code: '(^)' },
+  { emoji: '🍺', code: '(B)' },
+  { emoji: '📞', code: '(T)' },
+  { emoji: '💤', code: '(I)' },
+  { emoji: '👍', code: '(Y)' },
+];
+
 class SimpleButton extends HTMLElement {
   constructor() {
     super();
@@ -92,6 +120,13 @@ class SimpleButton extends HTMLElement {
   }
 
   onClick() {
+    // Dispatch custom events for different button types
+    this.dispatchEvent(new CustomEvent("msn-button-click", {
+      bubbles: true,
+      composed: true,
+      detail: { type: this.text }
+    }));
+
     if (this.text === "nudge") {
       this.dispatchEvent(new CustomEvent("nudge", { bubbles: true, composed: true }));
     }
@@ -234,6 +269,8 @@ class MSNMessengerChat extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    this.textFormat = { bold: false, italic: false, underline: false };
+    this.showEmojiPicker = false;
   }
 
   static get styles() {
@@ -246,6 +283,7 @@ class MSNMessengerChat extends HTMLElement {
         width: 97%;
         border: 1px solid #586170;
         border-radius: 6px;
+        position: relative;
       }
       .actionbar,
       .tabs {
@@ -255,13 +293,47 @@ class MSNMessengerChat extends HTMLElement {
         border-bottom: 1px solid #586170;
         border-radius: 6px 6px 0 0;
         display: flex;
+        position: relative;
       }
       .tabs {
         border-top: 1px solid #565F70;
         border-radius: 0 0 6px 6px;
         display: flex;
-        justify-content: flex-end;
-        padding-right: 12px;
+        justify-content: space-between;
+        padding: 0 8px;
+        align-items: center;
+      }
+      .format-buttons {
+        display: flex;
+        gap: 2px;
+      }
+      .format-btn {
+        width: 20px;
+        height: 18px;
+        border: 1px solid transparent;
+        background: transparent;
+        cursor: pointer;
+        font-family: Times New Roman, serif;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+      }
+      .format-btn:hover {
+        background: rgba(255,255,255,0.6);
+        border-color: #ABB0C6;
+      }
+      .format-btn.active {
+        background: rgba(200,210,230,0.6);
+        border-color: #8098B8;
+      }
+      .format-btn.bold { font-weight: bold; }
+      .format-btn.italic { font-style: italic; }
+      .format-btn.underline { text-decoration: underline; }
+      .tab-buttons {
+        display: flex;
+        gap: 2px;
       }
       .chat {
         display: flex;
@@ -317,6 +389,44 @@ class MSNMessengerChat extends HTMLElement {
       .normal.small {
         height: 25px;
       }
+      /* Emoji Picker */
+      .emoji-picker {
+        position: absolute;
+        top: 100%;
+        left: 30px;
+        background: #FFF;
+        border: 1px solid #586170;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        padding: 6px;
+        z-index: 100;
+        border-radius: 4px;
+        display: none;
+      }
+      .emoji-picker.show {
+        display: block;
+      }
+      .emoji-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2px;
+        width: 180px;
+      }
+      .emoji-item {
+        width: 28px;
+        height: 28px;
+        background: #FFF;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .emoji-item:hover {
+        background: #E8F4FF;
+        border-color: #7FB8E8;
+      }
     `;
   }
 
@@ -328,6 +438,7 @@ class MSNMessengerChat extends HTMLElement {
   setupEvents() {
     const sendBtn = this.shadowRoot.querySelector('.send-btn');
     const textarea = this.shadowRoot.querySelector('.chat-input');
+    const emojiPicker = this.shadowRoot.querySelector('.emoji-picker');
 
     sendBtn.addEventListener('click', () => this.sendMessage());
     textarea.addEventListener('keydown', (e) => {
@@ -335,7 +446,90 @@ class MSNMessengerChat extends HTMLElement {
         e.preventDefault();
         this.sendMessage();
       }
+      // Keyboard shortcuts for formatting
+      if (e.ctrlKey || e.metaKey) {
+        if (e.key === 'b') { e.preventDefault(); this.toggleFormat('bold'); }
+        if (e.key === 'i') { e.preventDefault(); this.toggleFormat('italic'); }
+        if (e.key === 'u') { e.preventDefault(); this.toggleFormat('underline'); }
+      }
     });
+
+    // Format buttons
+    this.shadowRoot.querySelectorAll('.format-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const format = btn.dataset.format;
+        this.toggleFormat(format);
+      });
+    });
+
+    // Listen for button clicks from action bar
+    this.addEventListener('msn-button-click', (e) => {
+      if (e.detail.type === 'happy') {
+        this.toggleEmojiPicker();
+      } else if (e.detail.type === 'wink') {
+        this.insertEmoji('😉');
+      }
+    });
+
+    // Emoji items
+    this.shadowRoot.querySelectorAll('.emoji-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.insertEmoji(btn.textContent);
+        this.hideEmojiPicker();
+      });
+    });
+
+    // Close emoji picker when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!this.contains(e.target)) {
+        this.hideEmojiPicker();
+      }
+    });
+  }
+
+  toggleFormat(format) {
+    this.textFormat[format] = !this.textFormat[format];
+    this.updateTextareaStyle();
+    this.updateFormatButtons();
+  }
+
+  updateTextareaStyle() {
+    const textarea = this.shadowRoot.querySelector('.chat-input');
+    textarea.style.fontWeight = this.textFormat.bold ? 'bold' : 'normal';
+    textarea.style.fontStyle = this.textFormat.italic ? 'italic' : 'normal';
+    textarea.style.textDecoration = this.textFormat.underline ? 'underline' : 'none';
+  }
+
+  updateFormatButtons() {
+    const boldBtn = this.shadowRoot.querySelector('.format-btn.bold');
+    const italicBtn = this.shadowRoot.querySelector('.format-btn.italic');
+    const underlineBtn = this.shadowRoot.querySelector('.format-btn.underline');
+
+    boldBtn.classList.toggle('active', this.textFormat.bold);
+    italicBtn.classList.toggle('active', this.textFormat.italic);
+    underlineBtn.classList.toggle('active', this.textFormat.underline);
+  }
+
+  toggleEmojiPicker() {
+    const picker = this.shadowRoot.querySelector('.emoji-picker');
+    this.showEmojiPicker = !this.showEmojiPicker;
+    picker.classList.toggle('show', this.showEmojiPicker);
+  }
+
+  hideEmojiPicker() {
+    const picker = this.shadowRoot.querySelector('.emoji-picker');
+    this.showEmojiPicker = false;
+    picker.classList.remove('show');
+  }
+
+  insertEmoji(emoji) {
+    const textarea = this.shadowRoot.querySelector('.chat-input');
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
+    textarea.value = text.substring(0, start) + emoji + text.substring(end);
+    textarea.selectionStart = textarea.selectionEnd = start + emoji.length;
+    textarea.focus();
   }
 
   async sendMessage() {
@@ -363,7 +557,11 @@ class MSNMessengerChat extends HTMLElement {
         this.dispatchEvent(new CustomEvent('message-sent', {
           bubbles: true,
           composed: true,
-          detail: { message, time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) }
+          detail: {
+            message,
+            time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+            format: { ...this.textFormat }
+          }
         }));
         textarea.value = '';
       } else {
@@ -377,6 +575,10 @@ class MSNMessengerChat extends HTMLElement {
   }
 
   render() {
+    const emojiGridHtml = MSN_EMOTICONS.map(e =>
+      `<button class="emoji-item" title="${e.code}">${e.emoji}</button>`
+    ).join('');
+
     this.shadowRoot.innerHTML = /* html */`
     <style>${MSNMessengerChat.styles}</style>
     <div class="container">
@@ -388,6 +590,11 @@ class MSNMessengerChat extends HTMLElement {
         <simple-button image="mountain" arrow></simple-button>
         <simple-button image="gift" arrow></simple-button>
         <simple-button image="nudge"></simple-button>
+        <div class="emoji-picker">
+          <div class="emoji-grid">
+            ${emojiGridHtml}
+          </div>
+        </div>
       </div>
       <div class="chat">
         <div class="chat-area">
@@ -399,8 +606,15 @@ class MSNMessengerChat extends HTMLElement {
         </div>
       </div>
       <div class="tabs">
-        <tab-button image="paint"></tab-button>
-        <tab-button image="letter" focus></tab-button>
+        <div class="format-buttons">
+          <button class="format-btn bold" data-format="bold" title="Bold (Ctrl+B)">B</button>
+          <button class="format-btn italic" data-format="italic" title="Italic (Ctrl+I)">I</button>
+          <button class="format-btn underline" data-format="underline" title="Underline (Ctrl+U)">U</button>
+        </div>
+        <div class="tab-buttons">
+          <tab-button image="paint"></tab-button>
+          <tab-button image="letter" focus></tab-button>
+        </div>
       </div>
     </div>`;
   }
@@ -488,20 +702,27 @@ class MSNMessengerHistoryChat extends HTMLElement {
     this.render();
   }
 
-  addMessage(message, time) {
-    this.messages.push({ message, time });
+  addMessage(message, time, format = {}) {
+    this.messages.push({ message, time, format });
     this.updateHistory();
   }
 
   updateHistory() {
     const history = this.shadowRoot.querySelector('.history');
-    const messagesHtml = this.messages.map(msg => `
-      <div class="msg">
-        <span class="msg-sender">You say:</span>
-        <span class="msg-text">${msg.message}</span>
-        <span class="msg-time">(${msg.time})</span>
-      </div>
-    `).join('');
+    const messagesHtml = this.messages.map(msg => {
+      const style = [];
+      if (msg.format?.bold) style.push('font-weight: bold');
+      if (msg.format?.italic) style.push('font-style: italic');
+      if (msg.format?.underline) style.push('text-decoration: underline');
+      const styleAttr = style.length ? `style="${style.join(';')}"` : '';
+      return `
+        <div class="msg">
+          <span class="msg-sender">You say:</span>
+          <span class="msg-text" ${styleAttr}>${msg.message}</span>
+          <span class="msg-time">(${msg.time})</span>
+        </div>
+      `;
+    }).join('');
 
     history.innerHTML = `
       <div class="info-line">
@@ -929,7 +1150,7 @@ class MSNMessengerWindow extends HTMLElement {
     this.addEventListener("message-sent", (e) => {
       const historyChat = this.shadowRoot.querySelector('msn-messenger-remote-user')
         .shadowRoot.querySelector('msn-messenger-history-chat');
-      historyChat.addMessage(e.detail.message, e.detail.time);
+      historyChat.addMessage(e.detail.message, e.detail.time, e.detail.format);
     });
   }
 
