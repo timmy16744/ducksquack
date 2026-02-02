@@ -352,6 +352,7 @@ html, body {
 /* Content Area */
 .xp-content-area {
     flex: 1;
+    min-height: 0; /* Allow flex child to shrink and scroll properly */
     background: var(--xp-textarea-bg);
     overflow: auto;
     padding: 16px 20px;
@@ -1583,12 +1584,17 @@ html, body {
 @media (max-width: 768px) {
     .xp-desktop {
         background-size: cover;
+        /* Use dvh for proper mobile viewport height - accounts for browser chrome */
+        height: 100vh; /* fallback for older browsers */
+        height: 100dvh;
     }
 
     .xp-notepad-window {
         transform: translate(0, 0) !important;
         width: 100vw !important;
-        height: 100vh !important;
+        /* Use dvh for dynamic viewport height on mobile - accounts for browser chrome */
+        height: 100vh !important; /* fallback for older browsers */
+        height: 100dvh !important;
         border-radius: 0;
     }
 
@@ -1696,11 +1702,17 @@ html, body {
         gap: 4px;
     }
 
-    /* Phase 3: Typography improvements */
+    /* Phase 3: Typography improvements + mobile scrolling fix */
     .xp-content-area {
         padding: 16px;
         font-size: 15px;
         line-height: 1.7;
+        /* Enable smooth touch scrolling on iOS Safari */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        /* Ensure content can scroll properly */
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     /* Phase 4: Touch optimizations */
