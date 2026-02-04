@@ -1592,9 +1592,9 @@ html, body {
     .xp-notepad-window {
         transform: translate(0, 0) !important;
         width: 100vw !important;
-        /* Use dvh for dynamic viewport height on mobile - accounts for browser chrome */
-        height: 100vh !important; /* fallback for older browsers */
-        height: 100dvh !important;
+        /* Account for 40px taskbar on mobile */
+        height: calc(100vh - 40px) !important; /* fallback for older browsers */
+        height: calc(100dvh - 40px) !important;
         border-radius: 0;
     }
 
