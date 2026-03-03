@@ -6,7 +6,11 @@
     "slug": "nine-days-later",
     "wordCount": 2319,
     "synopsis": "Tracks how war-driven disruption in the Strait of Hormuz exposed the petrodollar loop as physically fragile, accelerating global moves toward alternative energy and payment systems.",
-    "preview": "On February 19th, 2026, I published an essay arguing that the convergence of artificial intelligence, robotics, and solar energy would eventually d..."
+    "preview": "On February 19th, 2026, I published an essay arguing that the convergence of artificial intelligence, robotics, and solar energy would eventually d...",
+    "audio": {
+      "url": "/audio/AI_nine-days-later.mp3",
+      "duration": 654
+    }
   },
   {
     "title": "The Energy Epoch",
@@ -15,7 +19,11 @@
     "slug": "the-energy-epoch",
     "wordCount": 4678,
     "synopsis": "Argues the petrodollar order is giving way to an energy-denominated era as AI, robotics, and solar drive intelligence, labor, and power costs toward zero, reshaping geopolitical winners and losers.",
-    "preview": "How the convergence of AI, robotics, and solar energy will redraw the global power map and end the petrodollar era"
+    "preview": "How the convergence of AI, robotics, and solar energy will redraw the global power map and end the petrodollar era",
+    "audio": {
+      "url": "/audio/AI_the-energy-epoch.mp3",
+      "duration": 2115
+    }
   },
   {
     "title": "The Fixed Point",
