@@ -5,8 +5,15 @@
     <link>https://ducksquack.me</link>
     <description>Essays on AI, Technology &amp; Society by Tim Hughes</description>
     <language>en-au</language>
-    <lastBuildDate>Sat, 31 Jan 2026 15:40:58 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 18:06:10 GMT</lastBuildDate>
     <atom:link href="https://ducksquack.me/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Energy Epoch</title>
+      <link>https://ducksquack.me/#/writings/the-energy-epoch</link>
+      <guid isPermaLink="true">https://ducksquack.me/#/writings/the-energy-epoch</guid>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Argues the petrodollar order is giving way to an energy-denominated era as AI, robotics, and solar drive intelligence, labor, and power costs toward zero, reshaping geopolitical winners and losers.</description>
+    </item>
     <item>
       <title>The Fixed Point</title>
       <link>https://ducksquack.me/#/writings/the-fixed-point</link>
