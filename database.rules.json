@@ -2,7 +2,7 @@
   "rules": {
     "views": {
       ".read": true,
-      ".write": true
+      ".write": false
     }
   }
 }
