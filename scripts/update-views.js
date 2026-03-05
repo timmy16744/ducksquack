@@ -1,11 +1,11 @@
 /**
  * Automated view count updater
- * Gradually increases view counts for new articles over 7 days
+ * Gradually increases view counts for new articles over 30 days
  * until they surpass the previous article's count
  */
 
 const FIREBASE_DB_URL = 'https://ducksquack-default-rtdb.firebaseio.com';
-const GROWTH_PERIOD_DAYS = 7;
+const GROWTH_PERIOD_DAYS = 30;
 
 async function main() {
   try {
@@ -60,7 +60,7 @@ async function main() {
         // Target: surpass previous highest by 4-7%
         const targetViews = Math.floor(previousHighestViews * (1.04 + Math.random() * 0.03));
 
-        // Calculate progress (0 to 1 over 7 days)
+        // Calculate progress (0 to 1 over growth period)
         const progress = Math.min(daysSincePublish / GROWTH_PERIOD_DAYS, 1);
 
         // Calculate expected views at this point with some randomness
