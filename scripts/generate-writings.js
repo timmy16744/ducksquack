@@ -104,7 +104,8 @@ const SYNOPSES = {
   'the-fixed-point': 'Reflects on world models and the strange loop where matter arranges itself into configurations that simulate the physics that produced it. Intelligence as the universe comprehending itself.',
   'after-scarcity-mastery': 'Envisions a post-scarcity future where survival is automated and meaning is found in craft and excellence for its own sake. Proposes the foundations needed: closed-loop manufacturing, peace infrastructure, and stable capital.',
   'the-energy-epoch': 'Argues the petrodollar order is giving way to an energy-denominated era as AI, robotics, and solar drive intelligence, labor, and power costs toward zero, reshaping geopolitical winners and losers.',
-  'nine-days-later': 'Tracks how war-driven disruption in the Strait of Hormuz exposed the petrodollar loop as physically fragile, accelerating global moves toward alternative energy and payment systems.'
+  'nine-days-later': 'Tracks how war-driven disruption in the Strait of Hormuz exposed the petrodollar loop as physically fragile, accelerating global moves toward alternative energy and payment systems.',
+  'the-board-resolves': 'Maps the emerging tripartite structure of global power: Musk\'s vertically integrated energy-compute-finance stack, Google\'s quietly indispensable Western infrastructure, and China\'s sovereign parallel civilisation, with orbital access as the unclaimed territory that may decide the age of abundant intelligence.'
 };
 
 function processWritings() {

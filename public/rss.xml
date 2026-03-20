@@ -5,8 +5,15 @@
     <link>https://ducksquack.me</link>
     <description>Essays on AI, Technology &amp; Society by Tim Hughes</description>
     <language>en-au</language>
-    <lastBuildDate>Thu, 05 Mar 2026 20:21:18 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 18:26:06 GMT</lastBuildDate>
     <atom:link href="https://ducksquack.me/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Board Resolves</title>
+      <link>https://ducksquack.me/#/writings/the-board-resolves</link>
+      <guid isPermaLink="true">https://ducksquack.me/#/writings/the-board-resolves</guid>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Maps the emerging tripartite structure of global power: Musk&apos;s vertically integrated energy-compute-finance stack, Google&apos;s quietly indispensable Western infrastructure, and China&apos;s sovereign parallel civilisation, with orbital access as the unclaimed territory that may decide the age of abundant intelligence.</description>
+    </item>
     <item>
       <title>Nine Days Later</title>
       <link>https://ducksquack.me/#/writings/nine-days-later</link>

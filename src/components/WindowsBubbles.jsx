@@ -7,7 +7,7 @@ const rotate = (x, y, sin, cos, reverse) => {
     : { x: cos * x - sin * y, y: cos * y + sin * x };
 };
 
-function WindowsBubbles() {
+function WindowsBubbles({ onAllPopped }) {
   const [circles, setCircles] = useState([]);
   const containerRef = useRef(null);
   const lastExecRef = useRef(null);
@@ -17,11 +17,19 @@ function WindowsBubbles() {
   const bubbleRefs = useRef({});
   const radiusRef = useRef(0);
   const boundsRef = useRef({ width: 0, height: 0 });
+  const initializedRef = useRef(false);
 
   // Keep circlesRef in sync
   useEffect(() => {
     circlesRef.current = circles;
   }, [circles]);
+
+  // Fire callback when all bubbles have been popped
+  useEffect(() => {
+    if (initializedRef.current && circles.length === 0) {
+      onAllPopped?.();
+    }
+  }, [circles.length, onAllPopped]);
 
   // Direct DOM update - no React re-render
   const updateBubbleDOM = useCallback((circle, hueChanged = false) => {
@@ -258,6 +266,7 @@ function WindowsBubbles() {
 
     setCircles(initialCircles);
     circlesRef.current = initialCircles;
+    initializedRef.current = true;
 
     animationRef.current = requestAnimationFrame(update);
     document.addEventListener('visibilitychange', handleVisibilityChange);
