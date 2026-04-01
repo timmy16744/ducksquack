@@ -5,8 +5,10 @@ import WindowsBubbles from './WindowsBubbles';
 import DateTimeDialog from './dialogs/DateTimeDialog';
 import StartMenu from './menus/StartMenu';
 import MSNMessenger from './MSNMessenger';
+import { useTheme } from '../themes/ThemeContext';
 
 export default function XPDesktop() {
+  const { setThemeId } = useTheme();
   const [minimizedWindows, setMinimizedWindows] = useState([]);
   const [windowVisible, setWindowVisible] = useState(true);
   const [windowTitle, setWindowTitle] = useState('DuckSquack');
@@ -58,6 +60,8 @@ export default function XPDesktop() {
       url = '/writings/';
     } else if (path === '/about') {
       url = '/about/';
+    } else if (path === '/projects') {
+      url = '/projects/';
     }
     window.history.pushState({}, '', url);
     // Trigger popstate event for useRoute hook to pick up
@@ -86,6 +90,10 @@ export default function XPDesktop() {
     setMsnOpen(false);
   }, []);
 
+  const handleThemeSwitch = useCallback(() => {
+    setThemeId('zen');
+  }, [setThemeId]);
+
   return (
     <div className="xp-desktop">
       <WindowsBubbles onAllPopped={handleAllBubblesPopped} />
@@ -103,6 +111,7 @@ export default function XPDesktop() {
         notificationWindows={secretUnlocked ? [{ id: 'secret', title: 'For Arthur' }] : []}
         onNotificationClick={handleSecretClick}
         onMSNClick={handleMSNClick}
+        onThemeSwitch={handleThemeSwitch}
       />
 
       <MSNMessenger isOpen={msnOpen} onClose={handleMSNClose} />

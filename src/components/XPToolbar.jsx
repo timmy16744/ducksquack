@@ -231,6 +231,14 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
           <span className="toolbar-label">About</span>
         </button>
         <button
+          className={`toolbar-btn ${currentPage === 'projects' ? 'active' : ''}`}
+          title="Projects"
+          onClick={() => onNavigate('projects')}
+        >
+          <DocumentsIcon active={currentPage === 'projects'} />
+          <span className="toolbar-label">Projects</span>
+        </button>
+        <button
           className={`toolbar-btn ${currentPage === 'writings' || currentPage === 'post' ? 'active' : ''}`}
           title="Writings"
           onClick={() => onNavigate('writings')}

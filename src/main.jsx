@@ -1,9 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './styles/xp-notepad.css';
-import './styles/xp-dialogs.css';
-import './styles/xp-start-menu.css';
+
+// XP CSS is loaded dynamically by the XP theme's onActivate()
+// Only load XP styles on initial load if XP is the active theme
+const activeTheme = localStorage.getItem('ducksquack-theme') || 'zen';
+if (activeTheme === 'windows-xp') {
+  import('./styles/xp-notepad.css');
+  import('./styles/xp-dialogs.css');
+  import('./styles/xp-start-menu.css');
+}
 
 const container = document.getElementById('root');
 const root = createRoot(container);

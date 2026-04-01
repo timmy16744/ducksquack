@@ -32,8 +32,17 @@
     <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://unpkg.com">
 
-    <!-- XP.css for authentic Windows XP Luna styling -->
-    <link rel="stylesheet" href="https://unpkg.com/xp.css@0.2.3/dist/XP.css">
+    <!-- XP.css loaded dynamically by Windows XP theme's onActivate() -->
+    <script>
+      // Pre-load XP.css if XP theme is active (avoids FOUC on initial load)
+      if (localStorage.getItem('ducksquack-theme') === 'windows-xp') {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/xp.css@0.2.3/dist/XP.css';
+        link.id = 'xp-css-cdn';
+        document.head.appendChild(link);
+      }
+    </script>
 
     <!-- Critical inline styles for immediate render -->
     <style>
@@ -48,29 +57,47 @@
             height: 100%;
             width: 100%;
         }
+        /* Zen loading (default) */
         .loading-placeholder {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #245edb 0%, #3a8bc2 30%, #5cb270 70%, #4a9f4c 100%);
+            background: #fafaf9;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .loading-box {
+            text-align: center;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+            color: #1a1a1a;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+        }
+        .loading-box .duck {
+            display: none;
+        }
+        /* XP loading (override) */
+        [data-theme="windows-xp"] .loading-placeholder {
+            background: linear-gradient(180deg, #245edb 0%, #3a8bc2 30%, #5cb270 70%, #4a9f4c 100%);
+        }
+        [data-theme="windows-xp"] .loading-placeholder .loading-box {
             background: #ece9d8;
             border: 2px solid;
             border-color: #fff #808080 #808080 #fff;
             padding: 20px 40px;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-            text-align: center;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             font-size: 12px;
-        }
-        .loading-box .duck {
             color: #000;
+            opacity: 1;
+            letter-spacing: 0;
+        }
+        [data-theme="windows-xp"] .loading-placeholder .loading-box .duck {
+            display: block;
             font-family: monospace;
             white-space: pre;
             line-height: 1.1;
@@ -78,6 +105,10 @@
             font-size: 14px;
         }
     </style>
+    <script>
+      // Set data-theme on <html> immediately to prevent FOUC
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('ducksquack-theme') || 'zen');
+    </script>
 </head>
 <body>
     <div id="root">
@@ -87,7 +118,7 @@
   >(o )___
    ( ._> /
     `---'</div>
-                <div>Loading DuckSquack...</div>
+                <div>DuckSquack</div>
             </div>
         </div>
     </div>

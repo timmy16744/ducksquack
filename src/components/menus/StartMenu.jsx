@@ -227,10 +227,10 @@ export default function StartMenu({ onClose, onNavigate, userName = 'Tim Hughes'
 
           <div
             className="start-menu-item"
-            onClick={() => handleItemClick('/writings')}
+            onClick={() => handleItemClick('/projects')}
           >
             <PicturesIcon />
-            <span className="start-menu-item-title">My Pictures</span>
+            <span className="start-menu-item-title">My Projects</span>
           </div>
 
           <div
@@ -238,7 +238,7 @@ export default function StartMenu({ onClose, onNavigate, userName = 'Tim Hughes'
             onClick={() => handleItemClick('/writings')}
           >
             <MusicIcon />
-            <span className="start-menu-item-title">My Music</span>
+            <span className="start-menu-item-title">My Writings</span>
           </div>
 
           <div

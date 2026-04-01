@@ -70,6 +70,13 @@ const NotepadIcon = () => (
   </svg>
 );
 
+// Zen mode icon (circle/enso)
+const ZenIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 1"/>
+  </svg>
+);
+
 export default function XPTaskbar({
   minimizedWindows,
   onRestoreWindow,
@@ -78,7 +85,8 @@ export default function XPTaskbar({
   startMenuOpen,
   notificationWindows,
   onNotificationClick,
-  onMSNClick
+  onMSNClick,
+  onThemeSwitch,
 }) {
   const [time, setTime] = useState(new Date());
 
@@ -139,6 +147,16 @@ export default function XPTaskbar({
       </div>
 
       <div className="taskbar-tray">
+        {onThemeSwitch && (
+          <button
+            className="taskbar-zen-btn"
+            onClick={onThemeSwitch}
+            title="Switch to Zen theme"
+          >
+            <ZenIcon />
+            <span>Zen</span>
+          </button>
+        )}
         <div className="tray-divider"></div>
         <div
           className="taskbar-clock"

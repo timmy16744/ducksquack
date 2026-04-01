@@ -27,8 +27,8 @@ html, body {
     width: 100%;
 }
 
-/* Desktop Layer */
-.xp-desktop {
+/* Desktop Layer (scoped to XP theme) */
+[data-theme="windows-xp"] .xp-desktop {
     position: fixed;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@ html, body {
 }
 
 /* Fallback gradient if image doesn't load */
-.xp-desktop::before {
+[data-theme="windows-xp"] .xp-desktop::before {
     content: '';
     position: absolute;
     top: 0;
@@ -3355,6 +3355,30 @@ html, body {
     );
     box-shadow:
         inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Zen mode toggle in taskbar tray */
+.xp-taskbar .taskbar-zen-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(180deg, #1E8AEE 0%, #166BD4 100%);
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.xp-taskbar .taskbar-zen-btn:hover {
+    background: linear-gradient(180deg, #2E9AFF 0%, #267BE4 100%);
+}
+
+.xp-taskbar .taskbar-zen-btn:active {
+    background: linear-gradient(180deg, #166BD4 0%, #1E8AEE 100%);
 }
 
 /* Adjust desktop to account for taskbar */

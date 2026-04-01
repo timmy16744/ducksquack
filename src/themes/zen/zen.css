@@ -1,0 +1,674 @@
+/* ═══════════════════════════════════════════════════
+   Zen Theme — Japanese minimalism, maximum whitespace
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Shell ─── */
+.zen-shell {
+  position: fixed;
+  inset: 0;
+  background: var(--theme-bg-primary, #fafaf9);
+  color: var(--theme-text-primary, #1a1a1a);
+  font-family: var(--theme-font-family, Georgia, "Times New Roman", serif);
+  font-size: var(--theme-font-size-base, 17px);
+  line-height: var(--theme-line-height, 1.8);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Navigation ─── */
+.zen-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: var(--theme-bg-primary, #fafaf9);
+  border-bottom: 1px solid var(--theme-border, #e8e8e6);
+  transition: border-color 300ms ease-out;
+}
+
+.zen-nav-inner {
+  max-width: var(--theme-content-max-width, 640px);
+  margin: 0 auto;
+  padding: 0 var(--theme-content-padding, 24px);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zen-nav-brand {
+  font-family: var(--theme-font-family-heading, Georgia, serif);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--theme-text-primary, #1a1a1a);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 300ms ease-out;
+}
+
+.zen-nav-brand:hover {
+  opacity: 1;
+}
+
+.zen-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.zen-nav-link {
+  position: relative;
+  color: var(--theme-text-secondary, #6b6b6b);
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: color 200ms ease-out;
+  padding: 4px 0;
+}
+
+.zen-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--theme-text-primary, #1a1a1a);
+  transform: scaleX(0);
+  transition: transform 200ms ease-out;
+}
+
+.zen-nav-link:hover {
+  color: var(--theme-text-primary, #1a1a1a);
+}
+
+.zen-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.zen-nav-link.active {
+  color: var(--theme-text-primary, #1a1a1a);
+}
+
+.zen-nav-link.active::after {
+  transform: scaleX(1);
+  background: var(--theme-link, #8b4513);
+}
+
+.zen-nav-sep {
+  color: var(--theme-text-muted, #a3a3a3);
+  user-select: none;
+}
+
+/* ─── Enso Circle ─── */
+.zen-enso {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border-top: 2px solid rgba(0, 0, 0, 0.04);
+  border-right: 3px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+  border-left: 1px solid rgba(0, 0, 0, 0.02);
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* ─── Content Column ─── */
+.zen-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--theme-content-max-width, 640px);
+  margin: 0 auto;
+  padding: 88px var(--theme-content-padding, 24px) 160px;
+}
+
+/* ─── Fade Animation ─── */
+.zen-fade-in {
+  animation: zenFadeIn 600ms ease-out both;
+}
+
+@keyframes zenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Page Base ─── */
+.zen-page {
+  min-height: 60vh;
+}
+
+/* ─── Titles ─── */
+.zen-title {
+  font-family: var(--theme-font-family-heading, Georgia, serif);
+  font-size: var(--theme-font-size-h1, 24px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--theme-text-primary, #1a1a1a);
+  margin: 0 0 48px 0;
+}
+
+/* ─── Home Page ─── */
+.zen-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh;
+  padding-top: 80px;
+}
+
+.zen-home-title {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  margin-bottom: 64px;
+}
+
+.zen-home-title.zen-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 8px;
+  margin-bottom: 48px;
+}
+
+.zen-home-intro {
+  color: var(--theme-text-secondary, #6b6b6b);
+  font-size: 16px;
+  line-height: 2.2;
+  margin-bottom: 80px;
+}
+
+.zen-home-intro p {
+  margin: 0;
+}
+
+.zen-home-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ─── Text Links ─── */
+.zen-text-link {
+  color: var(--theme-link, #8b4513);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.8;
+  transition: opacity 300ms ease-out;
+}
+
+.zen-text-link:hover {
+  opacity: 1;
+}
+
+/* ─── About Page ─── */
+.zen-about .zen-title {
+  margin-bottom: 56px;
+}
+
+.zen-bio .content-paragraph {
+  margin-bottom: 2em;
+  color: var(--theme-text-primary, #1a1a1a);
+}
+
+.zen-contact {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Writings Page ─── */
+.zen-writings .zen-title {
+  margin-bottom: 56px;
+}
+
+.zen-writings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zen-writings-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin-bottom: 44px;
+  cursor: pointer;
+}
+
+.zen-writings-item-title {
+  font-family: var(--theme-font-family-heading, Georgia, serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--theme-text-primary, #1a1a1a);
+  transition: color 300ms ease-out;
+}
+
+.zen-writings-item:hover .zen-writings-item-title {
+  color: var(--theme-link, #8b4513);
+}
+
+.zen-writings-item-date {
+  font-size: 13px;
+  color: var(--theme-text-muted, #a3a3a3);
+  letter-spacing: 0.3px;
+}
+
+.zen-writings-item-words {
+  font-size: 12px;
+  color: var(--theme-text-muted, #a3a3a3);
+}
+
+/* ─── Post Page ─── */
+.zen-post-title {
+  font-family: var(--theme-font-family-heading, Georgia, serif);
+  font-size: var(--theme-font-size-h1, 24px);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  margin: 32px 0 16px 0;
+}
+
+.zen-post-date {
+  font-size: 13px;
+  color: var(--theme-text-muted, #a3a3a3);
+  letter-spacing: 0.3px;
+  margin: 0 0 32px 0;
+}
+
+.zen-hairline {
+  border: none;
+  border-top: 1px solid var(--theme-border, #e5e5e5);
+  margin: 32px 0;
+}
+
+.zen-post-content {
+  margin-top: 40px;
+}
+
+.zen-post-content .content-paragraph {
+  margin-bottom: 1.6em;
+  line-height: 1.9;
+}
+
+/* ─── Audio ─── */
+.zen-audio {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--theme-border, #e5e5e5);
+}
+
+.zen-audio-toggle {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--theme-link, #8b4513);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.zen-audio-toggle:hover {
+  opacity: 0.7;
+}
+
+.zen-audio-progress {
+  flex: 1;
+  height: 3px;
+  background: var(--theme-border, #e5e5e5);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  min-width: 60px;
+  transition: height 150ms ease-out;
+}
+
+.zen-audio-progress:hover {
+  height: 5px;
+}
+
+.zen-audio-bar {
+  height: 100%;
+  background: var(--theme-link, #8b4513);
+  border-radius: 2px;
+  transition: width 100ms linear;
+  opacity: 0.6;
+}
+
+.zen-audio-progress:hover .zen-audio-bar {
+  opacity: 1;
+}
+
+.zen-audio-time {
+  font-size: 11px;
+  color: var(--theme-text-muted, #a3a3a3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 70px;
+  text-align: right;
+}
+
+.zen-audio-speed {
+  font-size: 11px;
+  color: var(--theme-text-muted, #a3a3a3);
+  cursor: pointer;
+  padding: 2px 6px;
+  border: 1px solid var(--theme-border, #e5e5e5);
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.zen-audio-speed:hover {
+  color: var(--theme-text-primary, #1a1a1a);
+  border-color: var(--theme-text-muted, #a3a3a3);
+}
+
+/* ─── Back Arrow ─── */
+.zen-back {
+  display: inline-block;
+  font-size: 18px;
+  color: var(--theme-text-muted, #a3a3a3);
+  cursor: pointer;
+  transition: color 300ms ease-out;
+  margin-bottom: 16px;
+}
+
+.zen-back:hover {
+  color: var(--theme-text-primary, #1a1a1a);
+}
+
+/* ─── Loading ─── */
+.zen-loading {
+  color: var(--theme-text-muted, #a3a3a3);
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+/* ─── Internal Links ─── */
+.zen-shell .internal-link {
+  color: var(--theme-link, #8b4513);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 300ms ease-out;
+}
+
+.zen-shell .internal-link:hover {
+  opacity: 1;
+}
+
+/* ─── Content Paragraphs ─── */
+.zen-shell .content-paragraph {
+  margin-bottom: 1.6em;
+  line-height: var(--theme-line-height, 1.8);
+}
+
+/* ─── Projects Page ─── */
+.zen-projects .zen-title {
+  margin-bottom: 16px;
+}
+
+.zen-projects-intro {
+  color: var(--theme-text-secondary, #6b6b6b);
+  font-size: 15px;
+  font-style: italic;
+  margin: 0 0 56px 0;
+}
+
+.zen-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.zen-project {
+  padding: 0;
+}
+
+.zen-project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.zen-project-name {
+  font-family: var(--theme-font-family-heading, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: var(--theme-text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.zen-project-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 300ms ease-out;
+}
+
+.zen-project-link:hover {
+  color: var(--theme-link, #8b4513);
+}
+
+.zen-project-arrow {
+  font-size: 0.75em;
+  opacity: 0;
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  display: inline-block;
+}
+
+.zen-project-link:hover .zen-project-arrow {
+  opacity: 0.6;
+  transform: translateX(2px);
+}
+
+.zen-project-status {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--theme-text-muted, #a3a3a3);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.zen-project-tagline {
+  font-size: 15px;
+  color: var(--theme-text-secondary, #6b6b6b);
+  margin: 0 0 24px 0;
+}
+
+.zen-project-body .content-paragraph {
+  margin-bottom: 1.4em;
+  line-height: 1.8;
+}
+
+.zen-project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.zen-tech-tag {
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--theme-text-secondary, #6b6b6b);
+  border: 1px solid var(--theme-border, #e8e8e6);
+  border-radius: 12px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* ─── Theme Toggle ─── */
+.zen-theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--theme-bg-primary, #fafaf9);
+  border: 1px solid var(--theme-border, #e8e8e6);
+  border-radius: 20px;
+  color: var(--theme-text-muted, #a3a3a3);
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.zen-theme-toggle:hover {
+  opacity: 1;
+  border-color: var(--theme-text-muted, #a3a3a3);
+  color: var(--theme-text-secondary, #6b6b6b);
+}
+
+.zen-theme-toggle svg {
+  flex-shrink: 0;
+}
+
+/* ─── Custom Scrollbar ─── */
+.zen-shell::-webkit-scrollbar {
+  width: 4px;
+}
+
+.zen-shell::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.zen-shell::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.zen-shell::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Firefox scrollbar */
+.zen-shell {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .zen-nav-inner {
+    height: 48px;
+    padding: 0 20px;
+  }
+
+  .zen-nav-links {
+    gap: 24px;
+  }
+
+  .zen-nav-link {
+    font-size: 12px;
+  }
+
+  .zen-nav-brand {
+    font-size: 14px;
+  }
+
+  .zen-content {
+    padding: 72px 20px 100px;
+  }
+
+  .zen-home {
+    padding-top: 40px;
+  }
+
+  .zen-home-title {
+    font-size: 24px;
+  }
+
+  .zen-home-intro {
+    margin-bottom: 60px;
+  }
+
+  .zen-enso {
+    width: 200px;
+    height: 200px;
+  }
+
+  .zen-writings-item {
+    margin-bottom: 36px;
+  }
+
+  .zen-post-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zen-nav-inner {
+    height: 44px;
+    padding: 0 16px;
+  }
+
+  .zen-nav-links {
+    gap: 18px;
+  }
+
+  .zen-nav-link {
+    font-size: 11px;
+  }
+
+  .zen-nav-brand {
+    font-size: 13px;
+  }
+
+  .zen-content {
+    padding: 64px 16px 80px;
+  }
+
+  .zen-home-title {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .zen-home-intro {
+    font-size: 15px;
+    margin-bottom: 48px;
+  }
+
+  .zen-enso {
+    width: 160px;
+    height: 160px;
+  }
+}

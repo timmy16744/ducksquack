@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatDate } from '../utils/date';
 import XPWritingsList from './XPWritingsList';
+import { projectsContent } from '../shared/content-data';
 
 // XP-style folder icon
 const FolderIcon = ({ size = 16 }) => (
@@ -97,6 +98,13 @@ const XPSidebar = ({ currentPage, onNavigate }) => (
         >
           <PersonIconSmall />
           <span>About Me</span>
+        </div>
+        <div
+          className={`task-item ${currentPage === 'projects' ? 'active' : ''}`}
+          onClick={() => onNavigate('projects')}
+        >
+          <FolderIcon size={16} />
+          <span>Projects</span>
         </div>
         <div
           className={`task-item ${currentPage === 'writings' || currentPage === 'post' ? 'active' : ''}`}
@@ -385,6 +393,61 @@ This is my echo.`}
     </div>
   );
 
+  const renderProjects = () => (
+    <div className="xp-page-layout">
+      <div className="xp-page-layout-main">
+        <XPSidebar currentPage={currentPage} onNavigate={onNavigate} />
+        <div className="xp-page-main">
+          <div className="xp-projects-content xp-content">
+            <h1>Projects</h1>
+            <p className="description" style={{ marginBottom: '20px', color: '#444', fontStyle: 'italic' }}>
+              {projectsContent.intro}
+            </p>
+            {projectsContent.projects.map((project) => (
+              <div key={project.id} className="xp-project-card" style={{
+                border: '1px solid #ACA899',
+                background: '#fff',
+                padding: '16px',
+                marginBottom: '16px',
+                borderRadius: '3px',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '6px' }}>
+                  <h2 style={{ margin: 0, fontSize: '16px', color: '#003399' }}>
+                    {project.url ? (
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" style={{ color: '#003399', textDecoration: 'none' }}>
+                        {project.name} &#8599;
+                      </a>
+                    ) : project.name}
+                  </h2>
+                  <span style={{ fontSize: '10px', color: '#808080', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{project.status}</span>
+                </div>
+                <div style={{ fontSize: '12px', color: '#666', fontStyle: 'italic', marginBottom: '12px' }}>
+                  {project.tagline}
+                </div>
+                {project.description.split('\n\n').map((para, i) => (
+                  <p key={i} style={{ margin: '0 0 10px 0', fontSize: '13px', lineHeight: '1.6' }}>{para}</p>
+                ))}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '12px' }}>
+                  {project.tech.map((t) => (
+                    <span key={t} style={{
+                      fontSize: '10px',
+                      background: '#ECE9D8',
+                      border: '1px solid #ACA899',
+                      borderRadius: '2px',
+                      padding: '2px 6px',
+                      color: '#444',
+                    }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="xp-page-status">Projects</div>
+    </div>
+  );
+
   const renderWritings = () => (
     <XPWritingsList onSelectPost={onSelectPost} onNavigate={onNavigate} />
   );
@@ -422,6 +485,8 @@ This is my echo.`}
       return renderHome();
     case 'about':
       return renderAbout();
+    case 'projects':
+      return renderProjects();
     case 'writings':
       return renderWritings();
     case 'post':

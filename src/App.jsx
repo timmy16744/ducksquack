@@ -1,11 +1,24 @@
 import React from 'react';
-import XPDesktop from './components/XPDesktop';
+import { ThemeProvider, useTheme } from './themes/ThemeContext';
+import DevSettingsPanel from './themes/DevSettingsPanel';
+
+function ThemeShell() {
+  const { theme, devMode } = useTheme();
+  const Shell = theme.Shell;
+
+  return (
+    <>
+      <Shell />
+      {devMode && <DevSettingsPanel />}
+    </>
+  );
+}
 
 function App() {
   return (
-    <div id="app-container" style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
-      <XPDesktop />
-    </div>
+    <ThemeProvider>
+      <ThemeShell />
+    </ThemeProvider>
   );
 }
 

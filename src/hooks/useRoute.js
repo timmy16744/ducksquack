@@ -24,6 +24,8 @@ export function useRoute() {
       return { page: 'home', slug: null };
     } else if (path === '/about' || path === '/about/') {
       return { page: 'about', slug: null };
+    } else if (path === '/projects' || path === '/projects/') {
+      return { page: 'projects', slug: null };
     } else if (path === '/writings' || path === '/writings/') {
       return { page: 'writings', slug: null };
     } else if (path.startsWith('/writings/')) {
@@ -59,6 +61,8 @@ export function useRoute() {
 
     if (page === 'about') {
       url = '/about/';
+    } else if (page === 'projects') {
+      url = '/projects/';
     } else if (page === 'writings') {
       url = '/writings/';
     } else if (page === 'post' && post) {

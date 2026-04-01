@@ -304,6 +304,9 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
       case 'about':
         title = 'DuckSquack - About';
         break;
+      case 'projects':
+        title = 'DuckSquack - Projects';
+        break;
       case 'writings':
         title = 'DuckSquack - Writings';
         break;
