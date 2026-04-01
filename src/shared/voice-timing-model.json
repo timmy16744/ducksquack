@@ -1,0 +1,10 @@
+{
+  "dur_per_char_ms": 53.5,
+  "gap_after_period_ms": 316.7,
+  "gap_after_comma_ms": 176.3,
+  "gap_after_question_ms": 400.0,
+  "gap_after_colon_ms": 0.0,
+  "gap_after_semicolon_ms": 0.0,
+  "gap_no_punct_ms": 27.1,
+  "min_word_dur_ms": 40
+}

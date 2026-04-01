@@ -1,0 +1,8730 @@
+{
+  "model": "voxtral-mini-latest",
+  "text": "There is a question that hovers beneath the surface of every conversation about artificial intelligence and employment, rarely addressed directly but always present. What happens to meaning when work disappears? I do not mean income. Income is a problem, but it is a tractable one. Universal basic income, automation dividends, reform taxation. These are policy challenges with policy solutions. Difficult, certainly. Politically fraught, undoubtedly. But conceivable. The question of meaning is harder. It does not yield to policy. For most people in modern economies, work provides more than wages. It provides structure. It provides identity. It provides an answer to the question that children ask and adults dread. What do you do? The job title is not merely a description of tasks. It is a location in the social order, a shorthand for who you are and what you contribute and where you belong. When that disappears, what remains? I want to suggest that the question, while real, may be historically provincial. The assumption that work defines identity is not ancient. It is not universal. It is, in the broad sweep of human experience, rather recent and rather local. For most of human history, most people were farmers. They did not define themselves by their occupation because occupation was not a distinguishing feature. Everyone farmed. Identity came from other sources. Family, village, religion, lineage, place. The work was necessary, often brutal, but it was not the core of selfhood. It was simply what one did to survive, alongside the other things that actually...actually mattered. The idea that your job should be your passion, that career should be calling, that professional identity should be personal identity. This is a product of industrialization and its aftermath. It emerged alongside factories and offices and the separation of work from home. It intensified with the rise of professionalism, the credential economy, the LinkedIn profile. We've been marinating in it for perhaps two centuries. We mistake it for human nature. This is not to say the transition will be easy. It will not. When a structure that has organized meaning for generations suddenly dissolves, the result is not immediate liberation. It is disorientation. The long-term unemployed suffer depression at three times the normal rate. This is not only because of financial stress, though financial stress is real. It is because the scaffolding that held up their sense of self has been removed, and nothing has yet replaced it. But difficulty is not impossibility. The question is what might fill the void. I suspect the answer involves a return to something older, though in new forms. Local community, physical presence, contribution that you can see and touch. Consider what happens when you remove the commute, the office, the professional identity. What remains is where you actually are. The neighborhood, the people who live near you, the physical environment you inhabit daily. These have always been present, but for many people they have been background, the place you sleep between the places that matter. When work recedes, the local becomes foreground. I can imagine a world where the activities that currently occupy the margins of life move to the center. Local sport, not a...as a weekend escape from real life, but as a genuine source of identity and belonging. Community gardening, not as a quirky hobby, but as meaningful contribution to a shared enterprise. Volunteering, mutual aid, participation in the governance of the places where you live. These could become the structures around which people organise their sense of purpose. This is not utopia. It is simply a different arrangement. Humans need to feel useful. We need to feel that our presence matters, that our absence would be noticed, that we contribute something that would not exist without us. Work has provided this feeling, but work is not the only possible source. Any activity that connects individual effort to collective benefit can serve the same function. The challenge is the transition. We have built a society that provides few pathways to local contribution for people who are not employed. The infrastructure of community has atrophied precisely as the infrastructure of work has expanded. We do not know our neighbours. We do not participate in local institutions. We have outsourced belonging to the workplace and the screen. Rebuilding that infrastructure will take time, and time is the one resource that may be scarce. The displacement is coming faster than new structures can emerge organically. There will be a gap, and in that gap there will be suffering. People who define themselves by careers that no longer exist. People who build identities around expertise that has been automated. People who simply do not know who they are when the job title is removed. I have some immunity to this particular crisis, though not by choice. Cluster headaches force me to find meaning outside work.long before AI made that search general. When your existence is structured around managing pain, when professional ambitions become secondary to simply getting through the day, you either find other sources of purpose or you collapse. I found other sources. I have never defined myself by income. I have never based my identity on a title. These things matter, practically, but they are not who I am. Who I am is a father, a husband, a thinker, a person trying to understand the world and act decently within it. These identities do not depend on employment. They would persist if I never worked another day. This gives me, I think, some perspective on what the transition might require. It requires learning to locate meaning in relationships rather than roles. In presence rather than productivity. In contribution to the people immediately around you rather than to abstract economic metrics. It requires, in short, becoming more human in the older sense, the sense that preceded the industrial reorganization of identity, the sense in which you are not what you do but who you love and where you belong and what you care about deeply enough to sacrifice for. I think about Arthur in this context. He may grow up in a world where traditional employment is not the default, where the career ladder his grandparents climbed simply does not exist in recognisable form. This does not frighten me for him. It might even be a gift. If he never learns to define himself by job title, he will never suffer the loss of that definition. If he grows up understanding that meaning comes from relationships, from community, from contribution that is measured inhuman terms rather than economic ones, he will be prepared for a world that demands exactly that understanding. The meaning void is real, but it is a void only if you assume that work was the proper source of meaning in the first place. If you question that assumption, the void becomes a space, a space that can be filled with other things, perhaps better things. The transition will be hard, people will suffer, entire generations may struggle to adapt. But on the other side, there is the possibility of a life less organized around production and consumption, more organized around presence and connection. A life where the question, what do you do, gives way to other questions. Where do you belong? Who do you love? What are you building with the people around you? These seem to me like better questions. The challenge is surviving long enough, individually and collectively, to learn how to answer them.",
+  "language": null,
+  "segments": [
+    {
+      "text": "There",
+      "start": 0.0,
+      "end": 0.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 0.2,
+      "end": 0.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 0.4,
+      "end": 0.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question",
+      "start": 0.4,
+      "end": 0.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 0.9,
+      "end": 1.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " hovers",
+      "start": 1.0,
+      "end": 1.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " beneath",
+      "start": 1.3,
+      "end": 1.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 1.6,
+      "end": 1.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " surface",
+      "start": 1.8,
+      "end": 2.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 2.2,
+      "end": 2.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " every",
+      "start": 2.3,
+      "end": 2.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " conversation",
+      "start": 2.5,
+      "end": 3.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " about",
+      "start": 3.2,
+      "end": 3.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " artificial",
+      "start": 3.5,
+      "end": 4.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " intelligence",
+      "start": 4.0,
+      "end": 4.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 4.6,
+      "end": 4.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " employment,",
+      "start": 4.8,
+      "end": 5.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rarely",
+      "start": 5.5,
+      "end": 5.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " addressed",
+      "start": 5.8,
+      "end": 6.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " directly",
+      "start": 6.2,
+      "end": 6.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 6.7,
+      "end": 6.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " always",
+      "start": 6.8,
+      "end": 7.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " present.",
+      "start": 7.2,
+      "end": 7.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " What",
+      "start": 8.0,
+      "end": 8.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " happens",
+      "start": 8.2,
+      "end": 8.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 8.5,
+      "end": 8.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 8.7,
+      "end": 9.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " when",
+      "start": 9.0,
+      "end": 9.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 9.2,
+      "end": 9.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " disappears?",
+      "start": 9.5,
+      "end": 10.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 10.6,
+      "end": 10.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 10.7,
+      "end": 10.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 10.9,
+      "end": 11.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " mean",
+      "start": 11.0,
+      "end": 11.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " income.",
+      "start": 11.3,
+      "end": 11.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Income",
+      "start": 12.1,
+      "end": 12.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 12.4,
+      "end": 12.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 12.5,
+      "end": 12.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " problem,",
+      "start": 12.6,
+      "end": 13.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 13.0,
+      "end": 13.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it",
+      "start": 13.1,
+      "end": 13.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 13.2,
+      "end": 13.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 13.3,
+      "end": 13.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " tractable",
+      "start": 13.4,
+      "end": 13.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " one.",
+      "start": 13.9,
+      "end": 14.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Universal",
+      "start": 14.7,
+      "end": 15.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " basic",
+      "start": 15.3,
+      "end": 15.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " income,",
+      "start": 15.6,
+      "end": 16.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " automation",
+      "start": 16.2,
+      "end": 16.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " dividends,",
+      "start": 16.8,
+      "end": 17.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " reform",
+      "start": 17.5,
+      "end": 17.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " taxation.",
+      "start": 17.9,
+      "end": 18.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 19.1,
+      "end": 19.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 19.3,
+      "end": 19.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " policy",
+      "start": 19.4,
+      "end": 19.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " challenges",
+      "start": 19.8,
+      "end": 20.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " with",
+      "start": 20.4,
+      "end": 20.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " policy",
+      "start": 20.6,
+      "end": 21.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " solutions.",
+      "start": 21.1,
+      "end": 21.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Difficult,",
+      "start": 22.1,
+      "end": 22.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " certainly.",
+      "start": 22.8,
+      "end": 23.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Politically",
+      "start": 23.6,
+      "end": 24.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " fraught,",
+      "start": 24.1,
+      "end": 24.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " undoubtedly.",
+      "start": 24.6,
+      "end": 25.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " But",
+      "start": 25.7,
+      "end": 25.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " conceivable.",
+      "start": 25.9,
+      "end": 26.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 26.9,
+      "end": 27.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question",
+      "start": 27.1,
+      "end": 27.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 27.4,
+      "end": 27.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 27.5,
+      "end": 27.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 27.9,
+      "end": 28.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " harder.",
+      "start": 28.1,
+      "end": 28.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 28.9,
+      "end": 28.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " does",
+      "start": 29.0,
+      "end": 29.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 29.1,
+      "end": 29.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " yield",
+      "start": 29.3,
+      "end": 29.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 29.6,
+      "end": 29.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " policy.",
+      "start": 29.7,
+      "end": 30.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " For",
+      "start": 30.6,
+      "end": 30.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " most",
+      "start": 30.8,
+      "end": 31.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 31.0,
+      "end": 31.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 31.4,
+      "end": 31.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " modern",
+      "start": 31.5,
+      "end": 31.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " economies,",
+      "start": 31.8,
+      "end": 32.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 32.5,
+      "end": 32.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provides",
+      "start": 32.8,
+      "end": 33.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " more",
+      "start": 33.3,
+      "end": 33.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 33.5,
+      "end": 33.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " wages.",
+      "start": 33.6,
+      "end": 34.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 34.3,
+      "end": 34.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provides",
+      "start": 34.4,
+      "end": 34.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " structure.",
+      "start": 34.8,
+      "end": 35.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 35.7,
+      "end": 35.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provides",
+      "start": 35.8,
+      "end": 36.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity.",
+      "start": 36.2,
+      "end": 36.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 37.2,
+      "end": 37.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provides",
+      "start": 37.3,
+      "end": 37.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " an",
+      "start": 37.7,
+      "end": 37.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " answer",
+      "start": 37.8,
+      "end": 38.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 38.1,
+      "end": 38.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 38.2,
+      "end": 38.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question",
+      "start": 38.4,
+      "end": 38.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 38.9,
+      "end": 39.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " children",
+      "start": 39.1,
+      "end": 39.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " ask",
+      "start": 39.5,
+      "end": 39.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 39.9,
+      "end": 40.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " adults",
+      "start": 40.1,
+      "end": 40.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " dread.",
+      "start": 40.5,
+      "end": 40.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " What",
+      "start": 41.1,
+      "end": 41.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 41.3,
+      "end": 41.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 41.5,
+      "end": 41.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do?",
+      "start": 41.6,
+      "end": 42.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 42.4,
+      "end": 42.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " job",
+      "start": 42.6,
+      "end": 42.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " title",
+      "start": 42.8,
+      "end": 43.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 43.2,
+      "end": 43.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 43.3,
+      "end": 43.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " merely",
+      "start": 43.5,
+      "end": 43.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 43.8,
+      "end": 43.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " description",
+      "start": 43.9,
+      "end": 44.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 44.3,
+      "end": 44.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " tasks.",
+      "start": 44.5,
+      "end": 45.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 45.1,
+      "end": 45.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 45.3,
+      "end": 45.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 45.4,
+      "end": 45.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " location",
+      "start": 45.4,
+      "end": 46.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 46.1,
+      "end": 46.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 46.2,
+      "end": 46.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " social",
+      "start": 46.3,
+      "end": 46.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " order,",
+      "start": 46.7,
+      "end": 47.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 47.4,
+      "end": 47.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " shorthand",
+      "start": 47.5,
+      "end": 48.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 48.0,
+      "end": 48.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 48.1,
+      "end": 48.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 48.3,
+      "end": 48.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 48.5,
+      "end": 48.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 48.9,
+      "end": 49.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 49.1,
+      "end": 49.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 49.3,
+      "end": 49.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribute",
+      "start": 49.4,
+      "end": 49.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 49.9,
+      "end": 50.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 50.1,
+      "end": 50.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 50.3,
+      "end": 50.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " belong.",
+      "start": 50.4,
+      "end": 50.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " When",
+      "start": 51.2,
+      "end": 51.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 51.4,
+      "end": 51.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " disappears,",
+      "start": 51.5,
+      "end": 52.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 52.3,
+      "end": 52.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " remains?",
+      "start": 52.5,
+      "end": 53.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 53.5,
+      "end": 53.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " want",
+      "start": 53.6,
+      "end": 53.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 53.8,
+      "end": 53.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suggest",
+      "start": 53.9,
+      "end": 54.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 54.3,
+      "end": 54.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 54.4,
+      "end": 54.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question,",
+      "start": 54.5,
+      "end": 55.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " while",
+      "start": 55.1,
+      "end": 55.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " real,",
+      "start": 55.4,
+      "end": 55.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " may",
+      "start": 55.9,
+      "end": 56.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 56.1,
+      "end": 56.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " historically",
+      "start": 56.3,
+      "end": 56.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provincial.",
+      "start": 56.9,
+      "end": 57.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 57.9,
+      "end": 58.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " assumption",
+      "start": 58.0,
+      "end": 58.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 58.5,
+      "end": 58.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 58.7,
+      "end": 58.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " defines",
+      "start": 58.9,
+      "end": 59.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity",
+      "start": 59.4,
+      "end": 59.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 59.9,
+      "end": 60.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 60.1,
+      "end": 60.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " ancient.",
+      "start": 60.3,
+      "end": 60.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 61.0,
+      "end": 61.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 61.1,
+      "end": 61.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 61.3,
+      "end": 61.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " universal.",
+      "start": 61.5,
+      "end": 62.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 62.5,
+      "end": 62.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is,",
+      "start": 62.6,
+      "end": 62.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 62.9,
+      "end": 63.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 63.1,
+      "end": 63.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " broad",
+      "start": 63.2,
+      "end": 63.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sweep",
+      "start": 63.5,
+      "end": 63.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 63.8,
+      "end": 63.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " human",
+      "start": 63.9,
+      "end": 64.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " experience,",
+      "start": 64.2,
+      "end": 64.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 65.0,
+      "end": 65.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " recent",
+      "start": 65.3,
+      "end": 65.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 65.8,
+      "end": 66.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 66.0,
+      "end": 66.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " local.",
+      "start": 66.3,
+      "end": 66.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " For",
+      "start": 67.1,
+      "end": 67.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " most",
+      "start": 67.3,
+      "end": 67.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 67.5,
+      "end": 67.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " human",
+      "start": 67.6,
+      "end": 67.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " history,",
+      "start": 67.9,
+      "end": 68.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " most",
+      "start": 68.4,
+      "end": 68.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 68.7,
+      "end": 68.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " were",
+      "start": 68.9,
+      "end": 69.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " farmers.",
+      "start": 69.1,
+      "end": 69.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " They",
+      "start": 69.9,
+      "end": 70.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " did",
+      "start": 70.0,
+      "end": 70.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 70.1,
+      "end": 70.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " define",
+      "start": 70.3,
+      "end": 70.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " themselves",
+      "start": 70.7,
+      "end": 71.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " by",
+      "start": 71.1,
+      "end": 71.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " their",
+      "start": 71.3,
+      "end": 71.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " occupation",
+      "start": 71.4,
+      "end": 72.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " because",
+      "start": 72.2,
+      "end": 72.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " occupation",
+      "start": 72.5,
+      "end": 73.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " was",
+      "start": 73.1,
+      "end": 73.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 73.3,
+      "end": 73.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 73.4,
+      "end": 73.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " distinguishing",
+      "start": 73.5,
+      "end": 74.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " feature.",
+      "start": 74.2,
+      "end": 74.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Everyone",
+      "start": 75.1,
+      "end": 75.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " farmed.",
+      "start": 75.5,
+      "end": 76.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Identity",
+      "start": 76.3,
+      "end": 76.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " came",
+      "start": 76.8,
+      "end": 77.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 77.1,
+      "end": 77.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 77.3,
+      "end": 77.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sources.",
+      "start": 77.5,
+      "end": 78.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Family,",
+      "start": 78.4,
+      "end": 78.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " village,",
+      "start": 79.1,
+      "end": 79.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " religion,",
+      "start": 79.7,
+      "end": 80.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " lineage,",
+      "start": 80.5,
+      "end": 80.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " place.",
+      "start": 81.1,
+      "end": 81.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 81.7,
+      "end": 81.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 81.9,
+      "end": 82.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " was",
+      "start": 82.1,
+      "end": 82.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " necessary,",
+      "start": 82.3,
+      "end": 83.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " often",
+      "start": 83.2,
+      "end": 83.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " brutal,",
+      "start": 83.6,
+      "end": 84.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 84.2,
+      "end": 84.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it",
+      "start": 84.4,
+      "end": 84.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " was",
+      "start": 84.4,
+      "end": 84.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 84.6,
+      "end": 84.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 84.8,
+      "end": 84.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " core",
+      "start": 84.9,
+      "end": 85.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 85.2,
+      "end": 85.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " selfhood.",
+      "start": 85.4,
+      "end": 85.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 86.3,
+      "end": 86.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " was",
+      "start": 86.4,
+      "end": 86.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " simply",
+      "start": 86.5,
+      "end": 86.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 86.9,
+      "end": 87.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " one",
+      "start": 87.1,
+      "end": 87.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " did",
+      "start": 87.3,
+      "end": 87.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 87.5,
+      "end": 87.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " survive,",
+      "start": 87.7,
+      "end": 88.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " alongside",
+      "start": 88.6,
+      "end": 89.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 89.2,
+      "end": 89.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 89.3,
+      "end": 89.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " things",
+      "start": 89.6,
+      "end": 89.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 89.8,
+      "end": 89.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " actually...",
+      "start": 90.0,
+      "end": 90.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": "actually",
+      "start": 90.0,
+      "end": 90.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " mattered.",
+      "start": 90.4,
+      "end": 90.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 91.1,
+      "end": 91.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " idea",
+      "start": 91.3,
+      "end": 91.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 91.6,
+      "end": 91.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " your",
+      "start": 91.8,
+      "end": 92.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " job",
+      "start": 92.0,
+      "end": 92.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " should",
+      "start": 92.3,
+      "end": 92.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 92.5,
+      "end": 92.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " your",
+      "start": 92.6,
+      "end": 92.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " passion,",
+      "start": 92.8,
+      "end": 93.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 93.5,
+      "end": 93.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " career",
+      "start": 93.7,
+      "end": 93.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " should",
+      "start": 94.0,
+      "end": 94.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 94.2,
+      "end": 94.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " calling,",
+      "start": 94.3,
+      "end": 94.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 94.8,
+      "end": 95.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " professional",
+      "start": 95.0,
+      "end": 95.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity",
+      "start": 95.5,
+      "end": 96.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " should",
+      "start": 96.0,
+      "end": 96.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 96.2,
+      "end": 96.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " personal",
+      "start": 96.4,
+      "end": 96.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity.",
+      "start": 96.8,
+      "end": 97.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 97.7,
+      "end": 97.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 97.9,
+      "end": 98.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 98.0,
+      "end": 98.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " product",
+      "start": 98.1,
+      "end": 98.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 98.4,
+      "end": 98.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " industrialization",
+      "start": 98.5,
+      "end": 99.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 99.5,
+      "end": 99.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " its",
+      "start": 99.7,
+      "end": 99.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " aftermath.",
+      "start": 99.8,
+      "end": 100.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 100.8,
+      "end": 100.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " emerged",
+      "start": 100.9,
+      "end": 101.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " alongside",
+      "start": 101.4,
+      "end": 101.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " factories",
+      "start": 101.9,
+      "end": 102.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 102.5,
+      "end": 102.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " offices",
+      "start": 102.6,
+      "end": 103.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 103.1,
+      "end": 103.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 103.2,
+      "end": 103.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " separation",
+      "start": 103.3,
+      "end": 103.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 103.9,
+      "end": 104.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 104.0,
+      "end": 104.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 104.3,
+      "end": 104.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " home.",
+      "start": 104.4,
+      "end": 104.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 105.1,
+      "end": 105.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " intensified",
+      "start": 105.3,
+      "end": 106.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " with",
+      "start": 106.1,
+      "end": 106.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 106.2,
+      "end": 106.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rise",
+      "start": 106.3,
+      "end": 106.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 106.6,
+      "end": 106.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " professionalism,",
+      "start": 106.7,
+      "end": 107.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 107.6,
+      "end": 107.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " credential",
+      "start": 107.7,
+      "end": 108.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " economy,",
+      "start": 108.2,
+      "end": 108.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 108.8,
+      "end": 108.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " LinkedIn",
+      "start": 108.9,
+      "end": 109.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " profile.",
+      "start": 109.3,
+      "end": 109.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We've",
+      "start": 110.2,
+      "end": 110.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " been",
+      "start": 110.5,
+      "end": 110.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " marinating",
+      "start": 110.7,
+      "end": 111.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 111.3,
+      "end": 111.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it",
+      "start": 111.4,
+      "end": 111.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 111.6,
+      "end": 111.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " perhaps",
+      "start": 111.7,
+      "end": 112.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " two",
+      "start": 112.1,
+      "end": 112.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " centuries.",
+      "start": 112.4,
+      "end": 112.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 113.2,
+      "end": 113.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " mistake",
+      "start": 113.3,
+      "end": 113.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it",
+      "start": 113.8,
+      "end": 113.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 113.9,
+      "end": 114.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " human",
+      "start": 114.0,
+      "end": 114.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " nature.",
+      "start": 114.3,
+      "end": 114.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 115.1,
+      "end": 115.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 115.3,
+      "end": 115.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 115.5,
+      "end": 115.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 115.6,
+      "end": 115.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " say",
+      "start": 115.8,
+      "end": 116.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 116.0,
+      "end": 116.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " transition",
+      "start": 116.1,
+      "end": 116.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 116.6,
+      "end": 116.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 116.8,
+      "end": 116.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " easy.",
+      "start": 116.9,
+      "end": 117.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 117.5,
+      "end": 117.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 117.6,
+      "end": 117.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not.",
+      "start": 117.8,
+      "end": 118.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " When",
+      "start": 118.4,
+      "end": 118.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 118.6,
+      "end": 118.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " structure",
+      "start": 118.7,
+      "end": 119.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 119.1,
+      "end": 119.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 119.2,
+      "end": 119.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " organized",
+      "start": 119.4,
+      "end": 119.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 119.9,
+      "end": 120.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 120.2,
+      "end": 120.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " generations",
+      "start": 120.3,
+      "end": 121.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suddenly",
+      "start": 121.1,
+      "end": 121.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " dissolves,",
+      "start": 121.5,
+      "end": 122.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 122.3,
+      "end": 122.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " result",
+      "start": 122.4,
+      "end": 122.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 122.8,
+      "end": 122.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 122.9,
+      "end": 123.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " immediate",
+      "start": 123.1,
+      "end": 123.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " liberation.",
+      "start": 123.5,
+      "end": 124.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 124.4,
+      "end": 124.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 124.5,
+      "end": 124.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " disorientation.",
+      "start": 124.6,
+      "end": 125.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 126.0,
+      "end": 126.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " long-term",
+      "start": 126.1,
+      "end": 126.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " unemployed",
+      "start": 126.7,
+      "end": 127.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suffer",
+      "start": 127.3,
+      "end": 127.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " depression",
+      "start": 127.5,
+      "end": 128.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " at",
+      "start": 128.0,
+      "end": 128.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " three",
+      "start": 128.2,
+      "end": 128.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " times",
+      "start": 128.5,
+      "end": 128.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 128.8,
+      "end": 128.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " normal",
+      "start": 128.9,
+      "end": 129.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rate.",
+      "start": 129.2,
+      "end": 129.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 129.8,
+      "end": 130.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 130.0,
+      "end": 130.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 130.1,
+      "end": 130.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " only",
+      "start": 130.3,
+      "end": 130.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " because",
+      "start": 130.6,
+      "end": 130.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 130.9,
+      "end": 131.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " financial",
+      "start": 131.0,
+      "end": 131.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " stress,",
+      "start": 131.5,
+      "end": 132.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " though",
+      "start": 132.1,
+      "end": 132.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " financial",
+      "start": 132.3,
+      "end": 132.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " stress",
+      "start": 132.8,
+      "end": 133.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 133.2,
+      "end": 133.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " real.",
+      "start": 133.3,
+      "end": 133.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 134.0,
+      "end": 134.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 134.1,
+      "end": 134.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " because",
+      "start": 134.2,
+      "end": 134.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 134.6,
+      "end": 134.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " scaffolding",
+      "start": 134.7,
+      "end": 135.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 135.3,
+      "end": 135.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " held",
+      "start": 135.4,
+      "end": 135.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " up",
+      "start": 135.7,
+      "end": 135.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " their",
+      "start": 135.8,
+      "end": 135.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sense",
+      "start": 136.0,
+      "end": 136.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 136.2,
+      "end": 136.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " self",
+      "start": 136.4,
+      "end": 136.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 136.7,
+      "end": 136.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " been",
+      "start": 136.8,
+      "end": 137.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " removed,",
+      "start": 137.0,
+      "end": 137.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 137.7,
+      "end": 137.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " nothing",
+      "start": 137.9,
+      "end": 138.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 138.2,
+      "end": 138.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " yet",
+      "start": 138.4,
+      "end": 138.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " replaced",
+      "start": 138.5,
+      "end": 139.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it.",
+      "start": 139.0,
+      "end": 139.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " But",
+      "start": 139.5,
+      "end": 139.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " difficulty",
+      "start": 139.7,
+      "end": 140.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 140.3,
+      "end": 140.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 140.5,
+      "end": 140.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " impossibility.",
+      "start": 140.7,
+      "end": 141.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 141.9,
+      "end": 142.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question",
+      "start": 142.0,
+      "end": 142.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 142.4,
+      "end": 142.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 142.6,
+      "end": 142.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " might",
+      "start": 142.8,
+      "end": 143.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " fill",
+      "start": 143.0,
+      "end": 143.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 143.2,
+      "end": 143.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " void.",
+      "start": 143.4,
+      "end": 143.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 144.1,
+      "end": 144.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suspect",
+      "start": 144.2,
+      "end": 144.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 144.6,
+      "end": 144.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " answer",
+      "start": 144.8,
+      "end": 145.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " involves",
+      "start": 145.1,
+      "end": 145.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 145.6,
+      "end": 145.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " return",
+      "start": 145.7,
+      "end": 146.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 146.0,
+      "end": 146.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " something",
+      "start": 146.1,
+      "end": 146.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " older,",
+      "start": 146.5,
+      "end": 146.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " though",
+      "start": 147.2,
+      "end": 147.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 147.3,
+      "end": 147.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " new",
+      "start": 147.5,
+      "end": 147.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " forms.",
+      "start": 147.7,
+      "end": 148.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Local",
+      "start": 148.4,
+      "end": 148.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " community,",
+      "start": 148.7,
+      "end": 149.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " physical",
+      "start": 149.4,
+      "end": 149.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " presence,",
+      "start": 149.8,
+      "end": 150.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribution",
+      "start": 150.6,
+      "end": 151.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 151.3,
+      "end": 151.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 151.4,
+      "end": 151.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " can",
+      "start": 151.5,
+      "end": 151.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " see",
+      "start": 151.7,
+      "end": 151.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 151.9,
+      "end": 152.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " touch.",
+      "start": 152.1,
+      "end": 152.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Consider",
+      "start": 152.8,
+      "end": 153.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 153.2,
+      "end": 153.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " happens",
+      "start": 153.3,
+      "end": 153.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " when",
+      "start": 153.7,
+      "end": 153.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 153.8,
+      "end": 153.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " remove",
+      "start": 153.9,
+      "end": 154.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 154.3,
+      "end": 154.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " commute,",
+      "start": 154.4,
+      "end": 154.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 155.0,
+      "end": 155.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " office,",
+      "start": 155.2,
+      "end": 155.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 155.6,
+      "end": 155.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " professional",
+      "start": 155.8,
+      "end": 156.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity.",
+      "start": 156.3,
+      "end": 156.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " What",
+      "start": 157.1,
+      "end": 157.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " remains",
+      "start": 157.3,
+      "end": 157.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 157.8,
+      "end": 157.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 157.9,
+      "end": 158.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 158.1,
+      "end": 158.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " actually",
+      "start": 158.3,
+      "end": 158.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are.",
+      "start": 158.6,
+      "end": 159.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 159.3,
+      "end": 159.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " neighborhood,",
+      "start": 159.5,
+      "end": 160.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 160.3,
+      "end": 160.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 160.4,
+      "end": 160.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 160.7,
+      "end": 160.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " live",
+      "start": 160.9,
+      "end": 161.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " near",
+      "start": 161.1,
+      "end": 161.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you,",
+      "start": 161.3,
+      "end": 161.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 161.8,
+      "end": 162.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " physical",
+      "start": 162.0,
+      "end": 162.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " environment",
+      "start": 162.4,
+      "end": 162.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 162.9,
+      "end": 163.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " inhabit",
+      "start": 163.1,
+      "end": 163.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " daily.",
+      "start": 163.5,
+      "end": 163.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 164.2,
+      "end": 164.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 164.5,
+      "end": 164.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " always",
+      "start": 164.6,
+      "end": 164.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " been",
+      "start": 165.0,
+      "end": 165.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " present,",
+      "start": 165.1,
+      "end": 165.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 165.7,
+      "end": 165.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 165.9,
+      "end": 166.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " many",
+      "start": 166.0,
+      "end": 166.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 166.3,
+      "end": 166.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " they",
+      "start": 166.7,
+      "end": 166.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 166.8,
+      "end": 166.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " been",
+      "start": 166.9,
+      "end": 167.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " background,",
+      "start": 167.1,
+      "end": 167.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 167.9,
+      "end": 168.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " place",
+      "start": 168.1,
+      "end": 168.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 168.4,
+      "end": 168.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sleep",
+      "start": 168.5,
+      "end": 168.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " between",
+      "start": 168.8,
+      "end": 169.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 169.1,
+      "end": 169.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " places",
+      "start": 169.2,
+      "end": 169.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 169.6,
+      "end": 169.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " matter.",
+      "start": 169.8,
+      "end": 170.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " When",
+      "start": 170.6,
+      "end": 170.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 170.8,
+      "end": 171.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " recedes,",
+      "start": 171.1,
+      "end": 171.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 171.8,
+      "end": 172.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " local",
+      "start": 172.0,
+      "end": 172.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " becomes",
+      "start": 172.3,
+      "end": 172.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " foreground.",
+      "start": 172.7,
+      "end": 173.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 173.7,
+      "end": 173.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " can",
+      "start": 173.8,
+      "end": 173.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " imagine",
+      "start": 174.0,
+      "end": 174.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 174.3,
+      "end": 174.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " world",
+      "start": 174.4,
+      "end": 174.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 174.7,
+      "end": 174.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 174.8,
+      "end": 174.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " activities",
+      "start": 175.0,
+      "end": 175.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 175.5,
+      "end": 175.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " currently",
+      "start": 175.6,
+      "end": 176.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " occupy",
+      "start": 176.1,
+      "end": 176.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 176.6,
+      "end": 176.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " margins",
+      "start": 176.7,
+      "end": 177.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 177.1,
+      "end": 177.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " life",
+      "start": 177.3,
+      "end": 177.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " move",
+      "start": 177.6,
+      "end": 177.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 177.9,
+      "end": 178.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 178.0,
+      "end": 178.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " center.",
+      "start": 178.1,
+      "end": 178.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Local",
+      "start": 179.0,
+      "end": 179.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sport,",
+      "start": 179.3,
+      "end": 179.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 179.8,
+      "end": 179.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a...",
+      "start": 180.0,
+      "end": 180.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": "as",
+      "start": 180.0,
+      "end": 180.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 180.1,
+      "end": 180.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " weekend",
+      "start": 180.2,
+      "end": 180.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " escape",
+      "start": 180.6,
+      "end": 180.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 181.0,
+      "end": 181.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " real",
+      "start": 181.2,
+      "end": 181.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " life,",
+      "start": 181.4,
+      "end": 181.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 181.7,
+      "end": 181.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " as",
+      "start": 181.8,
+      "end": 181.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 181.9,
+      "end": 182.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " genuine",
+      "start": 182.0,
+      "end": 182.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " source",
+      "start": 182.4,
+      "end": 182.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 182.8,
+      "end": 182.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity",
+      "start": 182.9,
+      "end": 183.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 183.4,
+      "end": 183.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " belonging.",
+      "start": 183.5,
+      "end": 184.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Community",
+      "start": 184.4,
+      "end": 184.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gardening,",
+      "start": 184.8,
+      "end": 185.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 185.4,
+      "end": 185.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " as",
+      "start": 185.6,
+      "end": 185.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 185.7,
+      "end": 185.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " quirky",
+      "start": 185.8,
+      "end": 186.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " hobby,",
+      "start": 186.2,
+      "end": 186.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 186.6,
+      "end": 186.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " as",
+      "start": 186.8,
+      "end": 186.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaningful",
+      "start": 186.9,
+      "end": 187.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribution",
+      "start": 187.3,
+      "end": 188.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 188.1,
+      "end": 188.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 188.2,
+      "end": 188.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " shared",
+      "start": 188.3,
+      "end": 188.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " enterprise.",
+      "start": 188.6,
+      "end": 189.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Volunteering,",
+      "start": 189.6,
+      "end": 190.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " mutual",
+      "start": 190.4,
+      "end": 190.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " aid,",
+      "start": 190.8,
+      "end": 191.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " participation",
+      "start": 191.3,
+      "end": 191.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 192.0,
+      "end": 192.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 192.1,
+      "end": 192.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " governance",
+      "start": 192.2,
+      "end": 192.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 192.6,
+      "end": 192.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 192.7,
+      "end": 192.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " places",
+      "start": 192.8,
+      "end": 193.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 193.2,
+      "end": 193.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 193.3,
+      "end": 193.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " live.",
+      "start": 193.5,
+      "end": 193.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 194.2,
+      "end": 194.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " could",
+      "start": 194.4,
+      "end": 194.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " become",
+      "start": 194.7,
+      "end": 195.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 195.0,
+      "end": 195.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " structures",
+      "start": 195.1,
+      "end": 195.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 195.6,
+      "end": 195.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " which",
+      "start": 196.0,
+      "end": 196.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 196.2,
+      "end": 196.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " organise",
+      "start": 196.5,
+      "end": 197.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " their",
+      "start": 197.1,
+      "end": 197.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sense",
+      "start": 197.3,
+      "end": 197.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 197.5,
+      "end": 197.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " purpose.",
+      "start": 197.6,
+      "end": 198.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 198.5,
+      "end": 198.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 198.7,
+      "end": 198.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 198.8,
+      "end": 199.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " utopia.",
+      "start": 199.0,
+      "end": 199.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 199.7,
+      "end": 199.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 199.9,
+      "end": 200.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " simply",
+      "start": 200.0,
+      "end": 200.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 200.3,
+      "end": 200.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " different",
+      "start": 200.4,
+      "end": 200.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " arrangement.",
+      "start": 200.7,
+      "end": 201.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Humans",
+      "start": 201.7,
+      "end": 202.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " need",
+      "start": 202.0,
+      "end": 202.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 202.2,
+      "end": 202.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " feel",
+      "start": 202.3,
+      "end": 202.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " useful.",
+      "start": 202.6,
+      "end": 203.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 203.3,
+      "end": 203.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " need",
+      "start": 203.5,
+      "end": 203.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 203.6,
+      "end": 203.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " feel",
+      "start": 203.8,
+      "end": 204.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 204.0,
+      "end": 204.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " our",
+      "start": 204.1,
+      "end": 204.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " presence",
+      "start": 204.3,
+      "end": 204.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " matters,",
+      "start": 204.7,
+      "end": 205.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 205.2,
+      "end": 205.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " our",
+      "start": 205.3,
+      "end": 205.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " absence",
+      "start": 205.5,
+      "end": 205.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " would",
+      "start": 205.9,
+      "end": 206.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 206.0,
+      "end": 206.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " noticed,",
+      "start": 206.2,
+      "end": 206.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 206.9,
+      "end": 207.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " we",
+      "start": 207.0,
+      "end": 207.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribute",
+      "start": 207.2,
+      "end": 207.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " something",
+      "start": 207.7,
+      "end": 208.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 208.1,
+      "end": 208.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " would",
+      "start": 208.3,
+      "end": 208.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 208.4,
+      "end": 208.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " exist",
+      "start": 208.6,
+      "end": 208.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " without",
+      "start": 208.9,
+      "end": 209.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " us.",
+      "start": 209.3,
+      "end": 209.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Work",
+      "start": 209.9,
+      "end": 210.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 210.1,
+      "end": 210.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provided",
+      "start": 210.3,
+      "end": 210.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " this",
+      "start": 210.7,
+      "end": 210.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " feeling,",
+      "start": 210.9,
+      "end": 211.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 211.6,
+      "end": 211.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 211.7,
+      "end": 212.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 212.0,
+      "end": 212.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 212.1,
+      "end": 212.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 212.2,
+      "end": 212.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " only",
+      "start": 212.4,
+      "end": 212.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " possible",
+      "start": 212.7,
+      "end": 213.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " source.",
+      "start": 213.1,
+      "end": 213.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Any",
+      "start": 213.8,
+      "end": 214.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " activity",
+      "start": 214.0,
+      "end": 214.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 214.5,
+      "end": 214.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " connects",
+      "start": 214.7,
+      "end": 215.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " individual",
+      "start": 215.1,
+      "end": 215.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " effort",
+      "start": 215.6,
+      "end": 215.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 215.9,
+      "end": 216.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " collective",
+      "start": 216.1,
+      "end": 216.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " benefit",
+      "start": 216.5,
+      "end": 217.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " can",
+      "start": 217.1,
+      "end": 217.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " serve",
+      "start": 217.3,
+      "end": 217.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 217.6,
+      "end": 217.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " same",
+      "start": 217.7,
+      "end": 217.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " function.",
+      "start": 218.0,
+      "end": 218.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 218.8,
+      "end": 219.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " challenge",
+      "start": 219.0,
+      "end": 219.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 219.4,
+      "end": 219.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 219.5,
+      "end": 219.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " transition.",
+      "start": 219.7,
+      "end": 220.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 220.6,
+      "end": 220.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 220.8,
+      "end": 220.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " built",
+      "start": 220.9,
+      "end": 221.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 221.2,
+      "end": 221.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " society",
+      "start": 221.2,
+      "end": 221.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 221.8,
+      "end": 222.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " provides",
+      "start": 222.0,
+      "end": 222.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " few",
+      "start": 222.5,
+      "end": 222.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " pathways",
+      "start": 222.7,
+      "end": 223.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 223.3,
+      "end": 223.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " local",
+      "start": 223.5,
+      "end": 223.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribution",
+      "start": 223.8,
+      "end": 224.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 224.5,
+      "end": 224.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 224.7,
+      "end": 225.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 225.0,
+      "end": 225.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 225.1,
+      "end": 225.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 225.2,
+      "end": 225.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " employed.",
+      "start": 225.4,
+      "end": 226.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 226.3,
+      "end": 226.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " infrastructure",
+      "start": 226.5,
+      "end": 227.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 227.1,
+      "end": 227.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " community",
+      "start": 227.2,
+      "end": 227.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 227.7,
+      "end": 227.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " atrophied",
+      "start": 228.0,
+      "end": 228.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " precisely",
+      "start": 228.6,
+      "end": 229.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " as",
+      "start": 229.2,
+      "end": 229.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 229.3,
+      "end": 229.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " infrastructure",
+      "start": 229.4,
+      "end": 230.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 230.0,
+      "end": 230.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 230.2,
+      "end": 230.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 230.5,
+      "end": 230.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " expanded.",
+      "start": 230.6,
+      "end": 231.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 231.5,
+      "end": 231.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 231.7,
+      "end": 231.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 231.8,
+      "end": 231.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " know",
+      "start": 232.0,
+      "end": 232.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " our",
+      "start": 232.2,
+      "end": 232.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " neighbours.",
+      "start": 232.3,
+      "end": 232.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 233.1,
+      "end": 233.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 233.3,
+      "end": 233.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 233.4,
+      "end": 233.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " participate",
+      "start": 233.6,
+      "end": 234.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 234.2,
+      "end": 234.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " local",
+      "start": 234.3,
+      "end": 234.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " institutions.",
+      "start": 234.7,
+      "end": 235.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " We",
+      "start": 235.5,
+      "end": 235.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 235.7,
+      "end": 235.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " outsourced",
+      "start": 235.8,
+      "end": 236.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " belonging",
+      "start": 236.3,
+      "end": 236.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 236.9,
+      "end": 237.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 237.0,
+      "end": 237.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " workplace",
+      "start": 237.1,
+      "end": 237.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 237.7,
+      "end": 237.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 237.9,
+      "end": 238.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " screen.",
+      "start": 238.0,
+      "end": 238.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Rebuilding",
+      "start": 238.9,
+      "end": 239.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 239.4,
+      "end": 239.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " infrastructure",
+      "start": 239.6,
+      "end": 240.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 240.2,
+      "end": 240.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " take",
+      "start": 240.4,
+      "end": 240.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " time,",
+      "start": 240.6,
+      "end": 241.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 241.1,
+      "end": 241.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " time",
+      "start": 241.3,
+      "end": 241.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 241.6,
+      "end": 241.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 241.7,
+      "end": 241.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " one",
+      "start": 241.8,
+      "end": 242.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " resource",
+      "start": 242.0,
+      "end": 242.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 242.5,
+      "end": 242.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " may",
+      "start": 242.7,
+      "end": 242.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 242.9,
+      "end": 243.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " scarce.",
+      "start": 243.0,
+      "end": 243.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 243.9,
+      "end": 244.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " displacement",
+      "start": 244.1,
+      "end": 244.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 244.6,
+      "end": 244.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " coming",
+      "start": 244.8,
+      "end": 245.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " faster",
+      "start": 245.1,
+      "end": 245.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 245.5,
+      "end": 245.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " new",
+      "start": 245.7,
+      "end": 245.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " structures",
+      "start": 245.8,
+      "end": 246.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " can",
+      "start": 246.3,
+      "end": 246.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " emerge",
+      "start": 246.5,
+      "end": 246.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " organically.",
+      "start": 246.9,
+      "end": 247.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " There",
+      "start": 247.8,
+      "end": 248.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 248.0,
+      "end": 248.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 248.2,
+      "end": 248.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 248.3,
+      "end": 248.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gap,",
+      "start": 248.4,
+      "end": 248.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 248.8,
+      "end": 248.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 248.9,
+      "end": 249.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 249.1,
+      "end": 249.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gap",
+      "start": 249.3,
+      "end": 249.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " there",
+      "start": 249.6,
+      "end": 249.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 249.7,
+      "end": 249.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 249.9,
+      "end": 250.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suffering.",
+      "start": 250.0,
+      "end": 250.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " People",
+      "start": 250.9,
+      "end": 251.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 251.2,
+      "end": 251.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " define",
+      "start": 251.3,
+      "end": 251.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " themselves",
+      "start": 251.7,
+      "end": 252.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " by",
+      "start": 252.2,
+      "end": 252.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " careers",
+      "start": 252.4,
+      "end": 252.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 252.8,
+      "end": 252.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " no",
+      "start": 253.0,
+      "end": 253.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " longer",
+      "start": 253.1,
+      "end": 253.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " exist.",
+      "start": 253.5,
+      "end": 254.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " People",
+      "start": 254.3,
+      "end": 254.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 254.6,
+      "end": 254.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " build",
+      "start": 254.8,
+      "end": 255.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identities",
+      "start": 255.0,
+      "end": 255.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 255.7,
+      "end": 256.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " expertise",
+      "start": 256.0,
+      "end": 256.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 256.7,
+      "end": 256.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " has",
+      "start": 256.8,
+      "end": 257.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " been",
+      "start": 257.0,
+      "end": 257.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " automated.",
+      "start": 257.2,
+      "end": 257.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " People",
+      "start": 258.2,
+      "end": 258.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 258.5,
+      "end": 258.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " simply",
+      "start": 258.7,
+      "end": 259.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 259.1,
+      "end": 259.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 259.2,
+      "end": 259.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " know",
+      "start": 259.4,
+      "end": 259.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 259.7,
+      "end": 259.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " they",
+      "start": 259.9,
+      "end": 260.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 260.1,
+      "end": 260.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " when",
+      "start": 260.6,
+      "end": 260.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 260.8,
+      "end": 260.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " job",
+      "start": 260.9,
+      "end": 261.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " title",
+      "start": 261.2,
+      "end": 261.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 261.5,
+      "end": 261.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " removed.",
+      "start": 261.7,
+      "end": 262.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 262.6,
+      "end": 262.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 262.8,
+      "end": 263.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " some",
+      "start": 263.0,
+      "end": 263.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " immunity",
+      "start": 263.3,
+      "end": 263.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 263.9,
+      "end": 264.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " this",
+      "start": 264.0,
+      "end": 264.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " particular",
+      "start": 264.2,
+      "end": 264.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " crisis,",
+      "start": 264.7,
+      "end": 265.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " though",
+      "start": 265.5,
+      "end": 265.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 265.7,
+      "end": 265.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " by",
+      "start": 265.9,
+      "end": 266.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " choice.",
+      "start": 266.1,
+      "end": 266.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Cluster",
+      "start": 267.0,
+      "end": 267.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " headaches",
+      "start": 267.3,
+      "end": 267.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " force",
+      "start": 267.8,
+      "end": 268.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " me",
+      "start": 268.1,
+      "end": 268.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 268.2,
+      "end": 268.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " find",
+      "start": 268.4,
+      "end": 268.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 268.7,
+      "end": 269.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " outside",
+      "start": 269.0,
+      "end": 269.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work.",
+      "start": 269.5,
+      "end": 269.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": "long",
+      "start": 270.1,
+      "end": 270.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " before",
+      "start": 270.3,
+      "end": 270.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " AI",
+      "start": 270.8,
+      "end": 271.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " made",
+      "start": 271.1,
+      "end": 271.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 271.4,
+      "end": 271.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " search",
+      "start": 271.6,
+      "end": 271.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " general.",
+      "start": 271.9,
+      "end": 272.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " When",
+      "start": 272.8,
+      "end": 272.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " your",
+      "start": 273.0,
+      "end": 273.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " existence",
+      "start": 273.1,
+      "end": 273.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 273.6,
+      "end": 273.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " structured",
+      "start": 273.8,
+      "end": 274.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 274.2,
+      "end": 274.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " managing",
+      "start": 274.5,
+      "end": 274.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " pain,",
+      "start": 274.9,
+      "end": 275.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " when",
+      "start": 275.6,
+      "end": 275.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " professional",
+      "start": 275.8,
+      "end": 276.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " ambitions",
+      "start": 276.3,
+      "end": 276.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " become",
+      "start": 276.8,
+      "end": 277.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " secondary",
+      "start": 277.2,
+      "end": 277.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 277.7,
+      "end": 277.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " simply",
+      "start": 277.9,
+      "end": 278.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " getting",
+      "start": 278.3,
+      "end": 278.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " through",
+      "start": 278.6,
+      "end": 278.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 278.8,
+      "end": 278.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " day,",
+      "start": 278.9,
+      "end": 279.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 279.6,
+      "end": 279.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " either",
+      "start": 279.8,
+      "end": 280.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " find",
+      "start": 280.0,
+      "end": 280.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 280.4,
+      "end": 280.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sources",
+      "start": 280.7,
+      "end": 281.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 281.1,
+      "end": 281.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " purpose",
+      "start": 281.2,
+      "end": 281.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " or",
+      "start": 281.6,
+      "end": 281.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 281.8,
+      "end": 281.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " collapse.",
+      "start": 281.9,
+      "end": 282.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 282.8,
+      "end": 282.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " found",
+      "start": 283.0,
+      "end": 283.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 283.3,
+      "end": 283.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sources.",
+      "start": 283.6,
+      "end": 284.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 284.4,
+      "end": 284.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 284.5,
+      "end": 284.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " never",
+      "start": 284.7,
+      "end": 284.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " defined",
+      "start": 284.9,
+      "end": 285.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " myself",
+      "start": 285.3,
+      "end": 285.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " by",
+      "start": 285.7,
+      "end": 285.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " income.",
+      "start": 285.9,
+      "end": 286.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 286.5,
+      "end": 286.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " have",
+      "start": 286.6,
+      "end": 286.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " never",
+      "start": 286.7,
+      "end": 286.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " based",
+      "start": 287.0,
+      "end": 287.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " my",
+      "start": 287.2,
+      "end": 287.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity",
+      "start": 287.4,
+      "end": 287.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " on",
+      "start": 287.9,
+      "end": 288.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 288.1,
+      "end": 288.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " title.",
+      "start": 288.2,
+      "end": 288.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 289.0,
+      "end": 289.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " things",
+      "start": 289.3,
+      "end": 289.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " matter,",
+      "start": 289.5,
+      "end": 289.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " practically,",
+      "start": 290.1,
+      "end": 290.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 291.0,
+      "end": 291.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " they",
+      "start": 291.1,
+      "end": 291.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 291.3,
+      "end": 291.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 291.4,
+      "end": 291.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 291.6,
+      "end": 291.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 291.8,
+      "end": 291.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " am.",
+      "start": 292.0,
+      "end": 292.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Who",
+      "start": 292.6,
+      "end": 292.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 292.9,
+      "end": 293.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " am",
+      "start": 293.0,
+      "end": 293.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 293.3,
+      "end": 293.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 293.5,
+      "end": 293.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " father,",
+      "start": 293.6,
+      "end": 294.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 294.1,
+      "end": 294.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " husband,",
+      "start": 294.2,
+      "end": 294.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 294.7,
+      "end": 294.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " thinker,",
+      "start": 294.8,
+      "end": 295.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 295.5,
+      "end": 295.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " person",
+      "start": 295.6,
+      "end": 296.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " trying",
+      "start": 296.0,
+      "end": 296.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 296.3,
+      "end": 296.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " understand",
+      "start": 296.4,
+      "end": 296.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 296.9,
+      "end": 297.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " world",
+      "start": 297.1,
+      "end": 297.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 297.4,
+      "end": 297.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " act",
+      "start": 297.5,
+      "end": 297.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " decently",
+      "start": 297.7,
+      "end": 298.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " within",
+      "start": 298.2,
+      "end": 298.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it.",
+      "start": 298.5,
+      "end": 298.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 298.9,
+      "end": 299.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identities",
+      "start": 299.2,
+      "end": 299.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 299.8,
+      "end": 299.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 299.9,
+      "end": 300.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " depend",
+      "start": 300.1,
+      "end": 300.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " on",
+      "start": 300.6,
+      "end": 300.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " employment.",
+      "start": 300.7,
+      "end": 301.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " They",
+      "start": 301.6,
+      "end": 301.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " would",
+      "start": 301.8,
+      "end": 301.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " persist",
+      "start": 301.9,
+      "end": 302.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " if",
+      "start": 302.4,
+      "end": 302.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 302.6,
+      "end": 302.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " never",
+      "start": 302.7,
+      "end": 302.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " worked",
+      "start": 302.9,
+      "end": 303.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " another",
+      "start": 303.2,
+      "end": 303.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " day.",
+      "start": 303.5,
+      "end": 303.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 304.2,
+      "end": 304.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gives",
+      "start": 304.4,
+      "end": 304.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " me,",
+      "start": 304.7,
+      "end": 304.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 304.8,
+      "end": 304.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " think,",
+      "start": 304.9,
+      "end": 305.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " some",
+      "start": 305.2,
+      "end": 305.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " perspective",
+      "start": 305.4,
+      "end": 306.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " on",
+      "start": 306.1,
+      "end": 306.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 306.2,
+      "end": 306.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 306.4,
+      "end": 306.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " transition",
+      "start": 306.5,
+      "end": 307.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " might",
+      "start": 307.1,
+      "end": 307.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " require.",
+      "start": 307.3,
+      "end": 307.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 308.3,
+      "end": 308.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " requires",
+      "start": 308.4,
+      "end": 308.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " learning",
+      "start": 308.9,
+      "end": 309.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 309.3,
+      "end": 309.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " locate",
+      "start": 309.4,
+      "end": 309.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 309.9,
+      "end": 310.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 310.3,
+      "end": 310.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " relationships",
+      "start": 310.4,
+      "end": 311.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 311.3,
+      "end": 311.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 311.6,
+      "end": 311.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " roles.",
+      "start": 311.8,
+      "end": 312.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " In",
+      "start": 312.6,
+      "end": 312.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " presence",
+      "start": 312.8,
+      "end": 313.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 313.5,
+      "end": 313.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 313.8,
+      "end": 313.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " productivity.",
+      "start": 313.9,
+      "end": 314.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " In",
+      "start": 315.0,
+      "end": 315.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribution",
+      "start": 315.1,
+      "end": 315.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 315.7,
+      "end": 315.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 315.8,
+      "end": 315.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 315.9,
+      "end": 316.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " immediately",
+      "start": 316.2,
+      "end": 316.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 316.8,
+      "end": 317.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 317.2,
+      "end": 317.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 317.5,
+      "end": 317.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 317.8,
+      "end": 317.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 317.9,
+      "end": 318.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " abstract",
+      "start": 318.1,
+      "end": 318.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " economic",
+      "start": 318.6,
+      "end": 319.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " metrics.",
+      "start": 319.1,
+      "end": 319.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 320.2,
+      "end": 320.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " requires,",
+      "start": 320.4,
+      "end": 321.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 321.0,
+      "end": 321.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " short,",
+      "start": 321.2,
+      "end": 321.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " becoming",
+      "start": 321.8,
+      "end": 322.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " more",
+      "start": 322.2,
+      "end": 322.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " human",
+      "start": 322.4,
+      "end": 322.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 322.8,
+      "end": 322.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 322.9,
+      "end": 323.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " older",
+      "start": 323.0,
+      "end": 323.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sense,",
+      "start": 323.3,
+      "end": 323.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 324.1,
+      "end": 324.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sense",
+      "start": 324.3,
+      "end": 324.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 324.6,
+      "end": 324.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " preceded",
+      "start": 324.7,
+      "end": 325.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 325.2,
+      "end": 325.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " industrial",
+      "start": 325.3,
+      "end": 325.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " reorganization",
+      "start": 325.8,
+      "end": 326.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 326.7,
+      "end": 326.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " identity,",
+      "start": 326.8,
+      "end": 327.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 327.8,
+      "end": 327.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sense",
+      "start": 327.9,
+      "end": 328.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 328.2,
+      "end": 328.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " which",
+      "start": 328.3,
+      "end": 328.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 328.5,
+      "end": 328.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 328.6,
+      "end": 328.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 328.8,
+      "end": 329.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 329.0,
+      "end": 329.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 329.3,
+      "end": 329.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 329.4,
+      "end": 329.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 329.9,
+      "end": 330.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " who",
+      "start": 330.1,
+      "end": 330.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 330.2,
+      "end": 330.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " love",
+      "start": 330.4,
+      "end": 330.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 330.8,
+      "end": 331.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 331.0,
+      "end": 331.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 331.2,
+      "end": 331.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " belong",
+      "start": 331.3,
+      "end": 331.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 331.9,
+      "end": 332.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 332.1,
+      "end": 332.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 332.3,
+      "end": 332.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " care",
+      "start": 332.5,
+      "end": 332.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " about",
+      "start": 332.7,
+      "end": 332.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " deeply",
+      "start": 333.0,
+      "end": 333.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " enough",
+      "start": 333.3,
+      "end": 333.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 333.6,
+      "end": 333.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " sacrifice",
+      "start": 333.7,
+      "end": 334.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for.",
+      "start": 334.4,
+      "end": 334.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " I",
+      "start": 334.9,
+      "end": 335.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " think",
+      "start": 335.0,
+      "end": 335.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " about",
+      "start": 335.3,
+      "end": 335.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Arthur",
+      "start": 335.5,
+      "end": 335.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 335.9,
+      "end": 335.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " this",
+      "start": 336.0,
+      "end": 336.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " context.",
+      "start": 336.1,
+      "end": 336.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " He",
+      "start": 337.0,
+      "end": 337.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " may",
+      "start": 337.1,
+      "end": 337.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " grow",
+      "start": 337.3,
+      "end": 337.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " up",
+      "start": 337.5,
+      "end": 337.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 337.7,
+      "end": 337.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 337.8,
+      "end": 337.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " world",
+      "start": 337.9,
+      "end": 338.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 338.2,
+      "end": 338.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " traditional",
+      "start": 338.3,
+      "end": 338.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " employment",
+      "start": 338.8,
+      "end": 339.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 339.3,
+      "end": 339.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 339.5,
+      "end": 339.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 339.6,
+      "end": 339.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " default,",
+      "start": 339.7,
+      "end": 340.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 340.4,
+      "end": 340.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 340.6,
+      "end": 340.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " career",
+      "start": 340.7,
+      "end": 341.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " ladder",
+      "start": 341.1,
+      "end": 341.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " his",
+      "start": 341.3,
+      "end": 341.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " grandparents",
+      "start": 341.5,
+      "end": 342.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " climbed",
+      "start": 342.1,
+      "end": 342.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " simply",
+      "start": 342.6,
+      "end": 342.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " does",
+      "start": 342.9,
+      "end": 343.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 343.1,
+      "end": 343.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " exist",
+      "start": 343.3,
+      "end": 343.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 343.7,
+      "end": 343.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " recognisable",
+      "start": 343.9,
+      "end": 344.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " form.",
+      "start": 344.6,
+      "end": 345.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " This",
+      "start": 345.4,
+      "end": 345.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " does",
+      "start": 345.6,
+      "end": 345.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " not",
+      "start": 345.8,
+      "end": 345.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " frighten",
+      "start": 345.9,
+      "end": 346.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " me",
+      "start": 346.3,
+      "end": 346.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 346.4,
+      "end": 346.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " him.",
+      "start": 346.6,
+      "end": 346.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " It",
+      "start": 347.1,
+      "end": 347.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " might",
+      "start": 347.2,
+      "end": 347.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " even",
+      "start": 347.4,
+      "end": 347.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 347.7,
+      "end": 347.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 347.8,
+      "end": 347.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gift.",
+      "start": 347.9,
+      "end": 348.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " If",
+      "start": 348.7,
+      "end": 348.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " he",
+      "start": 348.9,
+      "end": 349.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " never",
+      "start": 349.0,
+      "end": 349.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " learns",
+      "start": 349.2,
+      "end": 349.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 349.6,
+      "end": 349.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " define",
+      "start": 349.7,
+      "end": 350.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " himself",
+      "start": 350.1,
+      "end": 350.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " by",
+      "start": 350.5,
+      "end": 350.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " job",
+      "start": 350.7,
+      "end": 350.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " title,",
+      "start": 350.9,
+      "end": 351.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " he",
+      "start": 351.4,
+      "end": 351.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 351.5,
+      "end": 351.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " never",
+      "start": 351.7,
+      "end": 351.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suffer",
+      "start": 351.9,
+      "end": 352.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 352.3,
+      "end": 352.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " loss",
+      "start": 352.4,
+      "end": 352.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 352.6,
+      "end": 352.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 352.7,
+      "end": 352.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " definition.",
+      "start": 352.9,
+      "end": 353.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " If",
+      "start": 354.0,
+      "end": 354.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " he",
+      "start": 354.1,
+      "end": 354.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " grows",
+      "start": 354.2,
+      "end": 354.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " up",
+      "start": 354.5,
+      "end": 354.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " understanding",
+      "start": 354.7,
+      "end": 355.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 355.4,
+      "end": 355.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 355.6,
+      "end": 355.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " comes",
+      "start": 355.9,
+      "end": 356.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 356.2,
+      "end": 356.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " relationships,",
+      "start": 356.4,
+      "end": 357.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 357.3,
+      "end": 357.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " community,",
+      "start": 357.5,
+      "end": 358.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " from",
+      "start": 358.4,
+      "end": 358.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " contribution",
+      "start": 358.6,
+      "end": 359.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 359.3,
+      "end": 359.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 359.4,
+      "end": 359.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " measured",
+      "start": 359.6,
+      "end": 359.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 359.9,
+      "end": 360.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": "human",
+      "start": 360.0,
+      "end": 360.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " terms",
+      "start": 360.4,
+      "end": 360.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " rather",
+      "start": 360.8,
+      "end": 361.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " than",
+      "start": 361.1,
+      "end": 361.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " economic",
+      "start": 361.3,
+      "end": 361.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " ones,",
+      "start": 361.8,
+      "end": 362.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " he",
+      "start": 362.5,
+      "end": 362.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 362.6,
+      "end": 362.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 362.8,
+      "end": 362.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " prepared",
+      "start": 362.9,
+      "end": 363.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " for",
+      "start": 363.4,
+      "end": 363.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 363.5,
+      "end": 363.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " world",
+      "start": 363.6,
+      "end": 363.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 363.9,
+      "end": 364.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " demands",
+      "start": 364.1,
+      "end": 364.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " exactly",
+      "start": 364.5,
+      "end": 365.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 365.0,
+      "end": 365.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " understanding.",
+      "start": 365.2,
+      "end": 365.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 366.3,
+      "end": 366.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 366.5,
+      "end": 366.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " void",
+      "start": 366.8,
+      "end": 367.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 367.1,
+      "end": 367.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " real,",
+      "start": 367.3,
+      "end": 367.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " but",
+      "start": 368.0,
+      "end": 368.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " it",
+      "start": 368.2,
+      "end": 368.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 368.3,
+      "end": 368.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 368.4,
+      "end": 368.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " void",
+      "start": 368.5,
+      "end": 368.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " only",
+      "start": 368.9,
+      "end": 369.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " if",
+      "start": 369.2,
+      "end": 369.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 369.3,
+      "end": 369.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " assume",
+      "start": 369.5,
+      "end": 369.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 369.9,
+      "end": 370.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " work",
+      "start": 370.0,
+      "end": 370.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " was",
+      "start": 370.4,
+      "end": 370.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 370.5,
+      "end": 370.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " proper",
+      "start": 370.6,
+      "end": 370.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " source",
+      "start": 370.9,
+      "end": 371.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 371.2,
+      "end": 371.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " meaning",
+      "start": 371.3,
+      "end": 371.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " in",
+      "start": 371.6,
+      "end": 371.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 371.7,
+      "end": 371.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " first",
+      "start": 371.8,
+      "end": 372.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " place.",
+      "start": 372.1,
+      "end": 372.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " If",
+      "start": 373.0,
+      "end": 373.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 373.1,
+      "end": 373.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question",
+      "start": 373.2,
+      "end": 373.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 373.6,
+      "end": 373.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " assumption,",
+      "start": 373.8,
+      "end": 374.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 374.5,
+      "end": 374.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " void",
+      "start": 374.6,
+      "end": 374.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " becomes",
+      "start": 374.9,
+      "end": 375.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 375.2,
+      "end": 375.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " space,",
+      "start": 375.3,
+      "end": 375.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 376.2,
+      "end": 376.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " space",
+      "start": 376.3,
+      "end": 376.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " that",
+      "start": 376.7,
+      "end": 376.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " can",
+      "start": 376.8,
+      "end": 376.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 377.0,
+      "end": 377.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " filled",
+      "start": 377.1,
+      "end": 377.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " with",
+      "start": 377.4,
+      "end": 377.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 377.5,
+      "end": 377.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " things,",
+      "start": 377.7,
+      "end": 378.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " perhaps",
+      "start": 378.6,
+      "end": 378.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " better",
+      "start": 378.9,
+      "end": 379.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " things.",
+      "start": 379.2,
+      "end": 379.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 380.0,
+      "end": 380.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " transition",
+      "start": 380.2,
+      "end": 380.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 380.7,
+      "end": 380.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " be",
+      "start": 380.9,
+      "end": 381.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " hard,",
+      "start": 381.0,
+      "end": 381.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 381.8,
+      "end": 382.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " will",
+      "start": 382.0,
+      "end": 382.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " suffer,",
+      "start": 382.2,
+      "end": 382.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " entire",
+      "start": 383.0,
+      "end": 383.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " generations",
+      "start": 383.5,
+      "end": 384.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " may",
+      "start": 384.1,
+      "end": 384.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " struggle",
+      "start": 384.3,
+      "end": 384.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 384.6,
+      "end": 384.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " adapt.",
+      "start": 384.8,
+      "end": 385.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " But",
+      "start": 385.5,
+      "end": 385.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " on",
+      "start": 385.7,
+      "end": 385.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 385.8,
+      "end": 385.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 385.9,
+      "end": 386.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " side,",
+      "start": 386.1,
+      "end": 386.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " there",
+      "start": 386.6,
+      "end": 386.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 386.8,
+      "end": 386.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 386.9,
+      "end": 387.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " possibility",
+      "start": 387.0,
+      "end": 387.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " of",
+      "start": 387.6,
+      "end": 387.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " a",
+      "start": 387.7,
+      "end": 387.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " life",
+      "start": 387.8,
+      "end": 388.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " less",
+      "start": 388.1,
+      "end": 388.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " organized",
+      "start": 388.4,
+      "end": 389.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 389.0,
+      "end": 389.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " production",
+      "start": 389.3,
+      "end": 389.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 389.8,
+      "end": 389.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " consumption,",
+      "start": 389.9,
+      "end": 390.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " more",
+      "start": 390.9,
+      "end": 391.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " organized",
+      "start": 391.1,
+      "end": 391.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 391.6,
+      "end": 391.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " presence",
+      "start": 391.9,
+      "end": 392.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 392.4,
+      "end": 392.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " connection.",
+      "start": 392.6,
+      "end": 393.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " A",
+      "start": 393.6,
+      "end": 393.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " life",
+      "start": 393.7,
+      "end": 394.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " where",
+      "start": 394.0,
+      "end": 394.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 394.1,
+      "end": 394.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " question,",
+      "start": 394.2,
+      "end": 394.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " what",
+      "start": 394.7,
+      "end": 394.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 394.9,
+      "end": 395.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 395.0,
+      "end": 395.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do,",
+      "start": 395.2,
+      "end": 395.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " gives",
+      "start": 395.8,
+      "end": 396.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " way",
+      "start": 396.0,
+      "end": 396.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 396.2,
+      "end": 396.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " other",
+      "start": 396.4,
+      "end": 396.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " questions.",
+      "start": 396.6,
+      "end": 397.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Where",
+      "start": 397.5,
+      "end": 397.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 397.6,
+      "end": 397.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 397.8,
+      "end": 397.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " belong?",
+      "start": 397.9,
+      "end": 398.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " Who",
+      "start": 398.6,
+      "end": 398.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " do",
+      "start": 398.8,
+      "end": 398.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 398.9,
+      "end": 399.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " love?",
+      "start": 399.1,
+      "end": 399.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " What",
+      "start": 399.8,
+      "end": 399.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " are",
+      "start": 399.9,
+      "end": 400.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you",
+      "start": 400.0,
+      "end": 400.1,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " building",
+      "start": 400.2,
+      "end": 400.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " with",
+      "start": 400.5,
+      "end": 400.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " the",
+      "start": 400.7,
+      "end": 400.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " people",
+      "start": 400.8,
+      "end": 401.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " around",
+      "start": 401.1,
+      "end": 401.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " you?",
+      "start": 401.4,
+      "end": 401.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " These",
+      "start": 402.0,
+      "end": 402.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " seem",
+      "start": 402.3,
+      "end": 402.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 402.5,
+      "end": 402.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " me",
+      "start": 402.6,
+      "end": 402.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " like",
+      "start": 402.8,
+      "end": 403.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " better",
+      "start": 403.0,
+      "end": 403.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " questions.",
+      "start": 403.3,
+      "end": 403.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " The",
+      "start": 404.2,
+      "end": 404.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " challenge",
+      "start": 404.4,
+      "end": 404.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " is",
+      "start": 404.8,
+      "end": 404.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " surviving",
+      "start": 404.9,
+      "end": 405.4,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " long",
+      "start": 405.4,
+      "end": 405.6,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " enough,",
+      "start": 405.6,
+      "end": 406.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " individually",
+      "start": 406.2,
+      "end": 406.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " and",
+      "start": 406.9,
+      "end": 407.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " collectively,",
+      "start": 407.1,
+      "end": 407.7,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 407.7,
+      "end": 407.9,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " learn",
+      "start": 407.9,
+      "end": 408.2,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " how",
+      "start": 408.2,
+      "end": 408.3,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " to",
+      "start": 408.4,
+      "end": 408.5,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " answer",
+      "start": 408.5,
+      "end": 408.8,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    },
+    {
+      "text": " them.",
+      "start": 408.8,
+      "end": 409.0,
+      "speaker_id": null,
+      "type": "transcription_segment"
+    }
+  ],
+  "usage": {
+    "prompt_audio_seconds": 408,
+    "prompt_tokens": 20,
+    "total_tokens": 11456,
+    "completion_tokens": 11436,
+    "request_count": 5
+  },
+  "type": "transcription.done"
+}

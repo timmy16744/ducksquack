@@ -313,6 +313,12 @@
 }
 
 /* ─── Audio ─── */
+/* Sentinel element for sticky detection */
+.zen-audio-sentinel {
+  height: 0;
+  width: 100%;
+}
+
 .zen-audio {
   display: flex;
   align-items: center;
@@ -320,6 +326,22 @@
   margin-bottom: 32px;
   padding: 12px 0;
   border-bottom: 1px solid var(--theme-border, #e5e5e5);
+  transition: box-shadow 300ms ease-out;
+}
+
+/* Sticky audio bar when scrolled past */
+.zen-audio-sticky {
+  position: fixed;
+  top: 52px; /* below the nav bar */
+  left: 0;
+  right: 0;
+  z-index: 9;
+  max-width: var(--theme-content-max-width, 640px);
+  margin: 0 auto;
+  padding: 10px var(--theme-content-padding, 24px);
+  background: var(--theme-bg-primary, #fafaf9);
+  border-bottom: 1px solid var(--theme-border, #e5e5e5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .zen-audio-toggle {
@@ -392,6 +414,32 @@
 .zen-audio-speed:hover {
   color: var(--theme-text-primary, #1a1a1a);
   border-color: var(--theme-text-muted, #a3a3a3);
+}
+
+/* ─── Word Tracking ─── */
+.zen-word {
+  transition: color 200ms ease-out, background-color 200ms ease-out;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* Already read words stay full black */
+.zen-word-read {
+  color: var(--theme-text-primary, #1a1a1a);
+}
+
+/* Currently spoken word gets highlight */
+.zen-word-active {
+  color: var(--theme-text-primary, #1a1a1a);
+  background-color: rgba(139, 69, 19, 0.14);
+  border-radius: 3px;
+  padding: 1px 2px;
+  margin: 0 -1px;
+}
+
+/* Unread words are dimmed */
+.zen-word-unread {
+  color: var(--theme-text-muted, #b0b0b0);
 }
 
 /* ─── Back Arrow ─── */
@@ -588,6 +636,11 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
+  .zen-audio-sticky {
+    top: 48px;
+    padding: 8px 20px;
+  }
+
   .zen-nav-inner {
     height: 48px;
     padding: 0 20px;
@@ -636,6 +689,12 @@
 }
 
 @media (max-width: 480px) {
+  .zen-audio-sticky {
+    top: 44px;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
   .zen-nav-inner {
     height: 44px;
     padding: 0 16px;
