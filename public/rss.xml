@@ -5,7 +5,7 @@
     <link>https://ducksquack.me</link>
     <description>Essays on AI, Technology &amp; Society by Tim Hughes</description>
     <language>en-au</language>
-    <lastBuildDate>Wed, 01 Apr 2026 16:08:05 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 15:08:33 GMT</lastBuildDate>
     <atom:link href="https://ducksquack.me/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>The Board Resolves</title>
@@ -167,6 +167,13 @@
       <guid isPermaLink="true">https://ducksquack.me/#/writings/the-death-of-the-junior-role</guid>
       <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
       <description>Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.</description>
+    </item>
+    <item>
+      <title>Thirty</title>
+      <link>https://ducksquack.me/#/writings/thirty</link>
+      <guid isPermaLink="true">https://ducksquack.me/#/writings/thirty</guid>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 GMT</pubDate>
+      <description>I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...</description>
     </item>
     <item>
       <title>The Rerun of Rome</title>

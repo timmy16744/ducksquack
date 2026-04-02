@@ -299,6 +299,19 @@
     }
   },
   {
+    "title": "Thirty",
+    "date": "2022-06-15",
+    "color": "orange",
+    "slug": "thirty",
+    "wordCount": 3213,
+    "synopsis": "I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...",
+    "preview": "I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...",
+    "audio": {
+      "url": "/audio/AI_thirty.mp3",
+      "duration": 470
+    }
+  },
+  {
     "title": "The Rerun of Rome",
     "date": "2011-03-15",
     "color": "orange",
