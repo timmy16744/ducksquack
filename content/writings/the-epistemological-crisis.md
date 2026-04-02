@@ -1,0 +1,41 @@
+---
+title: "The Epistemological Crisis"
+date: "2022-05-15"
+color: "purple"
+---
+
+People no longer disagree about what to do. They disagree about what is real.
+
+I want to dwell on this distinction because I think it is the most important distinction in contemporary politics, and it is almost entirely absent from the way we discuss our divisions.
+
+Policy disagreement is normal. Healthy, even. A functioning democracy requires people to disagree about taxation, about spending priorities, about the balance between liberty and security. These disagreements assume a shared reality, we agree on what is happening; we disagree about what to do about it. The debate is about values and priorities and trade-offs. It is the kind of argument that democratic institutions were designed to host.
+
+What I observe, increasingly, is something different. Not disagreement within a shared reality but the collapse of shared reality itself. People inhabiting different factual universes, with different events, different causes, different actors, different histories. Not different interpretations of the same facts but genuinely different facts, incompatible with each other, leading to conclusions that cannot be reconciled because the premises do not overlap.
+
+COVID made this visible in ways that were impossible to ignore. The same pandemic was, simultaneously, a public health emergency requiring unprecedented collective action and a manufactured crisis designed to justify government overreach. The same vaccines were life-saving medical interventions and dangerous experimental treatments. The same lockdowns were necessary sacrifices and authoritarian power grabs.
+
+These are not different opinions about the same facts. They are different facts. If the virus is as dangerous as one side claims, the lockdowns are justified. If the virus is not as dangerous as the other side claims, the lockdowns are tyranny. The disagreement is not about policy. It is about the nature of the threat. About what is real.
+
+The epistemological crisis, the crisis of how we know what we know, is not new. But it has reached a scale and an intensity that I think constitutes something qualitatively different from the manageable levels of disagreement that democracies have always contained.
+
+The reasons are structural, not cultural. This is important. The temptation is to blame individuals, the conspiracy theorists, the grifters, the politicians who profit from division. These actors exist and they matter, but they are operating within a structure that makes their success possible. The structure is the information environment, and the information environment has changed in ways that make shared reality harder to maintain.
+
+The platforms optimise for engagement. Engagement correlates with emotional arousal. Emotional arousal correlates with content that is divisive, outrageous, threatening, or affirming of existing beliefs. The algorithm does not promote truth. It promotes engagement. And engagement, it turns out, is more reliably produced by content that divides than by content that informs.
+
+The result is an information environment in which every claim generates a counter-claim, every fact is contested by an alternative fact, and the concept of authoritative information has been degraded to the point where authority itself is suspect. The institutions that once provided shared facts, mainstream media, scientific institutions, government agencies, have lost credibility, partly through their own failures and partly through the systematic erosion of trust by actors who benefit from distrust.
+
+I find myself in an uncomfortable position, because I am someone who advocates scepticism toward institutional authority. I wrote recently about the war on drugs and the lies governments have told to justify it. I believe institutions should be questioned, that authority should earn trust rather than assume it, that healthy scepticism is a civic virtue.
+
+But there is a difference between scepticism and dissolution. Scepticism examines claims and sometimes rejects them based on evidence. Dissolution rejects the possibility of shared evidence altogether. Scepticism is a tool. Dissolution is a collapse.
+
+The precondition for functional governance is a shared reality. A common set of facts, however imperfectly apprehended, from which policy can be debated. You can disagree about the right tax rate. You cannot govern if you disagree about whether taxes exist. You can debate climate policy. You cannot make climate policy if half the population believes the climate is not changing and the other half believes civilisation will end in a decade.
+
+This precondition is dissolving. Not everywhere. Not completely. But at a rate that should concern anyone who depends on democratic governance to produce coherent outcomes.
+
+The historical parallel I keep returning to is late Rome. Not the Rome of military defeat or economic collapse, but the Rome in which the shared narrative that held the empire together fragmented into competing narratives, each with its own facts, its own heroes, its own version of history. The empire did not fall because the barbarians were strong. It fell because the shared story that made collective action possible had been replaced by competing stories that made collective action impossible.
+
+I do not know how this resolves. The technology that drives the fragmentation is not going away. The platforms will continue to optimise for engagement. The algorithms will continue to promote division. The actors who benefit from distrust will continue to exploit the environment.
+
+What I observe from Australia, watching the same dynamics play out at a smaller scale, is a country that has always depended on a degree of social consensus for its governance, the fair go, the shared story, the assumption of common cause, and that is discovering, gradually, that the consensus was more fragile than anyone appreciated.
+
+Democracy requires disagreement. It does not survive the loss of shared reality. We are testing how far the loss can go before the system fails. I do not think we will like the answer.

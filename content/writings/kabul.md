@@ -1,0 +1,39 @@
+---
+title: "Kabul"
+date: "2021-08-20"
+color: "red"
+---
+
+The photographs from Kabul this week are the kind that do not require commentary. They provide their own. People clinging to the fuselage of a C-17 as it taxied down the runway. The crowds pressing against the airport perimeter. The helicopters on the embassy roof, evacuating personnel in images that rhyme so precisely with Saigon in 1975 that the rhyming feels deliberate, as though history has a sense of irony that it occasionally exercises.
+
+Twenty years. Two trillion dollars. The longest war in American history, ending in a withdrawal that is indistinguishable from a rout.
+
+I want to be precise about what I think these images mean, because the commentary will quickly sort itself into partisan categories, Biden's failure, Trump's deal, the Pentagon's miscalculation, and the partisan sorting will obscure the structural observation.
+
+The structural observation is this: the United States committed to a project it could not complete, sustained the commitment long past the point of rational justification, and withdrew under conditions that revealed the commitment had achieved far less than anyone was willing to admit while it was ongoing. The Afghan army, trained and equipped at enormous cost, dissolved in days. The government, propped up for two decades, collapsed before the last American aircraft was out of Kabul airspace. The entire edifice, the democracy-building, the institution-building, the training, the infrastructure, evaporated as though it had never existed.
+
+This is the pattern of imperial overextension made visible. Not in a think-tank report. Not in a declassified cable. On television, in real time, unmistakable.
+
+Rome maintained legions across three continents. The commitment was sustainable when the empire was expanding and the spoils funded further expansion. It became unsustainable when the expansion stopped but the commitments did not. The legions remained deployed, the costs accumulated, the treasury strained, and eventually the withdrawals began, not as orderly retrenchments but as collapses, one frontier at a time, each one revealing that the control had been thinner than the maps suggested.
+
+I wrote about this pattern a decade ago, in a different context and with different examples. The parallel was speculative then. It is less speculative now.
+
+What matters most, from where I sit in Adelaide, is not the fate of Afghanistan. That is a tragedy, but it is Afghanistan's tragedy, and I do not presume to understand its internal dynamics from the other side of the world. What matters is what the withdrawal reveals about the American commitment, because the American commitment is the foundation on which Australia's security rests.
+
+Every nation sheltering under the American security umbrella watched Kabul fall and did the same calculation. If America will commit to Afghanistan for twenty years, will spend two trillion dollars, will lose thousands of lives, will build bases and train armies and install governments, and then leave in a manner that suggests the entire project was a polite fiction maintained for domestic political reasons, what is any American commitment worth?
+
+The question is strategic, not rhetorical, and it carries with concrete implications for every nation that relies on American power projection for its security.
+
+The ANZUS alliance assumes that the United States will defend Australia if Australia is threatened. This assumption has been the cornerstone of Australian defence policy for seventy years. It has allowed us to maintain a military that is small relative to our geography and our potential threats. It has allowed us to avoid the hard choices about independent capability that other nations, Israel, Singapore, the Nordics, have made as a matter of survival.
+
+Kabul does not invalidate the alliance. What it does is provide evidence about the nature of American commitment that should be incorporated into our strategic calculus. The evidence suggests that American commitments are conditional, that the conditions can change, and that when they change, the withdrawal can be faster and more complete than allies anticipate.
+
+Australian soldiers served in Afghanistan. They fought and some of them died in a war that their ally has now abandoned under conditions that make the fighting and the dying look pointless. I do not say this to dishonour the service, which was real and costly and performed with the professionalism that the Australian military has consistently demonstrated. I say it because the gap between the service rendered and the outcome achieved should provoke a reckoning about the strategic framework within which that service was offered.
+
+We sent our people because the alliance asked us to. We will be asked again. The question is whether we assess the next request with the same assumptions we carried into Afghanistan or whether we update our assumptions in light of what happened.
+
+The American public's response to the fall of Kabul may be the most significant data point of all. The response was, overwhelmingly, indifference. Polls showed consistent support for withdrawal regardless of the manner. Two decades of war, concluded in humiliation, and the public shrugged. An empire whose citizens do not care about the loss of a twenty-year war is an empire whose commitments elsewhere should be evaluated with clear eyes.
+
+The alliance has served Australia well for seventy years, and it may serve us well for decades more. What I am arguing for is a quality of attention that I do not see in Australian strategic discourse. The photographs from Kabul deserve more than a week of news coverage and a return to business as usual. They deserve to be studied, absorbed, and incorporated into the way we think about our own security.
+
+The umbrella may not have folded. But anyone who looked at Kabul and did not hear the sound of fabric tearing was not paying close enough attention.

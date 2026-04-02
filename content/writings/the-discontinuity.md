@@ -1,0 +1,35 @@
+---
+title: "The Discontinuity"
+date: "2022-12-20"
+color: "blue"
+---
+
+I have spent two weeks with ChatGPT. I am writing this in December, three weeks after OpenAI released it to the public, and I want to set down what I think while the thinking is still fresh, before the takes calcify and the discourse sorts itself into familiar positions.
+
+This is not a chatbot. I need to say this plainly because the word chatbot will be used to describe it, and the word carries associations, Clippy, customer service bots, the frustrating automated systems that make you press 1 for English, that will cause people to misunderstand what they are looking at.
+
+What I am looking at is a system that can read, write, analyse, summarise, code, translate, reason through problems, explain concepts, and generate coherent text on virtually any subject, at a level that ranges from competent to occasionally remarkable. It makes mistakes. It hallucinates, produces confident, detailed, entirely fabricated information with no indication that it is fabricating. It has blind spots and biases inherited from its training data. It is, in the precise technical sense, a next-token prediction machine. It does not understand. It does not think. It does not know.
+
+And yet.
+
+I asked it to draft a contract clause and it produced something my lawyer friends said was serviceable. I asked it to explain a complex technical concept and it produced an explanation clearer than most textbooks. I asked it to write code for a specific task and it produced working code on the first attempt. I asked it to analyse a business problem and it produced an analysis that, while not brilliant, was competent, the kind of work a junior consultant would produce after a week of research, generated in thirty seconds.
+
+This is the observation that I keep returning to, the one that seems to me most consequential: the tasks ChatGPT performs best are precisely the tasks we have been telling young people to train for.
+
+Research. Summarisation. Drafting. Analysis. The cognitive entry-level work that forms the base of the professional pyramid. The work that junior lawyers do. That junior accountants do. That junior consultants do. That graduate analysts and associate researchers and entry-level software developers do. The work that justifies hiring someone with limited experience, that provides the training ground where novices become competent and competent practitioners eventually become experts.
+
+This work, this specific work, at this specific level, is what the system does. Imperfectly, but cheaply. And the gap between imperfect and cheap is where the economic logic lives. If a firm can get eighty percent of junior-quality work for one percent of junior-quality cost, the arithmetic is clear. The junior position becomes economically indefensible. Not immediately. Not everywhere. But the direction is unmistakable.
+
+I have been in product design long enough to recognise a discontinuity when I see one. A discontinuity is not a gradual improvement. It is a step change, a moment where the capabilities of a technology cross a threshold that changes the category of things the technology can do. The iPhone was a discontinuity. It was not a better phone. It was a different object that happened to also make phone calls.
+
+ChatGPT feels like a discontinuity. Not because of what it can do today, which is impressive but limited. Because of the trajectory. The system is going to get better. Substantially better. The architecture has room to improve. The training data can be expanded. The fine-tuning can be refined. The reasoning capability, which is currently the weakest dimension, is the dimension with the most headroom for improvement.
+
+If you project the trajectory forward, not optimistically, just linearly, you arrive at a system that, within a few years, performs most cognitive entry-level work at a level that makes human performance economically unnecessary. The projection requires nothing more than a straight line drawn through existing data points.
+
+I find myself thinking about what this means for the world and, more specifically, for Australia.
+
+We have an education system that is currently training hundreds of thousands of young people for precisely the skills that this technology targets. Law degrees. Accounting qualifications. Business diplomas. The entire apparatus of professional credentialing is oriented toward producing people who can do the work that a free tool now does arguably as well.
+
+The fastest-growing product in the history of technology. A hundred million users within two months. The adoption curve tells you something. The market is telling you something. People are using this because it is genuinely useful, in ways that matter, right now. Not in a theoretical future. Now.
+
+I do not know what comes next. But I know what a discontinuity looks like, and this is one. The world changed in November 2022. Most people have not yet noticed. They will.

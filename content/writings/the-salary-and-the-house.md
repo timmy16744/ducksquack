@@ -1,0 +1,43 @@
+---
+title: "The Salary and the House"
+date: "2018-09-15"
+color: "red"
+---
+
+The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, remains cheaper, which is to say it is merely extremely expensive rather than absurdly expensive. The median here is somewhere around five hundred thousand, which sounds almost reasonable until you do the arithmetic against actual wages.
+
+I want to do the arithmetic, because I think the arithmetic tells a story that the headline number obscures.
+
+A graduate entering the Australian workforce in 2018 earns, on average, roughly fifty-five thousand dollars. After tax, superannuation, and the basics of staying alive, rent, food, transport, the irreducible costs of existing in a modern economy, the amount available for saving is perhaps ten to fifteen thousand dollars a year. This is optimistic. It assumes no significant debt, no major health expenses, no disruptions. It assumes discipline and frugality of a kind that is easy to describe and difficult to sustain across years.
+
+A twenty percent deposit on the Adelaide median is a hundred thousand dollars. At fifteen thousand in annual savings, that is seven years. Seven years of discipline, of deprivation relative to peers, of saying no to the experiences that your twenties are supposed to contain. Seven years of watching house prices rise while you save, knowing that the target is moving and your savings may never catch it.
+
+In Sydney, the same calculation produces a deposit of two hundred thousand dollars. At the same savings rate, that is thirteen years. A person who starts saving at twenty-two will be thirty-five before they can afford the deposit. They will be paying a mortgage into their sixties. And this assumes prices do not continue to rise, which they almost certainly will, because the policy settings that produce the rise remain unchanged.
+
+These are not edge cases. These are median figures. The average graduate, saving diligently, facing the average house. The actual experience for many people is considerably worse.
+
+I want to trace the policy choices that produced this outcome, because it is important to understand that this was not an act of God. It was an act of Parliament. Repeated acts, over decades, by both parties, in the full knowledge of the consequences.
+
+Negative gearing allows property investors to deduct losses on rental properties against their other income. This creates a tax incentive to own investment properties, which increases demand for housing, which increases prices. The policy costs the government billions annually in foregone revenue. The benefit flows primarily to people who already own property. The cost is borne by people who do not.
+
+The capital gains tax discount, introduced in 1999, means that profits on assets held for more than a year are taxed at half the normal rate. This creates a further incentive for property speculation, because the returns are taxed more lightly than salary income. A dollar earned through work is taxed more heavily than a dollar earned by watching a house appreciate in value. The message embedded in the tax system is clear: labour is for suckers. Ownership is where the money is.
+
+Supply restrictions compound the problem. Zoning regulations, planning approvals, community objections, the same process sediment I have written about in other contexts, constrain the supply of new housing. When demand increases and supply is constrained, prices rise. First-page-of-the-textbook economics.
+
+First home buyer grants, ostensibly designed to help young people enter the market, are absorbed into prices. The seller captures the grant as additional purchasing power. The policy is a transfer from taxpayers to existing homeowners, dressed up as assistance to the young. It is, by any honest assessment, a fraud.
+
+The result of these policies, operating in concert over decades, is a housing market that has disconnected from the incomes of the people who are supposed to live in it. The ratio of median house price to median income in Australia is among the highest in the developed world. In Sydney it exceeds ten. In the 1980s it was approximately four.
+
+I visited Tokyo recently. Japan's housing bubble burst in 1991, producing a economic crisis that lasted decades. In the aftermath, Japan reformed its planning laws to allow significantly more housing construction. The result, thirty years later, is a city of fourteen million people where a young professional can rent a clean, well-maintained apartment in a safe neighbourhood for a fraction of what the same apartment would cost in Sydney or Melbourne. Where buying a home, while not trivial, is achievable on a normal salary within a normal timeframe.
+
+Japan made choices. Specific policy choices that prioritised shelter as a human need over housing as a speculative asset. Those choices had costs, a prolonged period of price deflation that punished existing owners. But they produced a city where people can afford to live, which seems to me like a reasonable objective for a housing market.
+
+We have made different choices. We have chosen to protect the wealth of people who already own property at the expense of people who do not. We have embedded this choice in the tax system, in the planning system, in the political culture. And we have told the young people who bear the cost that it is their problem. That they should save harder, move further out, lower their expectations.
+
+I find this morally indefensible.
+
+I am not a socialist. I do not object to markets or to property ownership or to the principle that people who work hard and invest wisely should be rewarded. What I object to is a system that rewards the accident of timing, the luck of having bought property before the escalation, and punishes the accident of birth, the misfortune of being born too late to participate in the largest wealth transfer in Australian history.
+
+Because that is what this is. A wealth transfer. From the young to the old. From the assetless to the asset-rich. From the future to the present. Enacted through policy, sustained through politics, and justified by a national mythology of home ownership that bears less and less relationship to the reality that most young Australians face.
+
+The median house price in Sydney is one million dollars. A graduate earns fifty-five thousand. The gap between these numbers is not a market outcome. It is a policy outcome. And until we are honest about that, nothing will change.

@@ -1,0 +1,43 @@
+---
+title: "The Credential and the Skill"
+date: "2019-08-15"
+color: "blue"
+---
+
+A friend of mine graduated recently with a degree in information technology from a well-regarded Australian university. Three years of study, forty thousand dollars in HECS debt, a piece of paper with a crest on it. He applied for junior positions at a dozen companies. Most did not respond. The ones that did asked for two years of experience he did not have and proficiency in tools his degree had not mentioned.
+
+He is not unusual. He is typical. The gap between what Australian universities teach and what the economy requires has become so wide that the degree has ceased to be a bridge between education and employment. It has become a toll booth, expensive to pass through and leading to a road that may or may not connect to a destination.
+
+I want to be careful here because the critique of universities has become fashionable in certain circles, and the fashionable critique is often shallow. Universities are not worthless. The best of them provide something that cannot be obtained elsewhere: the discipline of rigorous thinking, exposure to ideas that challenge your assumptions, the experience of sustained intellectual effort over years. These are valuable. They are arguably more valuable now than they have ever been, as the economy becomes more complex and the problems more difficult.
+
+But these values are incidental to the system, not central to it. The system is optimised for something else entirely. It is optimised for throughput. For certification. For the production of graduates at a volume that satisfies government funding models and international student revenue targets. The degree has become the product, and the product has become disconnected from the thing it is supposed to represent.
+
+I work in product design, and from that vantage point the Australian university system looks like a product with a fatal flaw: the credential has become the value proposition, and the credential is losing value.
+
+The divergence between credential and competence is not new, but it is widening. I meet graduates regularly who can recite frameworks and cite textbooks but cannot solve problems they have not previously encountered. They have been trained to pass assessments, which is a skill, but it is not the skill the economy rewards. The economy rewards the ability to do useful things. To build. To fix. To create value that someone will pay for. These abilities require something different from what assessment-passing requires. They require practice, failure, iteration, and the kind of tacit knowledge that can only be acquired by doing the thing, badly at first and gradually less badly, over a sustained period.
+
+The traditional mechanism for acquiring this knowledge was the entry-level job. You graduated with a credential that signalled basic competence, and then you spent years in an environment where the real learning happened. The credential was a ticket to the training ground, not the training itself. The university taught you the vocabulary. The workplace taught you the language.
+
+This mechanism is breaking down, and it is breaking down for reasons that will accelerate rather than reverse.
+
+In my field, the tasks that once occupied junior product designers, wireframing standard interfaces, writing basic specifications, conducting routine user research, are increasingly being performed by tools that did not exist five years ago. The junior position existed because the work needed a human. When the work no longer needs a human, the position disappears. And with it disappears the training ground.
+
+I see the same pattern in other fields. Junior lawyers who would have spent years doing document review and legal research are being displaced by software that does it faster and cheaper. Junior accountants whose role was data entry and basic analysis are being made redundant by automated systems. The entry-level work that justified hiring a credential-holder and trained them into a competent professional is evaporating.
+
+This creates a situation that the university system is not designed to address. If the credential no longer opens the door to the training ground, and the training ground is where competence is actually built, then the credential is a ticket to nowhere. The university has sold you a map, but the territory it describes no longer exists.
+
+What replaces it? I genuinely do not know. The autodidact's path has always been available in theory, teach yourself, build a portfolio, demonstrate competence through work rather than certification. Some people thrive on this path. They are typically self-directed, resourceful, comfortable with ambiguity, and possessed of a kind of internal drive that does not require external structure. They are also, in my experience, a minority.
+
+Most people learn best in structured environments with clear expectations and external accountability. They need a curriculum, a progression, feedback from someone more experienced, the social pressure of peers working alongside them. The university provided some of this, and the workplace provided the rest. When both structures weaken, the university by becoming credential-focused rather than competence-focused, the workplace by eliminating the junior positions that served as training grounds, the majority are left without a viable path from qualification to capability.
+
+The Australian university system has an additional complication that I think is underappreciated. Our universities have become, in practical terms, an export industry. International students are a major revenue source. The incentive structure rewards enrolment volume, because volume drives revenue. Quality, insofar as it is measured at all, is assessed through metrics that capture credential production rather than competence development. Graduation rates. Student satisfaction surveys. Employment statistics that count any employment, regardless of relevance.
+
+The dynamic is an optimisation function, much like the social media algorithms I have written about. The system is doing exactly what it is designed to do. It is producing credentials at scale. The fact that the credentials are increasingly disconnected from the skills the economy needs is an externality that the system is not structured to address.
+
+I think about this often because the problem is about to get much worse. Artificial intelligence is advancing at a rate that will transform knowledge work within the next decade, possibly within the next few years. When it does, the skills that the university system currently teaches, analysis, research, synthesis, the cognitive tasks that form the backbone of professional education, will be the skills most directly affected. Not because AI will do them better, necessarily, but because it will do them cheaply enough that the economic value of a human performing them will collapse.
+
+When that happens, the credential will not merely be disconnected from competence. It will be disconnected from economic value. A degree in a field whose core tasks can be performed by software is not a qualification. It is a receipt for a purchase that has already depreciated.
+
+The question is what comes next, and I do not think the university system, as currently structured, is capable of answering it. The answer will require a fundamental rethinking of what education is for, how competence is built, and what the relationship between credentialing and capability should be.
+
+We have confused the menu with the meal. The credential is the menu. The skill is the meal. The economy is about to start checking what is actually on the plate, and a great many people are going to discover that the menu was beautifully printed but the plate is empty.

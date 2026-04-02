@@ -299,6 +299,123 @@
     }
   },
   {
+    "title": "The Boy and the World",
+    "date": "2023-12-20",
+    "color": "pink",
+    "slug": "the-boy-and-the-world",
+    "wordCount": 1265,
+    "synopsis": "I have been thinking about fatherhood. Not in the abstract sense that people mean when they say they want children someday, the way they say they w...",
+    "preview": "I have been thinking about fatherhood. Not in the abstract sense that people mean when they say they want children someday, the way they say they w...",
+    "audio": {
+      "url": "/audio/AI_the-boy-and-the-world.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Comfortable Dependency",
+    "date": "2023-11-15",
+    "color": "orange",
+    "slug": "the-comfortable-dependency",
+    "wordCount": 937,
+    "synopsis": "I want to map something. Not a geographic map but a dependency map. A diagram of what Australia depends on, who provides it, and what happens if th...",
+    "preview": "I want to map something. Not a geographic map but a dependency map. A diagram of what Australia depends on, who provides it, and what happens if th...",
+    "audio": {
+      "url": "/audio/AI_the-comfortable-dependency.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Other Moore's Law",
+    "date": "2023-09-15",
+    "color": "red",
+    "slug": "the-other-moore-s-law",
+    "wordCount": 840,
+    "synopsis": "Something is happening in Chinese artificial intelligence that most Western observers have not fully registered. I want to describe what I see, as ...",
+    "preview": "Something is happening in Chinese artificial intelligence that most Western observers have not fully registered. I want to describe what I see, as ...",
+    "audio": {
+      "url": "/audio/AI_the-other-moore-s-law.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "What the Model Sees",
+    "date": "2023-08-15",
+    "color": "blue",
+    "slug": "what-the-model-sees",
+    "wordCount": 1112,
+    "synopsis": "A machine generated a photograph this week. Not a photograph in the traditional sense, no light passed through a lens, no sensor captured a scene, ...",
+    "preview": "A machine generated a photograph this week. Not a photograph in the traditional sense, no light passed through a lens, no sensor captured a scene, ...",
+    "audio": {
+      "url": "/audio/AI_what-the-model-sees.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "What Survived the Crash",
+    "date": "2023-06-15",
+    "color": "orange",
+    "slug": "what-survived-the-crash",
+    "wordCount": 858,
+    "synopsis": "FTX collapsed in November. Sam Bankman-Fried, who had been on the cover of magazines and testifying before Congress and donating millions to politi...",
+    "preview": "FTX collapsed in November. Sam Bankman-Fried, who had been on the cover of magazines and testifying before Congress and donating millions to politi...",
+    "audio": {
+      "url": "/audio/AI_what-survived-the-crash.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Gap Between the Map and the Territory",
+    "date": "2023-04-15",
+    "color": "red",
+    "slug": "the-gap-between-the-map-and-the-territory",
+    "wordCount": 899,
+    "synopsis": "I want to talk about a specific kind of dishonesty. Not the kind where someone says something they know to be false. The kind where an entire socie...",
+    "preview": "I want to talk about a specific kind of dishonesty. Not the kind where someone says something they know to be false. The kind where an entire socie...",
+    "audio": {
+      "url": "/audio/AI_the-gap-between-the-map-and-the-territory.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Discontinuity",
+    "date": "2022-12-20",
+    "color": "blue",
+    "slug": "the-discontinuity",
+    "wordCount": 788,
+    "synopsis": "I have spent two weeks with ChatGPT. I am writing this in December, three weeks after OpenAI released it to the public, and I want to set down what...",
+    "preview": "I have spent two weeks with ChatGPT. I am writing this in December, three weeks after OpenAI released it to the public, and I want to set down what...",
+    "audio": {
+      "url": "/audio/AI_the-discontinuity.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Feudal Return",
+    "date": "2022-10-15",
+    "color": "red",
+    "slug": "the-feudal-return",
+    "wordCount": 968,
+    "synopsis": "I have a friend who earns a hundred and twenty thousand dollars a year. He is thirty-one, works in financial services, saves diligently, and lives ...",
+    "preview": "I have a friend who earns a hundred and twenty thousand dollars a year. He is thirty-one, works in financial services, saves diligently, and lives ...",
+    "audio": {
+      "url": "/audio/AI_the-feudal-return.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Refinery That Closed",
+    "date": "2022-08-15",
+    "color": "orange",
+    "slug": "the-refinery-that-closed",
+    "wordCount": 847,
+    "synopsis": "The ExxonMobil refinery at Altona closed last year. I want to trace what happened next, because the closure itself was a headline and what followed...",
+    "preview": "The ExxonMobil refinery at Altona closed last year. I want to trace what happened next, because the closure itself was a headline and what followed...",
+    "audio": {
+      "url": "/audio/AI_the-refinery-that-closed.mp3",
+      "duration": null
+    }
+  },
+  {
     "title": "Thirty",
     "date": "2022-06-15",
     "color": "orange",
@@ -308,7 +425,306 @@
     "preview": "I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...",
     "audio": {
       "url": "/audio/AI_thirty.mp3",
-      "duration": 470
+      "duration": null
+    }
+  },
+  {
+    "title": "The Epistemological Crisis",
+    "date": "2022-05-15",
+    "color": "purple",
+    "slug": "the-epistemological-crisis",
+    "wordCount": 925,
+    "synopsis": "People no longer disagree about what to do. They disagree about what is real. I want to dwell on this distinction because I think it is the most im...",
+    "preview": "People no longer disagree about what to do. They disagree about what is real. I want to dwell on this distinction because I think it is the most im...",
+    "audio": {
+      "url": "/audio/AI_the-epistemological-crisis.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "Energy as Leverage",
+    "date": "2022-03-15",
+    "color": "red",
+    "slug": "energy-as-leverage",
+    "wordCount": 718,
+    "synopsis": "Russia invaded Ukraine three weeks ago. In the time since, I have watched Europe discover something that should not have required a war to reveal: ...",
+    "preview": "Russia invaded Ukraine three weeks ago. In the time since, I have watched Europe discover something that should not have required a war to reveal: ...",
+    "audio": {
+      "url": "/audio/AI_energy-as-leverage.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The God-Shaped Hole",
+    "date": "2021-12-20",
+    "color": "purple",
+    "slug": "the-god-shaped-hole",
+    "wordCount": 1687,
+    "synopsis": "Two years of isolation. Two years in which the thin structures of communal life, the office, the pub, the gym, the casual encounter on the street, ...",
+    "preview": "Two years of isolation. Two years in which the thin structures of communal life, the office, the pub, the gym, the casual encounter on the street, ...",
+    "audio": {
+      "url": "/audio/AI_the-god-shaped-hole.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "Inflation Is a Memory",
+    "date": "2021-12-15",
+    "color": "orange",
+    "slug": "inflation-is-a-memory",
+    "wordCount": 917,
+    "synopsis": "Prices are rising. The CPI ticked up this quarter in ways that made economists uncomfortable, though the discomfort was expressed in the careful la...",
+    "preview": "Prices are rising. The CPI ticked up this quarter in ways that made economists uncomfortable, though the discomfort was expressed in the careful la...",
+    "audio": {
+      "url": "/audio/AI_inflation-is-a-memory.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Oasis Is Coming",
+    "date": "2021-11-15",
+    "color": "purple",
+    "slug": "the-oasis-is-coming",
+    "wordCount": 1107,
+    "synopsis": "Facebook rebranded as Meta last month. The internet has responded with the energy it reserves for its favourite targets: mockery, memes, the comfor...",
+    "preview": "Facebook rebranded as Meta last month. The internet has responded with the energy it reserves for its favourite targets: mockery, memes, the comfor...",
+    "audio": {
+      "url": "/audio/AI_the-oasis-is-coming.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Island Factory",
+    "date": "2021-09-15",
+    "color": "red",
+    "slug": "the-island-factory",
+    "wordCount": 770,
+    "synopsis": "There is a factory in Hsinchu, Taiwan, that you have never heard of and that your life depends on. It is operated by the Taiwan Semiconductor Manuf...",
+    "preview": "There is a factory in Hsinchu, Taiwan, that you have never heard of and that your life depends on. It is operated by the Taiwan Semiconductor Manuf...",
+    "audio": {
+      "url": "/audio/AI_the-island-factory.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "Kabul",
+    "date": "2021-08-20",
+    "color": "red",
+    "slug": "kabul",
+    "wordCount": 938,
+    "synopsis": "The photographs from Kabul this week are the kind that do not require commentary. They provide their own. People clinging to the fuselage of a C-17...",
+    "preview": "The photographs from Kabul this week are the kind that do not require commentary. They provide their own. People clinging to the fuselage of a C-17...",
+    "audio": {
+      "url": "/audio/AI_kabul.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Wealth We Walk Past",
+    "date": "2021-07-15",
+    "color": "orange",
+    "slug": "the-wealth-we-walk-past",
+    "wordCount": 892,
+    "synopsis": "Iron ore hit $230 a tonne this month. I want to sit with that number for a moment, because the number itself is less important than what it represe...",
+    "preview": "Iron ore hit $230 a tonne this month. I want to sit with that number for a moment, because the number itself is less important than what it represe...",
+    "audio": {
+      "url": "/audio/AI_the-wealth-we-walk-past.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "Controlled Substances",
+    "date": "2020-11-15",
+    "color": "purple",
+    "slug": "controlled-substances",
+    "wordCount": 1720,
+    "synopsis": "Melbourne is in its sixth month of lockdown. The longest in the world. I am in Adelaide, where the restrictions have been less severe but the atmos...",
+    "preview": "Melbourne is in its sixth month of lockdown. The longest in the world. I am in Adelaide, where the restrictions have been less severe but the atmos...",
+    "audio": {
+      "url": "/audio/AI_controlled-substances.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Burning Library",
+    "date": "2020-10-10",
+    "color": "orange",
+    "slug": "the-burning-library",
+    "wordCount": 885,
+    "synopsis": "A man I met last year, at a manufacturing conference I attended out of curiosity rather than professional obligation, told me he was one of the las...",
+    "preview": "A man I met last year, at a manufacturing conference I attended out of curiosity rather than professional obligation, told me he was one of the las...",
+    "audio": {
+      "url": "/audio/AI_the-burning-library.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Zoom Class",
+    "date": "2020-08-15",
+    "color": "purple",
+    "slug": "the-zoom-class",
+    "wordCount": 964,
+    "synopsis": "There are two pandemics. They happen in the same country, in the same cities, at the same time, but they are experienced by different people in way...",
+    "preview": "There are two pandemics. They happen in the same country, in the same cities, at the same time, but they are experienced by different people in way...",
+    "audio": {
+      "url": "/audio/AI_the-zoom-class.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Argument from Pain",
+    "date": "2020-07-15",
+    "color": "purple",
+    "slug": "the-argument-from-pain",
+    "wordCount": 1569,
+    "synopsis": "Three o'clock in the morning. Adelaide is silent. The house is dark. The only thing that exists is the pain, which has settled behind my right eye ...",
+    "preview": "Three o'clock in the morning. Adelaide is silent. The house is dark. The only thing that exists is the pain, which has settled behind my right eye ...",
+    "audio": {
+      "url": "/audio/AI_the-argument-from-pain.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Money Printer and the Emperor",
+    "date": "2020-06-20",
+    "color": "orange",
+    "slug": "the-money-printer-and-the-emperor",
+    "wordCount": 1104,
+    "synopsis": "The Federal Reserve has printed approximately three trillion dollars since March. The Reserve Bank of Australia has launched its first-ever quantit...",
+    "preview": "The Federal Reserve has printed approximately three trillion dollars since March. The Reserve Bank of Australia has launched its first-ever quantit...",
+    "audio": {
+      "url": "/audio/AI_the-money-printer-and-the-emperor.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The X-Ray",
+    "date": "2020-04-15",
+    "color": "red",
+    "slug": "the-x-ray",
+    "wordCount": 870,
+    "synopsis": "The pandemic did not break anything. This is the thing I keep coming back to, the observation that I think gets lost in the urgency of the crisis r...",
+    "preview": "The pandemic did not break anything. This is the thing I keep coming back to, the observation that I think gets lost in the urgency of the crisis r...",
+    "audio": {
+      "url": "/audio/AI_the-x-ray.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Summer That Came Early",
+    "date": "2019-11-20",
+    "color": "red",
+    "slug": "the-summer-that-came-early",
+    "wordCount": 994,
+    "synopsis": "The fire season started in September. This is not normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, in ...",
+    "preview": "The fire season started in September. This is not normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, in ...",
+    "audio": {
+      "url": "/audio/AI_the-summer-that-came-early.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Credential and the Skill",
+    "date": "2019-08-15",
+    "color": "blue",
+    "slug": "the-credential-and-the-skill",
+    "wordCount": 1209,
+    "synopsis": "A friend of mine graduated recently with a degree in information technology from a well-regarded Australian university. Three years of study, forty...",
+    "preview": "A friend of mine graduated recently with a degree in information technology from a well-regarded Australian university. Three years of study, forty...",
+    "audio": {
+      "url": "/audio/AI_the-credential-and-the-skill.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Narrow Strait",
+    "date": "2019-05-10",
+    "color": "blue",
+    "slug": "the-narrow-strait",
+    "wordCount": 959,
+    "synopsis": "I have been looking at maps lately. Not the political maps that show borders and capitals and the colourful fiction of national sovereignty, but th...",
+    "preview": "I have been looking at maps lately. Not the political maps that show borders and capitals and the colourful fiction of national sovereignty, but th...",
+    "audio": {
+      "url": "/audio/AI_the-narrow-strait.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Salary and the House",
+    "date": "2018-09-15",
+    "color": "red",
+    "slug": "the-salary-and-the-house",
+    "wordCount": 1058,
+    "synopsis": "The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, rema...",
+    "preview": "The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, rema...",
+    "audio": {
+      "url": "/audio/AI_the-salary-and-the-house.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Unelected Infrastructure",
+    "date": "2018-04-20",
+    "color": "purple",
+    "slug": "the-unelected-infrastructure",
+    "wordCount": 808,
+    "synopsis": "Cambridge Analytica is the scandal. What lies beneath it is the revelation, and the revelation is bigger than the scandal. The scandal is that a po...",
+    "preview": "Cambridge Analytica is the scandal. What lies beneath it is the revelation, and the revelation is bigger than the scandal. The scandal is that a po...",
+    "audio": {
+      "url": "/audio/AI_the-unelected-infrastructure.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "Why Civilisations Forget How to Build",
+    "date": "2018-03-15",
+    "color": "orange",
+    "slug": "why-civilisations-forget-how-to-build",
+    "wordCount": 1494,
+    "synopsis": "The Sydney light rail project was supposed to cost $1.6 billion and take four years. It will cost over $3 billion and take considerably longer. The...",
+    "preview": "The Sydney light rail project was supposed to cost $1.6 billion and take four years. It will cost over $3 billion and take considerably longer. The...",
+    "audio": {
+      "url": "/audio/AI_why-civilisations-forget-how-to-build.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Algorithm Knows You Better",
+    "date": "2017-12-10",
+    "color": "blue",
+    "slug": "the-algorithm-knows-you-better",
+    "wordCount": 1245,
+    "synopsis": "Something happened this year that I think deserves more attention than it received, though it received quite a lot. Facebook's advertising platform...",
+    "preview": "Something happened this year that I think deserves more attention than it received, though it received quite a lot. Facebook's advertising platform...",
+    "audio": {
+      "url": "/audio/AI_the-algorithm-knows-you-better.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Last Factory",
+    "date": "2017-10-15",
+    "color": "orange",
+    "slug": "the-last-factory",
+    "wordCount": 1516,
+    "synopsis": "Ford closed first. Then Holden announced. Then Toyota. By the time you read this, the last car will have rolled off the last Australian production ...",
+    "preview": "Ford closed first. Then Holden announced. Then Toyota. By the time you read this, the last car will have rolled off the last Australian production ...",
+    "audio": {
+      "url": "/audio/AI_the-last-factory.mp3",
+      "duration": null
+    }
+  },
+  {
+    "title": "The Quiet Abdication",
+    "date": "2017-06-20",
+    "color": "red",
+    "slug": "the-quiet-abdication",
+    "wordCount": 1309,
+    "synopsis": "I have been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. The attent...",
+    "preview": "I have been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. The attent...",
+    "audio": {
+      "url": "/audio/AI_the-quiet-abdication.mp3",
+      "duration": null
     }
   },
   {
