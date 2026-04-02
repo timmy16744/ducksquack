@@ -10,7 +10,6 @@ I want to sit with what this means, because I do not think we have sat with it y
 
 It cannot. What happened here is not an economic event. It is a national character event. Australia decided, over the course of several decades, to stop making things. And now the decision is complete.
 
-I.
 
 Let me trace the logic, because the logic matters. It was not stupid. That is what makes it dangerous.
 
@@ -28,7 +27,6 @@ Knowledge is the part we do not discuss. The economic analysis counts jobs and d
 
 When those networks dissolve, the knowledge dissolves with them. You cannot reassemble it by posting a job advertisement. You cannot recreate it with a government grant. It is gone.
 
-II.
 
 Other countries faced the same pressures and made different choices.
 
@@ -44,7 +42,6 @@ We made the opposite decision. We decided that digging things up and shipping th
 
 I want to be precise about where I locate the responsibility. This was not inevitable. This was not the market operating according to natural law. This was policy. Decades of it. Bipartisan. Consistent. The decision to let manufacturing die was made by people, in offices, through the instruments of government, over a period of thirty years. At every point, alternative choices were available. At every point, examples of different approaches existed in countries with similar or higher cost structures. We chose this.
 
-III.
 
 What bothers me most is not the decision itself but the lack of seriousness with which it was made.
 
@@ -58,7 +55,6 @@ The argument that this does not matter, that in a globalised world, it is ration
 
 These assumptions have held for decades. They may hold for decades more. But they are assumptions, not laws. And a country that has dismantled its capacity to manufacture has also dismantled its capacity to respond if those assumptions fail.
 
-IV.
 
 There is a practical question here that I think deserves more attention than it receives. What does Australia actually make now?
 

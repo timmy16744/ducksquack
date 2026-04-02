@@ -10,7 +10,6 @@ And what I notice, emerging from the worst of it, is that we were already alone 
 
 The fabric was thin because something was removed from it, decades ago, and nothing was installed in its place. I want to talk about what was removed, and I want to do so from an unusual position: as someone who does not believe in the thing that was removed but who believes the removal has cost us more than we have acknowledged.
 
-I.
 
 I grew up attending chapel at Prince Alfred College in Adelaide. Uniting Church. Hymns on Wednesday mornings. The Lord's Prayer before meals. The architecture of worship, stone and timber and stained glass, surrounding me daily for years.
 
@@ -22,7 +21,6 @@ What I do not believe is that any specific religion has access to truths about t
 
 But this essay is not about what I believe. It is about what was lost when belief receded, and whether the loss has been adequately reckoned with.
 
-II.
 
 Religion, whatever else it was, provided infrastructure. Not just buildings, though the buildings mattered. Infrastructure for human needs that do not disappear when the metaphysical framework is removed.
 
@@ -40,7 +38,6 @@ Secular culture does not do this. It avoids death with a consistency that would 
 
 When my headaches are at their worst, when the pain reaches the level where the body's own calculus starts to weigh continuation against cessation, I discover that the culture around me has nothing to offer. No framework. No vocabulary. No ritual for sitting with the proximity of death and finding some footing within it. I have had to build my own, from scraps of philosophy and personal discipline and the sheer stubbornness of continuing.
 
-III.
 
 I think the loneliness epidemic, the meaning crisis, the rise of conspiracy thinking and pseudo-religious movements, these are not separate phenomena. They are symptoms of a single underlying condition. A civilisation that removed a load-bearing wall and did not install a replacement.
 

@@ -8,7 +8,6 @@ I turned thirty this week. People turn thirty every day. But I have been sitting
 
 I want to trace the shape honestly. Not the curated version. The actual one.
 
-I.
 
 I grew up in Australia, which means I grew up inside an assumption. The assumption that things would continue. That the structures around you were permanent. That the world you inherited was, give or take, the world you would pass on. This assumption was embedded in everything: the suburban architecture, the school curriculum, the career advice, the national self-image. We were the lucky country. Luck was the plan.
 
@@ -20,7 +19,6 @@ I learned to build my own infrastructure. Exercise regimes, dietary controls, en
 
 Most systems are held together by inertia and good intentions rather than competence and design. The people inside them are often individually capable and collectively useless. The gap between the brochure and the reality is where most of life actually happens. I learned this in waiting rooms and hospital corridors and the offices of specialists who charged four hundred dollars to be confidently wrong. It has proved applicable to nearly everything else.
 
-II.
 
 My twenties. I will be honest about these because that is the only version worth writing.
 
@@ -36,7 +34,6 @@ I fell in love with Japan. Multiple times, across multiple visits, each one deep
 
 Travel taught me this. It is, I think, the most important education available to anyone who wants to understand the world rather than merely inhabit it.
 
-III.
 
 Here is what I believe at thirty, stated without the diplomatic softening I have learned to apply in conversation.
 
@@ -58,7 +55,6 @@ Gene therapies for conditions that have been intractable for generations are in 
 
 I could continue. Prefabricated housing. Automated manufacturing. Drone logistics. Desalination at scale. In every case the technology is ready or nearly ready, and in every case the bottleneck is the same: regulation written for a world that no longer exists, administered by institutions whose primary function has become self-perpetuation.
 
-IV.
 
 I want to say something about Australia specifically, and I want to say it without the qualifications I would normally attach.
 
@@ -84,7 +80,6 @@ And now artificial intelligence arrives, and with it the most significant econom
 
 I look at our regulatory apparatus and our institutional culture, and I see a country that is structurally incapable of moving fast.
 
-V.
 
 I think about South Africa, and I think about it more often than I would like.
 
@@ -116,7 +111,6 @@ If the correct leadership does not emerge, if we do not find people capable of m
 
 Mad Max was set in Australia for a reason. George Miller understood something about the fragility of civilisation on a continent this vast and this harsh. Strip away the infrastructure and you are left with distance, heat, and competition for what remains. We are not close to that scenario. But we are closer than we were ten years ago, and the direction of travel should concern anyone paying attention.
 
-VI.
 
 This is supposed to be a birthday essay. I have spent most of it angry. I notice this and I am not going to apologise for it.
 

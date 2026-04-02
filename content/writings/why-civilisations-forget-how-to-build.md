@@ -10,7 +10,6 @@ I mention this not because it is unusual but because it is typical. In Berlin, t
 
 Something has happened to our ability to build things. And I think the something is more interesting than bad management or corruption, though both are present. I think we are watching a civilisational process, one that has historical precedents, and the precedents are not encouraging.
 
-I.
 
 Rome built the aqueducts in the centuries of its expansion. The engineering was extraordinary for its time and remains impressive today. Water flowed across valleys and through mountains, carried by precisely graded channels over distances of a hundred kilometres, arriving at its destination through gravity alone. The system sustained a city of over a million people.
 
@@ -20,7 +19,6 @@ The aqueducts crumbled not because nobody understood how water flows but because
 
 I think about this when I read about the Sydney light rail.
 
-II.
 
 The pattern, as I observe it, has a consistent shape.
 
@@ -34,7 +32,6 @@ But the layers accumulate. They interact in ways that nobody designed and nobody
 
 At some threshold, and I do not know where the threshold is, only that it exists, the accumulated process becomes the primary obstacle to building. The system designed to ensure that things are built well becomes a system that ensures things are not built at all.
 
-III.
 
 I have watched this in Adelaide with a specificity that statistics cannot capture.
 
@@ -46,7 +43,6 @@ I have travelled enough to know that this is not universal. In Tokyo, infrastruc
 
 The difference is not cultural in any mysterious sense. It is institutional. Japan has institutions that work. They coordinate. They decide. They execute. The path from decision to completion, while not without obstacles, remains navigable. The process serves the project rather than consuming it.
 
-IV.
 
 Why does this happen? Why do civilisations that once built magnificently lose the ability to build at all?
 
@@ -58,7 +54,6 @@ By that point, reform is extraordinarily difficult. Every layer of sediment has 
 
 This is why the problem is civilisational rather than managerial. It cannot be solved by better project management or smarter ministers. It is a structural feature of mature institutional systems. The sediment accumulates because there is no natural mechanism for its removal. Adding process is easy, it responds to a visible failure and creates a constituency. Removing process is hard, it requires overcoming a constituency and risks an invisible failure.
 
-V.
 
 I do not know where this leads. The optimistic reading is that technology provides a mechanism for cutting through institutional sediment. Automation, artificial intelligence, digital government, these could, in principle, reduce the cost of compliance and accelerate the path from decision to completion.
 

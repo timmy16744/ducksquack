@@ -8,7 +8,6 @@ I have been thinking about fatherhood. Not in the abstract sense that people mea
 
 I want a child. I want to be a father. And I am terrified by what that means in this particular moment of history.
 
-I.
 
 Let me explain the terror, because it is specific and I think it is shared by more people my age than the birth rate statistics suggest.
 
@@ -22,7 +21,6 @@ The question is practical, and that every prospective parent in my generation fa
 
 I cannot make that assumption. The world that will exist when my child reaches adulthood is so uncertain that any specific preparation risks being precisely wrong. Training them for jobs that will not exist. Teaching them skills that will be automated. Preparing them for institutions that will have transformed beyond recognition.
 
-II.
 
 And yet.
 
@@ -32,7 +30,6 @@ Chronic illness has shaped this in ways I am still understanding. When your body
 
 Call it clarity. The cluster headaches have given me many things I did not ask for, and one of them is an acute awareness that life does not wait for optimal conditions. There is no perfect moment to become a parent. There is only the moment you are in, with whatever uncertainty it contains, and the decision to act within that uncertainty or to defer indefinitely and call the deferral prudence.
 
-III.
 
 I have travelled to forty-five countries. In many of them, I watched parents. Not deliberately, at first. But increasingly with attention, as the question of fatherhood moved from abstract to urgent.
 
@@ -44,7 +41,6 @@ In Scandinavia, I watched societies that had organised themselves around the pri
 
 And in Australia, I watch a society where housing costs consume so much income that starting a family requires either inherited wealth or a willingness to accept financial precariousness. Where childcare costs rival mortgage payments. Where the work culture assumes availability that is incompatible with attentive parenting. Where the birth rate declines year after year because the material conditions for raising children are deteriorating while the rhetoric about family values persists unchanged.
 
-IV.
 
 The question I keep returning to is not whether to become a father. That decision, I think, is made. The question is what kind of father. What do I give a child who will grow up in a world I cannot predict?
 

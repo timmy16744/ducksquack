@@ -204,9 +204,40 @@ function AboutPage({ navigate, settings }) {
 
 /* ─── Writings ─── */
 function WritingsPage({ writings, viewCounts, loaded, navigate, settings }) {
-  const sorted = useMemo(() => {
-    return [...writings].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const currentYear = new Date().getFullYear();
+
+  // Group by year, sorted newest first
+  const yearGroups = useMemo(() => {
+    const sorted = [...writings].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const groups = [];
+    let currentGroup = null;
+    for (const w of sorted) {
+      const year = new Date(w.date).getFullYear();
+      if (!currentGroup || currentGroup.year !== year) {
+        currentGroup = { year, essays: [] };
+        groups.push(currentGroup);
+      }
+      currentGroup.essays.push(w);
+    }
+    return groups;
   }, [writings]);
+
+  const [collapsed, setCollapsed] = useState({});
+
+  // Set initial collapsed state once yearGroups populate
+  const initializedRef = useRef(false);
+  useEffect(() => {
+    if (yearGroups.length > 0 && !initializedRef.current) {
+      initializedRef.current = true;
+      const init = {};
+      yearGroups.forEach(g => { init[g.year] = g.year !== currentYear; });
+      setCollapsed(init);
+    }
+  }, [yearGroups, currentYear]);
+
+  const toggleYear = useCallback((year) => {
+    setCollapsed(prev => ({ ...prev, [year]: !prev[year] }));
+  }, []);
 
   if (!loaded) {
     return (
@@ -220,19 +251,34 @@ function WritingsPage({ writings, viewCounts, loaded, navigate, settings }) {
     <div className="zen-page zen-writings">
       <h1 className="zen-title">Writings</h1>
 
-      <ul className="zen-writings-list">
-        {sorted.map((w) => (
-          <li key={w.slug} className="zen-writings-item" onClick={() => navigate('post', w.slug)}>
-            <span className="zen-writings-item-title">{w.title}</span>
-            {settings.showDates && (
-              <span className="zen-writings-item-date">{formatDate(w.date)}</span>
-            )}
-            {settings.showWordCount && w.wordCount && (
-              <span className="zen-writings-item-words">({w.wordCount} words)</span>
-            )}
-          </li>
-        ))}
-      </ul>
+      {yearGroups.map(({ year, essays }) => (
+        <div key={year} className="zen-year-group">
+          <div
+            className={`zen-year-header ${collapsed[year] ? 'collapsed' : ''}`}
+            onClick={() => toggleYear(year)}
+          >
+            <span className="zen-year-label">{year}</span>
+            <span className="zen-year-count">{essays.length}</span>
+            <span className="zen-year-arrow">{collapsed[year] ? '+' : '\u2013'}</span>
+          </div>
+
+          {!collapsed[year] && (
+            <ul className="zen-writings-list">
+              {essays.map((w) => (
+                <li key={w.slug} className="zen-writings-item" onClick={() => navigate('post', w.slug)}>
+                  <span className="zen-writings-item-title">{w.title}</span>
+                  {settings.showDates && (
+                    <span className="zen-writings-item-date">{formatDate(w.date)}</span>
+                  )}
+                  {settings.showWordCount && w.wordCount && (
+                    <span className="zen-writings-item-words">({w.wordCount} words)</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
