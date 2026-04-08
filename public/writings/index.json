@@ -1,5 +1,18 @@
 [
   {
+    "title": "The Bomb Has Been Built",
+    "date": "2026-04-08",
+    "color": "red",
+    "slug": "the-bomb-has-been-built",
+    "wordCount": 3329,
+    "synopsis": "A 3am meditation on Anthropic's unreleased Mythos model, the recursive intelligence loop closing ahead of schedule, and the feeling of standing at a threshold too large to hold — written from the floor beside a sleeping child in Adelaide.",
+    "preview": "I am writing this at 3am, which is when my brain decides it does its best thinking. Arthur went to bed hours ago. Chiara is asleep. Luna is curled ...",
+    "audio": {
+      "url": "/audio/AI_the-bomb-has-been-built.mp3",
+      "duration": 444
+    }
+  },
+  {
     "title": "The Board Resolves",
     "date": "2026-03-21",
     "color": "teal",

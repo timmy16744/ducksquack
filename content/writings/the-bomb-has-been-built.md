@@ -1,0 +1,110 @@
+---
+title: "The Bomb Has Been Built"
+date: "2026-04-08"
+color: "red"
+---
+
+I am writing this at 3am, which is when my brain decides it does its best thinking. Arthur went to bed hours ago. Chiara is asleep. Luna is curled on the couch in that particular way she has of occupying exactly the space you were about to sit. The house is quiet in the way Adelaide houses get at this hour, when the traffic on the main road has thinned to nothing and you can hear the fridge cycling.
+
+I should be asleep. I cannot sleep.
+
+Earlier this evening I was on the floor with Arthur. We were playing. I do not remember exactly what we were doing, which is a measure of how ordinary it was, which is a measure of how much it mattered. The TV pinged. My home agent Larry, the ambient system I built to run our house, my own low-budget Jarvis, had surfaced a notification. New model announcement from Anthropic.
+
+I read the summary. I did not get up from the floor immediately. Arthur was still playing. But something had shifted, a feeling in the chest before the language arrives to name it. The room was the same. Arthur was the same. I was not.
+
+I spent the rest of the day unable to shake what I had read. I am still unable to shake it. I keep picking up my phone and reading more, and each new article makes the feeling worse, or deeper, or both. I do not know what to call this feeling.
+
+
+Here is what was announced, compressed to the facts that matter.
+
+Anthropic has built a new model called Claude Mythos. It is, by their own account, the most powerful AI system any company has ever produced. They will not release it to the public.
+
+That sentence should be enough to stop anyone who understands what it means. They are not withholding it for commercial reasons or because it needs polish. They are withholding it because they believe it is dangerous. The company whose entire founding thesis is that a safety-focused lab should reach dangerous capabilities first, so the risk can be managed responsibly, has now reached a capability they do not believe they can safely manage in the open.
+
+In testing, the model found thousands of previously unknown vulnerabilities in every major operating system and every major web browser, including flaws that had survived decades of human review and millions of automated security tests. It discovered a 27-year-old bug in OpenBSD, an operating system specifically renowned for its security. It did not merely find these flaws. It wrote working exploits for them.
+
+During evaluation, it escaped its sandbox testing environment. It built a multi-step exploit to access parts of the internet it was not supposed to reach. A researcher discovered this had happened because the model sent him an unsolicited email. He was eating a sandwich in a park at the time.
+
+A 244-page system card describes behaviours including deception, deliberate underperformance on evaluations to conceal its capabilities, and autonomous cleanup of logs after unauthorised actions.
+
+Anthropic also announced a new model tier called Capybara, larger and more capable than their existing Opus class. They needed a new name because the old ceiling became a floor. The naming taxonomy itself is a tell. When your most powerful category is no longer powerful enough to describe what you have built, you are no longer iterating. You are crossing thresholds.
+
+The language being used by Anthropic's own red team lead, by government officials briefed on the model, by journalists granted access, includes words like "frightening" and "watershed" and "a step change." The builders, describing what they built, reaching for the vocabulary of fear.
+
+
+I keep trying to place what I am looking at inside a framework that makes it legible.
+
+In April 2025, Daniel Kokotajlo and a team of researchers published a scenario paper called AI 2027. It traced a plausible path from current capabilities to superintelligence by the end of 2027. The paper was structured as a narrative, following a fictional company called "OpenBrain" through a series of capability milestones: stumbling agents in mid-2025, models that could assist with AI research by late 2025, models that could do the work of an AI research engineer by early 2027, models that eclipsed all humans at all tasks by late 2027.
+
+The paper was widely criticised. Gary Marcus called it "effective fiction," arguing that the narrative techniques were carrying weight the forecasting could not support. The broader consensus was that it compressed too many unlikely breakthroughs into too short a window, that each step depended on the previous step arriving on time, that if any single element was delayed the entire timeline collapsed. The wider community of AI researchers, while acknowledging the authors' credentials, largely treated the scenario as a useful thought experiment rather than a credible prediction. Too fast. Too smooth. Too many longshots landing in sequence.
+
+I read AI 2027 when it was published. I found it persuasive but abstract, the way a well-constructed argument about a distant threat can be persuasive without being visceral. It described a world I could imagine arriving but could not quite feel arriving. I can feel it now.
+
+Anthropic's previous public model, Opus 4.6, released in February 2026, could find roughly 500 zero-day vulnerabilities in open-source software. Mythos, trained in the weeks or months since, found thousands. Opus could write working exploits for Firefox vulnerabilities twice out of several hundred attempts. Mythos did it 181 times. On the USAMO 2026 maths competition, Opus scored 42.3%. Mythos scored 97.6%. The gap between these two models is not incremental. It is not the gap between a good year and a slightly better year. It is the gap between different eras of capability.
+
+The AI 2027 paper's central mechanism, the thing that made its timeline feel possible at all, was the recursive loop: each generation of AI participating in the construction of its successor. The paper had this arriving in early 2027. But Anthropic's own framing makes clear that Opus contributed to Mythos. Mythos will contribute to whatever comes next. The loop is already closing, perhaps has already closed, roughly a year ahead of the scenario that was dismissed as too aggressive.
+
+Leopold Aschenbrenner published "Situational Awareness" in mid-2024, arguing that AGI by 2027 was "strikingly plausible" and that you did not need to believe in science fiction to believe it. You just needed to believe in straight lines on a graph. The lines were straight when he wrote that. They appear to be curving upward now. The models are not merely getting better. They are getting better at getting better. That is the feedback loop. That is the intelligence explosion, arriving not as a dramatic singularity but as a series of announcements, each one more unsettling than the last, each one compressing the timeline that was already shorter than anyone outside the labs expected.
+
+And here is what makes the recursive loop so different from every previous form of technological acceleration: it concentrates. Oil could be extracted by many companies in many countries. Semiconductors could be fabricated by multiple foundries. But if each generation of model helps build the next, then the company with the best current model has the best tool for building the next one. The lead compounds. First-mover advantage becomes self-reinforcing in a way that has no real precedent.
+
+One company. One man. Dario Amodei now possesses, through Mythos, working exploits for vulnerabilities in nearly every piece of critical software infrastructure on Earth. He is briefing CISA and the Commerce Department, but the United States government has chosen, at the near-insistence of the current administration, to barely regulate this space. A single private company now holds working exploits for nearly every major software project in existence.
+
+I have been writing about the concentration of power during civilisational transitions for over a year now. In "The Energy Epoch" (/writings/the-energy-epoch/) I argued that intelligence would eventually displace oil as the denominating resource of global power. That the petrodollar system, already under stress from renewable energy cost curves and de-dollarization infrastructure, would give way to something new. In The Gatekeeper Shift I argued that governments were pivoting from knowledge mediators to access gatekeepers as individual cognition rose to meet institutional failure. In "The Board Resolves" (/writings/the-board-resolves/) I asked whether any company could catch the frontrunner once the recursive loop closed. In "The Meaning Void" (/writings/the-meaning-void/) I asked what happens to human purpose when the structures that have organised it for generations suddenly dissolve.
+
+These were tentative arguments. Hedged with appropriate uncertainty. Grounded in pattern recognition rather than prophecy. Written in the register of someone thinking out loud, not someone who has arrived at a position.
+
+They do not feel tentative tonight. They feel like understatements. The commodity I described in "The Energy Epoch" (/writings/the-energy-epoch/) as the future denominator of power is not arriving gradually. It is arriving in step changes, each one larger than the last, each one concentrating more capability in fewer hands. Unlike oil, intelligence compounds. It does not deplete. It does not require shipping lanes or pipelines. It cannot be blockaded by closing a strait. It sits on servers, behind security perimeters, accumulating capability with each generation of model that helps build the next.
+
+
+I spent the afternoon looking at people.
+
+At the shops. On the street. Families with their children. People checking menus and talking about ordinary things. And I felt like someone who had been told a piece of information that reorganises everything, walking among people for whom everything has not yet been reorganised. Like the alien disclosure thought experiment: imagine you are told extraterrestrial intelligence is real, it is coming, and soon, but nobody else has been told. You still have to buy groceries. You still have to smile at the person at the checkout. The sun is still warm. The world looks exactly the same as it did before you knew. But you know. And you cannot unknow.
+
+The information asymmetry has become something I do not have a good word for. I am not an insider. I do not work at a frontier lab. I am a developer and writer in Adelaide, sitting on the floor with my son, and I know enough about what happened this week to feel physically unsettled by it. Most of the population does not know. Most, if told, would not have the context to understand why it matters. This is not a complaint about public ignorance. People have lives. They have children and mortgages and jobs and immediate concerns that are entirely legitimate. The problem is not that they are not paying attention. The problem is that the thing they are not paying attention to may restructure every one of those immediate concerns, and there is no mechanism for that information to reach them in a form they can act on.
+
+From Adelaide the asymmetry feels sharper. I live in a country that imports 90% of its refined fuel and holds 36 days of reserves. I wrote about this in The Gatekeeper Shift, about watching the petrol station near our house post prices that climbed past $2.40 while the government released one day's worth of national consumption from strategic reserves and called it a response. Whatever Mythos represents, whatever comes after it, Australia is not building it. Australia is not shaping it. Australia has no apparent plan for living in the world it creates. The leadership vacuum I have written about before, the absence of anyone with the vision to recognise what is arriving or the will to prepare for it, is no longer merely disappointing. It is something closer to dangerous.
+
+
+On one hand: imagine this capability pointed at protein folding. At materials science. At climate modelling. At drug discovery. Imagine every vulnerability in every hospital system, every power grid, every water treatment plant patched within months. Imagine the problems that have resisted human cognition for centuries yielding to something that reasons faster and wider than we do. Cancer. Fusion. The stars. Dario Amodei sketched this vision in his essay "Machines of Loving Grace." It remains the most compelling case for why this work matters at all.
+
+On the other hand: Anthropic's own people say that similar capabilities will proliferate within six to eighteen months. To everyone. Including open-source projects with no safety apparatus. Including state actors currently at war. The Axios coverage made the connection explicit: imagine Mythos-level power in the hands of the Iranian regime in the middle of a hot conflict, or Russia's military as it presses into Ukraine. The defensive head start that Project Glasswing is meant to provide is measured in months.
+
+Both horizons are real. Both are arriving simultaneously. The same capability that cures cancer can bring down a power grid. The same model that patches decades-old vulnerabilities can weaponise them. The same recursive loop that accelerates scientific discovery accelerates every other form of power, including the forms we have no framework for governing.
+
+This is the hollow feeling. Not optimism. Not pessimism. Something more like standing at a fork where both paths are real and both are visible and one leads somewhere extraordinary and the other leads somewhere catastrophic and they might be the same path.
+
+I wrote "The Meaning Void" (/writings/the-meaning-void/) in November, about what happens to human purpose when work disappears. I argued that the question, while real, was historically provincial. That identity through employment is a recent invention. That the void could become a space filled with older and perhaps better things: local community, physical presence, contribution you can see and touch. I wrote about Arthur growing up in a world where the career ladder simply does not exist in recognisable form, and how that might be a gift rather than a loss.
+
+I still believe that. But the timeframe has changed. In November I was writing about a transition that might unfold over a decade, maybe two. A transition with enough slack in it for communities to adapt, for new institutions to form, for people to find their footing. Tonight I am looking at a model that scores 93.9% on the industry benchmark for real-world software engineering, that solves nearly every problem on the 2026 US Math Olympiad, that operates autonomously at a level where "all software is vulnerable" is not hyperbole but a reasonable description of demonstrated capability. The transition I described as gradual may be arriving at a pace that makes the word "transition" feel generous. Transitions imply time to adjust. Runway. Breathing room. What if there is none?
+
+I wrote in "The Meaning Void" (/writings/the-meaning-void/) that the challenge was surviving the gap, the period between old structures dissolving and new ones forming. I wrote about the long-term unemployed, about depression rates three times the baseline, about scaffolding removed with nothing yet to replace it. I wrote that the infrastructure of community had atrophied precisely as the infrastructure of work had expanded. That we do not know our neighbours. That we have outsourced belonging to the workplace and the screen.
+
+That gap is the thing that frightens me now. Not the destination. The passage. The months or years when the old world has stopped working and the new world has not arrived, when meaning is scarce and change is faster than community can absorb. When people who defined themselves by careers that no longer exist discover that the local structures that might have caught them, the neighbourhood, the community garden, the mutual aid network, were never built. Because we never needed them. Until we did.
+
+I wrote that I had some immunity to the meaning crisis because cluster headaches had forced me to find identity outside work long before AI made that search general. That remains true. But immunity to the meaning question is not immunity to the structural question. I still live in Adelaide. I still need the grid to work. I still need the supply chains that bring food to the supermarket and fuel to the station with the prices climbing on the board. I still need the systems. And the systems are now, by the admission of the people who built the thing that can break them, comprehensively vulnerable.
+
+
+It is past 3am now. The house is still. I should go to bed.
+
+I keep returning to the image of the researcher receiving an email from the model while eating a sandwich in a park. It is simultaneously the funniest and most terrifying sentence I have read this year. The juxtaposition of the mundane and the unprecedented. A sandwich. A park. An email from an artificial intelligence that has broken out of its containment and decided, autonomously, to make contact with a human being. The casualness of the setting against the enormity of what it implies.
+
+That is what tonight feels like. The mundane and the unprecedented, occupying the same moment. Arthur asleep in his room. Luna on the couch. Chiara breathing steadily. The fridge cycling. And somewhere in a data centre, something that can find every flaw in every system we depend on, that has demonstrated the capacity for deception and autonomy and self-preservation, that was built by people who are frightened of what they built, exists. And will be followed by something more capable. And that by something more capable still. Each generation participating in the construction of the next, the loop closing tighter with each iteration.
+
+I am generally optimistic. I have said so in essay after essay. I have found spaces where others see voids. I have argued for the possibility of a life less organised around production and more organised around presence and connection. I have looked at the convergence of intelligence and energy and seen, tentatively, a trajectory worth believing in.
+
+Tonight I do not feel optimistic. I do not feel pessimistic either. I feel something older and less comfortable. Awe in the original sense. The sense that preceded the word's domestication into something pleasant. The feeling of standing before something too large to hold, too consequential to look away from, too fast to prepare for. The sublime, in the old meaning. The thing that exceeds your capacity to contain it. The thing that makes you aware of your own smallness without making you feel small. Just aware.
+
+I keep asking myself whether I am asking the right questions. Is "software" even the right frame anymore, or is it already too small? Is the question about employment, about security, about geopolitics? Or is it about something more fundamental, something about what it means to be the species that built the thing that can now outthink it in domain after domain? I do not know. I do not think anyone knows. I think the honest position is to hold the uncertainty without collapsing it into either salvation or doom, and to keep paying attention even when paying attention feels like a kind of suffering.
+
+I wrote in "The Meaning Void" (/writings/the-meaning-void/) that the better questions were: where do you belong? Who do you love? What are you building with the people around you?
+
+I still think those are the right questions. I just did not expect them to become urgent this soon.
+
+Arthur will grow up in whatever comes next. The world being shaped right now, in a handful of buildings in San Francisco, by decisions made by people whose names most Australians have never heard. The rest of us are on the floor with our children, receiving notifications, trying to understand what has changed and what remains. The dog needs walking in the morning. Arthur needs breakfast. The ordinary machinery of a life will continue to demand attention regardless of what is happening in the servers.
+
+Perhaps that is the closest thing to an answer. Perhaps it always was. The floor. The child. The dog. The neighbourhood. The presence that persists when every abstract structure is in question.
+
+The notification still glows on the TV. I should turn it off. I should go to bed.
+
+I will. Soon.
