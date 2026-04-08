@@ -92,6 +92,30 @@ export default function XPAudioPlayer({ audioUrl, title, duration: initialDurati
     setPlaybackRate(parseFloat(e.target.value));
   }, []);
 
+  // Screen Wake Lock — keep device awake during audio playback
+  const wakeLockRef = useRef(null);
+
+  useEffect(() => {
+    if (!('wakeLock' in navigator)) return;
+
+    if (isPlaying) {
+      navigator.wakeLock.request('screen').then(lock => {
+        wakeLockRef.current = lock;
+        lock.addEventListener('release', () => { wakeLockRef.current = null; });
+      }).catch(() => {});
+    } else if (wakeLockRef.current) {
+      wakeLockRef.current.release().catch(() => {});
+      wakeLockRef.current = null;
+    }
+
+    return () => {
+      if (wakeLockRef.current) {
+        wakeLockRef.current.release().catch(() => {});
+        wakeLockRef.current = null;
+      }
+    };
+  }, [isPlaying]);
+
   // Keyboard controls
   useEffect(() => {
     const handleKeyDown = (e) => {

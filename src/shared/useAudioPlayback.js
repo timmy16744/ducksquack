@@ -146,6 +146,30 @@ export function useAudioPlayback(audioUrl) {
     } catch {}
   }, [currentTime, duration, displayRate]);
 
+  // Screen Wake Lock — keep device awake during audio playback
+  const wakeLockRef = useRef(null);
+
+  useEffect(() => {
+    if (!('wakeLock' in navigator)) return;
+
+    if (isPlaying) {
+      navigator.wakeLock.request('screen').then(lock => {
+        wakeLockRef.current = lock;
+        lock.addEventListener('release', () => { wakeLockRef.current = null; });
+      }).catch(() => {});
+    } else if (wakeLockRef.current) {
+      wakeLockRef.current.release().catch(() => {});
+      wakeLockRef.current = null;
+    }
+
+    return () => {
+      if (wakeLockRef.current) {
+        wakeLockRef.current.release().catch(() => {});
+        wakeLockRef.current = null;
+      }
+    };
+  }, [isPlaying]);
+
   const toggle = useCallback(() => {
     if (!audioRef.current) return;
     if (isPlaying) {
