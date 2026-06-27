@@ -2,3 +2,10 @@ node_modules/
 dist/
 .DS_Store
 .env
+
+# AnimalCast podcast pipeline
+podcast/config.yaml
+podcast/episodes/*
+!podcast/episodes/.gitkeep
+__pycache__/
+*.pyc

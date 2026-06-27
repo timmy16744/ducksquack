@@ -1,0 +1,99 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AnimalCast configuration.  Copy to config.yaml (gitignored) and edit.
+# Every value here can also be overridden per-run via CLI flags (see run.py -h).
+# ─────────────────────────────────────────────────────────────────────────────
+
+show:
+  title: "A Day In The Life Of Every Animal"
+  subtitle: "First-person, from the inside. A new animal every day."
+  author: "Tim Hughes"
+  email: "timhughes92@gmail.com"
+  language: "en-au"
+  category: "Science"            # iTunes top-level category
+  subcategory: "Natural Sciences"
+  explicit: false
+  # Public URL where feed.xml will live (used for <guid> + spotify submission).
+  site_url: "https://ducksquack.me/animalcast"
+  cover_image_url: "https://ducksquack.me/animalcast/cover.jpg"   # 1400–3000px square
+
+# ── Episode shape ────────────────────────────────────────────────────────────
+episode:
+  target_minutes: 120           # 120 = ~2h.  Set 420 for a 7-hour sleep episode.
+  words_per_minute: 140         # narration pace estimate (drives word budget)
+  # The script is built as chapters so we can reliably hit long durations and
+  # get natural chapter markers. ~1,200 words/chapter works well.
+  words_per_chapter: 1200
+  intro: "Welcome. Close your eyes. Today, you are a {animal}. This is your day, from the first light to the last."
+  outro: "That was a day in the life of a {animal}. Tomorrow, you will wake as something else entirely. Sleep well."
+  add_chapter_markers: true     # embed chapter timestamps in the mp3
+  silence_between_chapters_ms: 700
+
+# ── Script writing (LLM) ─────────────────────────────────────────────────────
+script:
+  provider: "anthropic"         # anthropic | openai
+  outline_model: "claude-sonnet-4-6"
+  chapter_model: "claude-sonnet-4-6"   # bulk text; use haiku to cut cost, opus for quality
+  temperature: 0.9
+  # The voice of the writing. Tune freely — this is the soul of the show.
+  persona: >
+    You write the rich, sensory, first-person interior monologue of a single
+    wild animal living one full day. Stay strictly inside the animal's
+    perception: its senses, instincts, hungers, fears, and small joys. Be
+    scientifically grounded (real behaviour, real habitat, real threats) but
+    deeply experiential and lyrical — never a documentary narrator. No human
+    framing, no "scientists believe". Present tense. Vivid, unhurried, immersive.
+
+# ── Text to speech ───────────────────────────────────────────────────────────
+tts:
+  provider: "openai"            # openai | elevenlabs | qwen_local
+  max_chars_per_request: 3500   # chunk size sent to the TTS engine
+
+  openai:
+    model: "tts-1"              # tts-1 (fast/cheap) | tts-1-hd (richer)
+    voice: "onyx"               # alloy echo fable onyx nova shimmer
+    format: "mp3"
+
+  elevenlabs:
+    model: "eleven_turbo_v2_5"  # cheaper/faster; eleven_multilingual_v2 for quality
+    # Default voice id; override per-animal below for "custom voices".
+    voice_id: "JBFqnCBsd6RMkjVDRZzb"
+    stability: 0.4
+    similarity_boost: 0.75
+    style: 0.0
+
+  qwen_local:                   # reuses the repo's existing voice-clone approach
+    model: "1.7B"               # 1.7B | 0.6B
+    ref_audio: "../voice_samples/tim_voice_sample.wav"
+    ref_transcript: "../voice_samples/tim_voice_transcript.txt"
+
+  # Optional: give specific animals specific voices (any provider's id).
+  # Used when tts.provider == elevenlabs (voice_id) or openai (voice name).
+  per_animal_voice: {}
+    # platypus: "nova"
+    # great_white_shark: "onyx"
+
+# ── Publishing / hosting ─────────────────────────────────────────────────────
+publish:
+  storage:
+    backend: "s3"               # s3 (works for AWS S3, Cloudflare R2, Backblaze B2)
+    bucket: "animalcast"
+    public_base_url: "https://media.ducksquack.me"  # CDN/public URL for the bucket
+    endpoint_url: ""            # R2: https://<acct>.r2.cloudflarestorage.com ; B2: ... ; AWS: leave blank
+    region: "auto"
+    # Credentials come from env: AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
+  feed_filename: "feed.xml"
+  upload_feed: true             # also push feed.xml to the bucket
+
+# ── Rotation / scheduling ────────────────────────────────────────────────────
+rotation:
+  source: "animals.json"
+  order: "sequential"           # sequential | shuffle
+  # When the seed list is exhausted, ask the LLM to propose new real animals.
+  auto_extend_with_llm: true
+
+# ── Weekly compilation (optional) ────────────────────────────────────────────
+compilation:
+  enabled: false
+  day: "sunday"                 # build a stitched megacast on this weekday
+  target_minutes: 420           # ~7 hours
+  title: "The Week, From The Inside — {date}"

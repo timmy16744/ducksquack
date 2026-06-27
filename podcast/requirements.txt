@@ -1,0 +1,16 @@
+# Core
+PyYAML>=6.0
+
+# LLM script writing (install whichever provider you use)
+anthropic>=0.40.0
+openai>=1.40.0
+
+# Publishing to S3-compatible storage (AWS S3 / Cloudflare R2 / Backblaze B2)
+boto3>=1.34.0
+
+# Audio assembly also requires the `ffmpeg` and `ffprobe` binaries on PATH.
+#   macOS:  brew install ffmpeg
+#   Debian: apt-get install -y ffmpeg
+#
+# For tts.provider == qwen_local you additionally need the repo's audio deps:
+#   pip install torch soundfile numpy qwen-tts pydub

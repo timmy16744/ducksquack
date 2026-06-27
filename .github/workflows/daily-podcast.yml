@@ -1,0 +1,60 @@
+name: Daily AnimalCast
+
+# Generates and publishes one animal episode each day, then commits the updated
+# rotation state + feed back to the repo. Spotify/Apple poll the public feed URL
+# and ingest the new episode automatically.
+on:
+  schedule:
+    - cron: "0 18 * * *"   # 18:00 UTC daily (≈ early morning AEST). Adjust as you like.
+  workflow_dispatch:        # allow manual runs from the Actions tab
+    inputs:
+      animal:
+        description: "Specific animal slug/name (optional; default = next in rotation)"
+        required: false
+      minutes:
+        description: "Target length in minutes (optional)"
+        required: false
+
+permissions:
+  contents: write           # to commit state.json + feed.xml back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # NOTE: GitHub-hosted runners have NO GPU. Fine for openai/elevenlabs TTS.
+    # For tts.provider == qwen_local, use a self-hosted GPU runner instead.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install python deps
+        working-directory: podcast
+        run: pip install -r requirements.txt
+
+      - name: Build + publish episode
+        working-directory: podcast
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          ARGS="--publish"
+          if [ -n "${{ github.event.inputs.animal }}" ]; then ARGS="$ARGS --animal \"${{ github.event.inputs.animal }}\""; fi
+          if [ -n "${{ github.event.inputs.minutes }}" ]; then ARGS="$ARGS --minutes ${{ github.event.inputs.minutes }}"; fi
+          eval python run.py $ARGS
+
+      - name: Commit updated rotation state + feed
+        run: |
+          git config user.name "animalcast-bot"
+          git config user.email "noreply@ducksquack.me"
+          git add podcast/state.json podcast/feed.xml podcast/animals.json
+          git commit -m "AnimalCast: publish daily episode" || echo "nothing to commit"
+          git push
