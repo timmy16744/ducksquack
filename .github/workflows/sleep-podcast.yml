@@ -1,0 +1,76 @@
+name: Sleep Podcast
+
+# Writes a new episode with Claude, narrates it with a calm neural voice,
+# uploads the MP3 to a GitHub Release, and updates the RSS feed that
+# Spotify pulls from. Requires the ANTHROPIC_API_KEY repository secret.
+
+on:
+  schedule:
+    - cron: "0 2 * * 1" # every Monday 02:00 UTC — edit to taste
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: "Produce a tiny 2-chapter test episode instead of a full 6-hour one"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sleep-podcast
+  cancel-in-progress: false
+
+jobs:
+  produce-episode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/podcast/requirements.txt
+
+      - name: Write episode script with Claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ inputs.test_mode }}" = "true" ]; then
+            python scripts/podcast/write_episode.py --test
+          else
+            python scripts/podcast/write_episode.py
+          fi
+
+      - name: Synthesize narration
+        run: python scripts/podcast/synthesize.py
+
+      - name: Upload MP3 to a GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SLUG=$(cat podcast/.last_episode)
+          TITLE=$(python -c "import json; print(json.load(open('podcast/episodes/$SLUG/meta.json'))['title'])")
+          gh release create "podcast-$SLUG" "output/$SLUG.mp3" \
+            --title "$TITLE" \
+            --notes "Sleep podcast episode $SLUG (auto-generated)"
+          echo "SLUG=$SLUG" >> "$GITHUB_ENV"
+
+      - name: Update RSS feed
+        run: |
+          URL="https://github.com/${{ github.repository }}/releases/download/podcast-$SLUG/$SLUG.mp3"
+          python scripts/podcast/build_feed.py --set-audio-url "$SLUG" "$URL"
+
+      - name: Commit episode metadata and feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add podcast public/podcast
+          git commit -m "Podcast: publish $SLUG"
+          git push

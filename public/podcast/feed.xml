@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>A Bug's Life: Sleep Stories</title>
+    <link>https://ducksquack.me</link>
+    <description>Every night, one small life. A calm, slow voice tells the complete biography of a bug or animal in the first person, from the moment it hatches to the moment it is gently taken by the creature who will narrate the next episode. Each story flows seamlessly into the next. Designed to be played quietly while you fall asleep.</description>
+    <language>en</language>
+    <itunes:subtitle>Six-hour first-person life stories of the smallest creatures, told slowly, for sleep.</itunes:subtitle>
+    <itunes:author>Tim Hughes</itunes:author>
+    <itunes:owner>
+      <itunes:name>Tim Hughes</itunes:name>
+      <itunes:email>timhughes92@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://ducksquack.me/podcast/cover.png"/>
+    <itunes:category text="Health &amp; Fitness">
+      <itunes:category text="Mental Health"/>
+    </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+
+  </channel>
+</rss>

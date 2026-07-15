@@ -1,0 +1,31 @@
+{
+  "title": "A Bug's Life: Sleep Stories",
+  "subtitle": "Six-hour first-person life stories of the smallest creatures, told slowly, for sleep.",
+  "description": "Every night, one small life. A calm, slow voice tells the complete biography of a bug or animal in the first person, from the moment it hatches to the moment it is gently taken by the creature who will narrate the next episode. Each story flows seamlessly into the next. Designed to be played quietly while you fall asleep.",
+  "author": "Tim Hughes",
+  "email": "timhughes92@gmail.com",
+  "site_url": "https://ducksquack.me",
+  "feed_url": "https://ducksquack.me/podcast/feed.xml",
+  "cover_url": "https://ducksquack.me/podcast/cover.png",
+  "language": "en",
+  "category": "Health & Fitness",
+  "subcategory": "Mental Health",
+  "explicit": false,
+
+  "seed_animal": "a common eastern firefly, born in the damp soil at the edge of a summer garden",
+
+  "target_hours": 6,
+  "words_per_minute": 105,
+  "chapters": 12,
+
+  "writer_model": "claude-opus-4-8",
+
+  "tts_engine": "edge",
+  "voice": "en-US-ChristopherNeural",
+  "rate": "-15%",
+  "pitch": "-6Hz",
+  "piper_voice": "en_US-ryan-high",
+  "piper_length_scale": 1.25,
+  "paragraph_pause_s": 2.8,
+  "chapter_pause_s": 8.0
+}
