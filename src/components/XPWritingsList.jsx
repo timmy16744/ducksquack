@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { formatDate, formatDateShort } from '../utils/date';
 import { fetchWritingsIndex } from '../utils/content';
 import { subscribeToViewCounts } from '../utils/firebase';
+import SongsPlaylist from '../shared/SongsPlaylist';
 
 // Podcast/headphones icon
 const PodcastIcon = ({ isPlaying = false }) => (

@@ -10,6 +10,7 @@ const CONTENT_DIR = path.join(__dirname, '../content/writings');
 const OUTPUT_DIR = path.join(__dirname, '../public/writings');
 const AUDIO_DIR = path.join(__dirname, '../public/audio');
 const AUDIO_CACHE_FILE = path.join(__dirname, '.audio_cache.json');
+const SONGS_INDEX_FILE = path.join(__dirname, '../public/songs/index.json');
 
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_DIR)) {
@@ -80,6 +81,25 @@ function getAudioInfo(slug) {
   };
 }
 
+
+function loadSongsIndex() {
+  if (!fs.existsSync(SONGS_INDEX_FILE)) {
+    return new Map();
+  }
+
+  try {
+    const songs = JSON.parse(fs.readFileSync(SONGS_INDEX_FILE, 'utf8'));
+    return new Map(songs.map((song) => [song.essaySlug, {
+      title: song.title,
+      url: song.url,
+      duration: song.duration,
+    }]));
+  } catch (error) {
+    console.warn('Failed to load songs index:', error.message);
+    return new Map();
+  }
+}
+
 // AI-generated synopses for each essay
 const SYNOPSES = {
   'escape-velocity': 'Argues that China has achieved structural advantages in AI development through manufacturing dominance, energy capacity, and civil-military integration that may prove insurmountable.',
@@ -112,6 +132,7 @@ const SYNOPSES = {
 function processWritings() {
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
   const writings = [];
+  const songsByEssaySlug = loadSongsIndex();
 
   for (const file of files) {
     const filePath = path.join(CONTENT_DIR, file);
@@ -124,6 +145,7 @@ function processWritings() {
 
     // Check for audio file
     const audioInfo = getAudioInfo(slug);
+    const songInfo = songsByEssaySlug.get(slug) || null;
 
     const writing = {
       title: data.title,
@@ -133,7 +155,8 @@ function processWritings() {
       wordCount,
       synopsis,
       preview: getPreview(content),
-      ...(audioInfo && { audio: audioInfo })
+      ...(audioInfo && { audio: audioInfo }),
+      ...(songInfo && { song: songInfo })
     };
 
     writings.push(writing);

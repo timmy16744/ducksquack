@@ -4,7 +4,7 @@ import { useWriting } from '../hooks/useWriting';
 import XPToolbar from './XPToolbar';
 import XPContent from './XPContent';
 
-export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange }) {
+export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange, onPlaySong }) {
   const { page, slug, navigate } = useRoute();
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -442,6 +442,9 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         onBack={handleBack}
         onForward={handleForward}
         audioUrl={page === 'post' ? currentAudioUrl : null}
+        songUrl={page === 'post' ? currentPost?.song?.url || null : null}
+        songTitle={page === 'post' ? currentPost?.song?.title || null : null}
+        onPlaySong={onPlaySong}
         isPlaying={isPlaying}
         onToggleAudio={handleToggleAudio}
         currentTime={currentTime}

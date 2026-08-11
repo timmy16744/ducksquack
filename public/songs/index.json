@@ -1,0 +1,79 @@
+[
+  {
+    "essaySlug": "the-bomb-has-been-built",
+    "essayTitle": "The Bomb Has Been Built",
+    "title": "Caelum",
+    "slug": "caelum",
+    "fileName": "the-bomb-has-been-built-caelum.mp3",
+    "url": "/songs/the-bomb-has-been-built-caelum.mp3",
+    "duration": 229,
+    "size": 3661433,
+    "bitRate": 128044
+  },
+  {
+    "essaySlug": "the-board-resolves",
+    "essayTitle": "The Board Resolves",
+    "title": "Kardashev Tuesday",
+    "slug": "kardashev-tuesday",
+    "fileName": "the-board-resolves-kardashev-tuesday.mp3",
+    "url": "/songs/the-board-resolves-kardashev-tuesday.mp3",
+    "duration": 224,
+    "size": 3589555,
+    "bitRate": 128038
+  },
+  {
+    "essaySlug": "nine-days-later",
+    "essayTitle": "Nine Days Later",
+    "title": "Straight to Hell",
+    "slug": "straight-to-hell",
+    "fileName": "nine-days-later-straight-to-hell.mp3",
+    "url": "/songs/nine-days-later-straight-to-hell.mp3",
+    "duration": 242,
+    "size": 3865407,
+    "bitRate": 128036
+  },
+  {
+    "essaySlug": "the-energy-epoch",
+    "essayTitle": "The Energy Epoch",
+    "title": "Level 2",
+    "slug": "level-2",
+    "fileName": "the-energy-epoch-level-2.mp3",
+    "url": "/songs/the-energy-epoch-level-2.mp3",
+    "duration": 220,
+    "size": 3515984,
+    "bitRate": 128040
+  },
+  {
+    "essaySlug": "the-fixed-point",
+    "essayTitle": "The Fixed Point",
+    "title": "The Glitter in the Machine",
+    "slug": "the-glitter-in-the-machine",
+    "fileName": "the-fixed-point-the-glitter-in-the-machine.mp3",
+    "url": "/songs/the-fixed-point-the-glitter-in-the-machine.mp3",
+    "duration": 181,
+    "size": 2897006,
+    "bitRate": 128044
+  },
+  {
+    "essaySlug": "the-rustle-in-the-grass",
+    "essayTitle": "The Rustle in the Grass",
+    "title": "Imperial rerun",
+    "slug": "imperial-rerun",
+    "fileName": "the-rustle-in-the-grass-imperial-rerun.mp3",
+    "url": "/songs/the-rustle-in-the-grass-imperial-rerun.mp3",
+    "duration": 202,
+    "size": 3228853,
+    "bitRate": 128052
+  },
+  {
+    "essaySlug": "the-widening-gyre",
+    "essayTitle": "The Widening Gyre",
+    "title": "Compound Fracture",
+    "slug": "compound-fracture",
+    "fileName": "the-widening-gyre-compound-fracture.mp3",
+    "url": "/songs/the-widening-gyre-compound-fracture.mp3",
+    "duration": 232,
+    "size": 3712435,
+    "bitRate": 128037
+  }
+]

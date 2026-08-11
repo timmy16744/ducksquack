@@ -8,6 +8,7 @@ import { homeContent, aboutContent, projectsContent } from '../../shared/content
 import { parseContent, formatTime } from '../../shared/ContentParser';
 import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
+import SongsPlaylist from '../../shared/SongsPlaylist';
 import { formatDate } from '../../utils/date';
 
 const GRID_COLORS = {
@@ -259,6 +260,7 @@ function WritingsPage({ writings, viewCounts, navigate, enableGlow }) {
   return (
     <div className="synthwave-writings-page">
       <h1 className={`synthwave-page-heading ${enableGlow ? 'glow-cyan' : ''}`}>WRITINGS</h1>
+      <SongsPlaylist writings={writings} variant="synthwave" onNavigate={navigate} />
       <div className="synthwave-writings-grid">
         {writings.map((w) => (
           <div
@@ -329,6 +331,16 @@ function PostPage({ postData, loading, navigate, enableGlow, isPlaying, currentT
           >
             {isPlaying ? '❚❚' : '▶'}
           </button>
+          {postData.song && (
+            <button
+              className={`synthwave-audio-btn ${enableGlow ? 'glow-cyan' : ''}`}
+              onClick={() => window.open(postData.song.url, '_blank', 'noopener,noreferrer')}
+              title={`Listen to song: ${postData.song.title}`}
+              style={{ minWidth: 'auto', paddingInline: '0.75rem', fontSize: '0.8rem' }}
+            >
+              Song
+            </button>
+          )}
           <div className="synthwave-audio-track" onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;

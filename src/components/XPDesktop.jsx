@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import XPNotepad from './XPNotepad';
 import XPTaskbar from './XPTaskbar';
 import WindowsBubbles from './WindowsBubbles';
@@ -6,6 +6,8 @@ import DateTimeDialog from './dialogs/DateTimeDialog';
 import StartMenu from './menus/StartMenu';
 import MSNMessenger from './MSNMessenger';
 import { useTheme } from '../themes/ThemeContext';
+import SongsPlaylist from '../shared/SongsPlaylist';
+import { fetchWritingsIndex } from '../utils/content';
 
 export default function XPDesktop() {
   const { setThemeId } = useTheme();
@@ -16,6 +18,16 @@ export default function XPDesktop() {
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const [secretUnlocked, setSecretUnlocked] = useState(false);
   const [msnOpen, setMsnOpen] = useState(false);
+  const [writings, setWritings] = useState([]);
+  const [requestedSongUrl, setRequestedSongUrl] = useState(null);
+
+  useEffect(() => {
+    fetchWritingsIndex().then(setWritings).catch(console.error);
+  }, []);
+
+  const handlePlaySong = useCallback((url) => {
+    setRequestedSongUrl(url);
+  }, []);
 
   const handleMinimize = (title) => {
     setWindowVisible(false);
@@ -94,13 +106,34 @@ export default function XPDesktop() {
     setThemeId('zen');
   }, [setThemeId]);
 
+  const handleNavigate = useCallback((page, slug) => {
+    let url = '/';
+    if (page === 'writings') url = '/writings/';
+    else if (page === 'about') url = '/about/';
+    else if (page === 'projects') url = '/projects/';
+    else if (page === 'post' && slug) url = `/writings/${slug}/`;
+    
+    window.history.pushState({}, '', url);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    setWindowVisible(true);
+    setMinimizedWindows([]);
+  }, []);
+
   return (
     <div className="xp-desktop">
       <WindowsBubbles onAllPopped={handleAllBubblesPopped} />
+      <SongsPlaylist
+        writings={writings}
+        variant="xp"
+        onNavigate={handleNavigate}
+        activeSongUrl={requestedSongUrl}
+        onSongActivated={() => setRequestedSongUrl(null)}
+      />
       <XPNotepad
         isVisible={windowVisible}
         onMinimize={handleMinimize}
         onTitleChange={handleTitleChange}
+        onPlaySong={handlePlaySong}
       />
       <XPTaskbar
         minimizedWindows={minimizedWindows}

@@ -11,7 +11,8 @@
     "generate:writings": "node scripts/generate-writings.js",
     "generate:audio": "python scripts/generate-audio.py",
     "generate:audio:force": "python scripts/generate-audio.py --force",
-    "generate:all": "node scripts/generate-writings.js && python scripts/generate-audio.py && node scripts/generate-writings.js && node scripts/generate-rss.cjs"
+    "generate:all": "node scripts/generate-writings.js && python scripts/generate-audio.py && node scripts/generate-writings.js && node scripts/generate-rss.cjs",
+    "import:songs": "node scripts/import-songs.js"
   },
   "keywords": [
     "blog",

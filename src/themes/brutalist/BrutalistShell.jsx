@@ -8,6 +8,7 @@ import { homeContent, aboutContent, projectsContent } from '../../shared/content
 import { parseContent, formatTime } from '../../shared/ContentParser';
 import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
+import SongsPlaylist from '../../shared/SongsPlaylist';
 import { formatDate } from '../../utils/date';
 
 function estimateWordCount(content) {
@@ -352,6 +353,8 @@ function WritingsPage({ writings, viewCounts, loaded, navigate, settings }) {
       <hr className="brutalist-rule" />
       <p className="brutalist-count">{sortedWritings.length} entries</p>
 
+      <SongsPlaylist writings={sortedWritings} variant="brutalist" onNavigate={navigate} />
+
       <div className="brutalist-cards">
         {sortedWritings.map((w) => {
           const views = viewCounts[w.slug] || 0;
@@ -448,6 +451,15 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
           <button className="brutalist-audio-btn" onClick={audio.toggle}>
             {audio.isPlaying ? '|| PAUSE' : '> PLAY'}
           </button>
+          {data.song && (
+            <button
+              className="brutalist-audio-btn"
+              onClick={() => window.open(data.song.url, '_blank', 'noopener,noreferrer')}
+              title={`Listen to song: ${data.song.title}`}
+            >
+              SONG
+            </button>
+          )}
           <div
             className="brutalist-audio-progress"
             onClick={(e) => {

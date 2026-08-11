@@ -8,6 +8,7 @@ import { homeContent, aboutContent, projectsContent } from '../../shared/content
 import { parseContent, formatTime } from '../../shared/ContentParser';
 import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
+import SongsPlaylist from '../../shared/SongsPlaylist';
 import { formatDate } from '../../utils/date';
 
 const ASCII_DUCK = `
@@ -332,6 +333,7 @@ function WritingsPage({ writings, viewCounts, loaded, navigate, settings }) {
       <p className="terminal-line terminal-muted">$ ls -la writings/</p>
       <p className="terminal-line terminal-muted">total {sortedWritings.length}</p>
       <br />
+      <SongsPlaylist writings={sortedWritings} variant="terminal" onNavigate={navigate} />
       <div className="terminal-ls">
         <div className="terminal-ls-header">
           <span className="terminal-ls-perms">permissions</span>
@@ -413,6 +415,15 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
           <button className="terminal-audio-btn" onClick={audio.toggle}>
             [{audio.isPlaying ? 'PAUSE' : 'PLAY'}]
           </button>
+          {data.song && (
+            <button
+              className="terminal-audio-btn"
+              onClick={() => window.open(data.song.url, '_blank', 'noopener,noreferrer')}
+              title={`Listen to song: ${data.song.title}`}
+            >
+              [SONG]
+            </button>
+          )}
           <div className="terminal-audio-progress" onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;

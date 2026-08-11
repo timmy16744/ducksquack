@@ -101,6 +101,18 @@ const SpeakerIcon = ({ isPlaying = false, volume = 1 }) => (
   </svg>
 );
 
+const MusicIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+      <linearGradient id="musicBody" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#f5c85a"/>
+        <stop offset="100%" stopColor="#d89a20"/>
+      </linearGradient>
+    </defs>
+    <path d="M13 3v9.2a2.6 2.6 0 1 1-1.5-2.4V6.2l5-1.2v6.2a2.6 2.6 0 1 1-1.5-2.4V3.8L13 4.2V3z" fill="url(#musicBody)" stroke="#8c5b00" strokeWidth="0.7"/>
+  </svg>
+);
+
 // Volume slider component
 const VolumeSlider = ({ volume, onChange }) => {
   const sliderRef = useRef(null);
@@ -169,7 +181,7 @@ const formatTime = (seconds) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, isPlaying, onToggleAudio, currentTime = 0, duration = 0, onSeek, volume = 0.8, onVolumeChange }) {
+export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, canGoForward = false, onBack, onForward, audioUrl, songUrl = null, songTitle = null, onPlaySong, isPlaying, onToggleAudio, currentTime = 0, duration = 0, onSeek, volume = 0.8, onVolumeChange }) {
   const progressRef = useRef(null);
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
 
@@ -260,6 +272,16 @@ export default function XPToolbar({ currentPage, onNavigate, canGoBack = false, 
               <SpeakerIcon isPlaying={isPlaying} volume={volume} />
               <span className="toolbar-label">{isPlaying ? 'Pause' : 'Listen'}</span>
             </button>
+            {songUrl && (
+              <button
+                className="toolbar-btn"
+                title={songTitle ? `Listen to song: ${songTitle}` : 'Listen to song'}
+                onClick={() => onPlaySong && onPlaySong(songUrl)}
+              >
+                <MusicIcon />
+                <span className="toolbar-label">Song</span>
+              </button>
+            )}
             {(isPlaying || currentTime > 0) && (
               <div className="audio-timeline">
                 <span className="audio-time">{formatTime(currentTime)}</span>

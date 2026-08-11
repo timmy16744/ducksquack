@@ -8,6 +8,7 @@ import { homeContent, aboutContent, projectsContent } from '../../shared/content
 import { parseContent, formatTime } from '../../shared/ContentParser';
 import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
+import SongsPlaylist from '../../shared/SongsPlaylist';
 import { formatDate } from '../../utils/date';
 
 /* ------------------------------------------------------------------ */
@@ -247,6 +248,8 @@ function WritingsPage({ navigate }) {
         <span>Writings</span>
       </div>
 
+      <SongsPlaylist writings={writings} variant="newspaper" onNavigate={navigate} />
+
       {sorted.map((writing, i) => {
         const isLead = i === 0;
         return (
@@ -334,6 +337,15 @@ function PostPage({ slug, navigate, columnCount }) {
           <button className="newspaper-audio-btn" onClick={toggle}>
             {isPlaying ? '⏸ Pause' : '▶ Listen to this article'}
           </button>
+          {data.song && (
+            <button
+              className="newspaper-audio-btn"
+              onClick={() => window.open(data.song.url, '_blank', 'noopener,noreferrer')}
+              title={`Listen to song: ${data.song.title}`}
+            >
+              ♫ Listen to the song
+            </button>
+          )}
           {(isPlaying || currentTime > 0) && (
             <>
               <div className="newspaper-audio-progress" onClick={(e) => {

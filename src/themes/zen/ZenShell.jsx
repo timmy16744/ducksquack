@@ -8,6 +8,7 @@ import { homeContent, aboutContent, projectsContent } from '../../shared/content
 import { parseContent, formatTime } from '../../shared/ContentParser';
 import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
+import SongsPlaylist from '../../shared/SongsPlaylist';
 import { formatDate } from '../../utils/date';
 
 export default function ZenShell() {
@@ -18,11 +19,16 @@ export default function ZenShell() {
   const [writings, setWritings] = useState([]);
   const [viewCounts, setViewCounts] = useState({});
   const [writingsLoaded, setWritingsLoaded] = useState(false);
+  const [requestedSongUrl, setRequestedSongUrl] = useState(null);
 
   const shellRef = useRef(null);
 
   const audioUrl = postData?.audio?.url || null;
   const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = useAudioPlayback(audioUrl);
+
+  const handlePlaySong = useCallback((url) => {
+    setRequestedSongUrl(url);
+  }, []);
 
   useEffect(() => {
     fetchWritingsIndex()
@@ -72,6 +78,7 @@ export default function ZenShell() {
             navigate={navigate}
             settings={settings}
             audio={{ isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed }}
+            onPlaySong={handlePlaySong}
           />
         );
       default:
@@ -82,6 +89,14 @@ export default function ZenShell() {
   return (
     <div className="zen-shell" ref={shellRef}>
       {settings.ensoMark && <div className="zen-enso" aria-hidden="true" />}
+
+      <SongsPlaylist
+        writings={writings}
+        variant="zen"
+        onNavigate={navigate}
+        activeSongUrl={requestedSongUrl}
+        onSongActivated={() => setRequestedSongUrl(null)}
+      />
 
       <nav className="zen-nav">
         <div className="zen-nav-inner">
@@ -394,7 +409,7 @@ function WordTrackedContent({ content, onNavigate, currentWordIndex, isTracking 
 }
 
 /* ─── Post ─── */
-function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
+function PostPage({ data, loading, error, slug, navigate, settings, audio, onPlaySong }) {
   const audioBarRef = useRef(null);
   const contentRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
@@ -521,6 +536,15 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
           <span className="zen-audio-toggle" onClick={audio.toggle}>
             {audio.isPlaying ? 'Pause' : 'Listen'}
           </span>
+          {data.song && (
+            <span
+              className="zen-audio-toggle"
+              onClick={() => onPlaySong(data.song.url)}
+              title={`Listen to song: ${data.song.title}`}
+            >
+              Song
+            </span>
+          )}
           <div className="zen-audio-progress" onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
