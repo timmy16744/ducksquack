@@ -4,40 +4,48 @@ date: "2018-09-15"
 color: "red"
 ---
 
-The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, remains cheaper, which is to say it is merely extremely expensive rather than absurdly expensive. The median here is somewhere around five hundred thousand, which sounds almost reasonable until you do the arithmetic against actual wages.
+The median house price in Sydney crossed a million dollars this year. Melbourne is heading the same way. Adelaide, where I live, remains cheaper, by which I mean merely extremely expensive rather than absurdly so - the median sits somewhere around five hundred thousand, which sounds almost reasonable until you run it against actual wages.
 
-I want to do the arithmetic, because I think the arithmetic tells a story that the headline number obscures.
+I want to run it, because the arithmetic tells a story the headline number hides.
 
-A graduate entering the Australian workforce in 2018 earns, on average, roughly fifty-five thousand dollars. After tax, superannuation, and the basics of staying alive, rent, food, transport, the irreducible costs of existing in a modern economy, the amount available for saving is perhaps ten to fifteen thousand dollars a year. This is optimistic. It assumes no significant debt, no major health expenses, no disruptions. It assumes discipline and frugality of a kind that is easy to describe and difficult to sustain across years.
+A graduate entering the Australian workforce this year earns roughly fifty-five thousand dollars. After tax, superannuation and the irreducible costs of existing - rent, food, transport - the amount available for saving is perhaps ten to fifteen thousand a year. That's the optimistic version. It assumes no significant debt, no health expenses, no disruptions, and a discipline that's easy to describe and genuinely hard to sustain across years.
 
-A twenty percent deposit on the Adelaide median is a hundred thousand dollars. At fifteen thousand in annual savings, that is seven years. Seven years of discipline, of deprivation relative to peers, of saying no to the experiences that your twenties are supposed to contain. Seven years of watching house prices rise while you save, knowing that the target is moving and your savings may never catch it.
+A twenty percent deposit on the Adelaide median is a hundred thousand dollars. At fifteen thousand a year, that's seven years. Seven years of deprivation relative to your peers, of saying no to the experiences your twenties are supposed to contain, and of watching prices rise while you save, knowing the target is moving and might outrun you.
 
-In Sydney, the same calculation produces a deposit of two hundred thousand dollars. At the same savings rate, that is thirteen years. A person who starts saving at twenty-two will be thirty-five before they can afford the deposit. They will be paying a mortgage into their sixties. And this assumes prices do not continue to rise, which they almost certainly will, because the policy settings that produce the rise remain unchanged.
+In Sydney the same calculation gives a two hundred thousand dollar deposit and thirteen years. Someone starting at twenty-two is thirty-five before they can afford to enter, and will be paying the mortgage into their sixties. That assumes prices stop rising, which they almost certainly won't, because the settings producing the rise haven't changed.
 
-These are not edge cases. These are median figures. The average graduate, saving diligently, facing the average house. The actual experience for many people is considerably worse.
+These are medians rather than edge cases - the average graduate, saving diligently, facing the average house. For a great many people the real experience is worse.
 
-I want to trace the policy choices that produced this outcome, because it is important to understand that this was not an act of God. It was an act of Parliament. Repeated acts, over decades, by both parties, in the full knowledge of the consequences.
+**An Act of Parliament**
 
-Negative gearing allows property investors to deduct losses on rental properties against their other income. This creates a tax incentive to own investment properties, which increases demand for housing, which increases prices. The policy costs the government billions annually in foregone revenue. The benefit flows primarily to people who already own property. The cost is borne by people who do not.
+I want to trace the choices that produced this, because it matters enormously that this wasn't an act of God. It was an act of Parliament, repeated over decades, by both parties, with full knowledge of the consequences.
 
-The capital gains tax discount, introduced in 1999, means that profits on assets held for more than a year are taxed at half the normal rate. This creates a further incentive for property speculation, because the returns are taxed more lightly than salary income. A dollar earned through work is taxed more heavily than a dollar earned by watching a house appreciate in value. The message embedded in the tax system is clear: labour is for suckers. Ownership is where the money is.
+Negative gearing lets property investors deduct rental losses against other income. That creates a tax incentive to own investment property, which raises demand, which raises prices. It costs billions annually in foregone revenue, the benefit flows to people who already own, and the cost falls on people who don't.
 
-Supply restrictions compound the problem. Zoning regulations, planning approvals, community objections, the same process sediment I have written about in other contexts, constrain the supply of new housing. When demand increases and supply is constrained, prices rise. First-page-of-the-textbook economics.
+The capital gains discount, introduced in 1999, halves the tax on profits from assets held longer than a year. That adds a further incentive to speculate, because those returns are taxed more lightly than salary. A dollar earned through work is taxed more heavily than a dollar earned watching a house appreciate, and the message encoded there is unmistakable.
 
-First home buyer grants, ostensibly designed to help young people enter the market, are absorbed into prices. The seller captures the grant as additional purchasing power. The policy is a transfer from taxpayers to existing homeowners, dressed up as assistance to the young. It is, by any honest assessment, a fraud.
+Supply restrictions compound all of it. Zoning, planning approvals, community objections - the same process sediment I've written about in other contexts - constrain new housing. Demand rises, supply is held down, prices rise. That's the first page of the textbook.
 
-The result of these policies, operating in concert over decades, is a housing market that has disconnected from the incomes of the people who are supposed to live in it. The ratio of median house price to median income in Australia is among the highest in the developed world. In Sydney it exceeds ten. In the 1980s it was approximately four.
+First home buyer grants, ostensibly designed to help young people in, get absorbed into prices within a quarter as sellers capture the additional purchasing power. It's a transfer from taxpayers to existing owners, presented as assistance to the young, and by any honest assessment it's a fraud.
 
-I visited Tokyo recently. Japan's housing bubble burst in 1991, producing a economic crisis that lasted decades. In the aftermath, Japan reformed its planning laws to allow significantly more housing construction. The result, thirty years later, is a city of fourteen million people where a young professional can rent a clean, well-maintained apartment in a safe neighbourhood for a fraction of what the same apartment would cost in Sydney or Melbourne. Where buying a home, while not trivial, is achievable on a normal salary within a normal timeframe.
+Operating together over decades, these have produced a housing market disconnected from the incomes of the people meant to live in it. Our ratio of median price to median income is among the highest in the developed world. Sydney exceeds ten. In the 1980s it was around four.
 
-Japan made choices. Specific policy choices that prioritised shelter as a human need over housing as a speculative asset. Those choices had costs, a prolonged period of price deflation that punished existing owners. But they produced a city where people can afford to live, which seems to me like a reasonable objective for a housing market.
+**Tokyo**
 
-We have made different choices. We have chosen to protect the wealth of people who already own property at the expense of people who do not. We have embedded this choice in the tax system, in the planning system, in the political culture. And we have told the young people who bear the cost that it is their problem. That they should save harder, move further out, lower their expectations.
+I visited Tokyo recently and it reframed the whole question for me.
 
-I find this morally indefensible.
+Japan's housing bubble burst in 1991, producing an economic crisis that ran for decades. In the aftermath they reformed planning law to allow substantially more construction - crucially, by setting zoning nationally rather than locally, which removed the ability of existing owners to block new housing in their own neighbourhoods. Thirty years on, it's a city of fourteen million where a young professional rents a clean, well-maintained apartment in a safe area for a fraction of the Sydney equivalent, and where buying, while not trivial, is achievable on a normal salary in a normal timeframe.
 
-I am not a socialist. I do not object to markets or to property ownership or to the principle that people who work hard and invest wisely should be rewarded. What I object to is a system that rewards the accident of timing, the luck of having bought property before the escalation, and punishes the accident of birth, the misfortune of being born too late to participate in the largest wealth transfer in Australian history.
+That's the reform I'd argue for here, ahead of the tax changes that dominate our debate. Not because negative gearing and the capital gains discount don't matter - they do, and I'd change both - but because they're demand-side measures, and demand-side measures in a supply-constrained market mostly rearrange who wins the auction. National zoning standards attack the constraint itself.
 
-Because that is what this is. A wealth transfer. From the young to the old. From the assetless to the asset-rich. From the future to the present. Enacted through policy, sustained through politics, and justified by a national mythology of home ownership that bears less and less relationship to the reality that most young Australians face.
+It also has a political property that our tax debates lack. The reason planning reform fails here is that the people who benefit from restriction are organised, local and voting, while the people who'd benefit from construction are diffuse, young and frequently not yet living in the area. Moving the decision up a level doesn't defeat that constituency by argument. It simply removes the veto from the place where the constituency is concentrated, which is the only thing that has ever worked anywhere.
 
-The median house price in Sydney is one million dollars. A graduate earns fifty-five thousand. The gap between these numbers is not a market outcome. It is a policy outcome. And until we are honest about that, nothing will change.
+Japan made a real choice with real costs - a prolonged deflation in prices that punished existing owners, and I won't pretend otherwise. What it bought was a city where people can afford to live, which strikes me as a reasonable thing for a housing market to produce.
+
+We made different choices. We chose to protect the wealth of people who already own at the expense of people who don't, encoded that choice into the tax system and the planning system and the political culture, and then told the young people carrying the cost that it's their problem - that they should save harder, move further out, lower their expectations.
+
+I find that morally indefensible, and I want to be precise about why, because it isn't an objection to markets. I'm not a socialist. I don't object to property ownership or to the principle that people who work and invest well should be rewarded. What I object to is a system that rewards the accident of timing and punishes the accident of birth - the misfortune of arriving too late to participate in the largest wealth transfer in Australian history.
+
+Because that's what this is. A transfer from the young to the old, from the assetless to the asset-rich, from the future to the present, enacted through policy, sustained through politics, and justified by a national mythology about home ownership that bears less relationship every year to what young Australians actually face.
+
+The median house in Sydney is a million dollars. A graduate earns fifty-five thousand. The gap between those numbers was produced by policy rather than by any market, and policy can be reversed by the same institution that produced them. Tokyo did it after a catastrophe. I'd rather we did it before one.

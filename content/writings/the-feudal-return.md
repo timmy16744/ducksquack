@@ -4,40 +4,44 @@ date: "2022-10-15"
 color: "red"
 ---
 
-I have a friend who earns a hundred and twenty thousand dollars a year. He is thirty-one, works in financial services, saves diligently, and lives modestly by the standards of his peer group. He does not take extravagant holidays. He drives a ten-year-old car. He shares a rental with a flatmate because the alternative, renting alone in a suburb within reasonable commute of his office, would consume so much of his income that saving becomes impossible.
+I have a friend who earns a hundred and twenty thousand dollars a year. He's thirty-one, works in financial services, saves diligently, and lives modestly by the standards of anyone around him. No extravagant holidays. A ten-year-old car. He shares a rental with a flatmate, because renting alone within a reasonable commute of his office would consume enough of his income to make saving impossible.
 
-He has saved eighty thousand dollars. A deposit on a median-priced house in Adelaide requires roughly a hundred and twenty thousand. In Sydney, where his industry is concentrated and where the career opportunities are, the deposit is closer to two hundred and fifty thousand. He is, by any historical standard, a high-income young professional doing everything right. And he cannot afford a house.
+He's put away eighty thousand dollars. A deposit on a median-priced house in Adelaide needs roughly a hundred and twenty. In Sydney, where his industry is concentrated and the career actually is, it's closer to two hundred and fifty. By any historical standard he's a high-income young professional doing every single thing right, and he can't buy a house.
 
-His colleague, the same age, doing the same job, earning the same salary, bought a house two years ago. She bought it because her parents gave her the deposit. Two hundred thousand dollars, transferred from a family trust funded by the appreciation of property that her parents bought in the 1990s for a fraction of its current value.
+His colleague - same age, same job, same salary - bought two years ago. She bought because her parents gave her the deposit. Two hundred thousand dollars, transferred out of a family trust funded by the appreciation of property her parents bought in the 1990s for a fraction of what it's worth now.
 
-Same job. Same salary. Same age. Radically different economic trajectories, determined entirely by the accident of parental wealth.
+Same work, same income, same year of birth. Radically different economic trajectories, decided entirely by whose parents bought when.
 
-I want to argue that this is not a housing market problem. It is a structural transformation in Australian society that has recreated, in financial terms, something that resembles feudalism more closely than democracy.
+I want to argue that this isn't a housing market problem. It's a structural transformation that has rebuilt, in financial terms, something closer to feudalism than to the country we describe to ourselves.
 
-In a feudal system, your position is determined by birth. The lord's son becomes a lord. The serf's daughter remains a serf. Mobility exists at the margins, the exceptional individual who rises through the church or the military, but the system is designed to reproduce itself. Wealth flows downward through inheritance. Opportunity follows wealth. The accident of birth determines the trajectory of life.
+**What Feudalism Actually Was**
 
-The Australian story was supposed to be different. The fair go. The idea that where you start does not determine where you end up. That hard work and talent matter more than parentage. This was never entirely true, privilege has always conferred advantage, but it was true enough, for enough people, for long enough, that it constituted something like a national identity.
+In a feudal system your position is set by birth. The lord's son becomes a lord, the serf's daughter remains a serf, and mobility exists only at the margins - the exceptional individual who rises through the church or the army. The system is designed to reproduce itself. Wealth flows downward through inheritance, opportunity follows wealth, and the accident of birth determines the shape of a life.
 
-That identity is becoming fiction.
+The Australian story was meant to be the opposite. The fair go. The idea that where you start doesn't decide where you finish, that work and talent matter more than parentage. It was never entirely true - privilege has always conferred advantage - but it was true enough, for enough people, for long enough, to become something like a national identity.
 
-The numbers are straightforward. The median house price in Australia's major cities is now eight to twelve times the median income. In the 1980s, it was three to four times. The deposit required to enter the market has grown from a few years' savings to a decade or more. The growth in house prices has outpaced wage growth so comprehensively that the gap can no longer be closed by individual effort, no matter how disciplined.
+That identity is turning into fiction, and the numbers aren't ambiguous. Median house prices in our major cities now run eight to twelve times median income; in the 1980s it was three to four. The deposit has grown from a few years of saving to a decade or more. House price growth has outpaced wage growth so comprehensively that the gap can no longer be closed by individual effort, however disciplined.
 
-What closes the gap is inheritance. Or, more precisely, the intergenerational transfer of wealth, parents helping children with deposits, guaranteeing loans, transferring property, dying and leaving estates that propel the next generation into the asset-owning class.
+What closes it is inheritance. More precisely, the intergenerational transfer of wealth - parents helping with deposits, guaranteeing loans, transferring property, and eventually dying and leaving estates that lift the next generation into the asset-owning class. The Bank of Mum and Dad is now among the largest sources of housing finance in this country. Without it, a rising share of young Australians simply can't enter the market. With it they can, provided Mum and Dad have assets to lend, which depends on whether they bought before the escalation, which depends on when they were born.
 
-The Bank of Mum and Dad, as it is colloquially known, is now one of the largest sources of housing finance in Australia. Without it, an increasing proportion of young Australians simply cannot enter the property market. With it, they can, but only if Mum and Dad have assets to lend. Which depends on whether Mum and Dad bought property before the escalation. Which depends on when they were born.
+The cycle is self-sustaining. Owners accumulate through appreciation, transfer to their children, and their children begin accumulating. Those outside it - whose parents rented, or arrived recently, or were unlucky in timing - face a barrier that effort cannot clear.
 
-The system reproduces itself. Property owners accumulate wealth through appreciation. They transfer that wealth to their children. Their children enter the market and begin accumulating. The cycle continues. Those outside the cycle, whose parents were renters, or recent immigrants, or simply unlucky in timing, face a barrier that individual effort cannot overcome.
+**Written by Parliament**
 
-This is not a market outcome. Markets operate within rules, and the rules were written by Parliament. Negative gearing. The capital gains discount. Restricted supply through planning regulations. First home buyer grants that inflate prices. Foreign investment settings that treat housing as a commodity. Each policy individually defensible, perhaps. Collectively, they have produced a system that rewards the accident of timing and punishes the accident of birth.
+None of this is a market outcome, and I think that's the part most worth insisting on. Markets operate inside rules, and the rules were written in Canberra. Negative gearing. The capital gains discount. Supply restricted through planning regulation. First home buyer grants that get absorbed into prices within a quarter. Foreign investment settings that treat shelter as a commodity. Each individually defensible, perhaps. Collectively they produce a system that rewards the accident of timing and punishes the accident of birth.
 
-A society that taxes labour at a higher rate than it taxes capital gains has made a choice about what it values. It values ownership over work. It values the passive appreciation of assets over the active contribution of effort. It has encoded this choice in the tax system and then expressed surprise that the system produces the outcomes the incentives predict.
+A society that taxes labour more heavily than capital gains has made a decision about what it values. It values ownership over work, and the passive appreciation of assets over the active contribution of effort. We encoded that decision in the tax system and then expressed genuine surprise when the system produced exactly the outcomes the incentives predicted.
 
-We talk about egalitarianism as a national value while building a system that entrenches hereditary advantage with a thoroughness that would impress a medieval lord. The lord at least had the honesty to call the system what it was. We have achieved the same structure and called it a market.
+If I had to name the single change with the most leverage, it's the capital gains discount, and I'd phase it rather than abolish it - reduced by five percentage points a year over a decade, legislated now, so the market can price the change gradually rather than absorb it in a shock.
 
-My friend will probably buy a house eventually. He will save for another few years, or his parents will help if they can, or he will move to a cheaper city and accept the career compromise. He will manage. Most people manage.
+I'd start there rather than with negative gearing, which gets all the attention, because the discount is the cleaner statement of the underlying value. It says, in the plainest possible terms, that a dollar earned by holding is worth more than a dollar earned by working. Every other distortion downstream of that is arguing about mechanism. And phasing matters, because a sudden change punishes people who made reasonable decisions under the old rules, which is both unfair and the reason nothing ever passes.
 
-But managing is not thriving. And a society where a high-income professional must spend a decade saving for a deposit, while his colleague enters the market immediately through inherited wealth, is not a society organised around merit. It is a society organised around inheritance, with a meritocratic paint job that is peeling visibly.
+We talk about egalitarianism as a national value while operating a system that entrenches hereditary advantage with a thoroughness that would impress a medieval lord. The lord at least had the honesty to call it what it was. We've built the same structure and called it a market.
 
-The feudal return is not a metaphor. It is a description. We have rebuilt, through policy, a system in which the estate determines the destiny. We have done it in a single generation, and we have done it so thoroughly that most people under thirty-five accept it as natural, because they have never known anything else.
+My friend will probably buy eventually. He'll save another few years, or his parents will help if they're able, or he'll move to a cheaper city and take the career compromise. He'll manage. Most people manage.
 
-None of it is natural. All of it is a choice. And it can be changed by making different choices. The question is whether we will.
+But managing isn't thriving, and a society where a high-income professional spends a decade saving for a deposit while his colleague enters the market instantly through inherited wealth is organised around inheritance, with a meritocratic paint job that's visibly peeling, whatever we tell ourselves about merit.
+
+The feudal return isn't a metaphor. It's a description of a structure we built through policy in a single generation, and built so thoroughly that most people under thirty-five accept it as the natural order, because it's the only order they've seen.
+
+None of it is natural. All of it was chosen, which means all of it can be chosen differently. That's the only genuinely good news in this essay, and it's enough to be going on with.

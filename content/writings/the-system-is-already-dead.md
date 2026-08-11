@@ -4,46 +4,54 @@ date: "2025-07-15"
 color: "red"
 ---
 
-I want to begin with a premise that may sound provocative but which I believe to be straightforwardly true: the system we were taught to participate in no longer exists. The forms persist, the buildings stand, the institutions continue to function in a nominal sense. But the underlying assumptions that gave them meaning have quietly expired.
+I want to start with a premise that sounds provocative and that I think is straightforwardly true: the system we were taught to participate in has stopped existing. The forms persist. The buildings stand. The institutions still function in a nominal sense. But the assumptions that gave them meaning have quietly expired, and most of us are still behaving as though they hadn't.
 
-Housing operates as a speculative asset rather than shelter. Employment has decoupled from productive contribution. Our national infrastructure depends entirely on foreign technology, foreign capital, and foreign vision. The political apparatus does not govern so much as manage perceptions while presiding over a slow-motion disintegration.
+Housing operates as a speculative asset rather than shelter. Employment has decoupled from productive contribution. Our national infrastructure depends entirely on foreign technology, foreign capital and foreign vision. The political apparatus doesn't govern so much as manage perceptions while presiding over a slow disintegration.
 
-This is not an abstract conclusion. It was crystallised for me by fifteen years navigating a healthcare system that proved, through repeated failure, the broader thesis.
+This isn't an abstract conclusion for me. It crystallised over fifteen years of navigating a healthcare system that demonstrated the broader thesis through repeated failure.
 
-I live with cluster headaches. They are, according to the medical literature, among the most painful conditions known to humanity. More than half my existence is spent managing this pain, often alone, often helplessly. I did not choose this. I chose only to survive it.
+**What Fifteen Years Taught Me**
 
-My journey through the Australian medical system has become a case study in institutional failure. Over a hundred different medications tried. Six surgical interventions. A brain implant that was, in retrospect, a profit-driven procedure that should never have been performed. The system is not designed for edge cases. It cannot solve problems that do not fit its standard categories. Every interaction has generated compounding failures: financial, functional, psychological.
+I live with cluster headaches. The medical literature ranks them among the most painful conditions known, and more than half my existence is spent managing that pain, usually alone and frequently without much success. I didn't choose any of it. I chose only to survive it.
 
-I was forced to construct my own sustaining infrastructure. The twenty-five thousand steps daily minimum. The two-hour resistance training sessions. The strict control over calories, cognitive load, environmental factors. This is not fitness optimisation. It is maintenance, the bare minimum required to prevent collapse. A personal operating system patched daily against deterioration.
+My passage through the Australian medical system became a case study in institutional failure. Over a hundred medications tried. Six surgical interventions. A brain implant that was, in retrospect, a profit-driven procedure that should never have been performed on me. The system isn't built for edge cases. It can't solve problems that don't fit its categories, and every interaction generated compounding failures - financial, functional, psychological.
 
-What once brought satisfaction now triggers anticipatory dread. The concept of fun has become irrelevant, corrupted by chemical unpredictability and the knowledge that any moment of ease is borrowed against future pain. I do not pursue enjoyment. I execute necessary routines. Every action serves one of two purposes: prevent degradation or transfer knowledge to my son. That distinction eliminates motivational ambiguity.
+So I built my own infrastructure, because nothing else was coming. Twenty-five thousand steps as a daily minimum. Two-hour resistance sessions. Strict control over calories, cognitive load, environmental triggers. None of this is fitness optimisation. It's maintenance - the bare minimum required to prevent collapse, a personal operating system patched daily against deterioration.
 
-This lived experience with broken systems explains my acute concern about the transformation now approaching. I am not pessimistic about artificial intelligence. I believe it will eventually enable something approaching utopia. The problem is the path from here to there, and the people who will be guiding us along it.
+What once brought satisfaction now triggers anticipatory dread. Fun has become an irrelevant category, corrupted by chemical unpredictability and by the knowledge that any hour of ease is borrowed against future pain. I don't pursue enjoyment. I execute necessary routines, and every action serves one of two purposes: prevent degradation, or transfer knowledge to my son. That distinction removes all motivational ambiguity, which is the one advantage the whole situation has given me.
 
-Our political leaders still struggle to understand how the internet works. They are manifestly unprepared for what is coming.
+I set this out because it's the source of everything that follows, and for no other reason. I have spent fifteen years finding out precisely what a system does when you fall outside its assumptions, and I recognise the shape of what's coming because I've already lived a small private version of it.
 
-The policy response centres on reskilling, as if the challenge were simply a matter of teaching new skills. This fundamentally misunderstands the nature of the disruption. Unlike previous technological transitions, artificial intelligence is a general-purpose technology that targets cognitive labour. It automates both blue-collar and white-collar work simultaneously. The projections suggest three hundred million full-time job equivalents automated globally, with a third of Australian workers facing displacement by 2030.
+**Why the Policy Response Is Wrong**
 
-The historical cognitive ladder, where displaced workers could climb to new opportunities through retraining, is collapsing. AI eliminates the junior and administrative positions that formed the rungs. Post-education unemployment for young people reportedly approaches sixty percent, compared to a historical average of twenty-five percent. We are creating a lost generation in real time.
+I'm not pessimistic about artificial intelligence. I think it will eventually enable something close to utopia. My concern is entirely about the path from here to there, and about who will be steering us along it.
 
-You cannot reskill millions of people for a handful of expert positions, especially when only a fraction possess the educational foundation to attempt the transition and even fewer corporations have any strategy to assist them.
+Our political leaders still struggle with how the internet works. They are manifestly unprepared.
 
-This leads to an uncomfortable but unavoidable conclusion: no solution is coming from within the existing system. Fiscal policy is reactive. Monetary tools are exhausted. Electoral participation has become largely symbolic. Governments no longer govern; they manage optics. They do not forecast; they manage perception.
+The policy response centres on reskilling, as though the challenge were a matter of teaching new skills to people who lack them. This misunderstands the disruption at a basic level. Unlike previous transitions, this is a general-purpose technology aimed at cognitive labour, automating blue-collar and white-collar work simultaneously. The projections suggest three hundred million full-time job equivalents automated globally, with a third of Australian workers facing displacement by 2030.
 
-The social consequences of this failure will be profound. For centuries, work has been the foundation of identity and purpose. Widespread permanent unemployment will trigger something like collective trauma, leaving a vacuum of meaning that nothing in our current cultural toolkit is prepared to fill. The long-term unemployed suffer depression at three times the normal rate. We are engineering a crisis of despair.
+The historical cognitive ladder - where displaced workers climbed to new opportunities through retraining - is losing its rungs, because AI eliminates precisely the junior and administrative positions that formed them. Post-education unemployment for young people is reportedly approaching sixty percent against a historical average of twenty-five. We are producing a lost generation in real time and describing it as a skills mismatch.
 
-What I have concluded is this: you must stop building for recovery within the old system. You must stop seeking recovery. You must begin building for continuity.
+You cannot reskill millions of people into a handful of expert positions, particularly when only a fraction have the educational foundation to attempt it and even fewer employers have any strategy to help.
 
-Artificial intelligence, the very tool of disruption, can become the great enabler. The industrial era was defined by economies of scale. The AI era enables economies of individuality. A single person with an AI toolkit for coding, marketing, product design, and logistics can now do the work of an entire department. The mandate is to construct tools for a local, artisanal economy. Durable, replicable systems that empower skilled individuals and small producers. Connect digital capability to physical infrastructure through local makerspaces, creating pathways from conception to creation within a community.
+Which leads somewhere uncomfortable. No solution is coming from inside the existing system. Fiscal policy is reactive. Monetary tools are exhausted. Electoral participation has become largely symbolic. Governments no longer forecast; they manage perception.
 
-This is not about growth in the conventional sense. It is about durability. About building systems that function even in the absence of their creators.
+The social consequences will be profound. Work has been the foundation of identity and purpose for centuries, and widespread permanent unemployment will produce something like collective trauma - a vacuum of meaning that nothing in our current cultural toolkit is equipped to fill. The long-term unemployed suffer depression at three times the normal rate. We are engineering a crisis of despair and calling it a productivity gain.
 
-The primary driver is my son Arthur. Everything I build now assumes he will one day need to maintain it. Everything is documented so he does not have to reverse-engineer my survival.
+**Building for Continuity**
 
-There is a certain logic to welcoming the collapse, not emotionally, but strategically. Collapse enforces coherence. Those who prepared early will have options. Those who dismissed preparation will not. The timelines are converging.
+My conclusion is that you have to stop building for recovery inside the old system and start building for continuity.
 
-Purpose is no longer about personal fulfilment. It is infrastructural. We need to construct an economic floor for what comes next, perhaps an automation dividend or universal basic income, funded by the wealth that AI will generate. This is not charity. It is the foundation that will allow people to become creators rather than casualties.
+Artificial intelligence, the instrument of the disruption, is also the enabler. The industrial era was defined by economies of scale. This era enables economies of individuality. One person with tools for coding, marketing, product design and logistics can now do the work of a department, and that changes what a small producer is capable of in a way nothing since electrification has.
 
-I do not build to thrive within the obsolete system. I build because the collapse has already occurred and someone must carry the knowledge forward. That someone is Arthur. Everything else is optional.
+So the work is constructing tools for a local, artisanal economy - durable, replicable systems that empower skilled individuals and small producers, connecting digital capability to physical infrastructure through local makerspaces so there's a path from conception to creation inside a community. What I'm describing is durability rather than growth in any conventional sense. Systems that keep functioning in the absence of the person who built them.
 
-If you are still waiting for things to return to normal, I would gently suggest that normal has already departed. The question is not whether the transition will happen, but whether you will be prepared for it when it does.
+Alongside that, we need an economic floor, funded from the wealth this technology generates - an automation dividend, a universal income, whatever it ends up being called. I want to be clear that this isn't charity and shouldn't be argued for as though it were. It's the foundation that lets people become creators rather than casualties, and every month we spend debating its moral character is a month we don't spend designing it.
+
+There's a strategic logic to welcoming the collapse, whatever anyone feels about it emotionally. Collapse enforces coherence. Those who prepared will have options and those who dismissed preparation won't, and the timelines are converging faster than the conversation is.
+
+The driver for me is Arthur. Everything I build now assumes he'll one day need to maintain it. Everything gets documented so he doesn't have to reverse-engineer his father's survival from what's left behind.
+
+I don't build to thrive inside an obsolete system. I build because the collapse has already happened and somebody has to carry the knowledge across. That somebody is my son, and everything else is optional.
+
+If you're still waiting for things to return to normal, I'd gently suggest normal has already left. The only open question is what you'll have built by the time it arrives.

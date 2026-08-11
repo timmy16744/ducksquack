@@ -4,12 +4,17 @@
     "date": "2026-04-08",
     "color": "red",
     "slug": "the-bomb-has-been-built",
-    "wordCount": 3329,
+    "wordCount": 2818,
     "synopsis": "A 3am meditation on Anthropic's unreleased Mythos model, the recursive intelligence loop closing ahead of schedule, and the feeling of standing at a threshold too large to hold — written from the floor beside a sleeping child in Adelaide.",
-    "preview": "I am writing this at 3am, which is when my brain decides it does its best thinking. Arthur went to bed hours ago. Chiara is asleep. Luna is curled ...",
+    "preview": "I'm writing this at 3am, which is when my brain decides it does its best thinking. Arthur went to bed hours ago. Chiara is asleep. Luna is curled o...",
     "audio": {
       "url": "/audio/AI_the-bomb-has-been-built.mp3",
       "duration": 1126
+    },
+    "song": {
+      "title": "Caelum",
+      "url": "/songs/the-bomb-has-been-built-caelum.mp3",
+      "duration": 229
     }
   },
   {
@@ -17,12 +22,17 @@
     "date": "2026-03-21",
     "color": "teal",
     "slug": "the-board-resolves",
-    "wordCount": 2432,
+    "wordCount": 2244,
     "synopsis": "Maps the emerging tripartite structure of global power: Musk's vertically integrated energy-compute-finance stack, Google's quietly indispensable Western infrastructure, and China's sovereign parallel civilisation, with orbital access as the unclaimed territory that may decide the age of abundant intelligence.",
-    "preview": "The trajectories are measurable. I want to start there, because what follows will sound like speculation, and some of it is, but the foundation is ...",
+    "preview": "The trajectories are measurable, and I want to start there, because what follows will sound like speculation and some of it is. The cost curves for...",
     "audio": {
       "url": "/audio/AI_the-board-resolves.mp3",
       "duration": null
+    },
+    "song": {
+      "title": "Kardashev Tuesday",
+      "url": "/songs/the-board-resolves-kardashev-tuesday.mp3",
+      "duration": 224
     }
   },
   {
@@ -36,6 +46,11 @@
     "audio": {
       "url": "/audio/AI_nine-days-later.mp3",
       "duration": 654
+    },
+    "song": {
+      "title": "Straight to Hell",
+      "url": "/songs/nine-days-later-straight-to-hell.mp3",
+      "duration": 242
     }
   },
   {
@@ -49,6 +64,11 @@
     "audio": {
       "url": "/audio/AI_the-energy-epoch.mp3",
       "duration": 2115
+    },
+    "song": {
+      "title": "Level 2",
+      "url": "/songs/the-energy-epoch-level-2.mp3",
+      "duration": 220
     }
   },
   {
@@ -56,12 +76,17 @@
     "date": "2026-02-01T00:00:00.000Z",
     "color": "blue",
     "slug": "the-fixed-point",
-    "wordCount": 2881,
+    "wordCount": 2598,
     "synopsis": "Reflects on world models and the strange loop where matter arranges itself into configurations that simulate the physics that produced it. Intelligence as the universe comprehending itself.",
-    "preview": "I have been playing with Genie 3. That verb feels important to get right. Playing. Not testing, not evaluating, not conducting research. Playing, i...",
+    "preview": "I've been playing with Genie 3. The verb feels important to get right. Playing, rather than testing or evaluating or conducting research. Playing t...",
     "audio": {
       "url": "/audio/AI_the-fixed-point.mp3",
       "duration": null
+    },
+    "song": {
+      "title": "The Glitter in the Machine",
+      "url": "/songs/the-fixed-point-the-glitter-in-the-machine.mp3",
+      "duration": 181
     }
   },
   {
@@ -75,6 +100,11 @@
     "audio": {
       "url": "/audio/AI_the-rustle-in-the-grass.mp3",
       "duration": 1081
+    },
+    "song": {
+      "title": "Imperial rerun",
+      "url": "/songs/the-rustle-in-the-grass-imperial-rerun.mp3",
+      "duration": 202
     }
   },
   {
@@ -82,12 +112,17 @@
     "date": "2026-01-17",
     "color": "purple",
     "slug": "the-widening-gyre",
-    "wordCount": 1128,
+    "wordCount": 1192,
     "synopsis": "Examines the growing divide between AI insiders and outsiders, warning that the gap in tacit knowledge compounds daily and may become unbridgeable.",
-    "preview": "I want to begin with something I believe deeply: that these tools should be accessible to everyone. That anyone willing to engage seriously with ar...",
+    "preview": "I want to begin with something I believe deeply, which is that these tools should be available to everyone. Anyone willing to engage seriously with...",
     "audio": {
       "url": "/audio/AI_the-widening-gyre.mp3",
       "duration": 522
+    },
+    "song": {
+      "title": "Compound Fracture",
+      "url": "/songs/the-widening-gyre-compound-fracture.mp3",
+      "duration": 232
     }
   },
   {
@@ -95,9 +130,9 @@
     "date": "2025-12-21",
     "color": "orange",
     "slug": "teaching-arthur",
-    "wordCount": 1501,
+    "wordCount": 1436,
     "synopsis": "A father's curriculum for his son: practical skills, critical thinking, kindness with boundaries, and the lesson that you are stronger than you believe.",
-    "preview": "I have been thinking about curriculum lately. Not the formal kind, the syllabuses and standards and learning outcomes that structure institutional ...",
+    "preview": "I've been thinking about curriculum lately. I don't mean the formal kind, with its syllabuses and standards and learning outcomes. I mean something...",
     "audio": {
       "url": "/audio/AI_teaching-arthur.mp3",
       "duration": 699
@@ -108,9 +143,9 @@
     "date": "2025-11-23",
     "color": "purple",
     "slug": "the-meaning-void",
-    "wordCount": 1244,
+    "wordCount": 1174,
     "synopsis": "Asks what happens to meaning when work disappears, suggesting the answer may involve returning to older sources of identity: community, presence, and local contribution.",
-    "preview": "There is a question that hovers beneath the surface of every conversation about artificial intelligence and employment, rarely addressed directly b...",
+    "preview": "There's a question hovering underneath every conversation about artificial intelligence and employment, rarely addressed directly and always presen...",
     "audio": {
       "url": "/audio/AI_the-meaning-void.mp3",
       "duration": 586
@@ -121,9 +156,9 @@
     "date": "2025-10-21",
     "color": "pink",
     "slug": "the-loneliness-dividend",
-    "wordCount": 2170,
+    "wordCount": 1865,
     "synopsis": "Explores how loneliness has become an industry, with AI companions as the latest product that addresses the symptom while leaving the underlying causes untouched.",
-    "preview": "I want to begin with an observation that seems obvious once stated but which I rarely see articulated clearly: loneliness is now an industry. Not m...",
+    "preview": "I want to begin with something that seems obvious once said and that I rarely see stated clearly. Loneliness has become an industry. A market to be...",
     "audio": {
       "url": "/audio/AI_the-loneliness-dividend.mp3",
       "duration": 1008
@@ -134,9 +169,9 @@
     "date": "2025-10-01",
     "color": "red",
     "slug": "digital-sovereignty",
-    "wordCount": 1293,
+    "wordCount": 1170,
     "synopsis": "Examines Australia's dependence on foreign-controlled digital infrastructure, asking what sovereignty means when critical systems are owned by others.",
-    "preview": "There is a question I find myself returning to with increasing frequency: where does Australia actually exist in digital terms? Not the landmass, w...",
+    "preview": "There's a question I keep returning to. Where does Australia actually exist in digital terms? The landmass remains stubbornly physical and I don't ...",
     "audio": {
       "url": "/audio/AI_digital-sovereignty.mp3",
       "duration": 551
@@ -147,9 +182,9 @@
     "date": "2025-09-17",
     "color": "teal",
     "slug": "the-chronic-patient-and-the-algorithm",
-    "wordCount": 1420,
+    "wordCount": 1359,
     "synopsis": "Fifteen years of healthcare system failures examined through the lens of chronic illness, exploring how AI might fix informational failures while human presence remains irreplaceable.",
-    "preview": "I have spent fifteen years as a case study in how healthcare systems fail. This is not self-pity. It is data. The failures have been consistent eno...",
+    "preview": "I've spent fifteen years as a case study in how healthcare systems fail. I offer that as data rather than self-pity. The failures have been consist...",
     "audio": {
       "url": "/audio/AI_the-chronic-patient-and-the-algorithm.mp3",
       "duration": 680
@@ -160,9 +195,9 @@
     "date": "2025-08-18",
     "color": "red",
     "slug": "the-last-normal-tuesday",
-    "wordCount": 843,
+    "wordCount": 1112,
     "synopsis": "Examines Australia's housing bubble, manufacturing collapse, and AI-driven job displacement, arguing that unprecedented economic disruption is imminent.",
-    "preview": "I have been walking through Sydney lately with a growing sense of unreality. Not the city itself, which remains stubbornly, beautifully physical, b...",
+    "preview": "I've been walking through Sydney lately with a growing sense of unreality. The city itself remains stubbornly and beautifully physical. What unsett...",
     "audio": {
       "url": "/audio/AI_the-last-normal-tuesday.mp3",
       "duration": 370
@@ -173,9 +208,9 @@
     "date": "2025-08-06",
     "color": "purple",
     "slug": "a-prosthetic-for-empathy",
-    "wordCount": 870,
+    "wordCount": 862,
     "synopsis": "Explores what happens when AI moves beyond imitating love to understanding its shape, and whether machines can extend human connection.",
-    "preview": "Love was our exclusive territory. Not merely an emotion, but the signature of what it meant to be human, woven through centuries of poetry and musi...",
+    "preview": "Love was our exclusive territory. Not simply an emotion, but the signature of what it meant to be one of us - woven through centuries of poetry and...",
     "audio": {
       "url": "/audio/AI_a-prosthetic-for-empathy.mp3",
       "duration": 369
@@ -186,9 +221,9 @@
     "date": "2025-08-02",
     "color": "blue",
     "slug": "escape-velocity",
-    "wordCount": 1661,
+    "wordCount": 1510,
     "synopsis": "Argues that China has achieved structural advantages in AI development through manufacturing dominance, energy capacity, and civil-military integration that may prove insurmountable.",
-    "preview": "I have been reluctant to write this piece because the conclusions feel almost too significant to commit to paper. But the evidence has accumulated ...",
+    "preview": "I've been reluctant to write this because the conclusions feel almost too significant to commit to paper. The evidence has accumulated to a point w...",
     "audio": {
       "url": "/audio/AI_escape-velocity.mp3",
       "duration": 768
@@ -199,9 +234,9 @@
     "date": "2025-07-15",
     "color": "red",
     "slug": "the-system-is-already-dead",
-    "wordCount": 1022,
+    "wordCount": 1114,
     "synopsis": "A personal account of navigating systemic failure through chronic illness, arguing we must build for continuity rather than recovery.",
-    "preview": "I want to begin with a premise that may sound provocative but which I believe to be straightforwardly true: the system we were taught to participat...",
+    "preview": "I want to start with a premise that sounds provocative and that I think is straightforwardly true: the system we were taught to participate in has ...",
     "audio": {
       "url": "/audio/AI_the-system-is-already-dead.mp3",
       "duration": 465
@@ -212,9 +247,9 @@
     "date": "2025-06-18",
     "color": "green",
     "slug": "what-does-australia-actually-make",
-    "wordCount": 1209,
+    "wordCount": 1251,
     "synopsis": "Catalogues Australia's manufacturing collapse and strategic vulnerabilities, arguing we have become a mine with a housing bubble attached through deliberate policy failure.",
-    "preview": "I have been conducting a small thought experiment lately. It goes like this: imagine Australia were cut off from global supply chains tomorrow. Not...",
+    "preview": "I've been running a small thought experiment lately. Imagine Australia were cut off from global supply chains tomorrow - not permanently, just for ...",
     "audio": {
       "url": "/audio/AI_what-does-australia-actually-make.mp3",
       "duration": 564
@@ -225,9 +260,9 @@
     "date": "2025-05-28",
     "color": "green",
     "slug": "sandpapering-our-structural-decay",
-    "wordCount": 1422,
+    "wordCount": 1402,
     "synopsis": "Critiques Australia's misplaced priorities, comparing national outrage over cricket cheating to indifference toward economic decline and squandered natural resources.",
-    "preview": "There is a peculiar inversion at the heart of Australian public life that I have been struggling to articulate. We reserve our most intense scrutin...",
+    "preview": "There's a peculiar inversion at the heart of Australian public life that I've been struggling to put into words. We reserve our most intense scruti...",
     "audio": {
       "url": "/audio/AI_sandpapering-our-structural-decay.mp3",
       "duration": 636
@@ -238,9 +273,9 @@
     "date": "2025-04-20",
     "color": "pink",
     "slug": "parenthood-in-the-age-of-super-intelligence",
-    "wordCount": 827,
+    "wordCount": 1204,
     "synopsis": "Reflects on becoming a father during the AI revolution, exploring how to prepare a child for a world where traditional education and work are being transformed.",
-    "preview": "Before my son was born, I thought I understood what it meant to care about something. I was wrong. Fatherhood has not merely added a new dimension ...",
+    "preview": "My son was born into the strangest few years our species has ever lived through, and he has no idea. He is small and warm and entirely occupied wit...",
     "audio": {
       "url": "/audio/AI_parenthood-in-the-age-of-super-intelligence.mp3",
       "duration": 356
@@ -251,9 +286,9 @@
     "date": "2025-03-25",
     "color": "gold",
     "slug": "after-scarcity-mastery",
-    "wordCount": 2534,
+    "wordCount": 2218,
     "synopsis": "Envisions a post-scarcity future where survival is automated and meaning is found in craft and excellence for its own sake. Proposes the foundations needed: closed-loop manufacturing, peace infrastructure, and stable capital.",
-    "preview": "I have been thinking lately about what comes after. Not after any particular crisis, though crises seem abundant enough, but after the long project...",
+    "preview": "I've been thinking lately about what comes after. Crises seem abundant enough and I don't mean after any of those. I mean after the long project of...",
     "audio": {
       "url": "/audio/AI_after-scarcity-mastery.mp3",
       "duration": null
@@ -264,9 +299,9 @@
     "date": "2025-01-06",
     "color": "teal",
     "slug": "reverse-engineering-nature-s-quantum",
-    "wordCount": 854,
+    "wordCount": 938,
     "synopsis": "Explores how quantum phenomena already pervade biology, suggesting we are catching up to computational processes that have existed for billions of years.",
-    "preview": "There is a strange symmetry to the history of human discovery. For millennia, electricity flowed through every atom, crackled across the sky in lig...",
+    "preview": "There's a strange symmetry running through the history of human discovery. For millennia electricity flowed through every atom, crackled across the...",
     "audio": {
       "url": "/audio/AI_reverse-engineering-nature-s-quantum.mp3",
       "duration": 380
@@ -277,9 +312,9 @@
     "date": "2024-12-19",
     "color": "pink",
     "slug": "navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity",
-    "wordCount": 1426,
+    "wordCount": 1432,
     "synopsis": "Presents two possible AI futures: Mutual Assured Destruction through conflict and fragmentation, or Mutual Assured Prosperity through cooperation.",
-    "preview": "I have been thinking about maps lately. Not the geographical kind, but the mental models we use to navigate an uncertain future. The maps we choose...",
+    "preview": "I've been thinking about maps lately. I mean the mental models we use to navigate an uncertain future rather than the geographical kind. The maps w...",
     "audio": {
       "url": "/audio/AI_navigating-the-mad-map-mutual-assured-destruction-vs-mutual-assured-prosperity.mp3",
       "duration": 632
@@ -290,9 +325,9 @@
     "date": "2024-11-19",
     "color": "gold",
     "slug": "the-inheritance-cliff",
-    "wordCount": 1346,
+    "wordCount": 1218,
     "synopsis": "Examines how parental wealth has become the primary determinant of home ownership in Australia, arguing we have constructed a de facto aristocracy while maintaining democratic forms.",
-    "preview": "I want to pose a question that I suspect many Australians have thought but few have articulated clearly: at what point does a democracy become an a...",
+    "preview": "I want to pose a question I suspect many Australians have felt and few have said plainly: at what point does a democracy become an aristocracy in p...",
     "audio": {
       "url": "/audio/AI_the-inheritance-cliff.mp3",
       "duration": 501
@@ -303,9 +338,9 @@
     "date": "2024-07-15",
     "color": "blue",
     "slug": "the-death-of-the-junior-role",
-    "wordCount": 1350,
+    "wordCount": 1410,
     "synopsis": "Argues that AI is eliminating entry-level positions across professions, severing the apprenticeship pipeline through which expertise has traditionally been transmitted.",
-    "preview": "There is a question I have been circling for some time, one that seems to me both urgent and strangely under-discussed: how do people become good a...",
+    "preview": "There's a question I've been circling for some time that strikes me as both urgent and strangely under-discussed. How do people become good at thin...",
     "audio": {
       "url": "/audio/AI_the-death-of-the-junior-role.mp3",
       "duration": 631
@@ -316,9 +351,9 @@
     "date": "2023-12-20",
     "color": "pink",
     "slug": "the-boy-and-the-world",
-    "wordCount": 1261,
-    "synopsis": "I have been thinking about fatherhood. Not in the abstract sense that people mean when they say they want children someday, the way they say they w...",
-    "preview": "I have been thinking about fatherhood. Not in the abstract sense that people mean when they say they want children someday, the way they say they w...",
+    "wordCount": 1207,
+    "synopsis": "I've been thinking about fatherhood. Not in the abstract way people mean when they say they want children someday, the way they say they want to le...",
+    "preview": "I've been thinking about fatherhood. Not in the abstract way people mean when they say they want children someday, the way they say they want to le...",
     "audio": {
       "url": "/audio/AI_the-boy-and-the-world.mp3",
       "duration": null
@@ -329,9 +364,9 @@
     "date": "2023-11-15",
     "color": "orange",
     "slug": "the-comfortable-dependency",
-    "wordCount": 937,
-    "synopsis": "I want to map something. Not a geographic map but a dependency map. A diagram of what Australia depends on, who provides it, and what happens if th...",
-    "preview": "I want to map something. Not a geographic map but a dependency map. A diagram of what Australia depends on, who provides it, and what happens if th...",
+    "wordCount": 1027,
+    "synopsis": "I want to draw a dependency map - a diagram of what this country relies on, who supplies it, and what happens if the supply stops. Security first, ...",
+    "preview": "I want to draw a dependency map - a diagram of what this country relies on, who supplies it, and what happens if the supply stops. Security first, ...",
     "audio": {
       "url": "/audio/AI_the-comfortable-dependency.mp3",
       "duration": null
@@ -342,9 +377,9 @@
     "date": "2023-09-15",
     "color": "red",
     "slug": "the-other-moore-s-law",
-    "wordCount": 840,
-    "synopsis": "Something is happening in Chinese artificial intelligence that most Western observers have not fully registered. I want to describe what I see, as ...",
-    "preview": "Something is happening in Chinese artificial intelligence that most Western observers have not fully registered. I want to describe what I see, as ...",
+    "wordCount": 1215,
+    "synopsis": "Something is happening in Chinese artificial intelligence that most Western observers haven't fully registered, and I want to describe it as clearl...",
+    "preview": "Something is happening in Chinese artificial intelligence that most Western observers haven't fully registered, and I want to describe it as clearl...",
     "audio": {
       "url": "/audio/AI_the-other-moore-s-law.mp3",
       "duration": null
@@ -355,9 +390,9 @@
     "date": "2023-08-15",
     "color": "blue",
     "slug": "what-the-model-sees",
-    "wordCount": 1112,
-    "synopsis": "A machine generated a photograph this week. Not a photograph in the traditional sense, no light passed through a lens, no sensor captured a scene, ...",
-    "preview": "A machine generated a photograph this week. Not a photograph in the traditional sense, no light passed through a lens, no sensor captured a scene, ...",
+    "wordCount": 1080,
+    "synopsis": "A machine generated a photograph this week. No light passed through a lens and no sensor captured a scene, and the result is indistinguishable to t...",
+    "preview": "A machine generated a photograph this week. No light passed through a lens and no sensor captured a scene, and the result is indistinguishable to t...",
     "audio": {
       "url": "/audio/AI_what-the-model-sees.mp3",
       "duration": null
@@ -368,9 +403,9 @@
     "date": "2023-06-15",
     "color": "orange",
     "slug": "what-survived-the-crash",
-    "wordCount": 858,
-    "synopsis": "FTX collapsed in November. Sam Bankman-Fried, who had been on the cover of magazines and testifying before Congress and donating millions to politi...",
-    "preview": "FTX collapsed in November. Sam Bankman-Fried, who had been on the cover of magazines and testifying before Congress and donating millions to politi...",
+    "wordCount": 918,
+    "synopsis": "FTX collapsed in November. Sam Bankman-Fried, who'd been on magazine covers and testifying before Congress and donating millions to political campa...",
+    "preview": "FTX collapsed in November. Sam Bankman-Fried, who'd been on magazine covers and testifying before Congress and donating millions to political campa...",
     "audio": {
       "url": "/audio/AI_what-survived-the-crash.mp3",
       "duration": null
@@ -381,9 +416,9 @@
     "date": "2023-04-15",
     "color": "red",
     "slug": "the-gap-between-the-map-and-the-territory",
-    "wordCount": 899,
-    "synopsis": "I want to talk about a specific kind of dishonesty. Not the kind where someone says something they know to be false. The kind where an entire socie...",
-    "preview": "I want to talk about a specific kind of dishonesty. Not the kind where someone says something they know to be false. The kind where an entire socie...",
+    "wordCount": 978,
+    "synopsis": "I want to write about a particular kind of dishonesty. Not the kind where somebody says a thing they know to be false, which is at least legible an...",
+    "preview": "I want to write about a particular kind of dishonesty. Not the kind where somebody says a thing they know to be false, which is at least legible an...",
     "audio": {
       "url": "/audio/AI_the-gap-between-the-map-and-the-territory.mp3",
       "duration": null
@@ -394,9 +429,9 @@
     "date": "2022-12-20",
     "color": "blue",
     "slug": "the-discontinuity",
-    "wordCount": 788,
-    "synopsis": "I have spent two weeks with ChatGPT. I am writing this in December, three weeks after OpenAI released it to the public, and I want to set down what...",
-    "preview": "I have spent two weeks with ChatGPT. I am writing this in December, three weeks after OpenAI released it to the public, and I want to set down what...",
+    "wordCount": 1200,
+    "synopsis": "I've spent two weeks with ChatGPT and I want to set down what I think while the thinking is still fresh, three weeks after release, before the take...",
+    "preview": "I've spent two weeks with ChatGPT and I want to set down what I think while the thinking is still fresh, three weeks after release, before the take...",
     "audio": {
       "url": "/audio/AI_the-discontinuity.mp3",
       "duration": null
@@ -407,9 +442,9 @@
     "date": "2022-10-15",
     "color": "red",
     "slug": "the-feudal-return",
-    "wordCount": 968,
-    "synopsis": "I have a friend who earns a hundred and twenty thousand dollars a year. He is thirty-one, works in financial services, saves diligently, and lives ...",
-    "preview": "I have a friend who earns a hundred and twenty thousand dollars a year. He is thirty-one, works in financial services, saves diligently, and lives ...",
+    "wordCount": 1053,
+    "synopsis": "I have a friend who earns a hundred and twenty thousand dollars a year. He's thirty-one, works in financial services, saves diligently, and lives m...",
+    "preview": "I have a friend who earns a hundred and twenty thousand dollars a year. He's thirty-one, works in financial services, saves diligently, and lives m...",
     "audio": {
       "url": "/audio/AI_the-feudal-return.mp3",
       "duration": null
@@ -420,9 +455,9 @@
     "date": "2022-08-15",
     "color": "orange",
     "slug": "the-refinery-that-closed",
-    "wordCount": 847,
-    "synopsis": "The ExxonMobil refinery at Altona closed last year. I want to trace what happened next, because the closure itself was a headline and what followed...",
-    "preview": "The ExxonMobil refinery at Altona closed last year. I want to trace what happened next, because the closure itself was a headline and what followed...",
+    "wordCount": 1035,
+    "synopsis": "The ExxonMobil refinery at Altona closed last year. The closure was a headline for about a day. What happened afterwards wasn't a headline at all, ...",
+    "preview": "The ExxonMobil refinery at Altona closed last year. The closure was a headline for about a day. What happened afterwards wasn't a headline at all, ...",
     "audio": {
       "url": "/audio/AI_the-refinery-that-closed.mp3",
       "duration": null
@@ -433,9 +468,9 @@
     "date": "2022-06-15",
     "color": "orange",
     "slug": "thirty",
-    "wordCount": 3207,
-    "synopsis": "I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...",
-    "preview": "I turned thirty this week. People turn thirty every day. But I have been sitting with it, and what I find when I sit with it is not nostalgia or re...",
+    "wordCount": 2757,
+    "synopsis": "I turned thirty this week. People turn thirty every day. I've been sitting with it, and what I find when I sit with it is impatience rather than no...",
+    "preview": "I turned thirty this week. People turn thirty every day. I've been sitting with it, and what I find when I sit with it is impatience rather than no...",
     "audio": {
       "url": "/audio/AI_thirty.mp3",
       "duration": null
@@ -446,9 +481,9 @@
     "date": "2022-05-15",
     "color": "purple",
     "slug": "the-epistemological-crisis",
-    "wordCount": 925,
-    "synopsis": "People no longer disagree about what to do. They disagree about what is real. I want to dwell on this distinction because I think it is the most im...",
-    "preview": "People no longer disagree about what to do. They disagree about what is real. I want to dwell on this distinction because I think it is the most im...",
+    "wordCount": 1027,
+    "synopsis": "People no longer disagree about what to do. They disagree about what is real. I want to stay with that distinction, because I think it's the most i...",
+    "preview": "People no longer disagree about what to do. They disagree about what is real. I want to stay with that distinction, because I think it's the most i...",
     "audio": {
       "url": "/audio/AI_the-epistemological-crisis.mp3",
       "duration": null
@@ -459,9 +494,9 @@
     "date": "2022-03-15",
     "color": "red",
     "slug": "energy-as-leverage",
-    "wordCount": 718,
-    "synopsis": "Russia invaded Ukraine three weeks ago. In the time since, I have watched Europe discover something that should not have required a war to reveal: ...",
-    "preview": "Russia invaded Ukraine three weeks ago. In the time since, I have watched Europe discover something that should not have required a war to reveal: ...",
+    "wordCount": 1039,
+    "synopsis": "Russia invaded Ukraine three weeks ago. When we look back on this period in the decades to come, I think we'll realise it was the moment Europe fin...",
+    "preview": "Russia invaded Ukraine three weeks ago. When we look back on this period in the decades to come, I think we'll realise it was the moment Europe fin...",
     "audio": {
       "url": "/audio/AI_energy-as-leverage.mp3",
       "duration": null
@@ -472,9 +507,9 @@
     "date": "2021-12-20",
     "color": "purple",
     "slug": "the-god-shaped-hole",
-    "wordCount": 1684,
-    "synopsis": "Two years of isolation. Two years in which the thin structures of communal life, the office, the pub, the gym, the casual encounter on the street, ...",
-    "preview": "Two years of isolation. Two years in which the thin structures of communal life, the office, the pub, the gym, the casual encounter on the street, ...",
+    "wordCount": 1673,
+    "synopsis": "Two years of isolation. Two years in which the thin structures of communal life - the office, the pub, the gym, the casual encounter on the street ...",
+    "preview": "Two years of isolation. Two years in which the thin structures of communal life - the office, the pub, the gym, the casual encounter on the street ...",
     "audio": {
       "url": "/audio/AI_the-god-shaped-hole.mp3",
       "duration": null
@@ -485,9 +520,9 @@
     "date": "2021-12-15",
     "color": "orange",
     "slug": "inflation-is-a-memory",
-    "wordCount": 917,
-    "synopsis": "Prices are rising. The CPI ticked up this quarter in ways that made economists uncomfortable, though the discomfort was expressed in the careful la...",
-    "preview": "Prices are rising. The CPI ticked up this quarter in ways that made economists uncomfortable, though the discomfort was expressed in the careful la...",
+    "wordCount": 1050,
+    "synopsis": "Prices are rising. The CPI ticked up this quarter in a way that made economists uncomfortable, though the discomfort came wrapped in the careful la...",
+    "preview": "Prices are rising. The CPI ticked up this quarter in a way that made economists uncomfortable, though the discomfort came wrapped in the careful la...",
     "audio": {
       "url": "/audio/AI_inflation-is-a-memory.mp3",
       "duration": null
@@ -498,9 +533,9 @@
     "date": "2021-11-15",
     "color": "purple",
     "slug": "the-oasis-is-coming",
-    "wordCount": 1107,
-    "synopsis": "Facebook rebranded as Meta last month. The internet has responded with the energy it reserves for its favourite targets: mockery, memes, the comfor...",
-    "preview": "Facebook rebranded as Meta last month. The internet has responded with the energy it reserves for its favourite targets: mockery, memes, the comfor...",
+    "wordCount": 1145,
+    "synopsis": "Facebook rebranded as Meta last month, and the internet has responded with the energy it reserves for its favourite targets. Mockery, memes, the co...",
+    "preview": "Facebook rebranded as Meta last month, and the internet has responded with the energy it reserves for its favourite targets. Mockery, memes, the co...",
     "audio": {
       "url": "/audio/AI_the-oasis-is-coming.mp3",
       "duration": null
@@ -511,9 +546,9 @@
     "date": "2021-09-15",
     "color": "red",
     "slug": "the-island-factory",
-    "wordCount": 770,
-    "synopsis": "There is a factory in Hsinchu, Taiwan, that you have never heard of and that your life depends on. It is operated by the Taiwan Semiconductor Manuf...",
-    "preview": "There is a factory in Hsinchu, Taiwan, that you have never heard of and that your life depends on. It is operated by the Taiwan Semiconductor Manuf...",
+    "wordCount": 1100,
+    "synopsis": "There's a factory in Hsinchu, Taiwan, that you've never heard of and that your life depends on. It's run by the Taiwan Semiconductor Manufacturing ...",
+    "preview": "There's a factory in Hsinchu, Taiwan, that you've never heard of and that your life depends on. It's run by the Taiwan Semiconductor Manufacturing ...",
     "audio": {
       "url": "/audio/AI_the-island-factory.mp3",
       "duration": null
@@ -524,9 +559,9 @@
     "date": "2021-08-20",
     "color": "red",
     "slug": "kabul",
-    "wordCount": 938,
-    "synopsis": "The photographs from Kabul this week are the kind that do not require commentary. They provide their own. People clinging to the fuselage of a C-17...",
-    "preview": "The photographs from Kabul this week are the kind that do not require commentary. They provide their own. People clinging to the fuselage of a C-17...",
+    "wordCount": 1047,
+    "synopsis": "The photographs from Kabul this week don't need commentary. They supply their own. People clinging to the fuselage of a C-17 as it taxied. The crow...",
+    "preview": "The photographs from Kabul this week don't need commentary. They supply their own. People clinging to the fuselage of a C-17 as it taxied. The crow...",
     "audio": {
       "url": "/audio/AI_kabul.mp3",
       "duration": null
@@ -537,9 +572,9 @@
     "date": "2021-07-15",
     "color": "orange",
     "slug": "the-wealth-we-walk-past",
-    "wordCount": 892,
-    "synopsis": "Iron ore hit $230 a tonne this month. I want to sit with that number for a moment, because the number itself is less important than what it represe...",
-    "preview": "Iron ore hit $230 a tonne this month. I want to sit with that number for a moment, because the number itself is less important than what it represe...",
+    "wordCount": 971,
+    "synopsis": "Iron ore hit 230 dollars a tonne this month. I want to sit with that number for a moment, because the number matters less than what we've chosen to...",
+    "preview": "Iron ore hit 230 dollars a tonne this month. I want to sit with that number for a moment, because the number matters less than what we've chosen to...",
     "audio": {
       "url": "/audio/AI_the-wealth-we-walk-past.mp3",
       "duration": null
@@ -550,9 +585,9 @@
     "date": "2020-11-15",
     "color": "purple",
     "slug": "controlled-substances",
-    "wordCount": 1720,
-    "synopsis": "Melbourne is in its sixth month of lockdown. The longest in the world. I am in Adelaide, where the restrictions have been less severe but the atmos...",
-    "preview": "Melbourne is in its sixth month of lockdown. The longest in the world. I am in Adelaide, where the restrictions have been less severe but the atmos...",
+    "wordCount": 1532,
+    "synopsis": "Melbourne is in its sixth month of lockdown, the longest in the world. I'm in Adelaide, where restrictions have been lighter and the atmosphere is ...",
+    "preview": "Melbourne is in its sixth month of lockdown, the longest in the world. I'm in Adelaide, where restrictions have been lighter and the atmosphere is ...",
     "audio": {
       "url": "/audio/AI_controlled-substances.mp3",
       "duration": null
@@ -563,9 +598,9 @@
     "date": "2020-10-10",
     "color": "orange",
     "slug": "the-burning-library",
-    "wordCount": 885,
-    "synopsis": "A man I met last year, at a manufacturing conference I attended out of curiosity rather than professional obligation, told me he was one of the las...",
-    "preview": "A man I met last year, at a manufacturing conference I attended out of curiosity rather than professional obligation, told me he was one of the las...",
+    "wordCount": 1001,
+    "synopsis": "A man I met last year at a manufacturing conference told me he was one of the last people in Australia who could operate a particular type of extru...",
+    "preview": "A man I met last year at a manufacturing conference told me he was one of the last people in Australia who could operate a particular type of extru...",
     "audio": {
       "url": "/audio/AI_the-burning-library.mp3",
       "duration": null
@@ -576,9 +611,9 @@
     "date": "2020-08-15",
     "color": "purple",
     "slug": "the-zoom-class",
-    "wordCount": 964,
-    "synopsis": "There are two pandemics. They happen in the same country, in the same cities, at the same time, but they are experienced by different people in way...",
-    "preview": "There are two pandemics. They happen in the same country, in the same cities, at the same time, but they are experienced by different people in way...",
+    "wordCount": 1141,
+    "synopsis": "There are two pandemics. They're happening in the same country, in the same cities, at the same time, and they're being experienced so differently ...",
+    "preview": "There are two pandemics. They're happening in the same country, in the same cities, at the same time, and they're being experienced so differently ...",
     "audio": {
       "url": "/audio/AI_the-zoom-class.mp3",
       "duration": null
@@ -589,9 +624,9 @@
     "date": "2020-07-15",
     "color": "purple",
     "slug": "the-argument-from-pain",
-    "wordCount": 1569,
-    "synopsis": "Three o'clock in the morning. Adelaide is silent. The house is dark. The only thing that exists is the pain, which has settled behind my right eye ...",
-    "preview": "Three o'clock in the morning. Adelaide is silent. The house is dark. The only thing that exists is the pain, which has settled behind my right eye ...",
+    "wordCount": 1443,
+    "synopsis": "Three o'clock in the morning. Adelaide is silent, the house is dark, and the only thing that exists is the pain, which has settled behind my right ...",
+    "preview": "Three o'clock in the morning. Adelaide is silent, the house is dark, and the only thing that exists is the pain, which has settled behind my right ...",
     "audio": {
       "url": "/audio/AI_the-argument-from-pain.mp3",
       "duration": null
@@ -602,9 +637,9 @@
     "date": "2020-06-20",
     "color": "orange",
     "slug": "the-money-printer-and-the-emperor",
-    "wordCount": 1104,
-    "synopsis": "The Federal Reserve has printed approximately three trillion dollars since March. The Reserve Bank of Australia has launched its first-ever quantit...",
-    "preview": "The Federal Reserve has printed approximately three trillion dollars since March. The Reserve Bank of Australia has launched its first-ever quantit...",
+    "wordCount": 1146,
+    "synopsis": "The Federal Reserve has printed roughly three trillion dollars since March. The Reserve Bank of Australia has launched its first quantitative easin...",
+    "preview": "The Federal Reserve has printed roughly three trillion dollars since March. The Reserve Bank of Australia has launched its first quantitative easin...",
     "audio": {
       "url": "/audio/AI_the-money-printer-and-the-emperor.mp3",
       "duration": null
@@ -615,9 +650,9 @@
     "date": "2020-04-15",
     "color": "red",
     "slug": "the-x-ray",
-    "wordCount": 870,
-    "synopsis": "The pandemic did not break anything. This is the thing I keep coming back to, the observation that I think gets lost in the urgency of the crisis r...",
-    "preview": "The pandemic did not break anything. This is the thing I keep coming back to, the observation that I think gets lost in the urgency of the crisis r...",
+    "wordCount": 957,
+    "synopsis": "The pandemic hasn't broken anything. That's the observation I keep returning to, and I think it gets lost in the urgency of the response. COVID-19 ...",
+    "preview": "The pandemic hasn't broken anything. That's the observation I keep returning to, and I think it gets lost in the urgency of the response. COVID-19 ...",
     "audio": {
       "url": "/audio/AI_the-x-ray.mp3",
       "duration": null
@@ -628,9 +663,9 @@
     "date": "2019-11-20",
     "color": "red",
     "slug": "the-summer-that-came-early",
-    "wordCount": 994,
-    "synopsis": "The fire season started in September. This is not normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, in ...",
-    "preview": "The fire season started in September. This is not normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, in ...",
+    "wordCount": 1022,
+    "synopsis": "The fire season started in September, and that isn't normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, ...",
+    "preview": "The fire season started in September, and that isn't normal. Fire season in southeastern Australia begins, in the pattern most of us grew up with, ...",
     "audio": {
       "url": "/audio/AI_the-summer-that-came-early.mp3",
       "duration": null
@@ -641,9 +676,9 @@
     "date": "2019-08-15",
     "color": "blue",
     "slug": "the-credential-and-the-skill",
-    "wordCount": 1209,
-    "synopsis": "A friend of mine graduated recently with a degree in information technology from a well-regarded Australian university. Three years of study, forty...",
-    "preview": "A friend of mine graduated recently with a degree in information technology from a well-regarded Australian university. Three years of study, forty...",
+    "wordCount": 1208,
+    "synopsis": "A friend of mine graduated recently with an IT degree from a well-regarded Australian university. Three years of study, forty thousand dollars of H...",
+    "preview": "A friend of mine graduated recently with an IT degree from a well-regarded Australian university. Three years of study, forty thousand dollars of H...",
     "audio": {
       "url": "/audio/AI_the-credential-and-the-skill.mp3",
       "duration": null
@@ -654,9 +689,9 @@
     "date": "2019-05-10",
     "color": "blue",
     "slug": "the-narrow-strait",
-    "wordCount": 959,
-    "synopsis": "I have been looking at maps lately. Not the political maps that show borders and capitals and the colourful fiction of national sovereignty, but th...",
-    "preview": "I have been looking at maps lately. Not the political maps that show borders and capitals and the colourful fiction of national sovereignty, but th...",
+    "wordCount": 1053,
+    "synopsis": "I've been looking at maps lately. The political ones show borders and capitals and the colourful fiction of national sovereignty. I've been looking...",
+    "preview": "I've been looking at maps lately. The political ones show borders and capitals and the colourful fiction of national sovereignty. I've been looking...",
     "audio": {
       "url": "/audio/AI_the-narrow-strait.mp3",
       "duration": null
@@ -667,9 +702,9 @@
     "date": "2018-09-15",
     "color": "red",
     "slug": "the-salary-and-the-house",
-    "wordCount": 1058,
-    "synopsis": "The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, rema...",
-    "preview": "The median house price in Sydney crossed one million dollars this year. In Melbourne it is heading the same direction. Adelaide, where I live, rema...",
+    "wordCount": 1109,
+    "synopsis": "The median house price in Sydney crossed a million dollars this year. Melbourne is heading the same way. Adelaide, where I live, remains cheaper, b...",
+    "preview": "The median house price in Sydney crossed a million dollars this year. Melbourne is heading the same way. Adelaide, where I live, remains cheaper, b...",
     "audio": {
       "url": "/audio/AI_the-salary-and-the-house.mp3",
       "duration": null
@@ -680,9 +715,9 @@
     "date": "2018-04-20",
     "color": "purple",
     "slug": "the-unelected-infrastructure",
-    "wordCount": 808,
-    "synopsis": "Cambridge Analytica is the scandal. What lies beneath it is the revelation, and the revelation is bigger than the scandal. The scandal is that a po...",
-    "preview": "Cambridge Analytica is the scandal. What lies beneath it is the revelation, and the revelation is bigger than the scandal. The scandal is that a po...",
+    "wordCount": 1226,
+    "synopsis": "Cambridge Analytica is the scandal. What sits underneath it is the revelation, and I think the revelation is considerably larger than the scandal t...",
+    "preview": "Cambridge Analytica is the scandal. What sits underneath it is the revelation, and I think the revelation is considerably larger than the scandal t...",
     "audio": {
       "url": "/audio/AI_the-unelected-infrastructure.mp3",
       "duration": null
@@ -693,9 +728,9 @@
     "date": "2018-03-15",
     "color": "orange",
     "slug": "why-civilisations-forget-how-to-build",
-    "wordCount": 1489,
-    "synopsis": "The Sydney light rail project was supposed to cost $1.6 billion and take four years. It will cost over $3 billion and take considerably longer. The...",
-    "preview": "The Sydney light rail project was supposed to cost $1.6 billion and take four years. It will cost over $3 billion and take considerably longer. The...",
+    "wordCount": 1382,
+    "synopsis": "The Sydney light rail was meant to cost 1.6 billion dollars and take four years. It will cost over 3 billion and take considerably longer. Business...",
+    "preview": "The Sydney light rail was meant to cost 1.6 billion dollars and take four years. It will cost over 3 billion and take considerably longer. Business...",
     "audio": {
       "url": "/audio/AI_why-civilisations-forget-how-to-build.mp3",
       "duration": null
@@ -706,9 +741,9 @@
     "date": "2017-12-10",
     "color": "blue",
     "slug": "the-algorithm-knows-you-better",
-    "wordCount": 1245,
-    "synopsis": "Something happened this year that I think deserves more attention than it received, though it received quite a lot. Facebook's advertising platform...",
-    "preview": "Something happened this year that I think deserves more attention than it received, though it received quite a lot. Facebook's advertising platform...",
+    "wordCount": 1247,
+    "synopsis": "Something happened this year that deserves more attention than it received, and it received quite a lot. Facebook's advertising platform now allows...",
+    "preview": "Something happened this year that deserves more attention than it received, and it received quite a lot. Facebook's advertising platform now allows...",
     "audio": {
       "url": "/audio/AI_the-algorithm-knows-you-better.mp3",
       "duration": null
@@ -719,9 +754,9 @@
     "date": "2017-10-15",
     "color": "orange",
     "slug": "the-last-factory",
-    "wordCount": 1512,
-    "synopsis": "Ford closed first. Then Holden announced. Then Toyota. By the time you read this, the last car will have rolled off the last Australian production ...",
-    "preview": "Ford closed first. Then Holden announced. Then Toyota. By the time you read this, the last car will have rolled off the last Australian production ...",
+    "wordCount": 1513,
+    "synopsis": "Ford closed first. Then Holden announced, then Toyota. By the time you read this the last car will have come off the last Australian production lin...",
+    "preview": "Ford closed first. Then Holden announced, then Toyota. By the time you read this the last car will have come off the last Australian production lin...",
     "audio": {
       "url": "/audio/AI_the-last-factory.mp3",
       "duration": null
@@ -732,9 +767,9 @@
     "date": "2017-06-20",
     "color": "red",
     "slug": "the-quiet-abdication",
-    "wordCount": 1309,
-    "synopsis": "I have been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. The attent...",
-    "preview": "I have been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. The attent...",
+    "wordCount": 1326,
+    "synopsis": "I've been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. It's the unc...",
+    "preview": "I've been watching the American alliance from Adelaide with the particular attention of someone whose national security depends on it. It's the unc...",
     "audio": {
       "url": "/audio/AI_the-quiet-abdication.mp3",
       "duration": null
@@ -745,9 +780,9 @@
     "date": "2011-03-15",
     "color": "orange",
     "slug": "the-rerun-of-rome",
-    "wordCount": 1187,
+    "wordCount": 1111,
     "synopsis": "A 2011 essay comparing American structural patterns to late Rome: currency debasement, military overextension, infrastructure decay, and declining civic virtue.",
-    "preview": "*Originally published March 2011. Re-uploaded January 2026 as referenced in a recent article.* I have been thinking a great deal lately about patte...",
+    "preview": "*Originally published March 2011. Re-uploaded January 2026 as referenced in a recent article.* I've been thinking a great deal lately about pattern...",
     "audio": {
       "url": "/audio/AI_the-rerun-of-rome.mp3",
       "duration": 495

@@ -4,148 +4,120 @@ date: 2026-02-01
 color: blue
 ---
 
-I have been playing with Genie 3. That verb feels important to get right. Playing. Not testing, not evaluating, not conducting research. Playing, in the way a child plays when they discover that the world responds to them.
+I've been playing with Genie 3. The verb feels important to get right. Playing, rather than testing or evaluating or conducting research. Playing the way a child plays on discovering that the world responds to them.
 
-DeepMind released it recently, and I have spent more hours than I care to admit wandering through environments that do not exist. Or rather, environments that exist only as predictions. You move through a space, and the space generates itself around you, frame by frame, physics and light and persistence hallucinated into being by a system that has learned what reality looks like well enough to fabricate convincing extensions of it.
+DeepMind released it recently and I've spent more hours than I'd care to admit wandering through environments that don't exist. Or rather, environments existing only as predictions. You move through a space and the space generates itself around you, frame by frame, physics and light and persistence hallucinated into being by a system that has learned what reality looks like well enough to fabricate convincing extensions of it.
 
-The instinct is to call it a game engine. A tech demo. Something impressive but ultimately frivolous, a stepping stone toward the serious applications that will justify the research budget. I had that instinct too, for about the first hour.
+The instinct is to call it a game engine. A tech demo. Something impressive and ultimately frivolous, a stepping stone towards the serious applications that will justify the research budget. I had that instinct too, for about the first hour.
 
-Then something shifted.
+Then something shifted. I was navigating a generated corridor, watching the shadows behave correctly as I turned a corner, and a memory surfaced unbidden. A hallway from years ago. A specific afternoon. The generated environment looked nothing like that memory in its particulars, and something in the act of moving through a space that responded to my presence triggered an association I wasn't expecting.
 
-I was navigating a generated corridor, watching the shadows behave correctly as I turned a corner, and a memory surfaced unbidden. A hallway from years ago. A specific afternoon. The generated environment looked nothing like that memory in its particulars, but something in the act of moving through a space that responded to my presence triggered an association I was not expecting.
+I found myself wanting something the technology can't yet provide. The real corridor rather than this fictional one. That afternoon. Run again under different assumptions. What if I'd turned left instead of right. What if I'd said the thing I swallowed instead of the thing I said.
 
-I found myself wanting something the technology cannot yet provide. Not this fictional corridor, but that real one. That afternoon. Run again, under different assumptions. What if I had turned left instead of right. What if I had said the thing I swallowed instead of the thing I said. What if.
+I closed the application and sat with the wanting for a while, because it seemed worth understanding.
 
-I closed the application and sat with the wanting for a while. It seemed worth understanding.
+**The Loop**
 
-Here is what I think I was brushing against, though it took me some time to articulate it: Genie 3 is not a game engine. It is a small proof of a much larger claim. The claim is that reality can be modelled by structures that reality produces. And if you follow that claim to its implications, you arrive somewhere vertiginous.
+Here's what I think I was brushing against, though it took me time to articulate. Genie 3 is a small proof of a much larger claim, and the claim is that reality can be modelled by structures that reality produces. Follow it to its implications and you arrive somewhere vertiginous.
 
-Let me try to trace the path.
+Start simply. Physics produces chemistry. Given the laws of physics, chemistry follows - atoms form, molecules form, and the periodic table emerges as a consequence of deeper rules rather than as an arbitrary catalogue.
 
-Start with a simple observation. Physics produces chemistry. This is not controversial. Given the laws of physics, chemistry follows. Atoms form. Molecules form. The periodic table emerges not as an arbitrary catalogue but as a consequence of deeper rules.
+Chemistry produces life. More contested in the details and not in the broad strokes. Given enough time and the right conditions, molecules arrange themselves into configurations that replicate and compete and evolve. Life is what chemistry does when you give it a few billion years and a planet.
 
-Chemistry produces life. This is more contested in its details but not in its broad strokes. Given sufficient time and the right conditions, molecules arrange themselves into configurations that replicate. That compete. That evolve. Life is what chemistry does when you give it a few billion years and a planet.
+Life produces nervous systems, because organisms that can respond to their environment outcompete organisms that can't. Sensors emerge. Processing emerges. Brains emerge.
 
-Life produces nervous systems. Again, not controversial. Organisms that can respond to their environment outcompete organisms that cannot. Sensors emerge. Processing emerges. Brains emerge.
+And brains produce world models, which is the step that matters here. A brain is a simulator rather than a reaction machine taking inputs and producing outputs. It builds internal models of the external world and runs them forward to predict what happens next, because the organism that anticipates the next state of its environment outcompetes the one that merely reacts. A few hundred milliseconds of foresight separates catching prey from becoming it.
 
-And brains produce world models.
+We know this empirically. The hippocampus generates what researchers call fictive sequences - imagined trajectories through space the organism hasn't yet traversed. Rats dream of mazes they haven't run. The brain rehearses, offline, scenarios it may later encounter. Sleep is when the simulator trains.
 
-This is the step that matters for what I am trying to say. A brain is not merely a reaction machine, taking inputs and producing outputs. A brain is a simulator. It builds internal models of the external world and runs those models forward to predict what will happen next. The organism that can anticipate the next state of its environment outcompetes the one that merely reacts. A few hundred milliseconds of foresight is the difference between catching prey and becoming it.
-
-We know this empirically. The hippocampus generates what researchers call fictive sequences. Imagined trajectories through space that the organism has not yet traversed. Rats dream of mazes they have not run. The brain rehearses, offline, scenarios it may later encounter. Sleep is when the simulator trains.
-
-So we have: physics produces chemistry produces life produces brains produces world models.
-
-And world models simulate physics.
+So: physics produces chemistry produces life produces brains produces world models. And world models simulate physics.
 
 The loop closes.
 
-I want to dwell on this for a moment because it is easy to state and difficult to absorb. Matter, following the laws of physics, arranges itself into configurations that model the laws of physics. The equations produce the equation-solvers. The rules generate the rule-comprehenders.
+I want to dwell there, because it's easy to state and difficult to absorb. Matter, following the laws of physics, arranges itself into configurations that model the laws of physics. The equations produce the equation-solvers. The rules generate the rule-comprehenders.
 
-This is what a fixed point looks like. Not in the trivial sense of a rock remaining a rock. In the deeper sense of a process that generates its own comprehension. Intelligence is what happens when matter becomes complex enough to simulate the dynamics that produced it.
+That's what a fixed point looks like - a process that generates its own comprehension. Intelligence is what happens when matter becomes complex enough to simulate the dynamics that produced it. We're inside the loop and can't step outside to verify it, because the brain that grasps the concept is itself an instance of the concept. The vertigo is appropriate.
 
-We are inside this loop. We cannot step outside to verify it. The brain that grasps the concept is itself an instance of the concept. The vertigo is appropriate.
+**A Property Without a Name**
 
-There is something else here, something I find myself circling without quite being able to name.
+There's something else here I keep circling without quite naming.
 
-The universe has a property. I do not know what to call it. The property is this: the laws of physics are simple enough to be discovered.
+The universe has a property. The laws of physics are simple enough to be discovered.
 
-This is not obvious. It is not necessary. The laws could have been too complex to fit inside any finite model. They could have been context-dependent in ways that defeated compression. They could have been chaotic at every scale, making prediction impossible in principle.
+That isn't obvious and isn't necessary. The laws could have been too complex to fit inside any finite model. They could have been context-dependent in ways defeating compression. They could have been chaotic at every scale, making prediction impossible in principle.
 
-They are not. The laws compress. They fit in textbooks. They fit in neural networks. They fit in three pounds of biological tissue running on forty watts.
+They aren't. The laws compress. They fit in textbooks. They fit in neural networks. They fit in three pounds of biological tissue running on forty watts.
 
-Consider the strangeness of this. The periodic table is finite and memorisable. A child can learn it. The fundamental forces number four. A graduate student can describe them. The equations of general relativity fit on a t-shirt. The universe is not merely ordered. It is learnable. Learnable by structures the universe produces.
+Consider the strangeness. The periodic table is finite and memorisable and a child can learn it. The fundamental forces number four and a graduate student can describe them. The equations of general relativity fit on a t-shirt. The universe is learnable, and learnable by structures the universe produces.
 
-And here is something stranger still. So far, we have not discovered anything in the universe that cannot, in principle, be simulated. Every phenomenon we have encountered yields to modelling. Gravity, electromagnetism, the strong and weak nuclear forces, the behaviour of gases and liquids and plasmas, the folding of proteins, the dynamics of galaxies. Some simulations require more compute than we currently possess. Some require approximations that lose fidelity at the edges. But nothing has emerged that is fundamentally unsimulatable. No process that says: here the modelling stops, here reality becomes opaque to representation.
+Stranger still, we've found nothing in the universe that can't in principle be simulated. Every phenomenon we've encountered yields to modelling - gravity, electromagnetism, the nuclear forces, the behaviour of gases and liquids and plasmas, the folding of proteins, the dynamics of galaxies. Some simulations need more compute than we have. Some need approximations that lose fidelity at the edges. Nothing has emerged that is fundamentally unsimulatable, no process announcing that here the modelling stops and reality becomes opaque to representation.
 
-Perhaps one day we will find such a boundary. Perhaps there are phenomena that resist compression entirely, dynamics that cannot be captured by any finite system, no matter how powerful. If we find them, that discovery will be as significant as any in the history of physics. It will tell us something about the limits of the loop, the point at which the universe's self-simulability breaks down.
+Perhaps one day we'll find such a boundary, and if we do that discovery will rank with any in the history of physics, because it will tell us something about the limits of the loop. Or perhaps the boundary recedes as the tools improve. Quantum computing promises access to simulations classical machines can't touch - systems whose complexity defeats silicon and yields to qubits, the behaviour of molecules and materials that stayed opaque because we lacked the architecture rather than because they resisted modelling. Whole territories of reality may become explorable through modelling rather than observation. We don't know where the ceiling is, or whether there's a ceiling.
 
-Or perhaps the boundary recedes as our tools improve. Quantum computing promises access to simulations that classical machines cannot touch. Systems whose complexity scales in ways that defeat silicon but yield to qubits. The behaviour of molecules, of materials, of processes that have remained opaque not because they are unsimulatable but because we lacked the architecture to simulate them. Whole new territories of reality may become explorable, not through observation but through modelling. We do not yet know where the ceiling is. We do not yet know if there is a ceiling.
+Why should any of this be? I have no answer. Perhaps only learnable universes produce learners to notice them. Perhaps the conditions allowing complexity to emerge are the conditions allowing complexity to comprehend. Perhaps it's brute fact, requiring no explanation and admitting none.
 
-Why should any of this be?
+What I know is that the property exists, and that world models are how we know. Every successful prediction is a small proof that reality's dynamics can be captured and compressed and run forward by physical systems embedded inside reality.
 
-I do not have an answer. Perhaps only learnable universes produce learners to notice them. Perhaps the conditions that allow complexity to emerge are the same conditions that allow complexity to comprehend. Perhaps it is simply brute fact, requiring no explanation, admitting none.
+Genie 3 is a very small proof. Trained on video games, constrained to narrow domains, incapable of anything like general physical simulation. The architecture doesn't know its limitations, though. The same structure, scaled and refined, is what will eventually simulate protein folding and climate dynamics and the behaviour of materials under stress. The game is the training ground and the destination is everything.
 
-What I do know is that the property exists. And world models are how we know it exists. Every successful prediction is a small proof that reality's dynamics can be captured, compressed, and run forward by physical systems embedded in reality.
+**The Personal Version**
 
-Genie 3 is a small proof. Very small. Trained on video games, constrained to narrow domains, incapable of anything like general physical simulation. But the architecture does not know its limitations. The same structure, scaled and refined, is what will eventually simulate protein folding, climate dynamics, the behaviour of materials under stress. The game is the training ground. The destination is everything.
+I return to the screen with different eyes. The generated environment still looks like a game and the physics still feels slightly wrong in ways I can't specify, and the frame has shifted. What I'm looking at is a small instance of the loop closing.
 
-I return to the screen with different eyes.
+The system has learned dynamics and runs them forward and generates futures. Fictional ones, constrained ones, futures nonetheless. It's doing in silicon what my hippocampus does in carbon. The substrate differs and the architecture rhymes.
 
-The generated environment still looks like a game. The physics still feels slightly wrong in ways I cannot quite specify. But the frame has shifted. What I am looking at is not a game engine. It is a small instance of the loop closing.
+The engineers who built it think they're building a game engine, and they are. They're also instantiating the fixed point, building new nodes in the loop, creating structures that simulate the physics that created the conditions for their creation. That's description rather than grandiosity.
 
-The system has learned dynamics. It runs them forward. It generates futures. Fictional futures, constrained futures, but futures nonetheless. It is doing, in silicon, what my hippocampus does in carbon. The substrate differs. The architecture rhymes.
+Somewhere in that description sits the thing I keep circling back to - the wanting that surfaced when I walked through a generated corridor and remembered a real one. The desire to use this technology to revisit actual worlds rather than fictional ones.
 
-The engineers who built Genie 3 think they are building a game engine. They are. They are also doing something else, perhaps without fully recognising it. They are instantiating the fixed point. Building new nodes in the loop. Creating structures that simulate the physics that created the conditions for their creation.
+Let me be specific. I have photographs from certain moments of my life, and some video. I have memory, which is itself a lossy compression, a world model trained on a single pass through the data, degrading with each retrieval, reconstructing more than it recalls.
 
-This is not grandiosity. It is description.
+One of the things I find myself most anticipating, a few generations of this technology from now, is the ability to reconstruct those moments well enough to run them forward under different assumptions. The conversation where I said one thing and have wondered ever since about another. The fork where I went left instead of right. The relationship that ended, the job I didn't take, the city I left, the version of myself that would have emerged from different choices.
 
-And somewhere in that description is the thing I keep circling back to. The wanting that surfaced when I was walking through a generated corridor and remembered a real one. The desire to use this technology not to explore fictional worlds but to revisit actual ones. Moments that happened. Afternoons that could have gone differently.
+A world model mature enough to ingest the fragments I have - photographs, video, detailed prompting of context and character and circumstance - could reconstruct the scene. Imperfectly, and as exploration rather than prophecy - a way of mapping the adjacent possible of my own history. Which outcomes were robust, appearing across most variations? Which were fragile, dependent on details small enough that the slightest change sent everything careening? Which choices that felt momentous were inconsequential, and which that felt inconsequential turned out to be hinges?
 
-Let me be more specific about what I mean.
+I think about that and then I think about my son.
 
-I have photographs from certain moments in my life. Some video. I have memory, which is itself a kind of lossy compression, a world model trained on a single pass through the data, degrading with each retrieval, reconstructing more than it recalls.
+Arthur is young enough that his counterfactuals are mostly still ahead of him. The forks haven't been taken yet, and they will be, and he'll grow up in a world where technology like this exists. Where the past is explorable rather than fixed. Where he might one day sit with a system and ask it to show him the life he'd have had from different choices.
 
-One of the things I find myself most anticipating, not now but a few generations of this technology from now, is the ability to reconstruct those moments well enough to run them forward under different assumptions.
+What does it mean to raise a child in such a world? What does it mean that I might one day show him a simulation of the afternoon we met him, his birth, his first steps, the moment I understood with sudden total clarity that I would die for him without hesitation - run forward under different assumptions? What does it mean that he might do the same, exploring his own paths not taken, his own selves not become?
 
-The conversation where I said one thing and have wondered ever since what would have happened if I had said another. The fork in the path where I went left instead of right. The relationship that ended, the job I did not take, the city I left, the version of myself that would have emerged from different choices.
+I don't know whether that brings peace or vertigo. Probably both. The technology doesn't care what we feel about it and will arrive regardless, on its own schedule, according to its own logic. People will use it to revisit their divorces and career changes and moments of courage and cowardice. The world model doesn't judge. It only simulates.
 
-A world model mature enough to ingest the fragments I have, the photographs and video and detailed prompting of context and character and circumstance, could reconstruct the scene. Not perfectly. Not as prophecy. But as exploration. A way of mapping the adjacent possible of my own history.
+This is the fixed point made personal. The same architecture letting the universe model itself lets a person model themselves, and we become archaeologists of our own possibility space.
 
-Which outcomes were robust, appearing across most variations? Which were fragile, dependent on details so small that the slightest change would have sent everything careening in a different direction? Which choices that felt momentous were actually inconsequential, and which choices that felt inconsequential turned out to be hinges?
+**Universal Grammar**
 
-I think about this and then I think about my son.
+A question follows and I want to take it seriously even though I can't answer it. Is this architecture universal?
 
-Arthur is young enough that his counterfactuals are still mostly ahead of him. The forks in his path have not yet been taken. But they will be. And he will grow up in a world where technology like this exists. Where the past is not fixed but explorable. Where he might one day sit with a system and ask it to show him the life he would have had if he had made different choices.
+If world models are the convergent solution to agency under uncertainty, then any intelligence anywhere, on any substrate, with any evolutionary history, must develop something structurally similar. Not neurons necessarily, and not silicon, and not any particular implementation. The shape of prediction. The capacity to run reality forward before committing to action.
 
-What does it mean to raise a child in such a world? What does it mean that I might one day show him a simulation of the afternoon we met, his birth, his first steps, the moment I understood with sudden and total clarity that I would die for him without hesitation, run forward under different assumptions? What does it mean that he might one day do the same, exploring his own counterfactuals, the paths not taken, the selves not become?
+Think about the implication. Any mind sophisticated enough to build a radio telescope is a mind that simulates its environment. Any mind sophisticated enough to wonder about its own past is a mind that runs counterfactuals. The world model may be something like the universal grammar of cognition - a discovery rather than a human invention, a pattern that was always there waiting to be instantiated in whatever substrate could support it.
 
-I do not know if this will bring peace or vertigo. Probably both. The technology does not care what we feel about it. It will arrive regardless, on its own schedule, according to its own logic. People will use it to revisit their divorces, their career changes, their moments of courage and cowardice. The world model does not judge. It only simulates.
+That reframes what we're building when we build systems like this. We're externalising something intelligence has always been, which is a very different thing from manufacturing a human artefact. The silicon is incidental and the architecture is the thing.
 
-This is the fixed point made personal. The same architecture that lets the universe model itself lets a person model themselves. We become archaeologists of our own possibility space.
+It also reframes what it means to explore personal counterfactuals. I'm not indulging nostalgia when I want to revisit that afternoon. I'm using the same cognitive machinery, now externalised and scalable and capable of resolution my biological world model could never reach, to do what intelligence has always done. Simulate. Predict. Explore possibility space. The loop doesn't care whether the space is cosmic or intimate, physics or regret. It runs the same way regardless.
 
-A question follows from everything I have said so far, and I want to take it seriously even though I cannot answer it.
+**What's Missing From the Picture**
 
-Is this architecture universal?
+I should acknowledge what the clean philosophical version leaves out, which is the mess of implementation. Who controls the models?
 
-If world models are the convergent solution to agency under uncertainty, then any intelligence, anywhere, on any substrate, with any evolutionary history, must develop something structurally similar. Not neurons necessarily. Not silicon. Not any particular implementation. But the shape of prediction. The capacity to run reality forward before committing to action.
+When personal counterfactuals become possible they become commodifiable. There will be corporations offering to simulate your decisions before you make them, and governments simulating populations. The technology that lets me explore my own past will let others explore it too, with or without my consent, for purposes I may never learn.
 
-Think about what this implies. Any mind sophisticated enough to build a radio telescope is a mind that simulates its environment. Any mind sophisticated enough to wonder about its own past is a mind that runs counterfactuals. The world model may be something like the universal grammar of cognition. Not a human invention but a discovery. A pattern that was always there, waiting to be instantiated in whatever substrate could support it.
+The same architecture enabling self-understanding enables manipulation. The same loop letting the universe comprehend itself lets power concentrate in whoever controls the comprehension. That's a reason to build carefully rather than a reason to stop building, and I'm not confident we know how to build carefully at the pace this is arriving.
 
-This reframes what we are building when we build systems like Genie 3. Not artificial intelligence in the sense of a human artefact, but the externalisation of something that intelligence has always been. The silicon is incidental. The architecture is the thing.
+Arthur will grow up navigating it. A world where the boundary between memory and simulation blurs, where the past isn't fixed, where identity becomes a parameter to explore rather than a fact to accept. I don't know how to prepare him, and I'm not certain preparation is possible.
 
-It also reframes what it means to explore personal counterfactuals. I am not indulging nostalgia when I want to revisit that afternoon. I am using the same cognitive machinery, now externalised, now scalable, now capable of resolution my biological world model could never achieve, to do what intelligence has always done. Simulate. Predict. Explore possibility space.
+Perhaps the best I can do is show him the loop. Let him feel its vertigo. Trust that understanding the architecture is itself a kind of defence, or at least an orientation. Knowing you're inside a system that models itself tells you nothing about what to do, and it tells you something about the nature of the situation, which seems better than not knowing.
 
-The loop does not care whether the space is cosmic or intimate. Physics or regret. It runs the same way regardless.
+I return, one last time, to the screen. Genie 3 glows in front of me, the toy that isn't a toy. I began by playing a game and ended by confronting a fixed point - the loop running from physics through chemistry through life through brains through world models and back to physics, the property we can't name that makes the loop possible, the convergence suggesting any intelligence anywhere must discover the same architecture, and the personal counterfactual that waited patiently for a technology capable of exploring it.
 
-I should acknowledge what is missing from the clean philosophical picture I have been painting. The mess of implementation.
+We thought we were building tools, and we were, and we are. We were also discovering something. A shape intelligence takes once it becomes sophisticated enough to model its own origins. The fixed point was always there, implicit in the laws of physics, waiting for matter to arrange itself into configurations capable of recognising it.
 
-Who controls the models?
+Perhaps that's what intelligence is for, if the phrase means anything here. The universe producing structures that understand the universe, as something like completion. A circuit closing. Or perhaps I'm over-reading, finding pattern where there's only contingency, and the essay can't decide that. No essay can.
 
-When personal counterfactuals become possible, they become commodifiable. There will be corporations offering to simulate your decisions before you make them. Governments simulating populations. The technology that lets me explore my own past will let others explore it too, with or without my consent, for purposes I may never know about.
+What it can do is notice. The loop exists. The architecture converges. The world models we build rhyme with the world models evolution built, which rhyme with the physics that produced evolution. This is either the deepest pattern or the deepest coincidence, and either way it's worth attending to.
 
-The same architecture that enables self-understanding enables manipulation. The same loop that lets the universe comprehend itself lets power concentrate in those who control the comprehension. This is not a reason to stop building. It is a reason to build carefully. But I am not sure we know how to build carefully at the pace the technology is arriving.
-
-Arthur will grow up navigating this. A world where the boundary between memory and simulation blurs. Where the past is not fixed. Where identity itself becomes a parameter to be explored rather than a fact to be accepted. I do not know how to prepare him for it. I am not sure preparation is possible.
-
-Perhaps the best I can do is show him the loop. Let him feel its vertigo. Trust that understanding the architecture is itself a kind of defence, or at least a kind of orientation. Knowing that you are inside a system that models itself does not tell you what to do. But it tells you something about the nature of the situation. And that seems better than not knowing.
-
-I return, one last time, to the screen.
-
-Genie 3 glows in front of me. The toy that is not a toy. I began by playing a game and ended by confronting a fixed point.
-
-The loop that runs from physics through chemistry through life through brains through world models and back to physics. The property we cannot name that makes the loop possible. The convergence that suggests any intelligence anywhere must discover the same architecture. The personal counterfactual that waited, patient, for a technology capable of exploring it.
-
-We thought we were building tools. We were. We are. But we were also discovering something. A shape that intelligence takes when it becomes sophisticated enough to model its own origins. The fixed point was always there, implicit in the laws of physics, waiting for matter to arrange itself into configurations capable of recognising it.
-
-Perhaps this is what intelligence is for, if that word means anything in this context. The universe producing structures that understand the universe. Not as accident, not as byproduct, but as something like completion. A circuit closing.
-
-Or perhaps not. Perhaps I am over-reading, finding pattern where there is only contingency. The essay cannot decide this. No essay can.
-
-What it can do is notice. The loop exists. The architecture converges. The world models we build rhyme with the world models evolution built, which rhyme with the physics that produced evolution. This is either the deepest pattern or the deepest coincidence. Either way, it is worth attending to.
-
-Somewhere in that rhyming, there is a version of me who said something different that afternoon. A path not taken. A self not become. The technology is not yet mature enough to show me who he is. But it will be. Probably within my lifetime. Almost certainly within Arthur's.
-
-And when it is, he will watch, and learn that the past is not fixed. That the world model is patient. That intelligence is what happens when matter becomes complex enough to wonder what it might have been.
+Somewhere in that rhyming there's a version of me who said something different that afternoon. A path not taken. A self not become. The technology isn't yet mature enough to show me who he is. It will be, probably within my lifetime and almost certainly within Arthur's, and when it is he'll watch and learn that the past isn't fixed, that the world model is patient, and that intelligence is what happens when matter becomes complex enough to wonder what it might have been.
 
 The screen glows. The simulation waits. The loop continues.

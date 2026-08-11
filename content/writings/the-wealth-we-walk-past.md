@@ -4,42 +4,42 @@ date: "2021-07-15"
 color: "orange"
 ---
 
-Iron ore hit $230 a tonne this month. I want to sit with that number for a moment, because the number itself is less important than what it represents and what we have chosen to do with it. Which is, substantially, nothing.
+Iron ore hit 230 dollars a tonne this month. I want to sit with that number for a moment, because the number matters less than what we've chosen to do with it, which is substantially nothing.
 
-Australia's terms of trade are at historic highs. The rocks we pull from the ground in Western Australia and ship to China are worth more per tonne than at any point in human memory. The revenue flowing into the national economy from this single commodity is extraordinary by any measure. We are, by the most literal possible interpretation, a country sitting on a fortune.
+Australia's terms of trade are at historic highs. The rocks we pull out of Western Australia and ship north are worth more per tonne than at any point in human memory, and the revenue flowing into the national economy from that single commodity is extraordinary by any measure anyone has proposed. We are, by the most literal reading available, a country sitting on a fortune.
 
-I want to do a calculation that I think is revealing, not because the specific number matters but because it illuminates a choice that was available and was not made.
+**The Arithmetic**
 
-Norway discovered oil in the North Sea in 1969. Instead of treating the revenue as a windfall to be spent on tax cuts and consumption, the Norwegian government established the Government Pension Fund Global. The fund took a portion of oil revenue and invested it in a diversified portfolio of global assets, stocks, bonds, real estate, designed to grow over decades rather than be consumed in years.
+Norway found oil in the North Sea in 1969. Rather than treat the revenue as a windfall for tax cuts and consumption, they established the Government Pension Fund Global - taking a portion of oil income and investing it in a diversified portfolio of global assets designed to grow across decades rather than be consumed across years.
 
-Today, the fund holds roughly $1.4 trillion. Norway has a population of about 5.4 million people. That works out to approximately $260,000 per citizen. Every Norwegian man, woman, and child has a quarter of a million dollars of national savings working for them.
+The fund holds roughly 1.4 trillion dollars today against a population of about 5.4 million. That's approximately 260,000 dollars per citizen. Every Norwegian has a quarter of a million dollars of national savings working on their behalf, and the returns are sufficient to finance major national investment while the principal keeps growing. They're using it to fund an energy transition and build a post-oil economy while the oil money is still arriving. They understood the windfall was temporary and built something that wasn't.
 
-The fund generates returns sufficient to finance major national investments while the principal continues to grow. Norway is using these returns to fund its energy transition, to maintain its social infrastructure, to build a post-oil economy while the oil money is still flowing. They saw the windfall as temporary and built something durable.
+Now Australia. We've had several commodity booms in succession - coal, iron ore, gold, gas, and now lithium. Over the same period in which Norway built its sovereign wealth, we were extracting and exporting commodities of comparable value, frequently to the same markets.
 
-Now consider Australia.
+The Future Fund holds approximately 200 billion dollars against a population of roughly 26 million. That's about 7,700 dollars per Australian.
 
-We have had not one commodity boom but several. Coal, iron ore, gold, gas, now lithium. The revenue has been enormous. Over the period in which Norway built its sovereign wealth, Australia was extracting and exporting commodities of comparable value, often to the same markets.
+Two hundred and sixty thousand against seven thousand seven hundred, from comparable resource wealth, over comparable timeframes. I've checked that arithmetic more than once because it seems like it should be wrong.
 
-Our sovereign wealth fund, the Future Fund, holds approximately $200 billion. Our population is roughly 26 million. That works out to about $7,700 per Australian.
+Where did the money go? It went where Australian money always goes. Into the housing market. Into consumption. Into tax cuts timed to electoral cycles. Into the general revenue that funds the general expenditure and leaves nothing behind. The booms came and went and each one left higher house prices, temporarily lower taxes, and no durable national asset of any kind.
 
-Norway: $260,000 per citizen. Australia: $7,700 per citizen. From comparable resource wealth. Over comparable timeframes.
+**Nobody Here Was a Fool**
 
-Where did the money go?
+I want to be careful about the politics, because the easy version of this argument is that our leaders were stupid and Norway's were wise, and I don't think that's true or useful.
 
-It went where Australian money always goes. Into the housing market. Into consumption. Into tax cuts timed to electoral cycles. Into the general revenue that funds the general expenditure and leaves nothing for the future. The mining booms came and went, and each one left behind higher house prices, temporarily lower taxes, and no durable national asset.
+The politicians who made these choices were responding rationally to their incentives. A tax cut before an election is visible and attributable to a particular person. A sovereign wealth fund that pays off in thirty years is invisible and attributable to nobody, least of all the minister who takes the political cost of establishing it. Our system optimises for the visible and the immediate, and the visible and the immediate is always consumption. Norway's insight was less about virtue than about building a rule that removed the decision from the annual budget cycle entirely.
 
-The politicians who made these choices were not fools. They were responding to incentives. The incentive structure of Australian politics rewards immediate returns. A tax cut before an election is visible and attributable. A sovereign wealth fund that pays off in thirty years is invisible and attributable to no one. The political system optimises for the visible and the immediate, and the visible and the immediate is consumption.
+That's the actual lesson and it's the one change I'd make. Not a lecture about discipline, which never works, but a legislated share - a fixed percentage of resource royalties diverted automatically into a fund that no government can raid without passing a law to do it. The mechanism has to be structural, because the whole problem is that virtue is being asked to defeat arithmetic every single year, and virtue keeps losing.
 
-So the wealth flowed through. Iron ore prices spiked, and the revenue went to tax cuts. Coal exports boomed, and the revenue went to recurrent spending. The economy grew, and the growth was distributed into living standards that felt permanent but were actually borrowed from a resource base that will not last forever.
+I keep doing the counterfactual. Had we established a Norwegian-style fund in 2000, seeded with a modest share of resource revenue and invested with the same discipline, it would hold somewhere between 800 billion and 1.2 trillion dollars today, depending on contribution rates and returns. Call it between 30,000 and 46,000 dollars per Australian. Not a fortune. But a foundation - enough to fund an energy transition, cushion a structural adjustment, and provide genuine security against the economic changes now approaching.
 
-I keep doing the arithmetic. If Australia had established a Norwegian-style fund in 2000, seeded with a modest portion of resource revenue and invested with the same discipline, the fund today would hold somewhere between $800 billion and $1.2 trillion, depending on assumptions about contribution rates and returns. That is between $30,000 and $46,000 per Australian. Not a fortune. But a foundation. Enough to fund an energy transition. Enough to cushion a structural adjustment. Enough to provide some genuine security against the economic transformations that are approaching.
+We chose not to build it. We chose consumption over investment, the present over the future, the electoral cycle over the generational one. And we didn't make that choice once in a moment of weakness. We made it repeatedly, over decades, with full knowledge that the alternative existed and was working brilliantly in a country of similar size and comparable wealth.
 
-We chose not to build it. We chose consumption over investment, the present over the future, the electoral cycle over the generational horizon. And we made this choice not once, in a moment of weakness, but repeatedly, over decades, with full knowledge that the alternative existed and was working brilliantly in a country with similar characteristics and comparable wealth.
+**The Window Is Still Open**
 
-The iron ore is still in the ground. The lithium is still there. The solar radiation is still falling on the rooftops and the deserts. The opportunity to build something durable from our natural wealth has not entirely passed.
+The iron ore is still in the ground. The lithium is still there. The solar radiation still falls on the rooftops and the deserts, in quantities that make us one of the most energy-rich places on the planet. The opportunity to build something durable out of our natural wealth hasn't passed.
 
-But the window is narrowing. Commodity cycles turn. Demand shifts. The energy transition will eventually reduce demand for some of our exports while potentially increasing demand for others. The question is whether we use the remaining window to build something that endures or whether we continue the pattern that has characterised the last thirty years: spend the windfall, hope for another one, and leave the next generation to deal with whatever is left.
+But the window is narrowing. Commodity cycles turn. Demand shifts. The energy transition will reduce demand for some of our exports while raising it for others, and the composition of what we sell is going to change whether or not we plan for it. The question is whether we use the remaining years to build something that endures, or continue the pattern of the last thirty: spend the windfall, hope for another one, and leave the next generation whatever's left.
 
-I walk past this wealth every day. It is under my feet and above my head. It is in the ground and in the sky. It is ours, and we are wasting it, and the waste is so consistent and so comprehensive that it has stopped registering as waste and started registering as normal.
+I walk past this wealth every day. It's under my feet and above my head, in the ground and in the sky, and it belongs to us. We're wasting it so consistently and so comprehensively that it's stopped registering as waste and started registering as normal, which is the most dangerous thing that can happen to any national habit.
 
-The wealth is here. The question is whether we are.
+The wealth is here. Norway proved the alternative works, and they did it with less. What's missing is the decision. We have the money, the evidence and the years.

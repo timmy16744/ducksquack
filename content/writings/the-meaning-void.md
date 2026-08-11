@@ -4,52 +4,56 @@ date: "2025-11-23"
 color: "purple"
 ---
 
-There is a question that hovers beneath the surface of every conversation about artificial intelligence and employment, rarely addressed directly but always present: what happens to meaning when work disappears?
+There's a question hovering underneath every conversation about artificial intelligence and employment, rarely addressed directly and always present. What happens to meaning when work disappears?
 
-I do not mean income. Income is a problem, but it is a tractable one. Universal basic income, automation dividends, reformed taxation: these are policy challenges with policy solutions. Difficult, certainly. Politically fraught, undoubtedly. But conceivable. The question of meaning is harder. It does not yield to policy.
+I don't mean income. Income is a problem and it's a tractable one - universal basic income, automation dividends, reformed taxation. These are policy challenges with policy answers, difficult and politically fraught and entirely conceivable. Meaning is harder, because meaning doesn't yield to policy at all.
 
-For most people in modern economies, work provides more than wages. It provides structure. It provides identity. It provides an answer to the question that children ask and adults dread: what do you do? The job title is not merely a description of tasks. It is a location in the social order, a shorthand for who you are and what you contribute and where you belong.
+For most people in modern economies, work supplies more than wages. It supplies structure. It supplies identity. It supplies an answer to the question children ask and adults dread, which is what do you do. The job title isn't a description of tasks. It's a location in the social order, a shorthand for who you are and what you contribute and where you belong.
 
-When that disappears, what remains?
+When that goes, what's left?
 
-I want to suggest that the question, while real, may be historically provincial. The assumption that work defines identity is not ancient. It is not universal. It is, in the broad sweep of human experience, rather recent and rather local.
+**A Recent Invention**
 
-For most of human history, most people were farmers. They did not define themselves by their occupation because occupation was not a distinguishing feature. Everyone farmed. Identity came from other sources: family, village, religion, lineage, place. The work was necessary, often brutal, but it was not the core of selfhood. It was simply what one did to survive, alongside the other things that actually mattered.
+I want to suggest the question, while entirely real, may be historically provincial. The assumption that work defines identity isn't ancient and isn't universal. Across the broad sweep of human experience it's rather recent and rather local.
 
-The idea that your job should be your passion, that career should be calling, that professional identity should be personal identity: this is a product of industrialisation and its aftermath. It emerged alongside factories and offices and the separation of work from home. It intensified with the rise of professionalism, the credential economy, the LinkedIn profile. We have been marinating in it for perhaps two centuries. We mistake it for human nature.
+For most of history most people farmed. They didn't define themselves by occupation because occupation wasn't a distinguishing feature - everyone farmed. Identity came from family, village, religion, lineage, place. The work was necessary and often brutal and sat well away from the core of selfhood. It was what you did to survive, alongside the things that actually mattered.
 
-This is not to say the transition will be easy. It will not. When a structure that has organised meaning for generations suddenly dissolves, the result is not immediate liberation. It is disorientation. The long-term unemployed suffer depression at three times the normal rate. This is not only because of financial stress, though financial stress is real. It is because the scaffolding that held up their sense of self has been removed, and nothing has yet replaced it.
+The idea that your job should be your passion, that a career should be a calling, that professional identity should be personal identity, is a product of industrialisation and its aftermath. It arrived alongside factories and offices and the separation of work from home, then intensified with professionalism and the credential economy and the LinkedIn profile. We've been marinating in it for perhaps two centuries, which is long enough to mistake it for human nature.
 
-But difficulty is not impossibility. The question is what might fill the void.
+None of which makes the transition easy. It won't be. When a structure that has organised meaning for generations dissolves, the result isn't liberation but disorientation. The long-term unemployed suffer depression at three times the normal rate, and financial stress explains only part of that. The scaffolding holding up their sense of self has been removed and nothing has replaced it yet.
 
-I suspect the answer involves a return to something older, though in new forms. Local community. Physical presence. Contribution that you can see and touch.
+Difficulty isn't impossibility, though. The question is what fills the space.
 
-Consider what happens when you remove the commute, the office, the professional identity. What remains is where you actually are. The neighbourhood. The people who live near you. The physical environment you inhabit daily. These have always been present, but for many people they have been background, the place you sleep between the places that matter. When work recedes, the local becomes foreground.
+**What Might Fill It**
 
-I can imagine a world where the activities that currently occupy the margins of life move to the centre. Local sport, not as a weekend escape from real life but as a genuine source of identity and belonging. Community gardening, not as a quirky hobby but as meaningful contribution to a shared enterprise. Volunteering, mutual aid, participation in the governance of the places where you live: these could become the structures around which people organise their sense of purpose.
+I suspect the answer involves something older wearing new clothes. Local community. Physical presence. Contribution you can see and touch.
 
-This is not utopia. It is simply a different arrangement. Humans need to feel useful. We need to feel that our presence matters, that our absence would be noticed, that we contribute something that would not exist without us. Work has provided this feeling, but work is not the only possible source. Any activity that connects individual effort to collective benefit can serve the same function.
+Consider what happens when you remove the commute, the office, the professional identity. What's left is where you actually are - the neighbourhood, the people living near you, the physical environment you move through daily. These have always been present and for many people they've been background, the place you sleep between the places that matter. When work recedes, the local moves to the foreground.
 
-The challenge is the transition. We have built a society that provides few pathways to local contribution for people who are not employed. The infrastructure of community has atrophied precisely as the infrastructure of work has expanded. We do not know our neighbours. We do not participate in local institutions. We have outsourced belonging to the workplace and the screen.
+I can imagine a world where activities currently at the margins move to the centre. Local sport as a genuine source of identity rather than a weekend escape from real life. Community gardening as meaningful contribution to a shared enterprise rather than a quirky hobby. Volunteering, mutual aid, participation in governing the place you live - these could become the structures people organise a sense of purpose around.
 
-Rebuilding that infrastructure will take time, and time is the one resource that may be scarce. The displacement is coming faster than new structures can emerge organically. There will be a gap, and in that gap there will be suffering. People who defined themselves by careers that no longer exist. People who built identities around expertise that has been automated. People who simply do not know who they are when the job title is removed.
+None of that is utopia. It's a different arrangement of the same needs. Humans need to feel useful, to feel that our presence matters and our absence would be noticed and we contribute something that wouldn't otherwise exist. Work has supplied that feeling and work isn't the only possible source. Any activity connecting individual effort to collective benefit can do the same job.
 
-I have some immunity to this particular crisis, though not by choice.
+The challenge is the transition, and specifically that we've built a society with almost no pathways to local contribution for people who aren't employed. The infrastructure of community atrophied precisely as the infrastructure of work expanded. We don't know our neighbours. We don't participate in local institutions. We've outsourced belonging to the workplace and the screen.
 
-Cluster headaches forced me to find meaning outside work long before AI made that search general. When your existence is structured around managing pain, when professional ambitions become secondary to simply getting through the day, you either find other sources of purpose or you collapse. I found other sources.
+Rebuilding that takes time, and time is the resource likely to be scarce. Displacement is arriving faster than new structures emerge on their own. There will be a gap, and inside the gap there will be suffering - people who defined themselves by careers that no longer exist, who built identities around expertise that has been automated, who simply don't know who they are once the title is gone.
 
-I have never defined myself by income. I have never based my identity on a title. These things matter, practically, but they are not who I am. Who I am is a father, a husband, a thinker, a person trying to understand the world and act decently within it. These identities do not depend on employment. They would persist if I never worked another day.
+**What I Learned Early**
 
-This gives me, I think, some perspective on what the transition might require. It requires learning to locate meaning in relationships rather than roles. In presence rather than productivity. In contribution to the people immediately around you rather than to abstract economic metrics.
+I have some immunity to this particular crisis, and not by choice.
 
-It requires, in short, becoming more human in the older sense. The sense that preceded the industrial reorganisation of identity. The sense in which you are not what you do but who you love and where you belong and what you care about deeply enough to sacrifice for.
+Cluster headaches forced me to find meaning outside work long before AI made that search general. When your existence is structured around managing pain, when professional ambition becomes secondary to getting through the day, you either find other sources of purpose or you collapse. I found other sources, and I didn't find them gracefully.
 
-I think about Arthur in this context. He may grow up in a world where traditional employment is not the default, where the career ladder his grandparents climbed simply does not exist in recognisable form. This does not frighten me for him. It might even be a gift.
+I've never defined myself by income and never based my identity on a title. Those things matter practically and they aren't who I am. Who I am is a father, a husband, someone trying to understand the world and act decently inside it, and none of those identities depend on employment. They'd persist if I never worked another day.
 
-If he never learns to define himself by job title, he will never suffer the loss of that definition. If he grows up understanding that meaning comes from relationships, from community, from contribution that is measured in human terms rather than economic ones, he will be prepared for a world that demands exactly that understanding.
+That gives me some perspective on what the transition demands. It requires locating meaning in relationships rather than roles, in presence rather than productivity, in contribution to the people immediately around you rather than to an abstract economic metric.
 
-The meaning void is real. But it is a void only if you assume that work was the proper source of meaning in the first place. If you question that assumption, the void becomes a space. A space that can be filled with other things. Perhaps better things.
+It requires becoming more human in the older sense - the sense that preceded the industrial reorganisation of identity, in which you are who you love and where you belong and what you care about enough to sacrifice for, and what you do for money barely enters into it.
 
-The transition will be hard. People will suffer. Entire generations may struggle to adapt. But on the other side, there is the possibility of a life less organised around production and consumption, more organised around presence and connection. A life where the question "what do you do?" gives way to other questions. Where do you belong? Who do you love? What are you building with the people around you?
+I think about Arthur here. He may grow up in a world where traditional employment isn't the default, where the career ladder his grandparents climbed doesn't exist in any recognisable form. That doesn't frighten me for him. It might even be a gift. If he never learns to define himself by a job title, he never suffers the loss of that definition. If he grows up understanding that meaning comes from relationships and community and contribution measured in human terms, he arrives prepared for a world that demands exactly that understanding.
 
-These seem to me like better questions. The challenge is surviving long enough, individually and collectively, to learn how to answer them.
+The meaning void is real, and it's only a void if you assume work was the proper source of meaning to begin with. Question that assumption and the void becomes a space, and a space can be filled with other things, possibly better ones.
+
+The transition will be hard and people will suffer and entire generations may struggle to adapt. On the other side there's the possibility of a life organised less around production and consumption and more around presence and connection - a life where what do you do gives way to other questions. Where do you belong. Who do you love. What are you building with the people around you.
+
+Those seem to me like better questions. The challenge is surviving long enough, individually and together, to learn how to answer them.
