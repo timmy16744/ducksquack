@@ -2,6 +2,9 @@ import React from 'react';
 import { formatDate } from '../utils/date';
 import XPWritingsList from './XPWritingsList';
 import { projectsContent } from '../shared/content-data';
+// parseContent was duplicated here verbatim; the shared copy is the one
+// that also renders `**Section**` blocks as headings.
+import { parseContent, asHeading } from '../shared/ContentParser';
 
 // XP-style folder icon
 const FolderIcon = ({ size = 16 }) => (
@@ -134,59 +137,6 @@ const XPSidebar = ({ currentPage, onNavigate }) => (
   </div>
 );
 
-// Parse content and convert internal links to clickable elements
-function parseContent(content, onNavigate) {
-  // Split content into paragraphs (double newline)
-  const paragraphs = content.split(/\n\n+/);
-
-  // Match patterns like (/writings/slug/) or "text" (/writings/slug/)
-  const linkPattern = /(?:"([^"]+)"\s*)?\(\/writings\/([a-z0-9-]+)\/?\)/g;
-
-  return paragraphs.map((paragraph, pIdx) => {
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-
-    // Reset regex state
-    linkPattern.lastIndex = 0;
-
-    while ((match = linkPattern.exec(paragraph)) !== null) {
-      // Add text before the match
-      if (match.index > lastIndex) {
-        parts.push(paragraph.slice(lastIndex, match.index));
-      }
-
-      const linkText = match[1] || match[2].replace(/-/g, ' ');
-      const slug = match[2];
-
-      parts.push(
-        <a
-          key={`${pIdx}-${match.index}`}
-          className="internal-link"
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate('post', slug);
-          }}
-        >
-          {linkText}
-        </a>
-      );
-
-      lastIndex = match.index + match[0].length;
-    }
-
-    // Add remaining text
-    if (lastIndex < paragraph.length) {
-      parts.push(paragraph.slice(lastIndex));
-    }
-
-    return (
-      <p key={pIdx} className="content-paragraph">
-        {parts.length > 0 ? parts : paragraph}
-      </p>
-    );
-  });
-}
 
 // Split content into sentences for highlighting
 function splitIntoSentences(content) {
@@ -262,6 +212,13 @@ function renderHighlightedContent(content, onNavigate, isPlaying, currentTime, d
 
   // Render each paragraph with its sentences
   return paragraphs.map((paragraph, pIdx) => {
+    // Section headings are not narrated prose -- render them as headings and
+    // skip sentence highlighting for the block entirely.
+    const heading = asHeading(paragraph);
+    if (heading) {
+      return <h2 key={pIdx} className="content-heading">{heading}</h2>;
+    }
+
     const { start, end } = paragraphSentenceRanges[pIdx];
     const paraSentences = allSentences.slice(start, end);
 

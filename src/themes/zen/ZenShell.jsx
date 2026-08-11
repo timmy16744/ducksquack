@@ -1,42 +1,23 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { useRoute } from '../../hooks/useRoute';
-import { useWriting } from '../../hooks/useWriting';
-import { fetchWritingsIndex } from '../../utils/content';
-import { subscribeToViewCounts } from '../../utils/firebase';
+import { useSiteData } from '../../hooks/useSiteData';
 import { useTheme } from '../ThemeContext';
 import { homeContent, aboutContent, projectsContent } from '../../shared/content-data';
-import { parseContent, formatTime } from '../../shared/ContentParser';
-import { useAudioPlayback } from '../../shared/useAudioPlayback';
+import { parseContent, formatTime, asHeading } from '../../shared/ContentParser';
 import SpeedControl from '../../shared/SpeedControl';
 import { formatDate } from '../../utils/date';
 
 export default function ZenShell() {
-  const { page, slug, navigate } = useRoute();
-  const { data: postData, loading: postLoading, error: postError } = useWriting(slug);
+  const {
+    page, slug, navigate,
+    writings, writingsLoaded, viewCounts,
+    post: { data: postData, loading: postLoading, error: postError },
+    audio,
+  } = useSiteData();
   const { settings, setThemeId } = useTheme();
 
-  const [writings, setWritings] = useState([]);
-  const [viewCounts, setViewCounts] = useState({});
-  const [writingsLoaded, setWritingsLoaded] = useState(false);
+  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = audio;
 
   const shellRef = useRef(null);
-
-  const audioUrl = postData?.audio?.url || null;
-  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = useAudioPlayback(audioUrl);
-
-  useEffect(() => {
-    fetchWritingsIndex()
-      .then((data) => {
-        setWritings(data);
-        setWritingsLoaded(true);
-      })
-      .catch(() => setWritingsLoaded(true));
-  }, []);
-
-  useEffect(() => {
-    const unsub = subscribeToViewCounts(setViewCounts);
-    return unsub;
-  }, []);
 
   useEffect(() => {
     if (shellRef.current) {
@@ -85,32 +66,32 @@ export default function ZenShell() {
 
       <nav className="zen-nav">
         <div className="zen-nav-inner">
-          <span className="zen-nav-brand" onClick={() => navigate('home')}>DuckSquack</span>
+          <button type="button" className="zen-nav-brand" onClick={() => navigate('home')}>DuckSquack</button>
           <div className="zen-nav-links">
-            <span
+            <button type="button"
               className={`zen-nav-link ${page === 'home' ? 'active' : ''}`}
               onClick={() => navigate('home')}
             >
               home
-            </span>
-            <span
+            </button>
+            <button type="button"
               className={`zen-nav-link ${page === 'about' ? 'active' : ''}`}
               onClick={() => navigate('about')}
             >
               about
-            </span>
-            <span
+            </button>
+            <button type="button"
               className={`zen-nav-link ${page === 'projects' ? 'active' : ''}`}
               onClick={() => navigate('projects')}
             >
               projects
-            </span>
-            <span
+            </button>
+            <button type="button"
               className={`zen-nav-link ${page === 'writings' || page === 'post' ? 'active' : ''}`}
               onClick={() => navigate('writings')}
             >
               writings
-            </span>
+            </button>
           </div>
         </div>
       </nav>
@@ -158,15 +139,15 @@ function HomePage({ navigate, writings, settings }) {
       </div>
 
       <div className="zen-home-links">
-        <span className="zen-text-link" onClick={() => navigate('writings')}>
+        <button type="button" className="zen-text-link" onClick={() => navigate('writings')}>
           read the writings
-        </span>
-        <span className="zen-text-link" onClick={() => navigate('projects')}>
+        </button>
+        <button type="button" className="zen-text-link" onClick={() => navigate('projects')}>
           see the projects
-        </span>
-        <span className="zen-text-link" onClick={() => navigate('about')}>
+        </button>
+        <button type="button" className="zen-text-link" onClick={() => navigate('about')}>
           about the author
-        </span>
+        </button>
       </div>
     </div>
   );
@@ -303,6 +284,10 @@ function buildWordList(content) {
   const allWords = [];
 
   paragraphs.forEach((paragraph, pIdx) => {
+    // Headings are not spoken, so they consume no word indices. The renderer
+    // below skips them identically -- if the two ever disagree, audio word
+    // highlighting silently drifts out of sync.
+    if (asHeading(paragraph)) return;
     linkPattern.lastIndex = 0;
     const links = [];
     let lm;
@@ -337,6 +322,10 @@ function WordTrackedContent({ content, onNavigate, currentWordIndex, isTracking 
   // Group words back into paragraphs for rendering
   let globalIdx = 0;
   return paragraphs.map((paragraph, pIdx) => {
+    const heading = asHeading(paragraph);
+    if (heading) {
+      return <h2 key={pIdx} className="content-heading">{heading}</h2>;
+    }
     linkPattern.lastIndex = 0;
     const links = [];
     let lm;
@@ -495,14 +484,14 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
     return (
       <div className="zen-page">
         <p>Writing not found.</p>
-        <span className="zen-back" onClick={() => navigate('writings')}>&larr;</span>
+        <button type="button" className="zen-back" onClick={() => navigate('writings')}>&larr;</button>
       </div>
     );
   }
 
   return (
     <div className="zen-page zen-post">
-      <span className="zen-back" onClick={() => navigate('writings')}>&larr;</span>
+      <button type="button" className="zen-back" onClick={() => navigate('writings')}>&larr;</button>
 
       <h1 className="zen-post-title">{data.title}</h1>
 
@@ -518,9 +507,9 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
       {/* Sticky audio bar */}
       {data.audio && (
         <div className={`zen-audio ${isSticky ? 'zen-audio-sticky' : ''}`}>
-          <span className="zen-audio-toggle" onClick={audio.toggle}>
+          <button type="button" className="zen-audio-toggle" onClick={audio.toggle}>
             {audio.isPlaying ? 'Pause' : 'Listen'}
-          </span>
+          </button>
           <div className="zen-audio-progress" onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
@@ -555,7 +544,7 @@ function PostPage({ data, loading, error, slug, navigate, settings, audio }) {
 
       <hr className="zen-hairline" />
 
-      <span className="zen-back" onClick={() => navigate('writings')}>&larr;</span>
+      <button type="button" className="zen-back" onClick={() => navigate('writings')}>&larr;</button>
     </div>
   );
 }

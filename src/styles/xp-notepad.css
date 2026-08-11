@@ -3429,3 +3429,11 @@ html, body {
         padding-bottom: 40px;
     }
 }
+
+/* Section heading inside essay bodies (a `**Title**` block). */
+.content-heading {
+  font-weight: 700;
+  font-size: 1.05em;
+  margin: 2em 0 0.75em;
+  line-height: 1.3;
+}

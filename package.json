@@ -1,7 +1,7 @@
 {
   "name": "ducksquack",
   "version": "2.0.0",
-  "description": "Essays on AI, Technology & Society - Windows XP Notepad aesthetic",
+  "description": "Essays on AI, technology and society by Tim Hughes. React + Vite, with six switchable visual themes.",
   "type": "module",
   "scripts": {
     "dev": "npm run generate && vite",
@@ -15,10 +15,11 @@
   },
   "keywords": [
     "blog",
+    "essays",
     "portfolio",
     "react",
     "vite",
-    "windows-xp"
+    "themes"
   ],
   "author": "Tim Hughes",
   "license": "ISC",

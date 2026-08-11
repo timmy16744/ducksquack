@@ -7,7 +7,9 @@ export default defineConfig({
   publicDir: 'public',
   build: {
     outDir: 'dist',
-    emptyDirBeforeWrite: true,
+    // Was `emptyDirBeforeWrite`, which is not a Vite option -- silently
+    // ignored, so stale assets accumulated in dist/ across builds.
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {

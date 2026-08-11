@@ -776,3 +776,42 @@
     height: 160px;
   }
 }
+
+/* ── Interactive element reset ──────────────────────────────────────────
+   These were <span onClick>, which keyboard users could not reach and
+   screen readers did not announce as interactive. They are now <button>s;
+   this strips the native chrome so they look exactly as before, and adds
+   the focus ring that makes the change worth making. */
+.zen-nav-brand,
+.zen-nav-link,
+.zen-text-link,
+.zen-back,
+.zen-audio-toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.zen-nav-brand:focus-visible,
+.zen-nav-link:focus-visible,
+.zen-text-link:focus-visible,
+.zen-back:focus-visible,
+.zen-audio-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Section heading inside essay bodies (a `**Title**` block). */
+.content-heading {
+  font-weight: 700;
+  font-size: 1.05em;
+  margin: 2em 0 0.75em;
+  line-height: 1.3;
+}

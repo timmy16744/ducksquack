@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useRoute } from '../../hooks/useRoute';
-import { useWriting } from '../../hooks/useWriting';
-import { fetchWritingsIndex } from '../../utils/content';
-import { subscribeToViewCounts } from '../../utils/firebase';
+import { useSiteData } from '../../hooks/useSiteData';
 import { useTheme } from '../ThemeContext';
 import { homeContent, aboutContent, projectsContent } from '../../shared/content-data';
 import { parseContent, formatTime } from '../../shared/ContentParser';
-import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
 import { formatDate } from '../../utils/date';
 
@@ -18,27 +14,15 @@ const GRID_COLORS = {
 };
 
 export default function SynthwaveShell() {
-  const { page, slug, navigate } = useRoute();
+  const {
+    page, slug, navigate,
+    writings, viewCounts,
+    post: { data: postData, loading: postLoading },
+    audio,
+  } = useSiteData();
   const { settings } = useTheme();
-  const { data: postData, loading: postLoading } = useWriting(slug);
 
-  const [writings, setWritings] = useState([]);
-  const [viewCounts, setViewCounts] = useState({});
-
-  const audioUrl = postData?.audio?.url || null;
-  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = useAudioPlayback(audioUrl);
-
-  // Fetch writings index
-  useEffect(() => {
-    fetchWritingsIndex()
-      .then(setWritings)
-      .catch(() => setWritings([]));
-  }, []);
-
-  // Subscribe to view counts
-  useEffect(() => {
-    return subscribeToViewCounts(setViewCounts);
-  }, []);
+  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = audio;
 
   // Scroll to top on page change
   useEffect(() => {
@@ -75,12 +59,12 @@ export default function SynthwaveShell() {
       {/* Navigation */}
       <nav className={`synthwave-nav ${enableGlow ? 'glow-enabled' : ''}`}>
         <div className="synthwave-nav-inner">
-          <span
+          <button type="button"
             className="synthwave-nav-logo"
             onClick={() => navigate('home')}
           >
             DS
-          </span>
+          </button>
           <div className="synthwave-nav-items">
             {navItems.map((item) => (
               <button

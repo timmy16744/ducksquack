@@ -9,6 +9,14 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
   const { data: currentPost, loading } = useWriting(slug);
   const [isMaximized, setIsMaximized] = useState(false);
 
+  // Each shell owns the scroll position of its own content container. This
+  // used to live in useRoute(), which reached out through the DOM for
+  // `.xp-content-area` -- coupling generic routing to one theme's markup.
+  const contentAreaRef = useRef(null);
+  useEffect(() => {
+    if (contentAreaRef.current) contentAreaRef.current.scrollTop = 0;
+  }, [page, slug]);
+
   // Audio playback state
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -451,7 +459,7 @@ export default function XPNotepad({ isVisible = true, onMinimize, onTitleChange 
         onVolumeChange={handleVolumeChange}
       />
 
-      <div className="xp-content-area">
+      <div className="xp-content-area" ref={contentAreaRef}>
         <XPContent
           currentPage={page}
           currentPost={currentPost}

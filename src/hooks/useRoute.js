@@ -72,12 +72,6 @@ export function useRoute() {
 
     window.history.pushState({}, '', url);
     setRoute(parseRoute());
-
-    // Scroll content to top
-    const contentArea = document.querySelector('.xp-content-area');
-    if (contentArea) {
-      contentArea.scrollTop = 0;
-    }
   }, [parseRoute]);
 
   return { ...route, navigate };

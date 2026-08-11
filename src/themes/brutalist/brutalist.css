@@ -696,3 +696,31 @@
     display: none;
   }
 }
+
+/* ── Interactive element reset ──────────────────────────────────────────
+   Converted from <span onClick> to <button> for keyboard and screen
+   reader access. Reset keeps the original appearance. */
+.brutalist-nav-link {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.brutalist-nav-link:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Section heading inside essay bodies (a `**Title**` block). */
+.content-heading {
+  font-weight: 700;
+  font-size: 1.05em;
+  margin: 2em 0 0.75em;
+  line-height: 1.3;
+}

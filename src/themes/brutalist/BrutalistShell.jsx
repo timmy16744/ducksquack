@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { useRoute } from '../../hooks/useRoute';
-import { useWriting } from '../../hooks/useWriting';
-import { fetchWritingsIndex } from '../../utils/content';
-import { subscribeToViewCounts } from '../../utils/firebase';
+import { useSiteData } from '../../hooks/useSiteData';
 import { useTheme } from '../ThemeContext';
 import { homeContent, aboutContent, projectsContent } from '../../shared/content-data';
 import { parseContent, formatTime } from '../../shared/ContentParser';
-import { useAudioPlayback } from '../../shared/useAudioPlayback';
 import SpeedControl from '../../shared/SpeedControl';
 import { formatDate } from '../../utils/date';
 
@@ -16,37 +12,17 @@ function estimateWordCount(content) {
 }
 
 export default function BrutalistShell() {
-  const { page, slug, navigate } = useRoute();
-  const { data: postData, loading: postLoading, error: postError } = useWriting(slug);
+  const {
+    page, slug, navigate,
+    writings, writingsLoaded, viewCounts,
+    post: { data: postData, loading: postLoading, error: postError },
+    audio,
+  } = useSiteData();
   const { settings } = useTheme();
-
-  const [writings, setWritings] = useState([]);
-  const [viewCounts, setViewCounts] = useState({});
-  const [writingsLoaded, setWritingsLoaded] = useState(false);
 
   const contentRef = useRef(null);
 
-  const audioUrl = postData?.audio?.url || null;
-  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = useAudioPlayback(audioUrl);
-
-  // Load writings index
-  useEffect(() => {
-    fetchWritingsIndex()
-      .then((data) => {
-        setWritings(data);
-        setWritingsLoaded(true);
-      })
-      .catch((err) => {
-        console.error('Failed to load writings:', err);
-        setWritingsLoaded(true);
-      });
-  }, []);
-
-  // Subscribe to view counts
-  useEffect(() => {
-    const unsub = subscribeToViewCounts(setViewCounts);
-    return unsub;
-  }, []);
+  const { isPlaying, currentTime, duration, toggle, seek, displayRate, displayRateLabel, setSpeed } = audio;
 
   // Scroll to top on page change
   useEffect(() => {
@@ -77,30 +53,30 @@ export default function BrutalistShell() {
           </h1>
           {!settings.rotateNav && (
             <nav className="brutalist-nav">
-              <span
+              <button type="button"
                 className={`brutalist-nav-link ${page === 'home' ? 'active' : ''}`}
                 onClick={() => navigate('home')}
               >
                 HOME
-              </span>
-              <span
+              </button>
+              <button type="button"
                 className={`brutalist-nav-link ${page === 'about' ? 'active' : ''}`}
                 onClick={() => navigate('about')}
               >
                 ABOUT
-              </span>
-              <span
+              </button>
+              <button type="button"
                 className={`brutalist-nav-link ${page === 'projects' ? 'active' : ''}`}
                 onClick={() => navigate('projects')}
               >
                 PROJECTS
-              </span>
-              <span
+              </button>
+              <button type="button"
                 className={`brutalist-nav-link ${page === 'writings' || page === 'post' ? 'active' : ''}`}
                 onClick={() => navigate('writings')}
               >
                 WRITINGS
-              </span>
+              </button>
             </nav>
           )}
         </div>
@@ -110,30 +86,30 @@ export default function BrutalistShell() {
       {/* Rotated side navigation */}
       {settings.rotateNav && (
         <nav className="brutalist-nav-side">
-          <span
+          <button type="button"
             className={`brutalist-nav-link ${page === 'home' ? 'active' : ''}`}
             onClick={() => navigate('home')}
           >
             HOME
-          </span>
-          <span
+          </button>
+          <button type="button"
             className={`brutalist-nav-link ${page === 'about' ? 'active' : ''}`}
             onClick={() => navigate('about')}
           >
             ABOUT
-          </span>
-          <span
+          </button>
+          <button type="button"
             className={`brutalist-nav-link ${page === 'projects' ? 'active' : ''}`}
             onClick={() => navigate('projects')}
           >
             PROJECTS
-          </span>
-          <span
+          </button>
+          <button type="button"
             className={`brutalist-nav-link ${page === 'writings' || page === 'post' ? 'active' : ''}`}
             onClick={() => navigate('writings')}
           >
             WRITINGS
-          </span>
+          </button>
         </nav>
       )}
 

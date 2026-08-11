@@ -24,8 +24,14 @@ export function useWriting(slug) {
     setLoading(true);
     setError(null);
 
+    // Guard against out-of-order responses. Navigating quickly between essays
+    // could otherwise let a slow earlier fetch resolve after a later one and
+    // render the wrong essay.
+    let stale = false;
+
     fetchWriting(slug)
       .then((writingData) => {
+        if (stale) return;
         setData(writingData);
 
         // Increment view count only once per session per slug
@@ -34,8 +40,10 @@ export function useWriting(slug) {
           incrementViewCount(slug);
         }
       })
-      .catch(setError)
-      .finally(() => setLoading(false));
+      .catch((err) => { if (!stale) setError(err); })
+      .finally(() => { if (!stale) setLoading(false); });
+
+    return () => { stale = true; };
   }, [slug]);
 
   return { data, loading, error };
