@@ -20,7 +20,7 @@ In your Cloudflare Pages dashboard:
 2. Navigate to "Environment variables"
 3. Add a new variable:
    - **Name**: `REACT_APP_GEMINI_API_KEY`
-   - **Value**: `AIzaSyD7JFLqjn0_U5oTh3tT0lAOUA6WZWVLOrw`
+   - **Value**: `<YOUR_GEMINI_API_KEY>`
    - **Environment**: Production (and Preview if needed)
 
 ### Alternative: GitHub Repository Secrets
@@ -31,7 +31,7 @@ If using GitHub Actions for deployment:
 2. Navigate to "Secrets and variables" → "Actions"
 3. Add repository secret:
    - **Name**: `REACT_APP_GEMINI_API_KEY`
-   - **Value**: `AIzaSyD7JFLqjn0_U5oTh3tT0lAOUA6WZWVLOrw`
+   - **Value**: `<YOUR_GEMINI_API_KEY>`
 
 ### Step 2: Build Configuration
 
